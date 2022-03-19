@@ -1,6 +1,6 @@
 use super::*;
 use crate::{
-    math::{Decimal},
+    math::{Decimal, TryMul, Rate, TrySub, TryDiv, TryAdd}, error::LendingError,
 };
 use arrayref::{array_mut_ref, array_ref, array_refs, mut_array_refs};
 use solana_program::{
@@ -8,10 +8,10 @@ use solana_program::{
     msg,
     program_error::ProgramError,
     program_pack::{IsInitialized, Pack, Sealed},
-    pubkey::{Pubkey, PUBKEY_BYTES},
+    pubkey::{Pubkey, PUBKEY_BYTES}, entrypoint::ProgramResult,
 };
 use std::{
-    convert::{TryFrom},
+    convert::{TryFrom}, cmp::Ordering,
 };
 use crate::state::last_update::LastUpdate;
 
@@ -65,6 +65,120 @@ impl Obligation {
         self.deposits = params.deposits;
         self.borrows = params.borrows;
     }
+
+    /// Calculate the current ratio of borrowed value to deposited value
+    pub fn loan_to_value(&self) -> Result<Decimal, ProgramError> {
+        self.borrowed_value.try_div(self.deposited_value)
+    }
+
+    /// Repay liquidity and remove it from borrows if zeroed out
+    pub fn repay(&mut self, settle_amount: Decimal, liquidity_index: usize) -> ProgramResult {
+        let liquidity = &mut self.borrows[liquidity_index];
+        if settle_amount == liquidity.borrowed_amount_wads {
+            self.borrows.remove(liquidity_index);
+        } else {
+            liquidity.repay(settle_amount)?;
+        }
+        Ok(())
+    }
+
+    /// Withdraw collateral and remove it from deposits if zeroed out
+    pub fn withdraw(&mut self, withdraw_amount: u64, collateral_index: usize) -> ProgramResult {
+        let collateral = &mut self.deposits[collateral_index];
+        if withdraw_amount == collateral.deposited_amount {
+            self.deposits.remove(collateral_index);
+        } else {
+            collateral.withdraw(withdraw_amount)?;
+        }
+        Ok(())
+    }
+
+    /// Calculate the maximum collateral value that can be withdrawn
+    pub fn max_withdraw_value(&self) -> Result<Decimal, ProgramError> {
+        let required_deposit_value = self
+            .borrowed_value
+            .try_mul(self.deposited_value)?
+            .try_div(self.allowed_borrow_value)?;
+        if required_deposit_value >= self.deposited_value {
+            return Ok(Decimal::zero());
+        }
+        self.deposited_value.try_sub(required_deposit_value)
+    }
+
+    /// Calculate the maximum liquidity value that can be borrowed
+    pub fn remaining_borrow_value(&self) -> Result<Decimal, ProgramError> {
+        self.allowed_borrow_value.try_sub(self.borrowed_value)
+    }
+
+    /// Calculate the maximum liquidation amount for a given liquidity
+    pub fn max_liquidation_amount(
+        &self,
+        liquidity: &ObligationLiquidity,
+    ) -> Result<Decimal, ProgramError> {
+        let max_liquidation_value = self
+            .borrowed_value
+            .try_mul(Rate::from_percent(LIQUIDATION_CLOSE_FACTOR))?
+            .min(liquidity.market_value);
+        let max_liquidation_pct = max_liquidation_value.try_div(liquidity.market_value)?;
+        liquidity.borrowed_amount_wads.try_mul(max_liquidation_pct)
+    }
+
+    /// Find collateral by deposit reserve
+    pub fn find_collateral_in_deposits(
+        &self,
+        deposit_reserve: Pubkey,
+    ) -> Result<(&ObligationCollateral, usize), ProgramError> {
+        if self.deposits.is_empty() {
+            msg!("Obligation has no deposits");
+            return Err(LendingError::ObligationDepositsEmpty.into());
+        }
+        let collateral_index = self
+            ._find_collateral_index_in_deposits(deposit_reserve)
+            .ok_or(LendingError::InvalidObligationCollateral)?;
+        Ok((&self.deposits[collateral_index], collateral_index))
+    }
+
+    fn _find_collateral_index_in_deposits(&self, deposit_reserve: Pubkey) -> Option<usize> {
+        self.deposits
+            .iter()
+            .position(|collateral| collateral.deposit_reserve == deposit_reserve)
+    }
+
+    /// Find liquidity by borrow reserve
+    pub fn find_liquidity_in_borrows(
+        &self,
+        borrow_reserve: Pubkey,
+    ) -> Result<(&ObligationLiquidity, usize), ProgramError> {
+        if self.borrows.is_empty() {
+            msg!("Obligation has no borrows");
+            return Err(LendingError::ObligationBorrowsEmpty.into());
+        }
+        let liquidity_index = self
+            ._find_liquidity_index_in_borrows(borrow_reserve)
+            .ok_or(LendingError::InvalidObligationLiquidity)?;
+        Ok((&self.borrows[liquidity_index], liquidity_index))
+    }
+
+    /// Find liquidity by borrow reserve mut
+    pub fn find_liquidity_in_borrows_mut(
+        &mut self,
+        borrow_reserve: Pubkey,
+    ) -> Result<(&mut ObligationLiquidity, usize), ProgramError> {
+        if self.borrows.is_empty() {
+            msg!("Obligation has no borrows");
+            return Err(LendingError::ObligationBorrowsEmpty.into());
+        }
+        let liquidity_index = self
+            ._find_liquidity_index_in_borrows(borrow_reserve)
+            .ok_or(LendingError::InvalidObligationLiquidity)?;
+        Ok((&mut self.borrows[liquidity_index], liquidity_index))
+    }
+
+    fn _find_liquidity_index_in_borrows(&self, borrow_reserve: Pubkey) -> Option<usize> {
+        self.borrows
+            .iter()
+            .position(|liquidity| liquidity.borrow_reserve == borrow_reserve)
+    }
 }
 
 /// Initialize an obligation
@@ -101,6 +215,27 @@ pub struct ObligationCollateral {
     pub market_value: Decimal,
 }
 
+impl ObligationCollateral {
+
+    /// Increase deposited collateral
+    pub fn deposit(&mut self, collateral_amount: u64) -> ProgramResult {
+        self.deposited_amount = self
+            .deposited_amount
+            .checked_add(collateral_amount)
+            .ok_or(LendingError::MathOverflow)?;
+        Ok(())
+    }
+
+    /// Decrease deposited collateral
+    pub fn withdraw(&mut self, collateral_amount: u64) -> ProgramResult {
+        self.deposited_amount = self
+            .deposited_amount
+            .checked_sub(collateral_amount)
+            .ok_or(LendingError::MathOverflow)?;
+        Ok(())
+    }
+}
+
 /// Obligation liquidity state
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct ObligationLiquidity {
@@ -114,6 +249,44 @@ pub struct ObligationLiquidity {
     pub borrowed_amount_wads: Decimal,
     /// Liquidity market value in quote currency
     pub market_value: Decimal,
+}
+
+impl ObligationLiquidity {
+
+    /// Decrease borrowed liquidity
+    pub fn repay(&mut self, settle_amount: Decimal) -> ProgramResult {
+        self.borrowed_amount_wads = self.borrowed_amount_wads.try_sub(settle_amount)?;
+        Ok(())
+    }
+
+    /// Increase borrowed liquidity
+    pub fn borrow(&mut self, borrow_amount: Decimal) -> ProgramResult {
+        self.borrowed_amount_wads = self.borrowed_amount_wads.try_add(borrow_amount)?;
+        Ok(())
+    }
+
+    /// Accrue interest
+    pub fn accrue_interest(&mut self, cumulative_borrow_rate_wads: Decimal) -> ProgramResult {
+        match cumulative_borrow_rate_wads.cmp(&self.cumulative_borrow_rate_wads) {
+            Ordering::Less => {
+                msg!("Interest rate cannot be negative");
+                return Err(LendingError::NegativeInterestRate.into());
+            }
+            Ordering::Equal => {}
+            Ordering::Greater => {
+                let compounded_interest_rate: Rate = cumulative_borrow_rate_wads
+                    .try_div(self.cumulative_borrow_rate_wads)?
+                    .try_into()?;
+
+                self.borrowed_amount_wads = self
+                    .borrowed_amount_wads
+                    .try_mul(compounded_interest_rate)?;
+                self.cumulative_borrow_rate_wads = cumulative_borrow_rate_wads;
+            }
+        }
+
+        Ok(())
+    }
 }
 
 
@@ -318,7 +491,7 @@ impl Pack for Obligation {
 #[cfg(test)]
 mod test {
     use super::*;
-    use crate::math::TryAdd;
+    use crate::math::{TryAdd, WAD};
     use proptest::prelude::*;
 
     const MAX_COMPOUNDED_INTEREST: u64 = 100; // 10,000%
