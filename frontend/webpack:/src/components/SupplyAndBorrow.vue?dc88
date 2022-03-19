@@ -1,0 +1,93 @@
+
+import { useI18n } from 'vue-i18n'
+import { defineComponent } from 'vue'
+import {mapState} from "vuex";
+import {formatDollars, getBigNumberStr, formatBigNumberStr, formatDollarsKmb} from "@/utils/helpers";
+import BigNumber from "bignumber.js";
+import Dashboard from "@/components/Echarts/Dashboard.vue";
+import appController from "@/controller/appController";
+export default defineComponent({
+  name: "SupplyAndBorrow",
+  components:{
+    Dashboard
+  },
+  data() {
+    return {
+      refreshDiff:0,
+      icon_information: require('../assets/icon_information.svg'),
+    }
+  },
+  props: {
+    clientViewPort: {
+      type: Number,
+      require: true
+    }
+  },
+  setup() {
+    const {t} = useI18n()
+    return {
+      t,
+      getBigNumberStr: getBigNumberStr,
+      formatDollars: formatDollars,
+      formatDollarsKmb: formatDollarsKmb,
+      formatBigNumberStr:formatBigNumberStr,
+
+    }
+  },
+  methods:{
+    async activeRefresh(){
+      await appController.updateData(this.userObligationIndex)
+    },
+    getNetRate(){
+      if (this.netRate){
+        return this.netRate.times(100)
+      }else {
+        return new BigNumber(0)
+      }
+
+    },
+  },
+  mounted() {
+    setInterval(()=>{
+      this.refreshDiff = new Date().valueOf()
+    },1000)
+  },
+  computed: {
+    //@ts-ignore
+    userBorrowLimitUsedPercent () {
+      //@ts-ignore
+      return this.$store.getters.userBorrowLimitUsedPercent
+
+    },
+    allMarketSupplyAndBorrow:function ():BigNumber {
+      return this.allMarketTotalSupply.plus(this.allMarketTotalBorrow)
+    },
+    refreshProgress:function () :number{
+      //@ts-ignore
+      const diffValue = (this.refreshDiff - this.autoFreshTime)/1000
+      if (diffValue %16 ===0&&this.autoFreshTime!==0){
+        return 100
+      }else if (this.autoFreshTime===0) {
+        return 0
+      }else {
+        return Number((diffValue / 16 * 100).toFixed(0))
+      }
+    },
+    ...mapState(
+        {
+          walletAddress: (state: any) => state.wallet.walletAddress,
+          userTotalSupply: (state: any) => state.market.userTotalSupply,
+          userTotalBorrow:(state:any) => state.market.userTotalBorrow,
+          userBorrowLimit:(state:any) => state.market.userBorrowLimit,
+          netRate:(state:any) => state.market.netRate,
+          isLoadingInfo:(state:any) =>state.market.isLoadingInfo,
+          autoFreshTime:(state:any) => state.market.autoFreshTime,
+          userLiquidationThreshold: (state: any) => state.market.userLiquidationThreshold,
+          userLarixPositions:(state:any)=>state.market.userLarixPositions,
+          allMarketTotalSupply:(state:any) => state.market.allMarketTotalSupply,
+          allMarketTotalBorrow:(state:any) => state.market.allMarketTotalBorrow,
+          userObligationIndex:(state:any)=> state.market.userObligationIndex,
+        }
+    )
+  },
+})

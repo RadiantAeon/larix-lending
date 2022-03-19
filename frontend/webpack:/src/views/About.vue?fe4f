@@ -1,0 +1,13 @@
+import { render } from "./About.vue?vue&type=template&id=69a5b199&scoped=true"
+import script from "./About.vue?vue&type=script&lang=js"
+export * from "./About.vue?vue&type=script&lang=js"
+
+import "./About.vue?vue&type=style&index=0&id=69a5b199&scoped=true&lang=scss"
+
+import exportComponent from "/opt/buildhome/repo/node_modules/vue-loader-v16/dist/exportHelper.js"
+const __exports__ = /*#__PURE__*/exportComponent(script, [['render',render],['__scopeId',"data-v-69a5b199"]])
+
+export default __exports__
+import QBtn from 'quasar/src/components/btn/QBtn.js';
+import qInstall from "../../node_modules/vue-cli-plugin-quasar/lib/runtime.auto-import.js";
+qInstall(script, 'components', {QBtn});

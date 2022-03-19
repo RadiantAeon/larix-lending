@@ -1,0 +1,123 @@
+
+import {defineComponent} from "vue";
+import {mapState} from "vuex";
+import {getWallet} from "@/api/context/wallet";
+import {withdrawLp} from "@/api/actions/withdrawLp";
+import openTxDialog from "@/controller/openTxDialog";
+import txSuccess from "@/controller/txSuccess";
+import txFailed from "@/controller/txFailed";
+import {handleCToken} from "@/api/actions/handleCToken";
+import {useI18n} from "vue-i18n";
+import {stakeLarixUserInfo} from "@/api/actions/stakeLarixUserInfo";
+
+export default defineComponent({
+name: "HandleLpDialog",
+  data(){
+    return{
+      isCToken:true,
+      selectLPDetails:null ,
+      selectCTokenDetails:null,
+    }
+  },
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+    }
+  },
+  computed: {
+    handleLpDialogVisible:{
+      //@ts-ignore
+      get(){
+        //@ts-ignore
+        return this.$store.state.dialog.handleLpDialogVisible
+      },
+      set(value:boolean) {
+        this.$store.commit('updateHandleLpDialogVisible',value)
+      }
+    },
+    ...mapState({
+      walletAddress: (state:any) => state.wallet.walletAddress,
+      isLoadingInfo:(state:any) =>state.market.isLoadingInfo,
+      lendingMarket: (state:any) => state.market.lendingMarket,
+      larixTokenAccount: (state:any) => state.larix.larixTokenAccount,
+      userObligation:(state:any) => state.market.userObligation,
+      userAllObligation:(state:any) => state.market.userAllObligation,
+      mining:(state:any) => state.market.mining,
+      allReservesDetails: (state:any) => state.market.allReservesDetails,
+      lendingReserveArray: (state:any) => state.market.lendingReserveArray,
+      needToHandleCtokenAccounts: (state:any) => state.market.needToHandleCtokenAccounts,
+      needToWithdrawLpArray: (state:any) => state.market.needToWithdrawLpArray,
+      needToHanldeUserFeeLarixInfo: (state:any) => state.market.needToHanldeUserFeeLarixInfo,
+      mineCollateralLpDetails: (state:any) => state.market.mineCollateralLpDetails,
+    })
+  },
+  methods:{
+    changeTabs(value:boolean){
+      this.isCToken=value
+    },
+    needUsdc(userLarixInfo:any){
+      return userLarixInfo.larixAmount.times(this.mineCollateralLpDetails.price).div(0.95)
+    },
+    getUserUsdcAccount (){
+      return  this.allReservesDetails.find((item:any) => item.symbol === 'USDC').userLiquidityTokenAccount
+    },
+    stakeButtonEnable(){
+      if (!this.getUserUsdcAccount()) return false
+      return true
+    },
+    async withdrawLpProof(lpPoofDetails:any){
+      const wallet = getWallet()
+      openTxDialog('updateHandleLpDialogVisible')
+      await withdrawLp(
+          lpPoofDetails.info,
+          wallet,
+          lpPoofDetails.pubkey,
+          lpPoofDetails.info.reserveDetails,
+          lpPoofDetails.info.userCollateralTokenAccount
+      ).then(()=>{
+        txSuccess()
+      }).catch((e)=>{
+        txFailed(undefined,e)
+      })
+    },
+    async stakeLarix(userLarixInfo:any){
+      const wallet = getWallet()
+      openTxDialog('updateHandleLpDialogVisible')
+      await stakeLarixUserInfo(
+        this.getUserUsdcAccount(),
+          wallet,
+          userLarixInfo.info
+      ).then(()=>{
+        txSuccess()
+      }).catch((e)=>{
+        txFailed(undefined,e)
+      })
+    },
+    async handleCTokenAsset(type:string,cTokenDetails:any){
+      let targetObligation
+      if (type==='depositObligation'&&cTokenDetails.isEnterMarket){
+         targetObligation = cTokenDetails.targetObligation
+        console.log(targetObligation)
+      }
+      console.log('cTokenDetails',cTokenDetails)
+      const reserveDetail = cTokenDetails.reserveDetail
+      const wallet = await getWallet()
+      openTxDialog('updateHandleLpDialogVisible')
+      await handleCToken(
+          cTokenDetails.account,
+          this.mining,
+          reserveDetail,
+          this.lendingMarket,
+          wallet,
+          type,
+          targetObligation?targetObligation:undefined,
+          cTokenDetails.userLiqiudityAccount,
+      ).then(()=>{
+        txSuccess()
+      }).catch((e)=>{
+        txFailed(undefined,e)
+      })
+    }
+  },
+})

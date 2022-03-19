@@ -1,0 +1,158 @@
+
+import {mapState} from "vuex";
+import { defineComponent } from 'vue'
+import {formatBigNumberStr} from "@/utils/helpers";
+import {useI18n} from "vue-i18n";
+import {Detail, Obligation, ObligationCollateral} from "@/api/models";
+import {LP_RESERVE_ID_ARRAY} from "@/api/constants/config";
+import appController from "@/controller/appController";
+import {intoObligation} from "@/api/actions/intoObligation"
+import {getWallet} from "@/api/context/wallet";
+import txSuccess from "@/controller/txSuccess";
+import txFailed from "@/controller/txFailed";
+import {openAndCollateralLp} from "@/api/actions/openAndCollateralLp";
+// import BigNumber from "bignumber.js";
+
+
+export default defineComponent({
+  name: "openObligationDialog",
+  props:{
+    selectedReserveDetail: {
+      type: Object,
+      required: true
+    },
+  },
+  data() {
+    return {
+      formatBigNumberStr:formatBigNumberStr,
+    }
+  },
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+      larixImg: require('../assets/wallet/pop_icon_LARIX@3x.png')
+    }
+  },
+  computed: {
+    openObligationDialogVisible:{
+      //@ts-ignore
+      get(){
+        //@ts-ignore
+        return this.$store.state.dialog.openObligationDialogVisible
+      },
+      set(value:boolean) {
+        this.$store.commit('updateOpenObligationDialogVisible',value)
+      }
+    },
+    ...mapState({
+      walletAddress: (state:any) => state.wallet.walletAddress,
+      isLoadingInfo:(state:any) =>state.market.isLoadingInfo,
+      lendingMarket: (state:any) => state.market.lendingMarket,
+      larixTokenAccount: (state:any) => state.larix.larixTokenAccount,
+      userObligation:(state:any) => state.market.userObligation,
+      userAllObligation:(state:any) => state.market.userAllObligation,
+      mining:(state:any) => state.market.mining,
+      allReservesDetails: (state:any) => state.market.allReservesDetails,
+      lendingReserveArray: (state:any) => state.market.lendingReserveArray,
+    })
+  },
+  methods: {
+    isReachLpLimit(userObligation:Detail<Obligation>){
+      let isReach = false
+      userObligation.info?.deposits.forEach((deposit:ObligationCollateral)=>{
+        if (LP_RESERVE_ID_ARRAY.includes(deposit.depositReserve.toString()))
+        {
+          isReach = true
+        }
+      })
+      return isReach
+    },
+    async chooseObligation(targetObligationAddress:string){
+      //@ts-ignore
+      let wallet = getWallet()
+      let targetIndex=0
+      this.userAllObligation.forEach((item:Detail<Obligation>,index:number)=>{
+        if (item.pubkey.toString() ===targetObligationAddress){
+          targetIndex = index
+        }
+      })
+      if (wallet){
+        this.$store.commit('updateOpenObligationDialogVisible',false)
+        await intoObligation(
+            this.selectedReserveDetail.reserveDetail,
+            wallet,
+            this.lendingMarket,
+            this.selectedReserveDetail.userCollateralTokenAccount,
+            this.mining,
+            this.lendingReserveArray,
+            this.userAllObligation[targetIndex],
+        ).then( ()=>{
+          txSuccess()
+          console.log('targetObligationAddress',targetObligationAddress)
+          this.$store.commit('updateUserObligationIndex',targetIndex)
+          appController.updateData(targetIndex).then(()=>{
+            this.$q.notify({
+              message:`into sub-account ${targetObligationAddress}`,
+              color:'green',
+              position:'bottom',
+              timeout:2000
+            })
+          })
+
+        }).catch((e)=>{
+          txFailed(undefined,e)
+        })
+
+      }
+
+    },
+    usableObligation(){
+      let usableArray = [] as Array<Detail<Obligation>>
+      let target
+      this.userAllObligation.forEach((userObligation:any)=>{
+        userObligation.info?.deposits.forEach((deposit:ObligationCollateral)=>{
+          if (this.selectedReserveDetail.reserveDetail.pubkey.equals(deposit.depositReserve))
+          {
+            target = userObligation
+          }
+        })
+      })
+      if (target){
+        //@ts-ignore
+        usableArray.push(target)
+        return usableArray
+      }else {
+        this.userAllObligation.forEach((userObligation: Detail<Obligation>)=>{
+          if (this.isReachLpLimit(userObligation)){
+            return
+          }else {
+            usableArray.push(userObligation)
+          }
+        })
+        return usableArray
+      }
+    },
+
+    async openAndCollateral(){
+      let wallet = getWallet()
+      if (wallet){
+        this.$store.commit('updateOpenObligationDialogVisible',false)
+        await openAndCollateralLp(
+            this.selectedReserveDetail.reserveDetail,
+            wallet,
+            this.lendingMarket,
+            this.selectedReserveDetail.userCollateralTokenAccount,
+            this.mining,
+            this.lendingReserveArray,
+        ).then(()=>{
+          txSuccess()
+        }).catch((e)=>{
+          console.log(e)
+          txFailed(undefined,e)
+        })
+      }
+
+    }
+  }
+})

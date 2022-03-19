@@ -1,0 +1,432 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, resolveComponent as _resolveComponent, resolveDirective as _resolveDirective, withDirectives as _withDirectives, withCtx as _withCtx, createTextVNode as _createTextVNode, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-08421e3e")
+
+_pushScopeId("data-v-08421e3e")
+const _hoisted_1 = { class: "liquidate-body-inputTip" }
+const _hoisted_2 = { style: {"margin-left":"3px"} }
+const _hoisted_3 = { class: "liquidate-body-input" }
+const _hoisted_4 = { style: {"flex-basis":"100%"} }
+const _hoisted_5 = { style: {"display":"flex","align-items":"center"} }
+const _hoisted_6 = { class: "liquidate-body-details" }
+const _hoisted_7 = { style: {"margin-left":"6px"} }
+const _hoisted_8 = { style: {"font-size":"13px","font-family":"'Roboto, sans-serif'"} }
+const _hoisted_9 = { style: {"margin-left":"6px"} }
+const _hoisted_10 = { style: {"font-size":"13px","font-family":"'Roboto, sans-serif'"} }
+const _hoisted_11 = { class: "liquidate-body-details-amountWrap" }
+const _hoisted_12 = { class: "liquidate-body-details-amountWrap" }
+const _hoisted_13 = { class: "liquidate-body-inputTip" }
+const _hoisted_14 = { style: {"margin-left":"3px"} }
+const _hoisted_15 = { class: "liquidate-body-input" }
+const _hoisted_16 = { style: {"flex-basis":"100%"} }
+const _hoisted_17 = { style: {"display":"flex","align-items":"center"} }
+const _hoisted_18 = { class: "liquidate-body-details" }
+const _hoisted_19 = { style: {"margin-left":"6px"} }
+const _hoisted_20 = { style: {"font-size":"13px","font-family":"'Roboto, sans-serif'"} }
+const _hoisted_21 = { style: {"margin-left":"6px"} }
+const _hoisted_22 = { style: {"font-size":"13px","font-family":"'Roboto, sans-serif'"} }
+const _hoisted_23 = { class: "liquidate-body-details-amountWrap" }
+const _hoisted_24 = { class: "liquidate-body-details-amountWrap" }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_space = _resolveComponent("q-space")
+  const _component_q_btn = _resolveComponent("q-btn")
+  const _component_q_card_section = _resolveComponent("q-card-section")
+  const _component_q_input = _resolveComponent("q-input")
+  const _component_q_item_section = _resolveComponent("q-item-section")
+  const _component_q_item_label = _resolveComponent("q-item-label")
+  const _component_q_item = _resolveComponent("q-item")
+  const _component_q_select = _resolveComponent("q-select")
+  const _component_q_card = _resolveComponent("q-card")
+  const _component_q_dialog = _resolveComponent("q-dialog")
+  const _directive_close_popup = _resolveDirective("close-popup")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode(_component_q_dialog, {
+      modelValue: _ctx.liquidateDialogVisible,
+      "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event: any) => (_ctx.liquidateDialogVisible = $event)),
+      class: "gt-sm"
+    }, {
+      default: _withId(() => [
+        _createVNode(_component_q_card, { class: "liquidate" }, {
+          default: _withId(() => [
+            _createVNode(_component_q_card_section, { class: "row items-center liquidate-title" }, {
+              default: _withId(() => [
+                _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.liquidate')), 1),
+                _createVNode(_component_q_space),
+                _withDirectives(_createVNode(_component_q_btn, {
+                  icon: "close",
+                  flat: "",
+                  round: ""
+                }, null, 512), [
+                  [_directive_close_popup]
+                ])
+              ]),
+              _: 1
+            }),
+            _createVNode(_component_q_card_section, { class: "liquidate-body" }, {
+              default: _withId(() => [
+                _createVNode("div", _hoisted_1, [
+                  _createVNode("span", null, _toDisplayString(_ctx.t("liquidation.amountTip")), 1),
+                  _createVNode("span", null, [
+                    _createVNode("img", {
+                      width: "18",
+                      style: {"transform":"translateY(3px)","margin-left":"4px"},
+                      src: _ctx.repayToken.src
+                    }, null, 8, ["src"]),
+                    _createVNode("span", _hoisted_2, _toDisplayString(_ctx.repayToken.label), 1)
+                  ])
+                ]),
+                _createVNode("div", _hoisted_3, [
+                  _createVNode("div", _hoisted_4, [
+                    _createVNode("div", _hoisted_5, [
+                      _createVNode(_component_q_input, {
+                        borderless: "",
+                        "model-value": _ctx.liquidateAmount,
+                        "onUpdate:modelValue": _ctx.liquidateAmountInput,
+                        placeholder: 'Wallet   '+_ctx.formatBigNumberStr(_ctx.repayToken.walletBalanceInTokenUnit,_ctx.repayToken.decimals)+' '+_ctx.repayToken.label,
+                        style: {"flex-grow":"1","padding":"0 26px","font-size":"20px"}
+                      }, null, 8, ["model-value", "onUpdate:modelValue", "placeholder"]),
+                      _createVNode("div", {
+                        class: "max",
+                        onClick: _cache[1] || (_cache[1] = 
+//@ts-ignore
+(...args) => (_ctx.setMaxRepayAmount && _ctx.setMaxRepayAmount(...args)))
+                      }, _toDisplayString(_ctx.t("supplyDialog.max")), 1)
+                    ])
+                  ])
+                ]),
+                _createVNode("div", _hoisted_6, [
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.debtRatio')), 1),
+                    _createVNode("div", {
+                      style: [{"font-size":"16px"}, _ctx.getDebtRatioStyle(_ctx.selectUserObligations.info.debtRatio)]
+                    }, _toDisplayString(_ctx.formatBigNumberStr(_ctx.selectUserObligations.info.debtRatio.times(100),2)) + "% ", 5)
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.assetToRepay')), 1),
+                    _createVNode(_component_q_select, {
+                      borderless: "",
+                      dark: "",
+                      modelValue: _ctx.repayToken,
+                      "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event: any) => (_ctx.repayToken = $event)),
+                      options: _ctx.repayTokenOptions
+                    }, {
+                      selected: _withId(() => [
+                        _createVNode("img", {
+                          width: "18",
+                          src: _ctx.repayToken.src
+                        }, null, 8, ["src"]),
+                        _createVNode("div", _hoisted_7, _toDisplayString(_ctx.repayToken.label), 1)
+                      ]),
+                      option: _withId((slotProps) => [
+                        _createVNode(_component_q_item, slotProps.itemProps, {
+                          default: _withId(() => [
+                            _createVNode(_component_q_item_section, { avatar: "" }, {
+                              default: _withId(() => [
+                                _createVNode("img", {
+                                  src: slotProps.opt.src,
+                                  width: "18",
+                                  height: "18",
+                                  alt: ""
+                                }, null, 8, ["src"])
+                              ]),
+                              _: 2
+                            }, 1024),
+                            _createVNode(_component_q_item_section, null, {
+                              default: _withId(() => [
+                                _createVNode(_component_q_item_label, null, {
+                                  default: _withId(() => [
+                                    _createVNode("span", _hoisted_8, _toDisplayString(slotProps.label), 1)
+                                  ]),
+                                  _: 2
+                                }, 1024)
+                              ]),
+                              _: 2
+                            }, 1024)
+                          ]),
+                          _: 2
+                        }, 1040)
+                      ]),
+                      _: 1
+                    }, 8, ["modelValue", "options"])
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.assetToSeize')), 1),
+                    _createVNode(_component_q_select, {
+                      borderless: "",
+                      dark: "",
+                      modelValue: _ctx.seizeToken,
+                      "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event: any) => (_ctx.seizeToken = $event)),
+                      options: _ctx.seizeTokenOptions
+                    }, {
+                      selected: _withId(() => [
+                        _createVNode("img", {
+                          width: "18",
+                          src: _ctx.seizeToken.src
+                        }, null, 8, ["src"]),
+                        _createVNode("div", _hoisted_9, _toDisplayString(_ctx.seizeToken.label), 1)
+                      ]),
+                      option: _withId((slotProps) => [
+                        _createVNode(_component_q_item, slotProps.itemProps, {
+                          default: _withId(() => [
+                            _createVNode(_component_q_item_section, { avatar: "" }, {
+                              default: _withId(() => [
+                                _createVNode("img", {
+                                  src: slotProps.opt.src,
+                                  width: "18",
+                                  height: "18",
+                                  alt: ""
+                                }, null, 8, ["src"])
+                              ]),
+                              _: 2
+                            }, 1024),
+                            _createVNode(_component_q_item_section, null, {
+                              default: _withId(() => [
+                                _createVNode(_component_q_item_label, null, {
+                                  default: _withId(() => [
+                                    _createVNode("span", _hoisted_10, _toDisplayString(slotProps.label), 1)
+                                  ]),
+                                  _: 2
+                                }, 1024)
+                              ]),
+                              _: 2
+                            }, 1024)
+                          ]),
+                          _: 2
+                        }, 1040)
+                      ]),
+                      _: 1
+                    }, 8, ["modelValue", "options"])
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.maxRepayAmount')), 1),
+                    _createVNode("div", _hoisted_11, [
+                      _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.repayToken.maxRepayAmount,2)) + " " + _toDisplayString(_ctx.repayToken.label), 1),
+                      _createVNode("div", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.repayToken.maxRepayValue,2)), 1)
+                    ])
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.maxSeizeAmount')), 1),
+                    _createVNode("div", _hoisted_12, [
+                      _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.seizeToken.maxSeizeAmount,2)) + " " + _toDisplayString(_ctx.seizeToken.label), 1),
+                      _createVNode("div", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.seizeToken.maxSeizeValue,2)), 1)
+                    ])
+                  ])
+                ]),
+                _createVNode(_component_q_btn, {
+                  round: "",
+                  "no-caps": "",
+                  class: ["button", {'button-disable':!_ctx.liquidateButtonEnable}],
+                  onClick: _ctx.liquidate,
+                  disable: !_ctx.liquidateButtonEnable
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.t('liquidation.liquidate')), 1)
+                  ]),
+                  _: 1
+                }, 8, ["class", "onClick", "disable"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        })
+      ]),
+      _: 1
+    }, 8, ["modelValue"]),
+    _createVNode(_component_q_dialog, {
+      modelValue: _ctx.liquidateDialogVisible,
+      "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event: any) => (_ctx.liquidateDialogVisible = $event)),
+      class: "lt-md"
+    }, {
+      default: _withId(() => [
+        _createVNode(_component_q_card, { class: "app-liquidate" }, {
+          default: _withId(() => [
+            _createVNode(_component_q_card_section, { class: "row items-center liquidate-title" }, {
+              default: _withId(() => [
+                _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.liquidate')), 1),
+                _createVNode(_component_q_space),
+                _withDirectives(_createVNode(_component_q_btn, {
+                  icon: "close",
+                  flat: "",
+                  round: ""
+                }, null, 512), [
+                  [_directive_close_popup]
+                ])
+              ]),
+              _: 1
+            }),
+            _createVNode(_component_q_card_section, { class: "liquidate-body" }, {
+              default: _withId(() => [
+                _createVNode("div", _hoisted_13, [
+                  _createVNode("span", null, _toDisplayString(_ctx.t("liquidation.amountTip")), 1),
+                  _createVNode("span", null, [
+                    _createVNode("img", {
+                      width: "15",
+                      style: {"transform":"translateY(3px)","margin-left":"6px"},
+                      src: _ctx.repayToken.src
+                    }, null, 8, ["src"]),
+                    _createVNode("span", _hoisted_14, _toDisplayString(_ctx.repayToken.label), 1)
+                  ])
+                ]),
+                _createVNode("div", _hoisted_15, [
+                  _createVNode("div", _hoisted_16, [
+                    _createVNode("div", _hoisted_17, [
+                      _createVNode(_component_q_input, {
+                        borderless: "",
+                        "model-value": _ctx.liquidateAmount,
+                        "onUpdate:modelValue": _ctx.liquidateAmountInput,
+                        placeholder: 'Wallet   '+_ctx.formatBigNumberStr(_ctx.repayToken.walletBalanceInTokenUnit,_ctx.repayToken.decimals)+' '+_ctx.repayToken.label,
+                        style: {"flex-grow":"1","padding":"0 26px","font-size":"20px"}
+                      }, null, 8, ["model-value", "onUpdate:modelValue", "placeholder"]),
+                      _createVNode("div", {
+                        class: "max",
+                        onClick: _cache[5] || (_cache[5] = 
+//@ts-ignore
+(...args) => (_ctx.setMaxRepayAmount && _ctx.setMaxRepayAmount(...args)))
+                      }, _toDisplayString(_ctx.t("supplyDialog.max")), 1)
+                    ])
+                  ])
+                ]),
+                _createVNode("div", _hoisted_18, [
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.debtRatio')), 1),
+                    _createVNode("div", {
+                      style: [{"font-size":"14px"}, _ctx.getDebtRatioStyle(_ctx.selectUserObligations.info.debtRatio)]
+                    }, _toDisplayString(_ctx.formatBigNumberStr(_ctx.selectUserObligations.info.debtRatio.times(100),2)) + "% ", 5)
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.assetToRepay')), 1),
+                    _createVNode(_component_q_select, {
+                      borderless: "",
+                      dark: "",
+                      modelValue: _ctx.repayToken,
+                      "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event: any) => (_ctx.repayToken = $event)),
+                      options: _ctx.repayTokenOptions
+                    }, {
+                      selected: _withId(() => [
+                        _createVNode("img", {
+                          width: "18",
+                          src: _ctx.repayToken.src
+                        }, null, 8, ["src"]),
+                        _createVNode("div", _hoisted_19, _toDisplayString(_ctx.repayToken.label), 1)
+                      ]),
+                      option: _withId((slotProps) => [
+                        _createVNode(_component_q_item, slotProps.itemProps, {
+                          default: _withId(() => [
+                            _createVNode(_component_q_item_section, { avatar: "" }, {
+                              default: _withId(() => [
+                                _createVNode("img", {
+                                  src: slotProps.opt.src,
+                                  width: "18",
+                                  height: "18",
+                                  alt: ""
+                                }, null, 8, ["src"])
+                              ]),
+                              _: 2
+                            }, 1024),
+                            _createVNode(_component_q_item_section, null, {
+                              default: _withId(() => [
+                                _createVNode(_component_q_item_label, null, {
+                                  default: _withId(() => [
+                                    _createVNode("span", _hoisted_20, _toDisplayString(slotProps.label), 1)
+                                  ]),
+                                  _: 2
+                                }, 1024)
+                              ]),
+                              _: 2
+                            }, 1024)
+                          ]),
+                          _: 2
+                        }, 1040)
+                      ]),
+                      _: 1
+                    }, 8, ["modelValue", "options"])
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.assetToSeize')), 1),
+                    _createVNode(_component_q_select, {
+                      borderless: "",
+                      dark: "",
+                      modelValue: _ctx.seizeToken,
+                      "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event: any) => (_ctx.seizeToken = $event)),
+                      options: _ctx.seizeTokenOptions
+                    }, {
+                      selected: _withId(() => [
+                        _createVNode("img", {
+                          width: "18",
+                          src: _ctx.seizeToken.src
+                        }, null, 8, ["src"]),
+                        _createVNode("div", _hoisted_21, _toDisplayString(_ctx.seizeToken.label), 1)
+                      ]),
+                      option: _withId((slotProps) => [
+                        _createVNode(_component_q_item, slotProps.itemProps, {
+                          default: _withId(() => [
+                            _createVNode(_component_q_item_section, { avatar: "" }, {
+                              default: _withId(() => [
+                                _createVNode("img", {
+                                  src: slotProps.opt.src,
+                                  width: "18",
+                                  height: "18",
+                                  alt: ""
+                                }, null, 8, ["src"])
+                              ]),
+                              _: 2
+                            }, 1024),
+                            _createVNode(_component_q_item_section, null, {
+                              default: _withId(() => [
+                                _createVNode(_component_q_item_label, null, {
+                                  default: _withId(() => [
+                                    _createVNode("span", _hoisted_22, _toDisplayString(slotProps.label), 1)
+                                  ]),
+                                  _: 2
+                                }, 1024)
+                              ]),
+                              _: 2
+                            }, 1024)
+                          ]),
+                          _: 2
+                        }, 1040)
+                      ]),
+                      _: 1
+                    }, 8, ["modelValue", "options"])
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.maxRepayAmount')), 1),
+                    _createVNode("div", _hoisted_23, [
+                      _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.repayToken.maxRepayAmount,2)) + " " + _toDisplayString(_ctx.repayToken.label), 1),
+                      _createVNode("div", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.repayToken.maxRepayValue,2)), 1)
+                    ])
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('liquidation.maxSeizeAmount')), 1),
+                    _createVNode("div", _hoisted_24, [
+                      _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.seizeToken.maxSeizeAmount,2)) + " " + _toDisplayString(_ctx.seizeToken.label), 1),
+                      _createVNode("div", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.seizeToken.maxSeizeValue,2)), 1)
+                    ])
+                  ])
+                ]),
+                _createVNode(_component_q_btn, {
+                  round: "",
+                  "no-caps": "",
+                  class: ["button", {'button-disable':!_ctx.liquidateButtonEnable}],
+                  onClick: _ctx.liquidate,
+                  disable: !_ctx.liquidateButtonEnable
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.t('liquidation.liquidate')), 1)
+                  ]),
+                  _: 1
+                }, 8, ["class", "onClick", "disable"])
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        })
+      ]),
+      _: 1
+    }, 8, ["modelValue"])
+  ], 64))
+})

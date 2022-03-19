@@ -1,0 +1,1081 @@
+import { createVNode as _createVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createTextVNode as _createTextVNode, Fragment as _Fragment, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-0dd9b5e8")
+
+_pushScopeId("data-v-0dd9b5e8")
+const _hoisted_1 = {
+  class: "gt-sm",
+  style: {"width":"436px"}
+}
+const _hoisted_2 = { class: "marketContainer" }
+const _hoisted_3 = { class: "firstFloor" }
+const _hoisted_4 = { class: "title left" }
+const _hoisted_5 = { key: 0 }
+const _hoisted_6 = { class: "title" }
+const _hoisted_7 = { style: {"text-align":"end","color":"white","font-size":"15px"} }
+const _hoisted_8 = { key: 1 }
+const _hoisted_9 = { class: "title" }
+const _hoisted_10 = { style: {"text-align":"end","color":"white","font-size":"15px"} }
+const _hoisted_11 = { class: "content" }
+const _hoisted_12 = { class: "tabs" }
+const _hoisted_13 = { class: "tabsContent" }
+const _hoisted_14 = { class: "tabsContent" }
+const _hoisted_15 = { key: 0 }
+const _hoisted_16 = { class: "supplyInput" }
+const _hoisted_17 = { style: {"flex-basis":"100%"} }
+const _hoisted_18 = { style: {"display":"flex","align-items":"center"} }
+const _hoisted_19 = { class: "supplyDataContainer" }
+const _hoisted_20 = { class: "firstContainer" }
+const _hoisted_21 = { class: "first" }
+const _hoisted_22 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_23 = { class: "second" }
+const _hoisted_24 = { class: "third" }
+const _hoisted_25 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_26 = { class: "third" }
+const _hoisted_27 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_28 = { class: "fourth" }
+const _hoisted_29 = {
+  key: 0,
+  class: "fourth"
+}
+const _hoisted_30 = { class: "last" }
+const _hoisted_31 = { class: "sliderBody" }
+const _hoisted_32 = { class: "sliderRunway" }
+const _hoisted_33 = { class: "sliderMarks" }
+const _hoisted_34 = { style: {"display":"flex","justify-content":"space-between"} }
+const _hoisted_35 = { style: {"display":"flex","justify-content":"space-between"} }
+const _hoisted_36 = { style: {"display":"flex","justify-content":"space-between"} }
+const _hoisted_37 = {
+  key: 0,
+  style: {"display":"flex","justify-content":"space-between"}
+}
+const _hoisted_38 = { key: 1 }
+const _hoisted_39 = { class: "supplyInput" }
+const _hoisted_40 = { style: {"flex-basis":"100%"} }
+const _hoisted_41 = { style: {"display":"flex","align-items":"center"} }
+const _hoisted_42 = { class: "supplyDataContainer" }
+const _hoisted_43 = { class: "firstContainer" }
+const _hoisted_44 = { class: "first" }
+const _hoisted_45 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_46 = { class: "second" }
+const _hoisted_47 = { class: "third" }
+const _hoisted_48 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_49 = { class: "third" }
+const _hoisted_50 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_51 = { class: "fourth" }
+const _hoisted_52 = {
+  key: 0,
+  class: "fourth"
+}
+const _hoisted_53 = { class: "last" }
+const _hoisted_54 = { class: "sliderBody" }
+const _hoisted_55 = { class: "sliderRunway" }
+const _hoisted_56 = { class: "sliderMarks" }
+const _hoisted_57 = { style: {"display":"flex","justify-content":"space-between"} }
+const _hoisted_58 = { style: {"display":"flex","justify-content":"space-between"} }
+const _hoisted_59 = { style: {"display":"flex","justify-content":"space-between"} }
+const _hoisted_60 = {
+  key: 0,
+  style: {"display":"flex","justify-content":"space-between"}
+}
+const _hoisted_61 = { class: "borrowFeeTip" }
+const _hoisted_62 = { class: "button" }
+const _hoisted_63 = {
+  class: "lt-md",
+  style: {"width":"400px","min-width":"280px","border-radius":"18px"}
+}
+const _hoisted_64 = { class: "appMarketContainer" }
+const _hoisted_65 = { class: "appFirstFloor" }
+const _hoisted_66 = { class: "appTitle left" }
+const _hoisted_67 = { key: 0 }
+const _hoisted_68 = { class: "appTitle" }
+const _hoisted_69 = { class: "rightSecondFloor" }
+const _hoisted_70 = { key: 1 }
+const _hoisted_71 = { class: "appTitle" }
+const _hoisted_72 = { class: "rightSecondFloor" }
+const _hoisted_73 = { class: "appContent" }
+const _hoisted_74 = { class: "appTabs" }
+const _hoisted_75 = { class: "appTabsContent" }
+const _hoisted_76 = { class: "appTabsContent" }
+const _hoisted_77 = { key: 0 }
+const _hoisted_78 = { class: "appBorrowInput" }
+const _hoisted_79 = { style: {"display":"flex","align-items":"center"} }
+const _hoisted_80 = { class: "appBorrowDataContainer" }
+const _hoisted_81 = { class: "appFirstContainer" }
+const _hoisted_82 = { class: "appFirst" }
+const _hoisted_83 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_84 = { class: "appSecond" }
+const _hoisted_85 = { class: "appThird" }
+const _hoisted_86 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_87 = { class: "appThird" }
+const _hoisted_88 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_89 = { class: "appFourth" }
+const _hoisted_90 = {
+  key: 0,
+  class: "appFourth",
+  style: {"padding-top":"8px"}
+}
+const _hoisted_91 = { class: "appLast" }
+const _hoisted_92 = { class: "top" }
+const _hoisted_93 = {
+  class: "sliderBody",
+  style: {"margin-left":"8px"}
+}
+const _hoisted_94 = { class: "sliderRunway" }
+const _hoisted_95 = {
+  class: "sliderMarks",
+  style: {"width":"82%"}
+}
+const _hoisted_96 = { class: "bottom" }
+const _hoisted_97 = { class: "bottom" }
+const _hoisted_98 = { class: "bottom" }
+const _hoisted_99 = { class: "bottom" }
+const _hoisted_100 = { key: 1 }
+const _hoisted_101 = { class: "appBorrowInput" }
+const _hoisted_102 = { style: {"display":"flex","align-items":"center"} }
+const _hoisted_103 = { class: "appBorrowDataContainer" }
+const _hoisted_104 = { class: "appFirstContainer" }
+const _hoisted_105 = { class: "appFirst" }
+const _hoisted_106 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_107 = { class: "appSecond" }
+const _hoisted_108 = { class: "appThird" }
+const _hoisted_109 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_110 = { class: "appThird" }
+const _hoisted_111 = { style: {"line-height":"1","padding-left":"5px"} }
+const _hoisted_112 = { class: "appFourth" }
+const _hoisted_113 = {
+  key: 0,
+  class: "appFourth",
+  style: {"padding-top":"8px"}
+}
+const _hoisted_114 = { class: "appLast" }
+const _hoisted_115 = { class: "top" }
+const _hoisted_116 = {
+  class: "sliderBody",
+  style: {"margin-left":"8px"}
+}
+const _hoisted_117 = { class: "sliderRunway" }
+const _hoisted_118 = {
+  class: "sliderMarks",
+  style: {"width":"82%"}
+}
+const _hoisted_119 = { class: "bottom" }
+const _hoisted_120 = { class: "bottom" }
+const _hoisted_121 = { class: "bottom" }
+const _hoisted_122 = { class: "bottom" }
+const _hoisted_123 = { class: "appBorrowFeeTip" }
+const _hoisted_124 = { class: "appButton" }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_input = _resolveComponent("q-input")
+  const _component_q_tooltip = _resolveComponent("q-tooltip")
+  const _component_q_slider = _resolveComponent("q-slider")
+  const _component_q_btn = _resolveComponent("q-btn")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode("div", _hoisted_1, [
+      _createVNode("div", _hoisted_2, [
+        _createVNode("div", null, [
+          _createVNode("div", _hoisted_3, [
+            _createVNode("div", null, [
+              _createVNode("div", _hoisted_4, [
+                _createVNode("img", {
+                  src: _ctx.reserveDetail.logoSource,
+                  width: "66.3",
+                  height: "66.3",
+                  alt: ""
+                }, null, 8, ["src"])
+              ])
+            ]),
+            _createVNode("div", null, [
+              _createVNode("div", null, [
+                (_ctx.isBorrow === true)
+                  ? (_openBlock(), _createBlock("div", _hoisted_5, [
+                      _createVNode("div", _hoisted_6, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.totalAvailableAmount,2)) + " " + _toDisplayString(_ctx.reserveDetail.symbol), 1),
+                      _createVNode("div", _hoisted_7, _toDisplayString(_ctx.t("borrowDialog.liquidity")), 1)
+                    ]))
+                  : (_openBlock(), _createBlock("div", _hoisted_8, [
+                      _createVNode("div", _hoisted_9, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.walletBalanceInTokenUnit,2)) + " " + _toDisplayString(_ctx.reserveDetail.symbol), 1),
+                      _createVNode("div", _hoisted_10, _toDisplayString(_ctx.t("borrowDialog.walletBalance")), 1)
+                    ]))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _createVNode("div", _hoisted_11, [
+        _createVNode("div", _hoisted_12, [
+          _createVNode("div", _hoisted_13, [
+            _createVNode("div", {
+              onClick: _cache[1] || (_cache[1] = ($event: any) => (_ctx.changeTabs(true))),
+              class: _ctx.isBorrow?'active':'inactive'
+            }, _toDisplayString(_ctx.t("borrowDialog.borrow")), 3)
+          ]),
+          _createVNode("div", _hoisted_14, [
+            _createVNode("div", {
+              onClick: _cache[2] || (_cache[2] = ($event: any) => (_ctx.changeTabs(false))),
+              class: _ctx.isBorrow?'inactive':'active'
+            }, _toDisplayString(_ctx.t("borrowDialog.repay")), 3)
+          ])
+        ]),
+        (_ctx.isBorrow)
+          ? (_openBlock(), _createBlock("div", _hoisted_15, [
+              _createVNode("div", _hoisted_16, [
+                _createVNode("div", _hoisted_17, [
+                  _createVNode("div", _hoisted_18, [
+                    _createVNode(_component_q_input, {
+                      style: {"width":"80%","padding":"0 26px","font-size":"20px"},
+                      borderless: "",
+                      "onUpdate:modelValue": [
+                        _ctx.borrowAmountInput,
+                        _cache[3] || (_cache[3] = ($event: any) => (_ctx.borrowAmount = $event))
+                      ],
+                      modelValue: _ctx.borrowAmount,
+                      placeholder: 'Liquidity   '+_ctx.formatBigNumberStr(_ctx.reserveDetail.totalAvailableAmount,2)+' '+_ctx.reserveDetail.symbol,
+                      onChange: _cache[4] || (_cache[4] = ($event: any) => (_ctx.borrowAmountChange($event)))
+                    }, null, 8, ["onUpdate:modelValue", "modelValue", "placeholder"]),
+                    (_ctx.positionLimit(_ctx.selectedReserveDetail))
+                      ? (_openBlock(), _createBlock("div", {
+                          key: 0,
+                          class: "max",
+                          onClick: _cache[5] || (_cache[5] = 
+//@ts-ignore
+(...args) => (_ctx.maxBorrowInput && _ctx.maxBorrowInput(...args)))
+                        }, _toDisplayString(_ctx.t("borrowDialog.borrowMax")), 1))
+                      : _createCommentVNode("", true)
+                  ])
+                ])
+              ]),
+              _createVNode("div", _hoisted_19, [
+                _createVNode("div", _hoisted_20, [
+                  _createVNode("div", _hoisted_21, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.borrowingMinAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_22, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [140,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.maxAPRTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowBalance")), 1)
+                  ]),
+                  _createVNode("div", _hoisted_23, [
+                    _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "% ", 1),
+                    _createVNode("p", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowBalance,2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_24, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.baseAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_25, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [180,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.baseAPRTip2')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.div(10).times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "%", 1)
+                  ]),
+                  _createVNode("div", _hoisted_26, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("borrowDialog.borrowApy")) + " ", 1),
+                      _createVNode("span", _hoisted_27, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [90,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.symbol) + " " + _toDisplayString(_ctx.t('tip.interest')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100),2)) + "% ", 1)
+                  ]),
+                  _createVNode("div", _hoisted_28, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("supplyDialog.baseLARIXRewards")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy.div(10).times(100),2)) + "%", 1)
+                  ]),
+                  (_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy)
+                    ? (_openBlock(), _createBlock("div", _hoisted_29, [
+                        _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.singleTokenDoubleRewardTokenSymbol) + " APR", 1),
+                        _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy,2)) + "%", 1)
+                      ]))
+                    : _createCommentVNode("", true)
+                ]),
+                _createVNode("div", _hoisted_30, [
+                  _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.borrowRate")), 1),
+                  _createVNode("div", _hoisted_31, [
+                    _createVNode("div", _hoisted_32, [
+                      _createVNode(_component_q_slider, {
+                        modelValue: _ctx.sliderBorrowPercent,
+                        "onUpdate:modelValue": [
+                          _cache[6] || (_cache[6] = ($event: any) => (_ctx.sliderBorrowPercent = $event)),
+                          _cache[7] || (_cache[7] = ($event: any) => (_ctx.sliderBorrowPercentChange($event)))
+                        ],
+                        style: {"height":"6px","position":"absolute","z-index":"2"},
+                        onClick: _cache[8] || (_cache[8] = ($event: any) => (_ctx.sliderClick())),
+                        onMousedown: _cache[9] || (_cache[9] = ($event: any) => (_ctx.sliderClick())),
+                        min: 0,
+                        max: 100,
+                        disable: !_ctx.positionLimit(_ctx.selectedReserveDetail)
+                      }, null, 8, ["modelValue", "disable"]),
+                      _createVNode("div", _hoisted_33, [
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>0?'markActive':''],
+                          style: {"left":"0"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>20?'markActive':''],
+                          style: {"left":"20%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>40?'markActive':''],
+                          style: {"left":"40%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>60?'markActive':''],
+                          style: {"left":"60%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>80?'markActive':''],
+                          style: {"left":"80%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent===100?'markActive':''],
+                          style: {"left":"100%"}
+                        }, null, 2)
+                      ])
+                    ])
+                  ]),
+                  _createVNode("div", _hoisted_34, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.collateralFactor")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.collateralFactor.toFixed(2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_35, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowMaxInTokenUnit")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.maxBorrowAmount,2)) + _toDisplayString(_ctx.selectedReserveDetail.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_36, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.borrowLimitUsedPercent")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.calcNewBorrowLimitUsedPercent(0,_ctx.borrowAmount, false).toFixed(2)) + "%", 1)
+                  ]),
+                  (!_ctx.positionLimit(_ctx.selectedReserveDetail))
+                    ? (_openBlock(), _createBlock("div", _hoisted_37, [
+                        _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.reachPositionLimit")), 1)
+                      ]))
+                    : _createCommentVNode("", true)
+                ])
+              ])
+            ]))
+          : (_openBlock(), _createBlock("div", _hoisted_38, [
+              _createVNode("div", _hoisted_39, [
+                _createVNode("div", _hoisted_40, [
+                  _createVNode("div", _hoisted_41, [
+                    _createVNode(_component_q_input, {
+                      style: {"width":"80%","padding":"0 26px","font-size":"20px"},
+                      borderless: "",
+                      "onUpdate:modelValue": [
+                        _ctx.repayAmountInput,
+                        _cache[10] || (_cache[10] = ($event: any) => (_ctx.repayAmount = $event))
+                      ],
+                      modelValue: _ctx.repayAmount,
+                      placeholder: 'Wallet   '+_ctx.formatBigNumberStr(_ctx.reserveDetail.walletBalanceInTokenUnit,2)+' '+_ctx.reserveDetail.symbol,
+                      onChange: _cache[11] || (_cache[11] = ($event: any) => (_ctx.repayAmountChange($event)))
+                    }, null, 8, ["onUpdate:modelValue", "modelValue", "placeholder"]),
+                    _createVNode("div", {
+                      class: "max",
+                      onClick: _cache[12] || (_cache[12] = 
+//@ts-ignore
+(...args) => (_ctx.maxRepayInput && _ctx.maxRepayInput(...args)))
+                    }, _toDisplayString(_ctx.t("borrowDialog.max")), 1)
+                  ])
+                ])
+              ]),
+              _createVNode("div", _hoisted_42, [
+                _createVNode("div", _hoisted_43, [
+                  _createVNode("div", _hoisted_44, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.borrowingMinAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_45, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [140,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.maxAPRTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowBalance")), 1)
+                  ]),
+                  _createVNode("div", _hoisted_46, [
+                    _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "% ", 1),
+                    _createVNode("p", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowBalance,2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_47, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.baseAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_48, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [180,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.baseAPRTip2')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.div(10).times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "%", 1)
+                  ]),
+                  _createVNode("div", _hoisted_49, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("borrowDialog.borrowApy")) + " ", 1),
+                      _createVNode("span", _hoisted_50, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [90,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.symbol) + " " + _toDisplayString(_ctx.t('tip.interest')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100),2)) + "% ", 1)
+                  ]),
+                  _createVNode("div", _hoisted_51, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("supplyDialog.baseLARIXRewards")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy.div(10).times(100),2)) + "%", 1)
+                  ]),
+                  (_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy)
+                    ? (_openBlock(), _createBlock("div", _hoisted_52, [
+                        _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.singleTokenDoubleRewardTokenSymbol) + " APR", 1),
+                        _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy,2)) + "%", 1)
+                      ]))
+                    : _createCommentVNode("", true)
+                ]),
+                _createVNode("div", _hoisted_53, [
+                  _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.borrowRate")), 1),
+                  _createVNode("div", _hoisted_54, [
+                    _createVNode("div", _hoisted_55, [
+                      _createVNode(_component_q_slider, {
+                        modelValue: _ctx.sliderBorrowPercent,
+                        "onUpdate:modelValue": [
+                          _cache[13] || (_cache[13] = ($event: any) => (_ctx.sliderBorrowPercent = $event)),
+                          _cache[14] || (_cache[14] = ($event: any) => (_ctx.sliderBorrowPercentChange($event)))
+                        ],
+                        style: {"height":"6px","position":"absolute","z-index":"2"},
+                        onClick: _cache[15] || (_cache[15] = ($event: any) => (_ctx.sliderClick())),
+                        onMousedown: _cache[16] || (_cache[16] = ($event: any) => (_ctx.sliderClick())),
+                        min: 0,
+                        max: 100,
+                        disable: !_ctx.positionLimit(_ctx.selectedReserveDetail)
+                      }, null, 8, ["modelValue", "disable"]),
+                      _createVNode("div", _hoisted_56, [
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>0?'markActive':''],
+                          style: {"left":"0"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>20?'markActive':''],
+                          style: {"left":"20%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>40?'markActive':''],
+                          style: {"left":"40%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>60?'markActive':''],
+                          style: {"left":"60%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>80?'markActive':''],
+                          style: {"left":"80%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent===100?'markActive':''],
+                          style: {"left":"100%"}
+                        }, null, 2)
+                      ])
+                    ])
+                  ]),
+                  _createVNode("div", _hoisted_57, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.collateralFactor")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.collateralFactor.toFixed(2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_58, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowMaxInTokenUnit")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.maxBorrowAmount,2)) + _toDisplayString(_ctx.selectedReserveDetail.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_59, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.borrowLimitUsedPercent")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.calcNewBorrowLimitUsedPercent(0,_ctx.borrowAmount, false).toFixed(2)) + "%", 1)
+                  ]),
+                  (!_ctx.positionLimit(_ctx.selectedReserveDetail))
+                    ? (_openBlock(), _createBlock("div", _hoisted_60, [
+                        _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.reachPositionLimit")), 1)
+                      ]))
+                    : _createCommentVNode("", true)
+                ])
+              ])
+            ])),
+        _createVNode("div", null, [
+          _createVNode("div", _hoisted_61, [
+            _createVNode("img", {
+              src: _ctx.marketLarixLogoSource,
+              height: "22",
+              width: "20",
+              style: {"margin-right":"11px"}
+            }, null, 8, ["src"]),
+            _createVNode("span", null, _toDisplayString(_ctx.t('home.noBorrowFee')), 1)
+          ]),
+          _createVNode("div", _hoisted_62, [
+            _createVNode(_component_q_btn, {
+              class: "cancel",
+              "no-caps": "",
+              onClick: _ctx.cancel
+            }, {
+              default: _withId(() => [
+                _createTextVNode(_toDisplayString(_ctx.t('borrowDialog.cancel')), 1)
+              ]),
+              _: 1
+            }, 8, ["onClick"]),
+            (_ctx.isBorrow)
+              ? (_openBlock(), _createBlock(_component_q_btn, {
+                  key: 0,
+                  class: ["supply", {'warningBtn':(_ctx.borrowAmount && !isNaN(_ctx.borrowAmount) && _ctx.borrowAmount>0)&&_ctx.calcNewBorrowLimitUsedPercent(0,_ctx.borrowAmount,false).toFixed(2)>=95,
+                     'fontReductionPC':_ctx.fontReduction('borrow')}],
+                  "no-caps": "",
+                  disabled: !_ctx.borrowButtonEnable,
+                  style: _ctx.borrowButtonEnable?'background: #2FCEFB;':' background: #999999;',
+                  onClick: _cache[17] || (_cache[17] = ($event: any) => (_ctx.$emit('onBorrow', _ctx.borrowAmount)))
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.borrowButtonText), 1)
+                  ]),
+                  _: 1
+                }, 8, ["disabled", "style", "class"]))
+              : (_openBlock(), _createBlock(_component_q_btn, {
+                  key: 1,
+                  class: ["supply", {'fontReductionPC':_ctx.fontReduction('repay')}],
+                  "no-caps": "",
+                  disabled: !_ctx.repayButtonEnable,
+                  style: _ctx.repayButtonEnable?'background: #2FCEFB;':' background: #999999;',
+                  onClick: _cache[18] || (_cache[18] = ($event: any) => (_ctx.$emit('onRepay', _ctx.repayAmount)))
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.repayButtonText), 1)
+                  ]),
+                  _: 1
+                }, 8, ["disabled", "class", "style"]))
+          ])
+        ])
+      ])
+    ]),
+    _createVNode("div", _hoisted_63, [
+      _createVNode("div", _hoisted_64, [
+        _createVNode("div", null, [
+          _createVNode("div", _hoisted_65, [
+            _createVNode("div", null, [
+              _createVNode("div", _hoisted_66, [
+                _createVNode("img", {
+                  src: _ctx.reserveDetail.logoSource,
+                  height: "39",
+                  width: "39",
+                  alt: ""
+                }, null, 8, ["src"]),
+                _createVNode("span", null, _toDisplayString(_ctx.reserveDetail.symbol), 1)
+              ])
+            ]),
+            _createVNode("div", null, [
+              _createVNode("div", null, [
+                (_ctx.isBorrow === true)
+                  ? (_openBlock(), _createBlock("div", _hoisted_67, [
+                      _createVNode("div", _hoisted_68, _toDisplayString(_ctx.reserveDetail.totalAvailableAmount.toFixed(2)) + " " + _toDisplayString(_ctx.reserveDetail.symbol), 1),
+                      _createVNode("div", _hoisted_69, _toDisplayString(_ctx.t("borrowDialog.liquidity")), 1)
+                    ]))
+                  : (_openBlock(), _createBlock("div", _hoisted_70, [
+                      _createVNode("div", _hoisted_71, _toDisplayString(_ctx.reserveDetail.walletBalanceInTokenUnit.toFixed(2)) + " " + _toDisplayString(_ctx.reserveDetail.symbol), 1),
+                      _createVNode("div", _hoisted_72, _toDisplayString(_ctx.t("borrowDialog.walletBalance")), 1)
+                    ]))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _createVNode("div", _hoisted_73, [
+        _createVNode("div", _hoisted_74, [
+          _createVNode("div", _hoisted_75, [
+            _createVNode("div", {
+              onClick: _cache[19] || (_cache[19] = ($event: any) => (_ctx.changeTabs(true))),
+              class: _ctx.isBorrow?'active':'inactive'
+            }, _toDisplayString(_ctx.t("borrowDialog.borrow")), 3)
+          ]),
+          _createVNode("div", _hoisted_76, [
+            _createVNode("div", {
+              onClick: _cache[20] || (_cache[20] = ($event: any) => (_ctx.changeTabs(false))),
+              class: _ctx.isBorrow?'inactive':'active'
+            }, _toDisplayString(_ctx.t("borrowDialog.repay")), 3)
+          ])
+        ]),
+        (_ctx.isBorrow)
+          ? (_openBlock(), _createBlock("div", _hoisted_77, [
+              _createVNode("div", _hoisted_78, [
+                _createVNode("div", null, [
+                  _createVNode("div", _hoisted_79, [
+                    _createVNode(_component_q_input, {
+                      style: {"width":"80%","padding-left":"15px"},
+                      borderless: "",
+                      "onUpdate:modelValue": [
+                        _ctx.borrowAmountInput,
+                        _cache[21] || (_cache[21] = ($event: any) => (_ctx.borrowAmount = $event))
+                      ],
+                      modelValue: _ctx.borrowAmount,
+                      onBlur: _ctx.inputBlur,
+                      placeholder: 'Liquidity   '+_ctx.reserveDetail.totalAvailableAmount.toFixed(2)+' '+_ctx.reserveDetail.symbol,
+                      onChange: _cache[22] || (_cache[22] = ($event: any) => (_ctx.borrowAmountChange($event)))
+                    }, null, 8, ["onUpdate:modelValue", "modelValue", "onBlur", "placeholder"]),
+                    (_ctx.positionLimit(_ctx.selectedReserveDetail))
+                      ? (_openBlock(), _createBlock("div", {
+                          key: 0,
+                          class: "appMax",
+                          onClick: _cache[23] || (_cache[23] = 
+//@ts-ignore
+(...args) => (_ctx.maxBorrowInput && _ctx.maxBorrowInput(...args)))
+                        }, _toDisplayString(_ctx.t("borrowDialog.borrowMax")), 1))
+                      : _createCommentVNode("", true)
+                  ])
+                ])
+              ]),
+              _createVNode("div", _hoisted_80, [
+                _createVNode("div", _hoisted_81, [
+                  _createVNode("div", _hoisted_82, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.borrowingMinAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_83, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [160,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.maxAPRTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowBalance")), 1)
+                  ]),
+                  _createVNode("div", _hoisted_84, [
+                    _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "% ", 1),
+                    _createVNode("p", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowBalance,2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_85, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.baseAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_86, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [220,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.baseAPRTip2')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.div(10).times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "%", 1)
+                  ]),
+                  _createVNode("div", _hoisted_87, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("borrowDialog.borrowApy")) + " ", 1),
+                      _createVNode("span", _hoisted_88, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [110,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.symbol) + " " + _toDisplayString(_ctx.t('tip.interest')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100),2)) + "% ", 1)
+                  ]),
+                  _createVNode("div", _hoisted_89, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("supplyDialog.baseLARIXRewards")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy.div(10).times(100),2)) + "%", 1)
+                  ]),
+                  (_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy)
+                    ? (_openBlock(), _createBlock("div", _hoisted_90, [
+                        _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.singleTokenDoubleRewardTokenSymbol) + " APR", 1),
+                        _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy,2)) + "%", 1)
+                      ]))
+                    : _createCommentVNode("", true)
+                ]),
+                _createVNode("div", _hoisted_91, [
+                  _createVNode("div", _hoisted_92, _toDisplayString(_ctx.t("borrowDialog.borrowRate")), 1),
+                  _createVNode("div", _hoisted_93, [
+                    _createVNode("div", _hoisted_94, [
+                      _createVNode(_component_q_slider, {
+                        modelValue: _ctx.sliderBorrowPercent,
+                        "onUpdate:modelValue": [
+                          _cache[24] || (_cache[24] = ($event: any) => (_ctx.sliderBorrowPercent = $event)),
+                          _cache[25] || (_cache[25] = ($event: any) => (_ctx.sliderBorrowPercentChange($event)))
+                        ],
+                        style: {"height":"5px","position":"absolute","z-index":"2","width":"96%"},
+                        onMousedown: _ctx.sliderClick,
+                        onClick: _ctx.sliderClick,
+                        min: 0,
+                        max: 100,
+                        disable: !_ctx.positionLimit(_ctx.selectedReserveDetail)
+                      }, null, 8, ["modelValue", "onMousedown", "onClick", "disable"]),
+                      _createVNode("div", _hoisted_95, [
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>0?'markActive':''],
+                          style: {"left":"0"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>20?'markActive':''],
+                          style: {"left":"20%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>40?'markActive':''],
+                          style: {"left":"40%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>60?'markActive':''],
+                          style: {"left":"60%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>80?'markActive':''],
+                          style: {"left":"80%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent===100?'markActive':''],
+                          style: {"left":"100%"}
+                        }, null, 2)
+                      ])
+                    ])
+                  ]),
+                  _createVNode("div", _hoisted_96, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.collateralFactor")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.collateralFactor.toFixed(2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_97, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowMaxInTokenUnit")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.maxBorrowAmount,2)) + _toDisplayString(_ctx.selectedReserveDetail.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_98, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.borrowLimitUsedPercent")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.calcNewBorrowLimitUsedPercent(0,_ctx.borrowAmount, false).toFixed(2)) + "%", 1)
+                  ]),
+                  _createVNode("div", _hoisted_99, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.reachPositionLimit")), 1)
+                  ])
+                ])
+              ])
+            ]))
+          : (_openBlock(), _createBlock("div", _hoisted_100, [
+              _createVNode("div", _hoisted_101, [
+                _createVNode("div", null, [
+                  _createVNode("div", _hoisted_102, [
+                    _createVNode(_component_q_input, {
+                      style: {"width":"80%","padding-left":"15px"},
+                      borderless: "",
+                      "onUpdate:modelValue": [
+                        _ctx.repayAmountInput,
+                        _cache[26] || (_cache[26] = ($event: any) => (_ctx.repayAmount = $event))
+                      ],
+                      onBlur: _ctx.inputBlur,
+                      modelValue: _ctx.repayAmount,
+                      placeholder: 'Wallet   '+_ctx.reserveDetail.walletBalanceInTokenUnit.toFixed(2)+' '+_ctx.reserveDetail.symbol,
+                      onChange: _cache[27] || (_cache[27] = ($event: any) => (_ctx.repayAmountChange($event)))
+                    }, null, 8, ["onUpdate:modelValue", "onBlur", "modelValue", "placeholder"]),
+                    _createVNode("div", {
+                      class: "appMax",
+                      onClick: _cache[28] || (_cache[28] = 
+//@ts-ignore
+(...args) => (_ctx.maxRepayInput && _ctx.maxRepayInput(...args)))
+                    }, _toDisplayString(_ctx.t("borrowDialog.max")), 1)
+                  ])
+                ])
+              ]),
+              _createVNode("div", _hoisted_103, [
+                _createVNode("div", _hoisted_104, [
+                  _createVNode("div", _hoisted_105, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.borrowingMinAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_106, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [160,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.maxAPRTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowBalance")), 1)
+                  ]),
+                  _createVNode("div", _hoisted_107, [
+                    _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "% ", 1),
+                    _createVNode("p", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowBalance,2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_108, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("supplyDialog.baseAPR")) + " ", 1),
+                      _createVNode("span", _hoisted_109, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [220,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.t('tip.baseAPRTip2')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100).minus( _ctx.reserveDetail.borrowDistributionApy.div(10).times(100)).minus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0),2)) + "%", 1)
+                  ]),
+                  _createVNode("div", _hoisted_110, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t("borrowDialog.borrowApy")) + " ", 1),
+                      _createVNode("span", _hoisted_111, [
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          width: "10",
+                          height: "10"
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "top right",
+                          self: "bottom right",
+                          offset: [110,20]
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.symbol) + " " + _toDisplayString(_ctx.t('tip.interest')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy.times(100),2)) + "% ", 1)
+                  ]),
+                  _createVNode("div", _hoisted_112, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("supplyDialog.baseLARIXRewards")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy.div(10).times(100),2)) + "%", 1)
+                  ]),
+                  (_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy)
+                    ? (_openBlock(), _createBlock("div", _hoisted_113, [
+                        _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.singleTokenDoubleRewardTokenSymbol) + " APR", 1),
+                        _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy,2)) + "%", 1)
+                      ]))
+                    : _createCommentVNode("", true)
+                ]),
+                _createVNode("div", _hoisted_114, [
+                  _createVNode("div", _hoisted_115, _toDisplayString(_ctx.t("borrowDialog.borrowRate")), 1),
+                  _createVNode("div", _hoisted_116, [
+                    _createVNode("div", _hoisted_117, [
+                      _createVNode(_component_q_slider, {
+                        modelValue: _ctx.sliderBorrowPercent,
+                        "onUpdate:modelValue": [
+                          _cache[29] || (_cache[29] = ($event: any) => (_ctx.sliderBorrowPercent = $event)),
+                          _cache[30] || (_cache[30] = ($event: any) => (_ctx.sliderBorrowPercentChange($event)))
+                        ],
+                        style: {"height":"5px","position":"absolute","z-index":"2","width":"96%"},
+                        onMousedown: _ctx.sliderClick,
+                        onClick: _ctx.sliderClick,
+                        min: 0,
+                        max: 100,
+                        disable: !_ctx.positionLimit(_ctx.selectedReserveDetail)
+                      }, null, 8, ["modelValue", "onMousedown", "onClick", "disable"]),
+                      _createVNode("div", _hoisted_118, [
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>0?'markActive':''],
+                          style: {"left":"0"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>20?'markActive':''],
+                          style: {"left":"20%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>40?'markActive':''],
+                          style: {"left":"40%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>60?'markActive':''],
+                          style: {"left":"60%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent>80?'markActive':''],
+                          style: {"left":"80%"}
+                        }, null, 2),
+                        _createVNode("div", {
+                          class: ["sliderMarksText", _ctx.sliderBorrowPercent===100?'markActive':''],
+                          style: {"left":"100%"}
+                        }, null, 2)
+                      ])
+                    ])
+                  ]),
+                  _createVNode("div", _hoisted_119, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.collateralFactor")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.reserveDetail.collateralFactor.toFixed(2)), 1)
+                  ]),
+                  _createVNode("div", _hoisted_120, [
+                    _createVNode("p", null, _toDisplayString(_ctx.t("borrowDialog.borrowMaxInTokenUnit")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.maxBorrowAmount,2)) + _toDisplayString(_ctx.selectedReserveDetail.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_121, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.borrowLimitUsedPercent")), 1),
+                    _createVNode("p", null, _toDisplayString(_ctx.calcNewBorrowLimitUsedPercent(0,_ctx.borrowAmount, false).toFixed(2)) + "%", 1)
+                  ]),
+                  _createVNode("div", _hoisted_122, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t("borrowDialog.reachPositionLimit")), 1)
+                  ])
+                ])
+              ])
+            ])),
+        _createVNode("div", null, [
+          _createVNode("div", _hoisted_123, [
+            _createVNode("img", {
+              src: _ctx.marketLarixLogoSource,
+              height: "18",
+              width: "16",
+              style: {"margin-right":"11px"}
+            }, null, 8, ["src"]),
+            _createVNode("span", null, _toDisplayString(_ctx.t('home.noBorrowFee')), 1)
+          ]),
+          _createVNode("div", _hoisted_124, [
+            _createVNode(_component_q_btn, {
+              "no-caps": "",
+              class: "appCancel",
+              onClick: _ctx.cancel
+            }, {
+              default: _withId(() => [
+                _createTextVNode(_toDisplayString(_ctx.t('borrowDialog.cancel')), 1)
+              ]),
+              _: 1
+            }, 8, ["onClick"]),
+            (_ctx.isBorrow)
+              ? (_openBlock(), _createBlock(_component_q_btn, {
+                  key: 0,
+                  class: ["appBorrow", {'warningBtn':(_ctx.borrowAmount && !isNaN(_ctx.borrowAmount) && _ctx.borrowAmount>0)
+                     &&_ctx.calcNewBorrowLimitUsedPercent(0,_ctx.borrowAmount,false).toFixed(2)>=95,
+                     'fontReduction':_ctx.fontReduction('borrow')}],
+                  disabled: !_ctx.borrowButtonEnable,
+                  "no-caps": "",
+                  style: _ctx.borrowButtonEnable?'background: #2FCEFB;':' background: #999999;',
+                  onClick: _cache[31] || (_cache[31] = ($event: any) => (_ctx.$emit('onBorrow', _ctx.borrowAmount)))
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.borrowButtonText), 1)
+                  ]),
+                  _: 1
+                }, 8, ["disabled", "style", "class"]))
+              : (_openBlock(), _createBlock(_component_q_btn, {
+                  key: 1,
+                  class: ["appBorrow", {'fontReduction':_ctx.fontReduction('repay')}],
+                  disabled: !_ctx.repayButtonEnable,
+                  "no-caps": "",
+                  style: _ctx.repayButtonEnable?'background: #2FCEFB;':' background: #999999;',
+                  onClick: _cache[32] || (_cache[32] = ($event: any) => (_ctx.$emit('onRepay', _ctx.repayAmount)))
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.repayButtonText), 1)
+                  ]),
+                  _: 1
+                }, 8, ["disabled", "class", "style"]))
+          ])
+        ])
+      ])
+    ])
+  ], 64))
+})

@@ -1,0 +1,374 @@
+
+import { useI18n } from 'vue-i18n'
+import { defineComponent } from 'vue'
+import {mapState} from "vuex";
+import {formatBigNumberStr} from "@/utils/helpers";
+import BigNumber from "bignumber.js";
+export default defineComponent({
+  name: "BorrowDialog",
+  emits: ["onBorrow","onRepay"],
+  data(){
+    return{
+      formatBigNumberStr:formatBigNumberStr,
+      asset: require('../assets/coin/asset_USDT.svg'),
+      borrowLimit:10,
+      isBorrow:true,
+      sliderBorrowPercent:0,
+      sliderBorrowPreventInput:false,
+      borrowAmount:'',
+      sliderRepayPercent:0,
+      sliderRepayPreventInput:false,
+      repayAmount:'',
+      isInRepayInput:false,
+      isInBorrowInput:false,
+      marketLarixLogoSource:require('../assets/icon_nofee@2x.png'),
+      icon_information_white:require('../assets/icon_information_white.svg'),
+      icon_information:require('../assets/icon_information.svg')
+    }
+  },
+  props: {
+    selectedReserveDetail: {
+      type: Object,
+      required: true
+    },
+    enableFor: {
+      type: String,
+      default: 'borrow'
+    }
+  },
+  mounted() {
+    this.isBorrow = this.enableFor === 'borrow'
+  },
+  methods:{
+    fontReduction (action:string) {
+      switch (action)
+      {
+        case 'borrow':
+        {
+          if (this.$i18n.locale==='en'&&this.borrowButtonText!=='Borrow') {
+            return true
+          }else if(this.$i18n.locale==='ru'&&this.borrowButtonText!=='Заимствовать'){
+            return true
+          }
+          else return false
+        }
+        case 'repay':{
+          if (this.$i18n.locale==='en'&&this.repayButtonText!=='Repay'){
+            return true
+          }else if (this.$i18n.locale==='ru'&&this.repayButtonText!=='Погасить'){
+            return true
+          }
+          else return false
+        }
+      }
+    },
+
+    borrowAmountInput(value:string){
+      this.isInBorrowInput = true
+      this.borrowAmount = value
+      // const newBorrowLimit = this.calcNewBorrowLimitUsedPercent(value,'0',false)
+      // console.log('new BorrowLimitUsedPercent',newBorrowLimit.toString())
+      if (value === '' || isNaN(Number(value))) {
+        this.sliderBorrowPercent = 0
+        return
+      }
+      if(new BigNumber(value).isLessThan(0))
+      {
+        return
+      }
+     if (this.positionLimit(this.reserveDetail)){
+       if ((this.userBorrowLimit.minus(this.userTotalBorrow)).isGreaterThan(this.reserveDetail.totalAvailableAmount.times(this.reserveDetail.liquidityPrice)))
+       {
+         this.sliderBorrowPercent = new BigNumber(value).div(this.reserveDetail.totalAvailableAmount).times(100).toNumber()
+       }else {
+         this.sliderBorrowPercent = new BigNumber(value).div((this.userBorrowLimit.minus(this.userTotalBorrow)).div(this.reserveDetail.liquidityPrice)).times(100).toNumber()
+       }
+     }
+    },
+    repayAmountInput(value:string){
+      this.isInRepayInput = true
+      this.$store.commit('updateIsFullRepay',false)
+      this.repayAmount = value
+      // const newBorrowLimit = this.calcNewBorrowLimitUsedPercent(value,'0',false)
+      // console.log('new BorrowLimitUsedPercent',newBorrowLimit.toString())
+      //@ts-ignore
+      if (value === '' || isNaN(Number(value))) {
+        this.sliderRepayPercent = 0
+        return
+      }
+      if(new BigNumber(value).isLessThan(0))
+      {
+        return
+      }
+
+      if ((this.reserveDetail.walletBalanceInTokenUnit).isGreaterThan(this.reserveDetail.borrowBalanceInTokenUnit))
+      {
+        this.sliderRepayPercent = new BigNumber(value).div(this.reserveDetail.borrowBalanceInTokenUnit).times(100).toNumber()
+      }else {
+        this.sliderRepayPercent = new BigNumber(value).div(this.reserveDetail.walletBalanceInTokenUnit).times(100).toNumber()
+      }
+
+    },
+    sliderClick(){
+      if (this.isBorrow)
+      {
+        this.isInBorrowInput = false
+      }
+      else
+      {
+        this.isInRepayInput = false
+      }
+    },
+    inputBlur(){
+      if (this.isBorrow)
+      {
+        this.isInBorrowInput = false
+      }
+      else{
+        this.isInRepayInput =false
+      }
+    },
+    borrowAmountChange(val:string) {
+      return val
+    },
+    repayAmountChange(val:string) {
+      return val
+    },
+    sliderBorrowPercentChange(val:number){
+      if (!this.isInBorrowInput){
+        if (this.sliderBorrowPreventInput) {
+          this.sliderBorrowPreventInput = false
+        } else {
+          this.borrowAmount = new BigNumber(val).div(100).times(this.maxBorrowAmount).toFixed(this.reserveDetail.decimals)
+          if (val===100) {
+            this.maxBorrowInput()
+          }
+        }
+      }
+    },
+    sliderRepayPercentChange(val:number){
+      this.$store.commit('updateIsFullRepay',false)
+      if (!this.isInRepayInput){
+          if (val===100) {
+            this.maxRepayInput()
+          } else {
+            this.repayAmount = new BigNumber(val).div(100).times(this.maxRepayAmount).toFixed(this.reserveDetail.decimals,1)
+          }
+      }
+    },
+
+    calcNewBorrowLimit(supplyIncrement:string, ignoreEnter:boolean) {
+      // @ts-ignore
+      if (isNaN(supplyIncrement)) return null
+      if (supplyIncrement === '0') return this.userBorrowLimit
+      const res = this.userBorrowLimit.plus(
+          this.selectedReserveDetail.isEnterMarket || ignoreEnter
+              ? new BigNumber(supplyIncrement ? supplyIncrement : "0")
+                  .times(this.selectedReserveDetail.liquidityPrice)
+                  .times(this.selectedReserveDetail.collateralFactor)
+              : new BigNumber(0)
+      )
+      return res.isGreaterThan(0) ? res : new BigNumber(0)
+    },
+    calcNewBorrowBalance(borrowIncrement:string) {
+      // @ts-ignore
+      if (isNaN(borrowIncrement)) return null
+      if (borrowIncrement === '0'||borrowIncrement==='')
+      {
+        return this.userTotalBorrow}
+      const res = this.userTotalBorrow.plus(
+          new BigNumber(borrowIncrement).times(this.selectedReserveDetail.liquidityPrice)
+      )
+      return res.isGreaterThan(0) ? res : new BigNumber(0)
+    },
+    calcNewBorrowLimitUsedPercent(supplyIncrement:string, borrowIncrement:string, ignoreEnter:boolean) {
+      // @ts-ignore
+      if (isNaN(Number(supplyIncrement)) || isNaN(Number(borrowIncrement))
+      )
+      // || new BigNumber(supplyIncrement).isLessThan(0)||new BigNumber(borrowIncrement).isLessThan(0)
+      {
+        return new BigNumber(this.userBorrowLimitUsedPercent)
+      }
+      const newUserBorrowLimit = this.calcNewBorrowLimit(supplyIncrement, ignoreEnter)
+      const newUserTotalBorrow = this.calcNewBorrowBalance(borrowIncrement)
+      if (newUserTotalBorrow.isZero() && newUserBorrowLimit.isZero()) return new BigNumber(0)
+      const res = newUserTotalBorrow.div(newUserBorrowLimit).times(100)
+      return res.isGreaterThan(0) ? res : new BigNumber(0)
+    },
+    changeTabs(value:boolean){
+      this.isBorrow=value
+      this.repayAmount = ''
+      this.borrowAmount = ''
+      this.sliderRepayPercent = 0
+      this.sliderBorrowPercent = 0
+      this.$store.commit('updateIsFullRepay',false)
+    },
+    maxBorrowInput(){
+      this.borrowAmount = this.maxBorrowAmount.toFixed(this.reserveDetail.decimals,1)
+      this.sliderBorrowPercent = 100
+    },
+    maxRepayInput(){
+      this.repayAmount = this.maxRepayAmount.toFixed(this.reserveDetail.decimals,0)
+      this.sliderRepayPercent = 100
+      console.log('max repay',this.reserveDetail.walletBalanceInTokenUnit.isGreaterThan(this.reserveDetail.borrowBalanceInTokenUnit.times(1.00001)))
+      if (this.reserveDetail.walletBalanceInTokenUnit.isGreaterThan(this.reserveDetail.borrowBalanceInTokenUnit.times(1.00001))) {
+        console.log('updateIsFullRepay')
+        this.$store.commit('updateIsFullRepay',true)
+      }
+    },
+
+    cancel(){
+      this.$store.commit('updateBorrowDialogVisible', false)
+    },
+    positionLimit(reserve:any){
+      // let isInBorrowReserve = false
+      // this.userObligation?.info.borrows.forEach((borrow:any)=>{
+      //   if (reserve.reserveDetail.pubkey.toString()===borrow.borrowReserve.toString())
+      //   {
+      //     isInBorrowReserve = true
+      //   }
+      // })
+      // if (isInBorrowReserve) return true
+      // if (this.userObligation?.info.borrows.length+this.userObligation?.info.deposits.length>=5)
+      //   return false
+      // else return true
+      if (reserve)
+      return true
+    }
+  },
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+    }
+  },
+  computed: {
+    //@ts-ignore
+    userBorrowLimitUsedPercent () {
+      // @ts-ignore
+      return this.$store.getters.userBorrowLimitUsedPercent
+    },
+    maxBorrowAmount () {
+      if(((this.userBorrowLimit.minus(this.userTotalBorrow)).div(this.reserveDetail.liquidityPrice)).isGreaterThan(this.reserveDetail.totalAvailableAmount))
+      {
+        // @ts-ignore
+        return this.reserveDetail.totalAvailableAmount.times(0.95)
+      } else {
+        // @ts-ignore
+        return ((this.userBorrowLimit.minus(this.userTotalBorrow)).div(this.reserveDetail.liquidityPrice).times(0.95))
+      }
+    },
+    maxRepayAmount () {
+      if (this.reserveDetail.symbol==='SOL')
+      {
+        if (this.reserveDetail.borrowBalanceInTokenUnit.isGreaterThan(this.reserveDetail.walletBalanceInTokenUnit)
+            ||this.reserveDetail.walletBalanceInTokenUnit.minus(this.reserveDetail.borrowBalanceInTokenUnit).isLessThan(new BigNumber(0.00005).times(1000)))
+        {
+          //@ts-ignore
+          return this.reserveDetail.walletBalanceInTokenUnit.minus(new BigNumber(0.00005).times(1000))
+        }else {
+          //@ts-ignore
+          return this.reserveDetail.borrowBalanceInTokenUnit
+        }
+      }
+      if (this.reserveDetail.borrowBalanceInTokenUnit.isGreaterThan(this.reserveDetail.walletBalanceInTokenUnit))
+      {
+        console.log('1111')
+          // @ts-ignore
+          return this.reserveDetail.walletBalanceInTokenUnit
+      } else {
+        console.log('22222')
+        // @ts-ignore
+        return this.reserveDetail.borrowBalanceInTokenUnit
+      }
+    },
+    borrowButtonEnable: function () {
+      if (!this.reserveDetail) return false
+      const amount = this.borrowAmount
+      if (amount === '' || amount === null) return false
+      //@ts-ignore
+      if (isNaN(amount)) return false
+      if (!new BigNumber(amount).isGreaterThan(0)) return false
+      if (new BigNumber(amount).times(this.reserveDetail.liquidityPrice)
+          .isGreaterThan(this.userBorrowLimit.minus(this.userTotalBorrow))) return false
+      if (new BigNumber(amount).isGreaterThan(this.reserveDetail.totalAvailableAmount)) return false
+      if (!this.positionLimit(this.reserveDetail)) return false
+      return true
+    },
+    repayButtonEnable: function () {
+      if (!this.reserveDetail) return false
+      const amount = this.repayAmount
+      if (amount === '' || amount === null) return false
+      //@ts-ignore
+      if (isNaN(amount)) return false
+      if (this.reserveDetail.borrowBalanceInTokenUnit.isZero()) return false
+      if (this.isFullRepay
+          && this.reserveDetail.borrowBalanceInTokenUnit.isGreaterThan(0)
+          && this.reserveDetail.walletBalanceInTokenUnit.isZero()) return false
+      if (!new BigNumber(amount).isGreaterThan(0)) return false
+      if (new BigNumber(amount).isGreaterThan(this.reserveDetail.walletBalanceInTokenUnit)) return false;
+      return true
+    },
+
+    //@ts-ignore
+    borrowButtonText: function () {
+      if (!this.reserveDetail) return ''
+      //@ts-ignore
+      if (!this.positionLimit(this.reserveDetail))return this.t('borrowDialog.borrow')
+      const amount = this.borrowAmount
+      //@ts-ignore
+      if (amount === '' || amount === null) return this.t('borrowDialog.borrow')
+      //@ts-ignore
+      if (isNaN(amount)) return this.t('borrowDialog.invalidNumber')
+      //@ts-ignore
+      if (new BigNumber(amount).isLessThan(0)) return this.t('borrowDialog.invalidNumber')
+      //@ts-ignore
+      if (!new BigNumber(amount).isGreaterThan(0)) return this.t('borrowDialog.invalidNumber')
+      if (new BigNumber(amount).times(this.reserveDetail.liquidityPrice)
+          .isGreaterThan(this.userBorrowLimit - this.userTotalBorrow))
+          //@ts-ignore
+        return this.t('borrowDialog.insufficientFunds')
+      //@ts-ignore
+      if (new BigNumber(amount).isGreaterThan(this.reserveDetail.totalAvailableAmount)) return this.t('borrowDialog.insufficientLiquidity')
+      //@ts-ignore
+      const borrowLimited = this.calcNewBorrowLimitUsedPercent(0,amount,false).toFixed(2)
+      //@ts-ignore
+      if(borrowLimited>=95) return this.t('borrowDialog.stillBorrow')
+      //@ts-ignore
+      return this.t('borrowDialog.borrow')
+    },
+    //@ts-ignore
+    repayButtonText: function () {
+      const walletAddress = this.walletAddress
+      if (!this.reserveDetail || !walletAddress) return ''
+
+      //@ts-ignore
+      if (this.reserveDetail.borrowBalanceInTokenUnit.isZero()) return this.t('borrowDialog.noBalanceToRepay')
+      const amount = this.repayAmount
+      //@ts-ignore
+      if (amount === '' || amount === null) return this.t('borrowDialog.repay')
+      //@ts-ignore
+      if (isNaN(amount)) return this.t('borrowDialog.invalidNumber')
+      //@ts-ignore
+      if (new BigNumber(amount).isLessThan(0)) return this.t('borrowDialog.invalidNumber')
+      if (this.isFullRepay
+          && this.reserveDetail.borrowBalanceInTokenUnit.isGreaterThan(0)
+          //@ts-ignore
+          && this.reserveDetail.walletBalanceInTokenUnit.isZero()) return this.t('borrowDialog.insufficientFunds');
+      //@ts-ignore
+      if (new BigNumber(amount).isGreaterThan(this.reserveDetail.walletBalanceInTokenUnit)) return this.t('borrowDialog.insufficientFunds');
+      //@ts-ignore
+      return this.t('borrowDialog.repay')
+    },
+
+    ...mapState({
+      walletAddress: (state:any) => state.wallet.walletAddress,
+      isFullRepay: (state: any) => state.dialog.isFullRepay,
+      reserveDetail: (state: any) => state.market.selectedReserveDetail,
+      userTotalBorrow:(state:any) => state.market.userTotalBorrow,
+      userBorrowLimit:(state:any) => state.market.userBorrowLimit,
+      userAllObligation:(state:any) => state.market.userAllObligation,
+      userObligation: (state: any) => state.market.userObligation,
+    })
+  }
+})

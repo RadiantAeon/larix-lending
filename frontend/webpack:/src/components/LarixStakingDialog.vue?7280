@@ -1,0 +1,94 @@
+
+import {mapState} from "vuex";
+import {defineComponent} from 'vue'
+import { useI18n } from 'vue-i18n'
+import { formatBigNumberStr} from "@/utils/helpers";
+import openTxDialog from "@/controller/openTxDialog";
+import txSuccess from "@/controller/txSuccess";
+import txFailed from "@/controller/txFailed";
+import {withdrawPosition} from "@/api/actions/withdrawPosition";
+import {Detail} from "@/api/models";
+import {Position} from "@/api/models/state/position";
+import {getWallet} from "@/api/context/wallet";
+import {claimPosition} from "@/api/actions/claimPosition";
+import BigNumber from "bignumber.js";
+export default defineComponent({
+  name: "LarixStakingDialog",
+  data() {
+    return {
+      formatBigNumberStr:formatBigNumberStr
+    }
+  },
+  watch: {
+  },
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+      larixImg: require('../assets/reward_LARIX@2x.png'),
+      usdcImg: require('../assets/coin/asset_USDC.svg'),
+    }
+  },
+  computed: {
+    larixStakingDialogVisible:{
+      //@ts-ignore
+      get(){
+        //@ts-ignore
+        return this.$store.state.dialog.larixStakingDialogVisible
+      },
+      //@ts-ignore
+      set(value) {
+        this.$store.commit('updateLarixStakingDialogVisible',value)
+      }
+    },
+    positionsTotalRewardAmount:function (){
+      let totalAmount = new BigNumber(0)
+      if (this.userLarixPositions.length>0){
+        this.userLarixPositions.forEach((position:any)=>{
+          totalAmount = totalAmount.plus(position.larixRewardAmount)
+        })
+      }
+      return totalAmount
+
+    },
+    ...mapState({
+      mineCollateralLpDetails:(state:any)=>state.market.mineCollateralLpDetails,
+      userLarixPositions:(state:any)=>state.market.userLarixPositions,
+      userRawPositionData:(state:any)=>state.market.userRawPositionData,
+    })
+  },
+  methods: {
+    unStakeButtonEnable(position:any){
+      const current = this.mineCollateralLpDetails.currentTime
+      if (position.endTime - current >0){
+        return false
+      }else {
+        return true
+      }
+    },
+    async unStakePosition(position:Detail<Position>){
+      let wallet = await getWallet()
+      openTxDialog('updateRewardDialogVisible')
+      await withdrawPosition(
+          wallet,
+          position
+      ).then(()=>{
+        txSuccess('updateRewardDialogVisible')
+      }).catch((e)=>{
+        txFailed('updateRewardDialogVisible',e)
+      })
+    },
+    async claimAllReward(){
+      let wallet = await getWallet()
+      openTxDialog('updateRewardDialogVisible')
+      await claimPosition(
+          wallet,
+          this.userRawPositionData
+      ).then(()=>{
+        txSuccess('updateRewardDialogVisible')
+      }).catch((e)=>{
+        txFailed('updateRewardDialogVisible',e)
+      })
+    }
+  }
+})

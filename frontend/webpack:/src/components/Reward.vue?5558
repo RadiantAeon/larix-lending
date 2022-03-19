@@ -1,0 +1,704 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, resolveComponent as _resolveComponent, resolveDirective as _resolveDirective, withDirectives as _withDirectives, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, createTextVNode as _createTextVNode, vShow as _vShow, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-707e3136")
+
+_pushScopeId("data-v-707e3136")
+const _hoisted_1 = {
+  key: 0,
+  class: "select-wallet"
+}
+const _hoisted_2 = {
+  key: 1,
+  class: "wallet-info"
+}
+const _hoisted_3 = { class: "reward-main" }
+const _hoisted_4 = { key: 0 }
+const _hoisted_5 = { class: "claimable-info inner-card" }
+const _hoisted_6 = { class: "text-wrap" }
+const _hoisted_7 = { class: "grey-color" }
+const _hoisted_8 = { style: {"font-size":"20px"} }
+const _hoisted_9 = { class: "grey-color" }
+const _hoisted_10 = { class: "other-info" }
+const _hoisted_11 = { class: "row-wrap" }
+const _hoisted_12 = { class: "grey-color" }
+const _hoisted_13 = { class: "row-wrap" }
+const _hoisted_14 = { class: "grey-color" }
+const _hoisted_15 = {
+  key: 0,
+  class: "button-wrap"
+}
+const _hoisted_16 = { style: {"white-space":"nowrap","color":"#A1B7EE"} }
+const _hoisted_17 = {
+  key: 1,
+  style: {"display":"flex","flex-direction":"column","align-items":"center"}
+}
+const _hoisted_18 = /*#__PURE__*/_createVNode("div", { class: "circle-warn" }, [
+  /*#__PURE__*/_createVNode("span", null, "!")
+], -1)
+const _hoisted_19 = { class: "direct-claim-warning" }
+const _hoisted_20 = { style: {"margin-top":"2px"} }
+const _hoisted_21 = { class: "stake-larix" }
+const _hoisted_22 = { class: "multiple" }
+const _hoisted_23 = { class: "multiple-title" }
+const _hoisted_24 = /*#__PURE__*/_createVNode("p", { class: "multiple-splitLine" }, null, -1)
+const _hoisted_25 = { class: "subtitle" }
+const _hoisted_26 = { class: "larix-amount-wrap" }
+const _hoisted_27 = { class: "info-card inner-card" }
+const _hoisted_28 = { class: "grey-color" }
+const _hoisted_29 = { class: "data" }
+const _hoisted_30 = { class: "combinator" }
+const _hoisted_31 = { class: "text grey-color" }
+const _hoisted_32 = /*#__PURE__*/_createVNode("div", { class: "gg-arrow-long-right" }, null, -1)
+const _hoisted_33 = { class: "text grey-color" }
+const _hoisted_34 = { class: "info-card inner-card" }
+const _hoisted_35 = { class: "grey-color" }
+const _hoisted_36 = { class: "data" }
+const _hoisted_37 = {
+  class: "grey-color",
+  style: {"padding":"20px 8px 2px"}
+}
+const _hoisted_38 = { class: "slider-wrap sliderBody" }
+const _hoisted_39 = { class: "sliderRunway" }
+const _hoisted_40 = { class: "sliderMarks" }
+const _hoisted_41 = {
+  class: "grey-color",
+  style: {"display":"flex","justify-content":"space-between","padding":"2px 8px"}
+}
+const _hoisted_42 = /*#__PURE__*/_createVNode("div", null, "0.00 LARIX", -1)
+const _hoisted_43 = {
+  class: "grey-color",
+  style: {"display":"flex","justify-content":"space-between","padding":"2px 8px"}
+}
+const _hoisted_44 = { style: {"border-top":"1px solid #2B3866","margin":"22px 8px"} }
+const _hoisted_45 = { style: {"display":"flex","justify-content":"space-between","margin-top":"18px"} }
+const _hoisted_46 = { class: "grey-color" }
+const _hoisted_47 = { style: {"display":"flex","justify-content":"space-between","margin-top":"14px"} }
+const _hoisted_48 = /*#__PURE__*/_createVNode("div", { class: "grey-color" }, "LARIX-USDC (APR)", -1)
+const _hoisted_49 = {
+  key: 0,
+  class: "select-wallet"
+}
+const _hoisted_50 = {
+  key: 1,
+  class: "wallet-info-app"
+}
+const _hoisted_51 = { class: "reward-main-app" }
+const _hoisted_52 = { key: 0 }
+const _hoisted_53 = { class: "claimable-info-app inner-card" }
+const _hoisted_54 = { class: "text-wrap-app" }
+const _hoisted_55 = { class: "grey-color" }
+const _hoisted_56 = { style: {"font-size":"14px"} }
+const _hoisted_57 = { class: "grey-color" }
+const _hoisted_58 = { class: "other-info-app" }
+const _hoisted_59 = { class: "row-wrap-app" }
+const _hoisted_60 = { class: "grey-color" }
+const _hoisted_61 = { class: "row-wrap-app" }
+const _hoisted_62 = { class: "grey-color" }
+const _hoisted_63 = { key: 0 }
+const _hoisted_64 = { class: "button-wrap-app" }
+const _hoisted_65 = { style: {"white-space":"nowrap","color":"#A1B7EE"} }
+const _hoisted_66 = { style: {"white-space":"nowrap","color":"#A1B7EE"} }
+const _hoisted_67 = { class: "button-wrap-app" }
+const _hoisted_68 = {
+  key: 1,
+  style: {"display":"flex","flex-direction":"column","align-items":"center"}
+}
+const _hoisted_69 = /*#__PURE__*/_createVNode("div", { class: "circle-warn-app" }, [
+  /*#__PURE__*/_createVNode("span", null, "!")
+], -1)
+const _hoisted_70 = { class: "direct-claim-warning-app" }
+const _hoisted_71 = { style: {"margin-top":"2px"} }
+const _hoisted_72 = { class: "stake-larix-app" }
+const _hoisted_73 = { class: "multiple" }
+const _hoisted_74 = { class: "multiple-title" }
+const _hoisted_75 = /*#__PURE__*/_createVNode("p", { class: "multiple-splitLine" }, null, -1)
+const _hoisted_76 = { class: "subtitle" }
+const _hoisted_77 = { class: "larix-amount-wrap" }
+const _hoisted_78 = { class: "info-card inner-card" }
+const _hoisted_79 = { class: "grey-color" }
+const _hoisted_80 = { class: "data" }
+const _hoisted_81 = { class: "combinator" }
+const _hoisted_82 = { class: "text grey-color" }
+const _hoisted_83 = /*#__PURE__*/_createVNode("div", { class: "gg-arrow-long-right" }, null, -1)
+const _hoisted_84 = { class: "text grey-color" }
+const _hoisted_85 = { class: "info-card inner-card" }
+const _hoisted_86 = { class: "grey-color" }
+const _hoisted_87 = { class: "data" }
+const _hoisted_88 = {
+  class: "grey-color",
+  style: {"padding":"12px 4px 2px","font-size":"11px"}
+}
+const _hoisted_89 = { class: "slider-wrap sliderBody" }
+const _hoisted_90 = { class: "sliderRunway" }
+const _hoisted_91 = { class: "sliderMarks" }
+const _hoisted_92 = {
+  class: "grey-color",
+  style: {"display":"flex","justify-content":"space-between","padding":"2px 4px","font-size":"10px"}
+}
+const _hoisted_93 = /*#__PURE__*/_createVNode("div", null, "0.00 LARIX", -1)
+const _hoisted_94 = {
+  class: "grey-color",
+  style: {"display":"flex","justify-content":"space-between","padding":"2px 4px","font-size":"10px"}
+}
+const _hoisted_95 = { style: {"border-top":"1px solid #2B3866","margin":"22px 4px"} }
+const _hoisted_96 = { style: {"display":"flex","justify-content":"space-between","margin-top":"18px","font-size":"12px"} }
+const _hoisted_97 = { class: "grey-color" }
+const _hoisted_98 = { style: {"display":"flex","justify-content":"space-between","margin-top":"14px","font-size":"12px"} }
+const _hoisted_99 = /*#__PURE__*/_createVNode("div", { class: "grey-color" }, "LARIX-USDC (APR)", -1)
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_space = _resolveComponent("q-space")
+  const _component_q_btn = _resolveComponent("q-btn")
+  const _component_q_card_section = _resolveComponent("q-card-section")
+  const _component_q_slider = _resolveComponent("q-slider")
+  const _component_q_card = _resolveComponent("q-card")
+  const _component_q_dialog = _resolveComponent("q-dialog")
+  const _directive_close_popup = _resolveDirective("close-popup")
+
+  return (_openBlock(), _createBlock(_component_q_dialog, {
+    modelValue: _ctx.rewardDialogVisible,
+    "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event: any) => (_ctx.rewardDialogVisible = $event))
+  }, {
+    default: _withId(() => [
+      _createVNode(_component_q_card, { class: "reward gt-sm" }, {
+        default: _withId(() => [
+          _createVNode(_component_q_card_section, { class: "row items-center rewardTitle" }, {
+            default: _withId(() => [
+              _createVNode("div", null, _toDisplayString(_ctx.dialogTitle), 1),
+              _createVNode(_component_q_space),
+              _withDirectives(_createVNode(_component_q_btn, {
+                icon: "close",
+                flat: "",
+                round: ""
+              }, null, 512), [
+                [_directive_close_popup]
+              ])
+            ]),
+            _: 1
+          }),
+          _createVNode(_component_q_card_section, { class: "rewardBody" }, {
+            default: _withId(() => [
+              (!_ctx.walletAddress)
+                ? (_openBlock(), _createBlock("div", _hoisted_1, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('wallet.connectToAWallet')), 1)
+                  ]))
+                : (_openBlock(), _createBlock("div", _hoisted_2, [
+                    _withDirectives(_createVNode("div", _hoisted_3, [
+                      (!_ctx.confirmingClaim)
+                        ? (_openBlock(), _createBlock("div", _hoisted_4, [
+                            _createVNode("div", _hoisted_5, [
+                              _createVNode("img", {
+                                src: _ctx.larixImg,
+                                width: "78",
+                                height: "78",
+                                style: {"border-radius":"50%"}
+                              }, null, 8, ["src"]),
+                              _createVNode("div", _hoisted_6, [
+                                _createVNode("div", _hoisted_7, _toDisplayString(_ctx.t('wallet.unclaimedBalance')), 1),
+                                _createVNode("div", _hoisted_8, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward,6)) + " LARIX", 1),
+                                _createVNode("div", _hoisted_9, "≈$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward.times(_ctx.larixPrice),2)), 1)
+                              ])
+                            ]),
+                            _createVNode("div", _hoisted_10, [
+                              _createVNode("div", _hoisted_11, [
+                                _createVNode("div", _hoisted_12, _toDisplayString(_ctx.t('wallet.walletBalance')), 1),
+                                _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.walletLarixBalance,2)) + " LARIX", 1)
+                              ]),
+                              _createVNode("div", _hoisted_13, [
+                                _createVNode("div", _hoisted_14, _toDisplayString(_ctx.t('wallet.price')), 1),
+                                _createVNode("div", null, "$" + _toDisplayString(_ctx.larixPrice.toFixed(4,1)), 1)
+                              ])
+                            ]),
+                            (_ctx.userLarixReward.isGreaterThan(0))
+                              ? (_openBlock(), _createBlock("div", _hoisted_15, [
+                                  _createVNode(_component_q_btn, {
+                                    round: "",
+                                    "no-caps": "",
+                                    class: "button grey-button",
+                                    style: {"width":"unset","padding":"0 22px","margin-right":"10px","margin-bottom":"20px"},
+                                    onClick: _cache[1] || (_cache[1] = ($event: any) => (_ctx.confirmingClaim = true))
+                                  }, {
+                                    default: _withId(() => [
+                                      _createVNode("span", _hoisted_16, _toDisplayString(_ctx.t('wallet.harvest')), 1)
+                                    ]),
+                                    _: 1
+                                  }),
+                                  _createVNode(_component_q_btn, {
+                                    round: "",
+                                    "no-caps": "",
+                                    class: "button",
+                                    style: {"margin-bottom":"20px"},
+                                    onClick: _cache[2] || (_cache[2] = ($event: any) => (_ctx.step = 2,_ctx.rewardMultiplier = 10))
+                                  }, {
+                                    default: _withId(() => [
+                                      _createTextVNode(_toDisplayString(_ctx.$t('reward.reward') + ' X ' + 10), 1)
+                                    ]),
+                                    _: 1
+                                  }),
+                                  _createVNode(_component_q_btn, {
+                                    round: "",
+                                    "no-caps": "",
+                                    class: "button gt-sm",
+                                    style: {"margin-bottom":"20px","margin-left":"10px"},
+                                    onClick: _cache[3] || (_cache[3] = ($event: any) => (_ctx.step = 2 ,_ctx.rewardMultiplier = 5))
+                                  }, {
+                                    default: _withId(() => [
+                                      _createTextVNode(_toDisplayString(_ctx.$t('reward.reward') + ' X ' + 5), 1)
+                                    ]),
+                                    _: 1
+                                  })
+                                ]))
+                              : (_openBlock(), _createBlock(_component_q_btn, {
+                                  key: 1,
+                                  rounded: "",
+                                  "no-caps": "",
+                                  disabled: "",
+                                  class: "button grey-button",
+                                  style: {"margin-bottom":"20px"}
+                                }, {
+                                  default: _withId(() => [
+                                    _createTextVNode(_toDisplayString(_ctx.t('wallet.nothingToClaim')), 1)
+                                  ]),
+                                  _: 1
+                                }))
+                          ]))
+                        : (_openBlock(), _createBlock("div", _hoisted_17, [
+                            _hoisted_18,
+                            _createVNode("div", _hoisted_19, [
+                              _createVNode("div", null, _toDisplayString(_ctx.t('reward.youWillLose1',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(9),6)})), 1),
+                              _createVNode("div", _hoisted_20, _toDisplayString(_ctx.t('reward.youWillLose2',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(9),6)})), 1)
+                            ]),
+                            _createVNode(_component_q_btn, {
+                              round: "",
+                              "no-caps": "",
+                              class: "button",
+                              onClick: _cache[4] || (_cache[4] = ($event: any) => (_ctx.step = 2))
+                            }, {
+                              default: _withId(() => [
+                                _createTextVNode(_toDisplayString(_ctx.t('reward.earn2x',{x:10})) + "(" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward.times(10),6)) + ") ", 1)
+                              ]),
+                              _: 1
+                            }),
+                            _createVNode(_component_q_btn, {
+                              round: "",
+                              "no-caps": "",
+                              class: "button grey-button bottom-btn",
+                              onClick: _ctx.claimReward
+                            }, {
+                              default: _withId(() => [
+                                _createTextVNode(_toDisplayString(_ctx.t('reward.claimDirectly')) + "(" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward,6)) + ") ", 1)
+                              ]),
+                              _: 1
+                            }, 8, ["onClick"])
+                          ]))
+                    ], 512), [
+                      [_vShow, _ctx.step === 1]
+                    ]),
+                    _withDirectives(_createVNode("div", _hoisted_21, [
+                      _createVNode("div", _hoisted_22, [
+                        _createVNode("p", _hoisted_23, _toDisplayString(_ctx.t('reward.chooseToReceive')), 1),
+                        _createVNode(_component_q_btn, {
+                          class: ["multiple-btn", _ctx.rewardMultiplier===10?'multiple-btnActive':''],
+                          onClick: _cache[5] || (_cache[5] = ($event: any) => (_ctx.setRewardMultiplier(10))),
+                          "no-caps": ""
+                        }, {
+                          default: _withId(() => [
+                            _createTextVNode(_toDisplayString(_ctx.t('reward.reward')) + " ×10", 1)
+                          ]),
+                          _: 1
+                        }, 8, ["class"]),
+                        _createVNode(_component_q_btn, {
+                          class: ["multiple-btn", _ctx.rewardMultiplier===5?'multiple-btnActive':''],
+                          style: {"margin-left":"14px"},
+                          onClick: _cache[6] || (_cache[6] = ($event: any) => (_ctx.setRewardMultiplier(5))),
+                          "no-caps": ""
+                        }, {
+                          default: _withId(() => [
+                            _createTextVNode(_toDisplayString(_ctx.t('reward.reward')) + " ×5", 1)
+                          ]),
+                          _: 1
+                        }, 8, ["class"]),
+                        _hoisted_24
+                      ]),
+                      _createVNode("div", _hoisted_25, _toDisplayString(_ctx.t('reward.maximumReceive',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(_ctx.rewardMultiplier),6)})) + " (" + _toDisplayString(_ctx.rewardMultiplier) + "X)", 1),
+                      _createVNode("div", _hoisted_26, [
+                        _createVNode("div", _hoisted_27, [
+                          _createVNode("div", _hoisted_28, _toDisplayString(_ctx.t('reward.currentRewards')) + " (LARIX)", 1),
+                          _createVNode("div", _hoisted_29, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userStakeLarixAmount,6)), 1)
+                        ]),
+                        _createVNode("div", _hoisted_30, [
+                          _createVNode("div", _hoisted_31, _toDisplayString(_ctx.t('reward.stake')), 1),
+                          _hoisted_32,
+                          _createVNode("div", _hoisted_33, _toDisplayString(_ctx.stakePeriod) + " " + _toDisplayString(_ctx.t('reward.days')), 1)
+                        ]),
+                        _createVNode("div", _hoisted_34, [
+                          _createVNode("div", _hoisted_35, _toDisplayString(_ctx.t('reward.expiredReward')) + " (LARIX)", 1),
+                          _createVNode("div", _hoisted_36, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userTotalStakeLarixAmount,6)), 1)
+                        ])
+                      ]),
+                      _createVNode("div", _hoisted_37, _toDisplayString(_ctx.t('reward.walletBalance')) + " " + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userUsdcBalance,2)) + " USDC, " + _toDisplayString(_ctx.t('reward.maximumReceive',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(_ctx.rewardMultiplier),6)})), 1),
+                      _createVNode("div", _hoisted_38, [
+                        _createVNode("div", _hoisted_39, [
+                          _createVNode(_component_q_slider, {
+                            modelValue: _ctx.sliderStakePercent,
+                            "onUpdate:modelValue": [
+                              _cache[7] || (_cache[7] = ($event: any) => (_ctx.sliderStakePercent = $event)),
+                              _cache[8] || (_cache[8] = ($event: any) => (_ctx.sliderStakePercentChange($event)))
+                            ],
+                            style: {"height":"6px","z-index":"2","padding":"0 2px"},
+                            min: 0,
+                            max: 100
+                          }, null, 8, ["modelValue"]),
+                          _createVNode("div", _hoisted_40, [
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>0?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>20?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>40?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>60?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>80?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent===100?'markActive':'']
+                            }, null, 2)
+                          ])
+                        ])
+                      ]),
+                      _createVNode("div", _hoisted_41, [
+                        _hoisted_42,
+                        _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward,6)) + " LARIX", 1)
+                      ]),
+                      _createVNode("div", _hoisted_43, [
+                        _createVNode("div", null, _toDisplayString(_ctx.t('reward.needUSDC')), 1),
+                        _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.needUSDC,6)) + " USDC", 1)
+                      ]),
+                      _createVNode("div", _hoisted_44, [
+                        _createVNode("div", _hoisted_45, [
+                          _createVNode("div", _hoisted_46, _toDisplayString(_ctx.t('reward.stakeTime')), 1),
+                          _createVNode("div", null, _toDisplayString(_ctx.stakePeriod) + " " + _toDisplayString(_ctx.t('reward.days')), 1)
+                        ]),
+                        _createVNode("div", _hoisted_47, [
+                          _hoisted_48,
+                          _createVNode("div", null, [
+                            _createVNode("img", {
+                              src: _ctx.larixImg,
+                              width: "20",
+                              height: "20",
+                              style: {"border-radius":"50%","vertical-align":"bottom"}
+                            }, null, 8, ["src"]),
+                            _createTextVNode(" " + _toDisplayString(_ctx.formatBigNumberStr(_ctx.mineCollateralLpDetails.apy,2)) + "% + ", 1),
+                            _createVNode("img", {
+                              src: _ctx.rayImg,
+                              width: "20",
+                              height: "20",
+                              style: {"border-radius":"50%","vertical-align":"bottom"}
+                            }, null, 8, ["src"]),
+                            _createTextVNode(" " + _toDisplayString(_ctx.mineCollateralLpDetails.feeApy||0) + "% ", 1)
+                          ])
+                        ])
+                      ]),
+                      _createVNode(_component_q_btn, {
+                        round: "",
+                        "no-caps": "",
+                        class: "button",
+                        style: [{"margin":"2px 0 8px"}, !_ctx.stakeButtonDisable()?'background:#999999':''],
+                        disable: !_ctx.stakeButtonDisable(),
+                        onClick: _ctx.stakeLarix
+                      }, {
+                        default: _withId(() => [
+                          _createTextVNode(_toDisplayString(_ctx.borrowButtonText), 1)
+                        ]),
+                        _: 1
+                      }, 8, ["disable", "style", "onClick"])
+                    ], 512), [
+                      [_vShow, _ctx.step === 2]
+                    ])
+                  ]))
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }),
+      _createVNode(_component_q_card, { class: "rewardApp lt-md" }, {
+        default: _withId(() => [
+          _createVNode(_component_q_card_section, { class: "row items-center rewardTitleApp" }, {
+            default: _withId(() => [
+              _createVNode("div", null, _toDisplayString(_ctx.dialogTitle), 1),
+              _createVNode(_component_q_space),
+              _withDirectives(_createVNode(_component_q_btn, {
+                icon: "close",
+                flat: "",
+                round: ""
+              }, null, 512), [
+                [_directive_close_popup]
+              ])
+            ]),
+            _: 1
+          }),
+          _createVNode(_component_q_card_section, { class: "rewardBodyApp" }, {
+            default: _withId(() => [
+              (!_ctx.walletAddress)
+                ? (_openBlock(), _createBlock("div", _hoisted_49, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('wallet.connectToAWallet')), 1)
+                  ]))
+                : (_openBlock(), _createBlock("div", _hoisted_50, [
+                    _withDirectives(_createVNode("div", _hoisted_51, [
+                      (!_ctx.confirmingClaim)
+                        ? (_openBlock(), _createBlock("div", _hoisted_52, [
+                            _createVNode("div", _hoisted_53, [
+                              _createVNode("img", {
+                                src: _ctx.larixImg,
+                                width: "49",
+                                height: "49",
+                                style: {"border-radius":"50%"}
+                              }, null, 8, ["src"]),
+                              _createVNode("div", _hoisted_54, [
+                                _createVNode("div", _hoisted_55, _toDisplayString(_ctx.t('wallet.unclaimedBalance')), 1),
+                                _createVNode("div", _hoisted_56, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward,6)) + " LARIX", 1),
+                                _createVNode("div", _hoisted_57, "≈$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward.times(_ctx.larixPrice),2)), 1)
+                              ])
+                            ]),
+                            _createVNode("div", _hoisted_58, [
+                              _createVNode("div", _hoisted_59, [
+                                _createVNode("div", _hoisted_60, _toDisplayString(_ctx.t('wallet.walletBalance')), 1),
+                                _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.walletLarixBalance,2)) + " LARIX", 1)
+                              ]),
+                              _createVNode("div", _hoisted_61, [
+                                _createVNode("div", _hoisted_62, _toDisplayString(_ctx.t('wallet.price')), 1),
+                                _createVNode("div", null, "$" + _toDisplayString(_ctx.larixPrice.toFixed(4,1)), 1)
+                              ])
+                            ]),
+                            (_ctx.userLarixReward.isGreaterThan(0))
+                              ? (_openBlock(), _createBlock("div", _hoisted_63, [
+                                  _createVNode("div", _hoisted_64, [
+                                    _createVNode(_component_q_btn, {
+                                      round: "",
+                                      "no-caps": "",
+                                      class: "button-app grey-button",
+                                      style: {"margin-right":"6px","margin-bottom":"10px"},
+                                      onClick: _cache[9] || (_cache[9] = ($event: any) => (_ctx.confirmingClaim = true))
+                                    }, {
+                                      default: _withId(() => [
+                                        _createVNode("span", _hoisted_65, _toDisplayString(_ctx.t('wallet.harvest')), 1)
+                                      ]),
+                                      _: 1
+                                    }),
+                                    _createVNode(_component_q_btn, {
+                                      round: "",
+                                      "no-caps": "",
+                                      class: "button-app grey-button",
+                                      style: {"margin-bottom":"10px"},
+                                      onClick: _cache[10] || (_cache[10] = ($event: any) => (_ctx.step = 2,_ctx.rewardMultiplier = 5))
+                                    }, {
+                                      default: _withId(() => [
+                                        _createVNode("span", _hoisted_66, _toDisplayString(_ctx.$t('reward.reward') + ' X ' + 5), 1)
+                                      ]),
+                                      _: 1
+                                    })
+                                  ]),
+                                  _createVNode("div", _hoisted_67, [
+                                    _createVNode(_component_q_btn, {
+                                      round: "",
+                                      "no-caps": "",
+                                      class: "button-app",
+                                      style: {"margin-bottom":"10px"},
+                                      onClick: _cache[11] || (_cache[11] = ($event: any) => (_ctx.step = 2,_ctx.rewardMultiplier = 10))
+                                    }, {
+                                      default: _withId(() => [
+                                        _createTextVNode(_toDisplayString(_ctx.$t('reward.reward') + ' X ' + 10), 1)
+                                      ]),
+                                      _: 1
+                                    })
+                                  ])
+                                ]))
+                              : (_openBlock(), _createBlock(_component_q_btn, {
+                                  key: 1,
+                                  rounded: "",
+                                  "no-caps": "",
+                                  disabled: "",
+                                  class: "button-app grey-button",
+                                  style: {"margin-bottom":"20px"}
+                                }, {
+                                  default: _withId(() => [
+                                    _createTextVNode(_toDisplayString(_ctx.t('wallet.nothingToClaim')), 1)
+                                  ]),
+                                  _: 1
+                                }))
+                          ]))
+                        : (_openBlock(), _createBlock("div", _hoisted_68, [
+                            _hoisted_69,
+                            _createVNode("div", _hoisted_70, [
+                              _createVNode("div", null, _toDisplayString(_ctx.t('reward.youWillLose1',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(9),6)})), 1),
+                              _createVNode("div", _hoisted_71, _toDisplayString(_ctx.t('reward.youWillLose2',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(9),6)})), 1)
+                            ]),
+                            _createVNode(_component_q_btn, {
+                              round: "",
+                              "no-caps": "",
+                              class: "button-app",
+                              onClick: _cache[12] || (_cache[12] = ($event: any) => (_ctx.step = 2))
+                            }, {
+                              default: _withId(() => [
+                                _createTextVNode(_toDisplayString(_ctx.t('reward.earn2x',{x:10})) + "(" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward.times(10),6)) + ") ", 1)
+                              ]),
+                              _: 1
+                            }),
+                            _createVNode(_component_q_btn, {
+                              round: "",
+                              "no-caps": "",
+                              class: "button-app grey-button bottom-btn-app",
+                              onClick: _ctx.claimReward
+                            }, {
+                              default: _withId(() => [
+                                _createTextVNode(_toDisplayString(_ctx.t('reward.claimDirectly')) + "(" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward,6)) + ") ", 1)
+                              ]),
+                              _: 1
+                            }, 8, ["onClick"])
+                          ]))
+                    ], 512), [
+                      [_vShow, _ctx.step === 1]
+                    ]),
+                    _withDirectives(_createVNode("div", _hoisted_72, [
+                      _createVNode("div", _hoisted_73, [
+                        _createVNode("p", _hoisted_74, _toDisplayString(_ctx.t('reward.chooseToReceive')), 1),
+                        _createVNode(_component_q_btn, {
+                          class: ["multiple-btn", _ctx.rewardMultiplier===10?'multiple-btnActive':''],
+                          onClick: _cache[13] || (_cache[13] = ($event: any) => (_ctx.setRewardMultiplier(10))),
+                          "no-caps": ""
+                        }, {
+                          default: _withId(() => [
+                            _createTextVNode(_toDisplayString(_ctx.t('reward.reward')) + " ×10", 1)
+                          ]),
+                          _: 1
+                        }, 8, ["class"]),
+                        _createVNode(_component_q_btn, {
+                          class: ["multiple-btn", _ctx.rewardMultiplier===5?'multiple-btnActive':''],
+                          style: {"margin-left":"2%"},
+                          onClick: _cache[14] || (_cache[14] = ($event: any) => (_ctx.setRewardMultiplier(5))),
+                          "no-caps": ""
+                        }, {
+                          default: _withId(() => [
+                            _createTextVNode(_toDisplayString(_ctx.t('reward.reward')) + " ×5", 1)
+                          ]),
+                          _: 1
+                        }, 8, ["class"]),
+                        _hoisted_75
+                      ]),
+                      _createVNode("div", _hoisted_76, _toDisplayString(_ctx.t('reward.maximumReceive',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(_ctx.rewardMultiplier),6)})) + " (" + _toDisplayString(_ctx.rewardMultiplier) + "X)", 1),
+                      _createVNode("div", _hoisted_77, [
+                        _createVNode("div", _hoisted_78, [
+                          _createVNode("div", _hoisted_79, _toDisplayString(_ctx.t('reward.currentRewards')) + " (LARIX)", 1),
+                          _createVNode("div", _hoisted_80, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userStakeLarixAmount,6)), 1)
+                        ]),
+                        _createVNode("div", _hoisted_81, [
+                          _createVNode("div", _hoisted_82, _toDisplayString(_ctx.t('reward.stake')), 1),
+                          _hoisted_83,
+                          _createVNode("div", _hoisted_84, _toDisplayString(_ctx.stakePeriod) + " " + _toDisplayString(_ctx.t('reward.days')), 1)
+                        ]),
+                        _createVNode("div", _hoisted_85, [
+                          _createVNode("div", _hoisted_86, _toDisplayString(_ctx.t('reward.expiredReward')) + " (LARIX)", 1),
+                          _createVNode("div", _hoisted_87, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userTotalStakeLarixAmount,6)), 1)
+                        ])
+                      ]),
+                      _createVNode("div", _hoisted_88, _toDisplayString(_ctx.t('reward.walletBalance')) + " " + _toDisplayString(_ctx.formatBigNumberStr(_ctx.userUsdcBalance,2)) + " USDC, " + _toDisplayString(_ctx.t('reward.maximumReceive',{x:_ctx.formatBigNumberStr(_ctx.userLarixReward.times(_ctx.rewardMultiplier),6)})), 1),
+                      _createVNode("div", _hoisted_89, [
+                        _createVNode("div", _hoisted_90, [
+                          _createVNode(_component_q_slider, {
+                            modelValue: _ctx.sliderStakePercent,
+                            "onUpdate:modelValue": [
+                              _cache[15] || (_cache[15] = ($event: any) => (_ctx.sliderStakePercent = $event)),
+                              _cache[16] || (_cache[16] = ($event: any) => (_ctx.sliderStakePercentChange($event)))
+                            ],
+                            style: {"height":"6px","z-index":"2","padding":"0 2px"},
+                            min: 0,
+                            max: 100
+                          }, null, 8, ["modelValue"]),
+                          _createVNode("div", _hoisted_91, [
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>0?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>20?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>40?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>60?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent>80?'markActive':'']
+                            }, null, 2),
+                            _createVNode("div", {
+                              class: ["sliderMarksText", _ctx.sliderStakePercent===100?'markActive':'']
+                            }, null, 2)
+                          ])
+                        ])
+                      ]),
+                      _createVNode("div", _hoisted_92, [
+                        _hoisted_93,
+                        _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward,6)) + " LARIX", 1)
+                      ]),
+                      _createVNode("div", _hoisted_94, [
+                        _createVNode("div", null, _toDisplayString(_ctx.t('reward.needUSDC')), 1),
+                        _createVNode("div", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.needUSDC,6)) + " USDC", 1)
+                      ]),
+                      _createVNode("div", _hoisted_95, [
+                        _createVNode("div", _hoisted_96, [
+                          _createVNode("div", _hoisted_97, _toDisplayString(_ctx.t('reward.stakeTime')), 1),
+                          _createVNode("div", null, _toDisplayString(_ctx.stakePeriod) + " " + _toDisplayString(_ctx.t('reward.days')), 1)
+                        ]),
+                        _createVNode("div", _hoisted_98, [
+                          _hoisted_99,
+                          _createVNode("div", null, [
+                            _createVNode("img", {
+                              src: _ctx.larixImg,
+                              width: "14",
+                              height: "14",
+                              style: {"border-radius":"50%","vertical-align":"bottom"}
+                            }, null, 8, ["src"]),
+                            _createTextVNode(" " + _toDisplayString(_ctx.formatBigNumberStr(_ctx.mineCollateralLpDetails.apy,2)) + "% + ", 1),
+                            _createVNode("img", {
+                              src: _ctx.rayImg,
+                              width: "14",
+                              height: "14",
+                              style: {"border-radius":"50%","vertical-align":"bottom"}
+                            }, null, 8, ["src"]),
+                            _createTextVNode(" " + _toDisplayString(_ctx.mineCollateralLpDetails.feeApy||0) + "% ", 1)
+                          ])
+                        ])
+                      ]),
+                      _createVNode(_component_q_btn, {
+                        round: "",
+                        "no-caps": "",
+                        class: "button-app",
+                        style: [{"margin":"2px 0 8px"}, !_ctx.stakeButtonDisable()?'background:#999999':''],
+                        disable: !_ctx.stakeButtonDisable(),
+                        onClick: _ctx.stakeLarix
+                      }, {
+                        default: _withId(() => [
+                          _createTextVNode(_toDisplayString(_ctx.borrowButtonText), 1)
+                        ]),
+                        _: 1
+                      }, 8, ["disable", "style", "onClick"])
+                    ], 512), [
+                      [_vShow, _ctx.step === 2]
+                    ])
+                  ]))
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      })
+    ]),
+    _: 1
+  }, 8, ["modelValue"]))
+})

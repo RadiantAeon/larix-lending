@@ -1,0 +1,37 @@
+var map = {
+	"./asset_BTC.svg": "5012",
+	"./asset_ETH.svg": "8523",
+	"./asset_FTT.svg": "3d88",
+	"./asset_LDO.svg": "3ea5",
+	"./asset_MNDE.svg": "e508",
+	"./asset_RAY.svg": "2f68",
+	"./asset_SOL.svg": "99ba",
+	"./asset_SRM.svg": "7b21",
+	"./asset_USDC.svg": "be16",
+	"./asset_USDT.svg": "077f",
+	"./asset_UST.svg": "a061",
+	"./asset_mSOL.svg": "8c07",
+	"./asset_soETH.svg": "84ab",
+	"./asset_soFTT.svg": "fa78",
+	"./asset_stSOL.svg": "5a48"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "51ac";

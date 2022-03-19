@@ -1,0 +1,10 @@
+import { createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from "vue"
+
+export function render(_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) {
+  return (_openBlock(), _createBlock("div", {
+    class: "echartsStyle",
+    style: {'width':_ctx.$props.width,'height':_ctx.$props.height}
+  }, [
+    _createVNode("div", { id: _ctx.divId }, null, 8, ["id"])
+  ], 4))
+}

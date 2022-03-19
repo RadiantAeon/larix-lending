@@ -1,0 +1,631 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, withCtx as _withCtx, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-0c4493df")
+
+_pushScopeId("data-v-0c4493df")
+const _hoisted_1 = { class: "larixContainer gt-sm" }
+const _hoisted_2 = { class: "newLarixTop" }
+const _hoisted_3 = { class: "newLarixTop-left " }
+const _hoisted_4 = { class: "newLarixTop-left-title" }
+const _hoisted_5 = { class: "newLarixTop-left-title-button" }
+const _hoisted_6 = /*#__PURE__*/_createVNode("div", { class: "after" }, null, -1)
+const _hoisted_7 = /*#__PURE__*/_createVNode("div", { class: "div" }, null, -1)
+const _hoisted_8 = { class: "before" }
+const _hoisted_9 = { class: "newLarixTop-left-main" }
+const _hoisted_10 = { class: "newLarixTop-left-main-circulation " }
+const _hoisted_11 = {
+  class: "blueColor",
+  style: {"margin-bottom":"25px"}
+}
+const _hoisted_12 = { style: {"font-size":"20px","color":"#FFFFFF","margin-right":"10px"} }
+const _hoisted_13 = /*#__PURE__*/_createVNode("span", {
+  class: "blueColor",
+  style: {"padding-left":"5px"}
+}, "LARIX", -1)
+const _hoisted_14 = { class: "blueColor" }
+const _hoisted_15 = { class: "newLarixTop-left-main-progress " }
+const _hoisted_16 = { class: "progressBar" }
+const _hoisted_17 = { style: {"width":"0","height":"0","overflow":"visible"} }
+const _hoisted_18 = { style: {"width":"fit-content","height":"fit-content"} }
+const _hoisted_19 = { class: "pop-with-border" }
+const _hoisted_20 = /*#__PURE__*/_createVNode("div", { class: "after" }, null, -1)
+const _hoisted_21 = /*#__PURE__*/_createVNode("div", { class: "div" }, null, -1)
+const _hoisted_22 = { class: "before" }
+const _hoisted_23 = /*#__PURE__*/_createVNode("div", { class: "borrowLimit" }, [
+  /*#__PURE__*/_createVNode("span", { class: "blueColor" }, "0 "),
+  /*#__PURE__*/_createVNode("span", { class: "blueColor" }, "10B")
+], -1)
+const _hoisted_24 = { class: "newLarixTop-right " }
+const _hoisted_25 = { class: "newLarixTop-right-main" }
+const _hoisted_26 = { style: {"padding-left":"5.7%","width":"72%"} }
+const _hoisted_27 = { class: "newLarixTop-right-main-title" }
+const _hoisted_28 = { style: {"display":"flex","flex-wrap":"wrap"} }
+const _hoisted_29 = { class: "newLarixTop-right-main-item-main" }
+const _hoisted_30 = { style: {"display":"flex","align-items":"center"} }
+const _hoisted_31 = { class: "stakePools" }
+const _hoisted_32 = { class: "stakePools-content" }
+const _hoisted_33 = { class: "stakePools-content-item-top" }
+const _hoisted_34 = { class: "stakePools-content-item-top-img" }
+const _hoisted_35 = { class: "stakePools-content-item-top-apr" }
+const _hoisted_36 = { key: 0 }
+const _hoisted_37 = { key: 1 }
+const _hoisted_38 = /*#__PURE__*/_createVNode("div", { class: "stakePools-content-item-splitLine" }, null, -1)
+const _hoisted_39 = { class: "stakePools-content-item-bottom" }
+const _hoisted_40 = { class: "stakePools-content-item-bottom-left" }
+const _hoisted_41 = { class: "stakePools-content-item-bottom-left-dex" }
+const _hoisted_42 = /*#__PURE__*/_createTextVNode("Stake")
+const _hoisted_43 = { class: "newLarixTable" }
+const _hoisted_44 = { class: "newLarixTable-title" }
+const _hoisted_45 = { class: "newLarixTable-main" }
+const _hoisted_46 = { style: {"text-align":"left"} }
+const _hoisted_47 = { style: {"text-align":"right"} }
+const _hoisted_48 = { style: {"text-align":"right"} }
+const _hoisted_49 = { style: {"text-align":"right"} }
+const _hoisted_50 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_51 = { style: {"text-align":"right"} }
+const _hoisted_52 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_53 = { style: {"padding":"0 10px","display":"flex","justify-content":"flex-end"} }
+const _hoisted_54 = { style: {"display":"flex","color":"transparent","position":"relative","width":"fit-content"} }
+const _hoisted_55 = { style: {"padding":"0 13px","min-width":"90px","white-space":"nowrap"} }
+const _hoisted_56 = {
+  style: {"position":"absolute","top":"0","left":"0","width":"100%"},
+  class: "grey-color"
+}
+const _hoisted_57 = { style: {"width":"13.5%"} }
+const _hoisted_58 = { class: "token-cell" }
+const _hoisted_59 = { class: "token-img" }
+const _hoisted_60 = { class: "text-wrap" }
+const _hoisted_61 = { style: {"font-size":"16px","margin-bottom":"4px"} }
+const _hoisted_62 = {
+  class: "grey-color",
+  style: {"line-height":"18px"}
+}
+const _hoisted_63 = { style: {"width":"16.74%"} }
+const _hoisted_64 = { class: "apr-cell" }
+const _hoisted_65 = /*#__PURE__*/_createVNode("div", { style: {"font-size":"16px","margin-bottom":"2px"} }, null, -1)
+const _hoisted_66 = { class: "data-cell" }
+const _hoisted_67 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_68 = { class: "grey-color details-wrap" }
+const _hoisted_69 = { style: {"width":"16.74%"} }
+const _hoisted_70 = { class: "data-cell" }
+const _hoisted_71 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_72 = { class: "grey-color details-wrap" }
+const _hoisted_73 = { style: {"width":"18.24%"} }
+const _hoisted_74 = { class: "data-cell" }
+const _hoisted_75 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_76 = /*#__PURE__*/_createVNode("div", { class: "grey-color details-wrap" }, [
+  /*#__PURE__*/_createVNode("span", null, "LARIX")
+], -1)
+const _hoisted_77 = { style: {"width":"18.24%"} }
+const _hoisted_78 = { class: "data-cell" }
+const _hoisted_79 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_80 = { class: "action-cell" }
+const _hoisted_81 = { class: "larixMobileContainer lt-md " }
+const _hoisted_82 = { class: "newLarixTop" }
+const _hoisted_83 = { class: "newLarixTop-title" }
+const _hoisted_84 = { class: "newLarixTop-title-button" }
+const _hoisted_85 = /*#__PURE__*/_createVNode("div", { class: "after" }, null, -1)
+const _hoisted_86 = /*#__PURE__*/_createVNode("div", { class: "div" }, null, -1)
+const _hoisted_87 = { class: "before" }
+const _hoisted_88 = /*#__PURE__*/_createVNode("div", { class: "newLarixTop-dashed" }, null, -1)
+const _hoisted_89 = { class: "newLarixTop-main" }
+const _hoisted_90 = { class: "newLarixTop-main-left" }
+const _hoisted_91 = { style: {"color":"#9CB7F3","margin-bottom":"5px"} }
+const _hoisted_92 = { style: {"margin-bottom":"5px"} }
+const _hoisted_93 = { style: {"font-size":"15px"} }
+const _hoisted_94 = /*#__PURE__*/_createVNode("div", { style: {"margin-left":"5px","display":"inline-block","color":"#9CB7F3"} }, "LARIX", -1)
+const _hoisted_95 = { style: {"color":"#9CB7F3"} }
+const _hoisted_96 = { class: "newLarixTop-main-right" }
+const _hoisted_97 = { class: "progressBar" }
+const _hoisted_98 = { style: {"width":"0","height":"0","overflow":"visible"} }
+const _hoisted_99 = { style: {"width":"fit-content","height":"fit-content"} }
+const _hoisted_100 = /*#__PURE__*/_createVNode("div", { class: "pop-with-border" }, null, -1)
+const _hoisted_101 = { class: "text" }
+const _hoisted_102 = /*#__PURE__*/_createVNode("div", { class: "border" }, null, -1)
+const _hoisted_103 = /*#__PURE__*/_createVNode("div", { class: "borrowLimit" }, [
+  /*#__PURE__*/_createVNode("span", null, "0"),
+  /*#__PURE__*/_createVNode("span", null, "10B")
+], -1)
+const _hoisted_104 = { class: "newLarixEchart" }
+const _hoisted_105 = { class: "newLarixEchart-title" }
+const _hoisted_106 = { class: "newLarixEchart-main" }
+const _hoisted_107 = { class: "newLarixEchart-main-echart" }
+const _hoisted_108 = { class: "newLarixLiquidityMining" }
+const _hoisted_109 = { class: "newLarixLiquidityMining-title" }
+const _hoisted_110 = { class: "newLarixLiquidityMining-main" }
+const _hoisted_111 = { style: {"display":"flex"} }
+const _hoisted_112 = { style: {"position":"relative","display":"flex","align-items":"center"} }
+const _hoisted_113 = { style: {"margin-left":"39px"} }
+const _hoisted_114 = { style: {"font-size":"14px"} }
+const _hoisted_115 = { style: {"color":"#9CB7F3"} }
+const _hoisted_116 = { style: {"text-align":"right"} }
+const _hoisted_117 = { key: 0 }
+const _hoisted_118 = {
+  key: 1,
+  style: {"font-size":"14px"}
+}
+const _hoisted_119 = { style: {"color":"#9CB7F3"} }
+const _hoisted_120 = { class: "newLarixMarket" }
+const _hoisted_121 = { class: "newLarixMarket-title" }
+const _hoisted_122 = { class: "newLarixMarket-main" }
+const _hoisted_123 = { class: "newLarixMarket-main-item-title" }
+const _hoisted_124 = { style: {"display":"flex","align-items":"center","justify-content":"space-between"} }
+const _hoisted_125 = { style: {"margin-bottom":"2px","font-size":"16px"} }
+const _hoisted_126 = { style: {"color":"#9CB7F3"} }
+const _hoisted_127 = { style: {"text-align":"right"} }
+const _hoisted_128 = { style: {"margin-bottom":"2px","font-size":"16px"} }
+const _hoisted_129 = { style: {"color":"#9CB7F3"} }
+const _hoisted_130 = { class: "newLarixMarket-main-item-total" }
+const _hoisted_131 = { style: {"color":"#9CB7F3"} }
+const _hoisted_132 = { style: {"font-size":"14px"} }
+const _hoisted_133 = { class: "newLarixMarket-main-item-total" }
+const _hoisted_134 = { style: {"color":"#9CB7F3"} }
+const _hoisted_135 = { style: {"font-size":"14px"} }
+const _hoisted_136 = { class: "newLarixMarket-main-item-total" }
+const _hoisted_137 = { style: {"color":"#9CB7F3"} }
+const _hoisted_138 = { style: {"font-size":"14px"} }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_space = _resolveComponent("q-space")
+  const _component_q_linear_progress = _resolveComponent("q-linear-progress")
+  const _component_myEchart = _resolveComponent("myEchart")
+  const _component_q_btn = _resolveComponent("q-btn")
+  const _component_q_card = _resolveComponent("q-card")
+  const _component_q_tooltip = _resolveComponent("q-tooltip")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode("div", _hoisted_1, [
+      _createVNode("div", _hoisted_2, [
+        _createVNode("div", _hoisted_3, [
+          _createVNode("div", _hoisted_4, [
+            _createVNode("span", null, _toDisplayString(_ctx.t('larix.totalSupply')) + ": 10B LARIX", 1),
+            _createVNode("div", _hoisted_5, [
+              _hoisted_6,
+              _hoisted_7,
+              _createVNode("div", _hoisted_8, "LARIX:$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.larixPrice,4)), 1)
+            ])
+          ]),
+          _createVNode("div", _hoisted_9, [
+            _createVNode("div", _hoisted_10, [
+              _createVNode("p", _hoisted_11, _toDisplayString(_ctx.t('larix.amountinCirculation')), 1),
+              _createVNode("p", _hoisted_12, [
+                _createTextVNode(_toDisplayString(_ctx.formatBigNumberStr(_ctx.larixCirculation,2)), 1),
+                _hoisted_13
+              ]),
+              _createVNode("p", _hoisted_14, "≈$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.circulationInUsd,2)), 1)
+            ]),
+            _createVNode("div", _hoisted_15, [
+              _createVNode("div", _hoisted_16, [
+                _createVNode("div", {
+                  class: "percentage",
+                  style: 'width: '+_ctx.circulationRatio+'%;'
+                }, [
+                  _createVNode(_component_q_space),
+                  _createVNode("div", _hoisted_17, [
+                    _createVNode("div", _hoisted_18, [
+                      _createVNode("div", _hoisted_19, [
+                        _hoisted_20,
+                        _hoisted_21,
+                        _createVNode("div", _hoisted_22, _toDisplayString(_ctx.circulationRatio) + "%", 1)
+                      ])
+                    ])
+                  ])
+                ], 4),
+                _createVNode(_component_q_linear_progress, {
+                  size: "8px",
+                  style: {"background":"#2B3866","border-radius":"4px"},
+                  value: _ctx.circulationRatio/100,
+                  "show-text": false
+                }, null, 8, ["value"]),
+                _hoisted_23
+              ])
+            ])
+          ])
+        ]),
+        _createVNode("div", _hoisted_24, [
+          _createVNode("div", _hoisted_25, [
+            _createVNode("div", null, [
+              _createVNode(_component_myEchart, {
+                dataArr: _ctx.myEchartData,
+                width: '182px',
+                height: '182px',
+                style: {"margin":"0 auto"}
+              }, null, 8, ["dataArr"])
+            ]),
+            _createVNode("div", _hoisted_26, [
+              _createVNode("div", _hoisted_27, _toDisplayString(_ctx.t('larix.dailyDistribution')) + " " + _toDisplayString(_ctx.formatBigNumberStr (_ctx.totalLarixDaily ,0)) + " LARIX", 1),
+              _createVNode("div", _hoisted_28, [
+                (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.top5Token, (item, index) => {
+                  return (_openBlock(), _createBlock("div", {
+                    class: "newLarixTop-right-main-item ",
+                    key: item.id
+                  }, [
+                    _createVNode("div", _hoisted_29, [
+                      _createVNode("div", _hoisted_30, [
+                        _createVNode("div", {
+                          class: "icon",
+                          style: [{'background':_ctx.iconBackgroundColorArr[index]}, {"margin-right":"5px"}]
+                        }, null, 4),
+                        _createVNode("div", {
+                          style: {'color':_ctx.iconBackgroundColorArr[index]}
+                        }, _toDisplayString(item.symbol), 5)
+                      ]),
+                      _createVNode("div", null, _toDisplayString((item.dailyMining.div(_ctx.totalLarixDaily).times(100)).toFixed(2)) + "% ", 1)
+                    ])
+                  ]))
+                }), 128))
+              ])
+            ])
+          ])
+        ])
+      ]),
+      _createVNode("div", _hoisted_31, [
+        _createVNode("div", _hoisted_32, [
+          (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.stakePoolsList(), (item, index) => {
+            return (_openBlock(), _createBlock(_component_q_card, {
+              class: "stakePools-content-item",
+              key: item.id
+            }, {
+              default: _withId(() => [
+                _createVNode("div", _hoisted_33, [
+                  _createVNode("div", _hoisted_34, [
+                    _createVNode("img", {
+                      src: _ctx.larixLogoSource,
+                      width: "42",
+                      height: "42"
+                    }, null, 8, ["src"]),
+                    _createVNode("img", {
+                      class: "stakePools-content-item-top-img-token1",
+                      src: item.token1LogoSource,
+                      width: "42",
+                      height: "42"
+                    }, null, 8, ["src"])
+                  ]),
+                  _createVNode("div", _hoisted_35, [
+                    (!_ctx.isLoadingUserLarixStakeInfo&&index===0)
+                      ? (_openBlock(), _createBlock("p", _hoisted_36, _toDisplayString(_ctx.formatBigNumberStr(_ctx.mineCollateralLpDetails.apy.plus(_ctx.mineCollateralLpDetails.feeApy),2)) + "% ", 1))
+                      : (_openBlock(), _createBlock("p", _hoisted_37, _toDisplayString(item.APR), 1)),
+                    _createVNode("p", null, _toDisplayString(_ctx.t('home.totalAPR')), 1)
+                  ])
+                ]),
+                _hoisted_38,
+                _createVNode("div", _hoisted_39, [
+                  _createVNode("div", _hoisted_40, [
+                    _createVNode("p", null, _toDisplayString(item.pairs), 1),
+                    _createVNode("div", _hoisted_41, [
+                      _createVNode("img", {
+                        src: item.dexLogoSource,
+                        width: "20",
+                        height: "20"
+                      }, null, 8, ["src"]),
+                      _createVNode("span", null, _toDisplayString(item.dex), 1)
+                    ])
+                  ]),
+                  _createVNode(_component_q_btn, {
+                    "no-caps": "",
+                    class: "btn-lang stakePools-content-item-bottom-right",
+                    onClick: ($event: any) => (_ctx.gotoStakePools(item.stakeURL))
+                  }, {
+                    default: _withId(() => [
+                      _hoisted_42
+                    ]),
+                    _: 2
+                  }, 1032, ["onClick"])
+                ])
+              ]),
+              _: 2
+            }, 1024))
+          }), 128))
+        ])
+      ]),
+      _createVNode("div", _hoisted_43, [
+        _createVNode("div", _hoisted_44, _toDisplayString(_ctx.t('larix.market')), 1),
+        _createVNode("div", _hoisted_45, [
+          _createVNode("table", null, [
+            _createVNode("tr", null, [
+              _createVNode("th", null, [
+                _createVNode("div", _hoisted_46, _toDisplayString(_ctx.t('home.asset')), 1)
+              ]),
+              _createVNode("th", null, [
+                _createVNode("div", _hoisted_47, _toDisplayString(_ctx.t('home.totalSupply')), 1)
+              ]),
+              _createVNode("th", null, [
+                _createVNode("div", _hoisted_48, _toDisplayString(_ctx.t('marketId.totalBorrow')), 1)
+              ]),
+              _createVNode("th", null, [
+                _createVNode("div", _hoisted_49, [
+                  _createTextVNode(_toDisplayString(_ctx.t('larix.perDay')) + " ", 1),
+                  _createVNode("img", {
+                    src: _ctx.icon_information,
+                    height: "14",
+                    width: "14",
+                    style: {"cursor":"pointer","position":"relative","top":"2px"}
+                  }, null, 8, ["src"]),
+                  _createVNode(_component_q_tooltip, {
+                    anchor: "center right",
+                    self: "center left"
+                  }, {
+                    default: _withId(() => [
+                      _createVNode("p", _hoisted_50, _toDisplayString(_ctx.t('tip.dailyTip')), 1)
+                    ]),
+                    _: 1
+                  })
+                ])
+              ]),
+              _createVNode("th", null, [
+                _createVNode("div", _hoisted_51, [
+                  _createTextVNode(_toDisplayString(_ctx.t('marketId.collateralFactor')) + " ", 1),
+                  _createVNode("img", {
+                    src: _ctx.icon_information,
+                    height: "14",
+                    width: "14",
+                    style: {"cursor":"pointer","position":"relative","top":"2px"}
+                  }, null, 8, ["src"]),
+                  _createVNode(_component_q_tooltip, {
+                    anchor: "center right",
+                    self: "center left"
+                  }, {
+                    default: _withId(() => [
+                      _createVNode("p", _hoisted_52, _toDisplayString(_ctx.t('tip.collateralFactorTip')), 1)
+                    ]),
+                    _: 1
+                  })
+                ])
+              ]),
+              _createVNode("th", null, [
+                _createVNode("div", _hoisted_53, [
+                  _createVNode("div", _hoisted_54, [
+                    _createVNode("div", _hoisted_55, _toDisplayString(_ctx.t('market.details')), 1),
+                    _createVNode("div", _hoisted_56, _toDisplayString(_ctx.t('larixStakingDialog.actions')), 1)
+                  ])
+                ])
+              ])
+            ]),
+            (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.sortMarket, (item) => {
+              return (_openBlock(), _createBlock("tr", {
+                key: item.id
+              }, [
+                _createVNode("td", _hoisted_57, [
+                  _createVNode("div", _hoisted_58, [
+                    _createVNode("div", _hoisted_59, [
+                      _createVNode("img", {
+                        src: item.logoSource,
+                        width: item.isLP?'64':'36',
+                        height: "36"
+                      }, null, 8, ["src", "width"])
+                    ]),
+                    _createVNode("div", _hoisted_60, [
+                      _createVNode("div", _hoisted_61, _toDisplayString(item.symbol), 1),
+                      _createVNode("div", _hoisted_62, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.liquidityPrice,2)), 1)
+                    ])
+                  ])
+                ]),
+                _createVNode("td", _hoisted_63, [
+                  _createVNode("div", _hoisted_64, [
+                    _hoisted_65,
+                    _createVNode("div", _hoisted_66, [
+                      _createVNode("div", _hoisted_67, _toDisplayString(_ctx.formatBigNumberStr(item.totalLiquidityAmount,2)) + " " + _toDisplayString(item.symbol), 1),
+                      _createVNode("div", _hoisted_68, [
+                        _createVNode("span", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.totalLiquidityInUsd,2)), 1)
+                      ])
+                    ])
+                  ])
+                ]),
+                _createVNode("td", _hoisted_69, [
+                  _createVNode("div", _hoisted_70, [
+                    _createVNode("div", _hoisted_71, _toDisplayString(_ctx.formatBigNumberStr(item.totalBorrowedAmount,2)) + " " + _toDisplayString(item.symbol), 1),
+                    _createVNode("div", _hoisted_72, [
+                      _createVNode("span", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.totalBorrowedInUsd,2)), 1)
+                    ])
+                  ])
+                ]),
+                _createVNode("td", _hoisted_73, [
+                  _createVNode("div", _hoisted_74, [
+                    _createVNode("div", _hoisted_75, _toDisplayString(_ctx.formatBigNumberStr(item.dailyMining,2)), 1),
+                    _hoisted_76
+                  ])
+                ]),
+                _createVNode("td", _hoisted_77, [
+                  _createVNode("div", _hoisted_78, [
+                    _createVNode("div", _hoisted_79, _toDisplayString(item.collateralFactor.times(100).toFixed(2)) + "% ", 1)
+                  ])
+                ]),
+                _createVNode("td", null, [
+                  _createVNode("div", _hoisted_80, [
+                    _createVNode("div", {
+                      class: "operationButton",
+                      onClick: ($event: any) => (_ctx.goToMarketDetail(item))
+                    }, [
+                      _createVNode("span", null, _toDisplayString(_ctx.t('market.details')), 1)
+                    ], 8, ["onClick"])
+                  ])
+                ])
+              ]))
+            }), 128))
+          ])
+        ])
+      ])
+    ]),
+    _createVNode("div", _hoisted_81, [
+      _createVNode("div", _hoisted_82, [
+        _createVNode("div", _hoisted_83, [
+          _createVNode("span", null, _toDisplayString(_ctx.t('larix.totalSupply')) + ": 10B LARIX", 1),
+          _createVNode("div", _hoisted_84, [
+            _hoisted_85,
+            _hoisted_86,
+            _createVNode("div", _hoisted_87, "LARIX:$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.larixPrice,4)), 1)
+          ])
+        ]),
+        _hoisted_88,
+        _createVNode("div", _hoisted_89, [
+          _createVNode("div", _hoisted_90, [
+            _createVNode("div", _hoisted_91, _toDisplayString(_ctx.t('larix.amountinCirculation')), 1),
+            _createVNode("div", _hoisted_92, [
+              _createVNode("span", _hoisted_93, _toDisplayString(_ctx.formatBigNumberStr(_ctx.larixCirculation,2)), 1),
+              _hoisted_94
+            ]),
+            _createVNode("span", _hoisted_95, "≈$" + _toDisplayString(_ctx.formatBigNumberStr(_ctx.circulationInUsd,2)), 1)
+          ]),
+          _createVNode("div", _hoisted_96, [
+            _createVNode("div", _hoisted_97, [
+              _createVNode("div", {
+                class: "percentage",
+                style: 'width: '+_ctx.circulationRatio+'%;'
+              }, [
+                _createVNode(_component_q_space),
+                _createVNode("div", _hoisted_98, [
+                  _createVNode("div", _hoisted_99, [
+                    _hoisted_100,
+                    _createVNode("div", _hoisted_101, _toDisplayString(_ctx.circulationRatio) + "%", 1),
+                    _hoisted_102
+                  ])
+                ])
+              ], 4),
+              _createVNode(_component_q_linear_progress, {
+                size: "8px",
+                style: {"background":"#2B3866","border-radius":"4px"},
+                value: _ctx.circulationRatio/100,
+                "show-text": false
+              }, null, 8, ["value"]),
+              _hoisted_103
+            ])
+          ])
+        ])
+      ]),
+      _createVNode("div", _hoisted_104, [
+        _createVNode("div", _hoisted_105, _toDisplayString(_ctx.t('larix.dailyDistribution')) + " " + _toDisplayString(_ctx.formatBigNumberStr (_ctx.totalLarixDaily ,0)) + " LARIX ", 1),
+        _createVNode("div", _hoisted_106, [
+          _createVNode("div", _hoisted_107, [
+            _createVNode(_component_myEchart, {
+              dataArr: _ctx.myEchartData,
+              type: 'mobile',
+              width: '156px',
+              height: '156px'
+            }, null, 8, ["dataArr"])
+          ]),
+          _createVNode("div", null, [
+            (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.top5Token, (item, index) => {
+              return (_openBlock(), _createBlock("div", {
+                class: "newLarixEchart-main-item",
+                key: item.id
+              }, [
+                _createVNode("div", {
+                  style: [{"display":"flex","align-items":"center"}, {'color':_ctx.iconBackgroundColorArr[index]}]
+                }, [
+                  _createVNode("div", {
+                    class: "icon",
+                    style: [{'background':_ctx.iconBackgroundColorArr[index]}, {"margin-right":"2px"}]
+                  }, null, 4),
+                  _createVNode("div", null, _toDisplayString(item.symbol), 1)
+                ], 4),
+                _createVNode("div", {
+                  style: [{"display":"flex","align-items":"center","justify-content":"flex-end"}, {'color':_ctx.iconBackgroundColorArr[index]}]
+                }, _toDisplayString((item.dailyMining.div(_ctx.totalLarixDaily).times(100)).toFixed(2)) + "% ", 5)
+              ]))
+            }), 128))
+          ])
+        ])
+      ]),
+      _createVNode("div", _hoisted_108, [
+        _createVNode("div", _hoisted_109, [
+          _createVNode("div", null, _toDisplayString(_ctx.t('home.liquidityMining')), 1)
+        ]),
+        _createVNode("div", _hoisted_110, [
+          (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.stakePoolsList(), (item, index) => {
+            return (_openBlock(), _createBlock("div", {
+              class: "newLarixLiquidityMining-main-item",
+              onClick: ($event: any) => (_ctx.gotoStakePools(item.stakeURL)),
+              key: index
+            }, [
+              _createVNode("div", _hoisted_111, [
+                _createVNode("div", _hoisted_112, [
+                  _createVNode("img", {
+                    src: _ctx.larixLogoSource,
+                    width: "35",
+                    height: "35"
+                  }, null, 8, ["src"]),
+                  _createVNode("img", {
+                    src: item.token1LogoSource,
+                    class: "img",
+                    width: "35",
+                    height: "35"
+                  }, null, 8, ["src"])
+                ]),
+                _createVNode("div", _hoisted_113, [
+                  _createVNode("div", _hoisted_114, _toDisplayString(item.pairs), 1),
+                  _createVNode("span", _hoisted_115, _toDisplayString(item.dex), 1)
+                ])
+              ]),
+              _createVNode("div", _hoisted_116, [
+                (!_ctx.isLoadingUserLarixStakeInfo&&index===0)
+                  ? (_openBlock(), _createBlock("div", _hoisted_117, _toDisplayString(_ctx.formatBigNumberStr(_ctx.mineCollateralLpDetails.apy.plus(_ctx.mineCollateralLpDetails.feeApy),2)) + "% ", 1))
+                  : (_openBlock(), _createBlock("div", _hoisted_118, _toDisplayString(item.APR), 1)),
+                _createVNode("span", _hoisted_119, _toDisplayString(_ctx.t('home.totalAPR')), 1)
+              ])
+            ], 8, ["onClick"]))
+          }), 128))
+        ])
+      ]),
+      _createVNode("div", _hoisted_120, [
+        _createVNode("div", _hoisted_121, [
+          _createVNode("div", null, _toDisplayString(_ctx.t('larix.market')), 1)
+        ]),
+        _createVNode("div", _hoisted_122, [
+          (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.sortMarket, (item, index) => {
+            return (_openBlock(), _createBlock("div", {
+              class: "newLarixMarket-main-item",
+              key: index,
+              onClick: ($event: any) => (_ctx.goToMarketDetail(item))
+            }, [
+              _createVNode("div", _hoisted_123, [
+                _createVNode("div", _hoisted_124, [
+                  _createVNode("img", {
+                    style: {"margin-right":"8px"},
+                    src: item.logoSource,
+                    width: item.isLP?'64':'34',
+                    height: "34"
+                  }, null, 8, ["src", "width"]),
+                  _createVNode("div", null, [
+                    _createVNode("div", _hoisted_125, _toDisplayString(item.symbol), 1),
+                    _createVNode("span", _hoisted_126, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.liquidityPrice,2)), 1)
+                  ])
+                ]),
+                _createVNode("div", _hoisted_127, [
+                  _createVNode("div", _hoisted_128, _toDisplayString(item.collateralFactor.times(100).toFixed(2)) + "%", 1),
+                  _createVNode("span", _hoisted_129, _toDisplayString(_ctx.t('marketId.collateralFactor')), 1)
+                ])
+              ]),
+              _createVNode("div", _hoisted_130, [
+                _createVNode("div", _hoisted_131, _toDisplayString(_ctx.t('home.totalSupply')), 1),
+                _createVNode("div", _hoisted_132, " $" + _toDisplayString(_ctx.formatBigNumberStr(item.totalLiquidityInUsd,2)), 1)
+              ]),
+              _createVNode("div", _hoisted_133, [
+                _createVNode("div", _hoisted_134, _toDisplayString(_ctx.t('marketId.totalBorrow')), 1),
+                _createVNode("div", _hoisted_135, " $" + _toDisplayString(_ctx.formatBigNumberStr(item.totalBorrowedInUsd,2)), 1)
+              ]),
+              _createVNode("div", _hoisted_136, [
+                _createVNode("div", _hoisted_137, [
+                  _createTextVNode(_toDisplayString(_ctx.t('larix.perDay')) + " ", 1),
+                  _createVNode("img", {
+                    src: _ctx.icon_information,
+                    width: "10",
+                    height: "10",
+                    "data-v-fae5bece": "",
+                    style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                  }, null, 8, ["src"]),
+                  _createVNode(_component_q_tooltip, { "hide-delay": 5000 }, {
+                    default: _withId(() => [
+                      _createTextVNode(_toDisplayString(_ctx.t('tip.dailyTip')), 1)
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _createVNode("div", _hoisted_138, _toDisplayString(_ctx.formatBigNumberStr(item.dailyMining,2)), 1)
+              ])
+            ], 8, ["onClick"]))
+          }), 128))
+        ])
+      ])
+    ])
+  ], 64))
+})

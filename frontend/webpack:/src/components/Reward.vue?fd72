@@ -1,0 +1,176 @@
+
+import {mapState} from "vuex";
+import {defineComponent} from 'vue'
+import { useI18n } from 'vue-i18n'
+import {getWallet} from "@/api/context/wallet";
+import {formatBigNumberStr} from "@/utils/helpers";
+import BigNumber from "bignumber.js";
+import txFailed from "@/controller/txFailed";
+import txSuccess from "@/controller/txSuccess";
+import openTxDialog from "@/controller/openTxDialog";
+import {claimMineAndStake} from "@/api/actions/claimMineAndStake";
+import { claimMine } from "@/api/actions/claimMine";
+
+
+export default defineComponent({
+  name: "Reward",
+  data() {
+    return {
+      step: 1,
+      rewardMultiplier: 10,
+      confirmingClaim: false,
+      sliderStakePercent: 0,
+      userStakeLarixAmount:new BigNumber(0),
+      userTotalStakeLarixAmount:new BigNumber(0),
+      needUSDC:new BigNumber(0),
+      formatBigNumberStr:formatBigNumberStr,
+    }
+  },
+  watch: {
+    rewardDialogVisible: function (newVal) {
+      if (!newVal) {
+        this.step = 1
+        this.confirmingClaim = false
+      }
+    }
+  },
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+      larixImg: require('../assets/reward_LARIX@2x.png'),
+      rayImg: require('../assets/coin/asset_RAY.svg'),
+    }
+  },
+  computed: {
+    dialogTitle():string {
+      if (this.step === 2) return this.$t('reward.reward')+' × '+this.rewardMultiplier
+      return this.$t('reward.larixRewards')
+    },
+    walletLarixBalance():BigNumber{
+      if (this.larixTokenAccount)
+      {
+        //@ts-ignore
+        return  new BigNumber(this.larixTokenAccount[0].info.amount).times(new BigNumber(10).pow(-6))
+      }else {
+        return new BigNumber(0)
+      }
+
+    },
+    stakePeriod():number{
+      return this.rewardMultiplier/5*90
+    },
+    userUsdcBalance(){
+      //@ts-ignore
+      return this.allReservesDetails.find((item:any) => item.symbol === 'USDC').walletBalanceInTokenUnit
+    },
+    borrowButtonText:function (){
+
+      if (!this.userUsdcBalance.isGreaterThan(0)||this.needUSDC.isGreaterThan(this.userUsdcBalance)) {
+        return this.$t('reward.insufficientUsdcBalance')
+      }
+      return this.$t('reward.stakeForLP')
+    },
+    rewardDialogVisible:{
+      get(){
+        return this.$store.state.reward.rewardDialogVisible
+      },
+      set(value) {
+        this.sliderStakePercent = 0
+        this.needUSDC = new BigNumber(0)
+        this.userTotalStakeLarixAmount = new BigNumber(0)
+        this.userStakeLarixAmount = new BigNumber(0)
+        this.rewardMultiplier = 10
+        this.$store.commit('updateRewardDialogVisible',value)
+      }
+    },
+    ...mapState({
+      walletAddress: (state:any) => state.wallet.walletAddress,
+      isLoadingInfo:(state:any) =>state.market.isLoadingInfo,
+      lendingMarket: (state:any) => state.market.lendingMarket,
+      userLarixReward: (state:any) => state.market.userLarixReward,
+      larixTokenAccount: (state:any) => state.larix.larixTokenAccount,
+      userObligation:(state:any) => state.market.userObligation,
+      mining:(state:any) => state.market.mining,
+      allReservesDetails: (state:any) => state.market.allReservesDetails,
+      lendingReserveArray: (state:any) => state.market.lendingReserveArray,
+      larixPrice:(state:any)=>state.market.larixPrice,
+      mineCollateralLpDetails:(state:any)=>state.market.mineCollateralLpDetails,
+      userLarixPositions:(state:any)=>state.market.userLarixPositions,
+    })
+  },
+  methods: {
+    setRewardMultiplier(multiplier:number){
+      this.rewardMultiplier = multiplier
+      this.sliderStakePercent = 0
+      this.userStakeLarixAmount = new BigNumber(0)
+      this.userTotalStakeLarixAmount = new BigNumber(0)
+      this.needUSDC = new BigNumber(0)
+    },
+    getUserUsdcAccount (){
+      return  this.allReservesDetails.find((item:any) => item.symbol === 'USDC').userLiquidityTokenAccount
+    },
+    sliderStakePercentChange(){
+      // console.log('price',this.mineCollateralLpDetails.price.toString())
+      this.userStakeLarixAmount = this.userLarixReward.times(this.sliderStakePercent/100)
+      this.userTotalStakeLarixAmount = this.userLarixReward.times(this.sliderStakePercent/100).times(this.rewardMultiplier)
+      this.needUSDC = this.userTotalStakeLarixAmount.times(this.mineCollateralLpDetails.price).div(0.95)
+      // console.log('needUSDC',this.needUSDC.toString())
+      // console.log('userStakeLarixAmount',this.userStakeLarixAmount.toString())
+    },
+    stakeButtonDisable(){
+      if (!this.userStakeLarixAmount.isGreaterThan(0)) return false
+      if (!this.userUsdcBalance.isGreaterThan(0)) return false
+      if (this.needUSDC.isGreaterThan(this.userUsdcBalance)) return false
+      return true
+    },
+    claimReward: async function () {
+      let wallet = getWallet()
+      let that = this
+      // let hasLp
+      openTxDialog('updateRewardDialogVisible')
+      await claimMine(
+          that.mining,
+          that.userObligation,
+          wallet,
+          that.lendingMarket,
+          that.lendingReserveArray,
+          10000,
+          that.larixTokenAccount?.pubkey,
+      ).then(()=>{
+        txSuccess('updateRewardDialogVisible')
+      }).catch((e)=>{
+        txFailed('updateRewardDialogVisible',e)
+      })
+    },
+    stakeLarix:async function(){
+      let wallet = getWallet()
+      let that = this
+      const claimRatio = Number(this.sliderStakePercent.toFixed(2)) *100
+      // let hasLp
+      openTxDialog('updateRewardDialogVisible')
+      await claimMineAndStake(
+          that.mining,
+          that.userObligation,
+          that.getUserUsdcAccount(),
+          wallet,
+          that.lendingMarket,
+          that.lendingReserveArray,
+          100*this.rewardMultiplier,
+          claimRatio,
+          that.larixTokenAccount?.pubkey,
+      ).then(()=>{
+        txSuccess('updateRewardDialogVisible')
+      }).catch((e)=>{
+        txFailed('updateRewardDialogVisible',e)
+      })
+    },
+    getUnclaimedMineAmount:async function(){
+
+    },
+    goStakingList() {
+      this.rewardDialogVisible = false
+      this.$store.commit('updateLarixStakingDialogVisible', true)
+    },
+  },
+})

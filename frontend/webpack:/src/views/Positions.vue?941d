@@ -1,0 +1,2420 @@
+import { resolveComponent as _resolveComponent, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, renderList as _renderList, Fragment as _Fragment, vShow as _vShow, withDirectives as _withDirectives, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-7a98c480")
+
+_pushScopeId("data-v-7a98c480")
+const _hoisted_1 = { class: "marketContainer gt-sm" }
+const _hoisted_2 = { class: "marketTop" }
+const _hoisted_3 = { class: "positionDashboardContainer" }
+const _hoisted_4 = { class: "positionTopCard" }
+const _hoisted_5 = {
+  class: "positionTopCard-item",
+  style: {"border-bottom":"1px solid #252F53"}
+}
+const _hoisted_6 = { class: "positionTopCard-item-left" }
+const _hoisted_7 = {
+  class: "titleColor",
+  style: {"padding-right":"2px"}
+}
+const _hoisted_8 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_9 = { class: "dataColor" }
+const _hoisted_10 = { class: "positionTopCard-item positionTopCard-item-second" }
+const _hoisted_11 = { class: "positionTopCard-item-left" }
+const _hoisted_12 = { style: {"white-space":"nowrap"} }
+const _hoisted_13 = {
+  class: "titleColor",
+  style: {"padding-right":"2px"}
+}
+const _hoisted_14 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_15 = { class: "dataColor" }
+const _hoisted_16 = /*#__PURE__*/_createVNode("div", null, [
+  /*#__PURE__*/_createVNode("svg", {
+    width: "0",
+    height: "0"
+  }, [
+    /*#__PURE__*/_createVNode("defs", null, [
+      /*#__PURE__*/_createVNode("linearGradient", {
+        id: "gradient",
+        x1: "0%",
+        y1: "0%",
+        x2: "100%",
+        y2: "0%"
+      }, [
+        /*#__PURE__*/_createVNode("stop", {
+          offset: "0%",
+          style: {"stop-color":"#B94AFF","stop-opacity":"1"}
+        }),
+        /*#__PURE__*/_createVNode("stop", {
+          offset: "100%",
+          style: {"stop-color":"#1AE2FA","stop-opacity":"1"}
+        })
+      ])
+    ])
+  ])
+], -1)
+const _hoisted_17 = { class: "positionTopCard" }
+const _hoisted_18 = {
+  class: "positionTopCard-item",
+  style: {"border-bottom":"1px solid #252F53"}
+}
+const _hoisted_19 = { class: "positionTopCard-item-right" }
+const _hoisted_20 = { class: "titleColor" }
+const _hoisted_21 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_22 = { class: "dataColor" }
+const _hoisted_23 = /*#__PURE__*/_createVNode("span", {
+  style: {"padding-left":"7px"},
+  class: "titleColor"
+}, "LARIX", -1)
+const _hoisted_24 = {
+  class: "positionTopCard-item",
+  style: {"align-items":"center"}
+}
+const _hoisted_25 = { class: "positionTopCard-item-right positionTopCard-item-right-second" }
+const _hoisted_26 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_27 = /*#__PURE__*/_createVNode("span", { style: {"color":"#00F4FF","font-size":"16px","cursor":"pointer"} }, " Go ", -1)
+const _hoisted_28 = { class: "dataColor" }
+const _hoisted_29 = /*#__PURE__*/_createVNode("span", {
+  style: {"padding-left":"7px"},
+  class: "titleColor"
+}, "LP", -1)
+const _hoisted_30 = { style: {"max-width":"1300px","margin":"0 auto"} }
+const _hoisted_31 = {
+  key: 0,
+  class: "handleTip"
+}
+const _hoisted_32 = { class: "market" }
+const _hoisted_33 = { class: "assets-title" }
+const _hoisted_34 = { class: "assets" }
+const _hoisted_35 = { style: {"width":"14.5%"} }
+const _hoisted_36 = { style: {"text-align":"left"} }
+const _hoisted_37 = { style: {"width":"11.5%"} }
+const _hoisted_38 = { style: {"text-align":"right"} }
+const _hoisted_39 = { style: {"width":"17.5%"} }
+const _hoisted_40 = { style: {"text-align":"right"} }
+const _hoisted_41 = { style: {"width":"17.5%"} }
+const _hoisted_42 = { style: {"text-align":"right"} }
+const _hoisted_43 = { style: {"width":"17.5%"} }
+const _hoisted_44 = { style: {"text-align":"right"} }
+const _hoisted_45 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_46 = { style: {"width":"14.5%"} }
+const _hoisted_47 = { style: {"padding":"0 10px","display":"flex","justify-content":"flex-end"} }
+const _hoisted_48 = { style: {"display":"flex","color":"transparent","position":"relative","width":"fit-content"} }
+const _hoisted_49 = { style: {"position":"relative","padding":"0 13px","min-width":"90px","white-space":"nowrap"} }
+const _hoisted_50 = {
+  style: {"position":"absolute","top":"0","right":"-50%","width":"100%","display":"flex","justify-content":"center"},
+  class: "grey-color"
+}
+const _hoisted_51 = { style: {"padding":"0 13px","min-width":"90px","white-space":"nowrap"} }
+const _hoisted_52 = { style: {"width":"14.5%"} }
+const _hoisted_53 = { class: "token-cell" }
+const _hoisted_54 = { class: "token-img" }
+const _hoisted_55 = { class: "text-wrap" }
+const _hoisted_56 = { style: {"font-size":"16px","margin-bottom":"4px"} }
+const _hoisted_57 = {
+  class: "grey-color",
+  style: {"line-height":"18px"}
+}
+const _hoisted_58 = { style: {"width":"11.5%"} }
+const _hoisted_59 = { class: "data-cell" }
+const _hoisted_60 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_61 = { class: "grey-color details-wrap" }
+const _hoisted_62 = { style: {"width":"17.5%"} }
+const _hoisted_63 = {
+  key: 0,
+  class: "apr-cell"
+}
+const _hoisted_64 = { style: {"font-size":"16px","margin-bottom":"2px"} }
+const _hoisted_65 = { class: "grey-color apr-details-wrap" }
+const _hoisted_66 = {
+  key: 0,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_67 = { style: {"margin-bottom":"0"} }
+const _hoisted_68 = {
+  key: 1,
+  class: "apr-cell"
+}
+const _hoisted_69 = { style: {"font-size":"16px","margin-bottom":"2px"} }
+const _hoisted_70 = { class: "grey-color apr-details-wrap" }
+const _hoisted_71 = { style: {"margin-bottom":"0"} }
+const _hoisted_72 = {
+  key: 0,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_73 = {
+  key: 1,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_74 = { style: {"margin-bottom":"0"} }
+const _hoisted_75 = {
+  key: 2,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_76 = { style: {"width":"17.5%"} }
+const _hoisted_77 = { class: "data-cell" }
+const _hoisted_78 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_79 = { class: "grey-color details-wrap" }
+const _hoisted_80 = { style: {"width":"14.5%"} }
+const _hoisted_81 = { class: "collateral-cell" }
+const _hoisted_82 = { class: "action-cell" }
+const _hoisted_83 = {
+  key: 0,
+  class: "tips"
+}
+const _hoisted_84 = {
+  key: 1,
+  class: "noAsset"
+}
+const _hoisted_85 = { style: {"text-align":"center","line-height":"1"} }
+const _hoisted_86 = { key: 2 }
+const _hoisted_87 = { style: {"width":"14.5%"} }
+const _hoisted_88 = { class: "token-cell" }
+const _hoisted_89 = { class: "token-img" }
+const _hoisted_90 = { lass: "text-wrap" }
+const _hoisted_91 = { style: {"width":"11.5%"} }
+const _hoisted_92 = { class: "apr-cell" }
+const _hoisted_93 = { class: "grey-color apr-details-wrap" }
+const _hoisted_94 = { style: {"width":"17.5%"} }
+const _hoisted_95 = { class: "apr-cell" }
+const _hoisted_96 = { class: "grey-color apr-details-wrap" }
+const _hoisted_97 = { style: {"width":"17.5%"} }
+const _hoisted_98 = { class: "apr-cell" }
+const _hoisted_99 = { class: "grey-color apr-details-wrap" }
+const _hoisted_100 = { style: {"width":"17.5%"} }
+const _hoisted_101 = { class: "apr-cell" }
+const _hoisted_102 = { class: "grey-color apr-details-wrap" }
+const _hoisted_103 = { style: {"width":"14.5%"} }
+const _hoisted_104 = { class: "action-cell" }
+const _hoisted_105 = { key: 0 }
+const _hoisted_106 = { class: "assets-title" }
+const _hoisted_107 = { class: "assets" }
+const _hoisted_108 = { style: {"width":"14.5%"} }
+const _hoisted_109 = { style: {"text-align":"left"} }
+const _hoisted_110 = { style: {"width":"11.5%"} }
+const _hoisted_111 = { style: {"text-align":"right"} }
+const _hoisted_112 = { style: {"width":"17.5%"} }
+const _hoisted_113 = { style: {"text-align":"right"} }
+const _hoisted_114 = { style: {"width":"17.5%"} }
+const _hoisted_115 = { style: {"text-align":"right"} }
+const _hoisted_116 = { style: {"width":"17.5%"} }
+const _hoisted_117 = { style: {"text-align":"right"} }
+const _hoisted_118 = { style: {"width":"14.5%"} }
+const _hoisted_119 = { style: {"padding":"0 10px","display":"flex","justify-content":"flex-end"} }
+const _hoisted_120 = { style: {"display":"flex","color":"transparent","position":"relative","width":"fit-content"} }
+const _hoisted_121 = { style: {"position":"relative","padding":"0 13px","min-width":"90px","white-space":"nowrap"} }
+const _hoisted_122 = {
+  style: {"position":"absolute","top":"0","right":"-50%","width":"100%","display":"flex","justify-content":"center"},
+  class: "grey-color"
+}
+const _hoisted_123 = { style: {"padding":"0 13px","min-width":"90px","white-space":"nowrap"} }
+const _hoisted_124 = { style: {"width":"14.5%"} }
+const _hoisted_125 = { class: "token-cell" }
+const _hoisted_126 = { class: "token-img" }
+const _hoisted_127 = { class: "text-wrap" }
+const _hoisted_128 = { style: {"font-size":"16px","margin-bottom":"4px"} }
+const _hoisted_129 = {
+  class: "grey-color",
+  style: {"line-height":"18px"}
+}
+const _hoisted_130 = { style: {"width":"11.5%"} }
+const _hoisted_131 = { class: "data-cell" }
+const _hoisted_132 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_133 = { class: "grey-color details-wrap" }
+const _hoisted_134 = { style: {"width":"17.5%"} }
+const _hoisted_135 = { class: "apr-cell" }
+const _hoisted_136 = { style: {"font-size":"16px","margin-bottom":"2px"} }
+const _hoisted_137 = { class: "grey-color apr-details-wrap" }
+const _hoisted_138 = {
+  key: 0,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_139 = { style: {"margin-bottom":"0"} }
+const _hoisted_140 = { style: {"width":"17.5%"} }
+const _hoisted_141 = { class: "data-cell" }
+const _hoisted_142 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_143 = { class: "grey-color details-wrap" }
+const _hoisted_144 = { style: {"width":"14.5%"} }
+const _hoisted_145 = { class: "data-cell" }
+const _hoisted_146 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_147 = { class: "grey-color details-wrap" }
+const _hoisted_148 = { class: "action-cell" }
+const _hoisted_149 = {
+  key: 0,
+  class: "tips"
+}
+const _hoisted_150 = {
+  key: 1,
+  class: "noAsset"
+}
+const _hoisted_151 = { style: {"text-align":"center","line-height":"1"} }
+const _hoisted_152 = { key: 2 }
+const _hoisted_153 = { style: {"width":"14.5%"} }
+const _hoisted_154 = { class: "token-cell" }
+const _hoisted_155 = { class: "token-img" }
+const _hoisted_156 = { lass: "text-wrap" }
+const _hoisted_157 = { style: {"width":"11.5%"} }
+const _hoisted_158 = { class: "apr-cell" }
+const _hoisted_159 = { class: "grey-color apr-details-wrap" }
+const _hoisted_160 = { style: {"width":"17.5%"} }
+const _hoisted_161 = { class: "apr-cell" }
+const _hoisted_162 = { class: "grey-color apr-details-wrap" }
+const _hoisted_163 = { style: {"width":"17.5%"} }
+const _hoisted_164 = { class: "apr-cell" }
+const _hoisted_165 = { class: "grey-color apr-details-wrap" }
+const _hoisted_166 = { style: {"width":"17.5%"} }
+const _hoisted_167 = { class: "apr-cell" }
+const _hoisted_168 = { class: "grey-color apr-details-wrap" }
+const _hoisted_169 = { style: {"width":"14.5%"} }
+const _hoisted_170 = { class: "action-cell" }
+const _hoisted_171 = {
+  class: "assets-title",
+  id: "myStake"
+}
+const _hoisted_172 = { class: "assets" }
+const _hoisted_173 = { style: {"width":"14.5%"} }
+const _hoisted_174 = { style: {"text-align":"left"} }
+const _hoisted_175 = { style: {"width":"11.5%"} }
+const _hoisted_176 = { style: {"text-align":"right"} }
+const _hoisted_177 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_178 = { style: {"width":"17.5%"} }
+const _hoisted_179 = { style: {"text-align":"right"} }
+const _hoisted_180 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_181 = { style: {"width":"17.5%"} }
+const _hoisted_182 = { style: {"text-align":"right"} }
+const _hoisted_183 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_184 = { style: {"width":"17.5%"} }
+const _hoisted_185 = { style: {"text-align":"right"} }
+const _hoisted_186 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_187 = { style: {"width":"14.5%"} }
+const _hoisted_188 = { style: {"padding":"0 10px","display":"flex","justify-content":"flex-end"} }
+const _hoisted_189 = { style: {"display":"flex","color":"transparent","position":"relative","width":"fit-content"} }
+const _hoisted_190 = { style: {"position":"relative","padding":"0 13px","min-width":"90px","white-space":"nowrap"} }
+const _hoisted_191 = {
+  style: {"position":"absolute","top":"0","right":"-50%","width":"100%","display":"flex","justify-content":"center"},
+  class: "grey-color"
+}
+const _hoisted_192 = { style: {"padding":"0 13px","min-width":"90px","white-space":"nowrap"} }
+const _hoisted_193 = { style: {"width":"14.5%"} }
+const _hoisted_194 = { class: "token-cell" }
+const _hoisted_195 = { class: "token-img-lp" }
+const _hoisted_196 = /*#__PURE__*/_createVNode("div", null, [
+  /*#__PURE__*/_createVNode("div", { style: {"font-size":"16px"} }, "LARIX-USDC"),
+  /*#__PURE__*/_createVNode("div", { class: "grey-color" }, "Raydium")
+], -1)
+const _hoisted_197 = { style: {"width":"11.5%"} }
+const _hoisted_198 = { class: "data-cell" }
+const _hoisted_199 = { style: {"font-size":"16px","margin-bottom":"2px","white-space":"nowrap"} }
+const _hoisted_200 = { style: {"width":"17.5%"} }
+const _hoisted_201 = {
+  class: "data-cell",
+  style: {"font-size":"16px"}
+}
+const _hoisted_202 = { style: {"width":"17.5%"} }
+const _hoisted_203 = { class: "amount-cell" }
+const _hoisted_204 = { style: {"font-size":"16px"} }
+const _hoisted_205 = { class: "grey-color" }
+const _hoisted_206 = { style: {"width":"14.5%"} }
+const _hoisted_207 = { class: "reward-cell" }
+const _hoisted_208 = { style: {"margin-bottom":"0"} }
+const _hoisted_209 = /*#__PURE__*/_createVNode("p", {
+  style: {"margin-bottom":"0","font-size":"14px"},
+  class: "grey-color"
+}, "LARIX", -1)
+const _hoisted_210 = { class: "action-cell" }
+const _hoisted_211 = {
+  key: 0,
+  class: "tips"
+}
+const _hoisted_212 = {
+  key: 1,
+  class: "noAsset"
+}
+const _hoisted_213 = { style: {"text-align":"center","line-height":"1"} }
+const _hoisted_214 = { key: 2 }
+const _hoisted_215 = { style: {"width":"14.5%"} }
+const _hoisted_216 = { class: "token-cell" }
+const _hoisted_217 = { class: "token-img" }
+const _hoisted_218 = { lass: "text-wrap" }
+const _hoisted_219 = { style: {"width":"11.5%"} }
+const _hoisted_220 = { class: "apr-cell" }
+const _hoisted_221 = { class: "grey-color apr-details-wrap" }
+const _hoisted_222 = { style: {"width":"17.5%"} }
+const _hoisted_223 = { class: "apr-cell" }
+const _hoisted_224 = { class: "grey-color apr-details-wrap" }
+const _hoisted_225 = { style: {"width":"17.5%"} }
+const _hoisted_226 = { class: "apr-cell" }
+const _hoisted_227 = { class: "grey-color apr-details-wrap" }
+const _hoisted_228 = { style: {"width":"17.5%"} }
+const _hoisted_229 = { class: "apr-cell" }
+const _hoisted_230 = { class: "grey-color apr-details-wrap" }
+const _hoisted_231 = { style: {"width":"14.5%"} }
+const _hoisted_232 = { class: "action-cell" }
+const _hoisted_233 = { class: "marketAppContainer lt-md " }
+const _hoisted_234 = {
+  key: 0,
+  class: "handleTipApp"
+}
+const _hoisted_235 = /*#__PURE__*/_createVNode("span", null, "Tip", -1)
+const _hoisted_236 = { class: "newClaim" }
+const _hoisted_237 = { class: "newClaim-main" }
+const _hoisted_238 = { class: "newClaim-main-left" }
+const _hoisted_239 = { class: "newClaim-main-left-item" }
+const _hoisted_240 = { style: {"font-size":"12px","margin-bottom":"0"} }
+const _hoisted_241 = { style: {"font-size":"15px","color":"white"} }
+const _hoisted_242 = { style: {"padding-top":"12px"} }
+const _hoisted_243 = { style: {"padding-bottom":"7px"} }
+const _hoisted_244 = { style: {"font-size":"12px","margin-bottom":"0"} }
+const _hoisted_245 = { style: {"font-size":"15px","color":"white"} }
+const _hoisted_246 = { class: "newClaim-main-left" }
+const _hoisted_247 = { class: "newClaim-main-left-item" }
+const _hoisted_248 = { style: {"font-size":"12px","margin-bottom":"0"} }
+const _hoisted_249 = { style: {"font-size":"15px","color":"white"} }
+const _hoisted_250 = { style: {"padding-top":"12px"} }
+const _hoisted_251 = { style: {"padding-bottom":"7px"} }
+const _hoisted_252 = { style: {"font-size":"12px","margin-bottom":"0"} }
+const _hoisted_253 = { style: {"font-size":"15px","color":"white"} }
+const _hoisted_254 = /*#__PURE__*/_createVNode("span", null, " LP", -1)
+const _hoisted_255 = { class: "positionDetails" }
+const _hoisted_256 = { class: "position-list" }
+const _hoisted_257 = { class: "tabs" }
+const _hoisted_258 = { class: "maskRight" }
+const _hoisted_259 = {
+  key: 0,
+  class: "positionDetails-supply"
+}
+const _hoisted_260 = { class: "positionDetails-supply-item-title" }
+const _hoisted_261 = { class: "positionDetails-supply-item-title-left" }
+const _hoisted_262 = { style: {"margin-left":"8px"} }
+const _hoisted_263 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_264 = {
+  class: "positionDetails-supply-item-title-right",
+  style: {"text-align":"right"}
+}
+const _hoisted_265 = /*#__PURE__*/_createVNode("br", null, null, -1)
+const _hoisted_266 = { class: "positionDetails-supply-item-main" }
+const _hoisted_267 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_268 = { class: "positionDetails-supply-item-main" }
+const _hoisted_269 = { style: {"white-space":"nowrap","margin-bottom":"0"} }
+const _hoisted_270 = {
+  key: 0,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_271 = { style: {"margin-bottom":"0"} }
+const _hoisted_272 = { style: {"margin-bottom":"0"} }
+const _hoisted_273 = {
+  key: 0,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_274 = {
+  key: 1,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_275 = { style: {"margin-bottom":"0"} }
+const _hoisted_276 = {
+  key: 2,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_277 = {
+  key: 0,
+  style: {"color":"white","font-size":"14px"}
+}
+const _hoisted_278 = {
+  key: 1,
+  style: {"color":"white","font-size":"14px"}
+}
+const _hoisted_279 = { class: "positionDetails-supply-item-main" }
+const _hoisted_280 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_281 = { class: "positionDetails-supply-item-button" }
+const _hoisted_282 = /*#__PURE__*/_createVNode("div", { class: "link" }, null, -1)
+const _hoisted_283 = { class: "button" }
+const _hoisted_284 = {
+  key: 0,
+  class: "positionDetails-supply-item",
+  style: {"text-align":"center","color":"white","height":"100px","line-height":"100px"}
+}
+const _hoisted_285 = {
+  key: 1,
+  class: "positionDetails-supply-item",
+  style: {"text-align":"center","color":"white"}
+}
+const _hoisted_286 = { style: {"margin":"16px 0"} }
+const _hoisted_287 = {
+  key: 2,
+  class: "positionDetails-supply-item"
+}
+const _hoisted_288 = { class: "positionDetails-supply-item-title" }
+const _hoisted_289 = { class: "positionDetails-supply-item-left" }
+const _hoisted_290 = { style: {"position":"relative"} }
+const _hoisted_291 = { class: "positionDetails-supply-item-main" }
+const _hoisted_292 = { class: "positionDetails-supply-item-main" }
+const _hoisted_293 = { class: "positionDetails-supply-item-main" }
+const _hoisted_294 = { class: "positionDetails-supply-item-button" }
+const _hoisted_295 = /*#__PURE__*/_createVNode("div", {
+  class: "link",
+  style: {"width":"calc(100% - 165px)"}
+}, null, -1)
+const _hoisted_296 = { style: {"width":"165px","display":"flex"} }
+const _hoisted_297 = {
+  key: 1,
+  class: "positionDetails-borrow"
+}
+const _hoisted_298 = { class: "positionDetails-borrow-item-title" }
+const _hoisted_299 = { class: "positionDetails-borrow-item-title-left" }
+const _hoisted_300 = { style: {"margin-left":"8px"} }
+const _hoisted_301 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_302 = {
+  class: "positionDetails-borrow-item-title-right",
+  style: {"text-align":"right"}
+}
+const _hoisted_303 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_304 = { class: "positionDetails-borrow-item-main" }
+const _hoisted_305 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_306 = { class: "positionDetails-borrow-item-main" }
+const _hoisted_307 = { style: {"margin-bottom":"0"} }
+const _hoisted_308 = {
+  key: 0,
+  style: {"margin-bottom":"0"}
+}
+const _hoisted_309 = { style: {"margin-bottom":"0"} }
+const _hoisted_310 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_311 = { class: "positionDetails-borrow-item-main" }
+const _hoisted_312 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_313 = { class: "positionDetails-borrow-item-button" }
+const _hoisted_314 = /*#__PURE__*/_createVNode("div", { class: "link" }, null, -1)
+const _hoisted_315 = { class: "button" }
+const _hoisted_316 = {
+  key: 0,
+  class: "positionDetails-borrow-item",
+  style: {"text-align":"center","color":"white","height":"100px","line-height":"100px"}
+}
+const _hoisted_317 = {
+  key: 1,
+  class: "positionDetails-borrow-item",
+  style: {"text-align":"center","color":"white"}
+}
+const _hoisted_318 = { style: {"margin":"16px 0"} }
+const _hoisted_319 = {
+  key: 2,
+  class: "positionDetails-borrow-item"
+}
+const _hoisted_320 = { class: "positionDetails-borrow-item-title" }
+const _hoisted_321 = { class: "positionDetails-borrow-item-title-left" }
+const _hoisted_322 = { style: {"position":"relative"} }
+const _hoisted_323 = { class: "positionDetails-borrow-item-main" }
+const _hoisted_324 = { class: "positionDetails-borrow-item-main" }
+const _hoisted_325 = { class: "positionDetails-borrow-item-main" }
+const _hoisted_326 = { class: "positionDetails-borrow-item-main" }
+const _hoisted_327 = /*#__PURE__*/_createVNode("div", {
+  class: "link",
+  style: {"width":"calc(100% - 165px)"}
+}, null, -1)
+const _hoisted_328 = { style: {"width":"165px","display":"flex"} }
+const _hoisted_329 = {
+  key: 2,
+  class: "positionDetails-stake"
+}
+const _hoisted_330 = { class: "positionDetails-stake-item-title" }
+const _hoisted_331 = { class: "positionDetails-stake-item-title-left" }
+const _hoisted_332 = /*#__PURE__*/_createVNode("div", null, [
+  /*#__PURE__*/_createVNode("div", { style: {"color":"white","font-size":"14px"} }, "LARIX-USDC"),
+  /*#__PURE__*/_createVNode("span", null, "Raydium")
+], -1)
+const _hoisted_333 = {
+  class: "positionDetails-stake-item-title-right",
+  style: {"text-align":"right"}
+}
+const _hoisted_334 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_335 = /*#__PURE__*/_createVNode("span", null, "Amount", -1)
+const _hoisted_336 = { class: "positionDetails-stake-item-main" }
+const _hoisted_337 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_338 = { class: "positionDetails-stake-item-main" }
+const _hoisted_339 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_340 = { class: "positionDetails-stake-item-main" }
+const _hoisted_341 = { style: {"color":"white","font-size":"14px"} }
+const _hoisted_342 = { class: "positionDetails-stake-item-button" }
+const _hoisted_343 = /*#__PURE__*/_createVNode("div", { class: "link" }, null, -1)
+const _hoisted_344 = { class: "action" }
+const _hoisted_345 = {
+  key: 0,
+  class: "positionDetails-stake-item",
+  style: {"text-align":"center","color":"white","height":"100px","line-height":"100px"}
+}
+const _hoisted_346 = {
+  key: 1,
+  class: "positionDetails-stake-item",
+  style: {"text-align":"center","color":"white"}
+}
+const _hoisted_347 = { style: {"margin":"16px 0"} }
+const _hoisted_348 = {
+  key: 2,
+  class: "positionDetails-stake-item"
+}
+const _hoisted_349 = { class: "positionDetails-stake-item-title" }
+const _hoisted_350 = { class: "positionDetails-stake-item-title-left" }
+const _hoisted_351 = { style: {"position":"relative"} }
+const _hoisted_352 = { class: "positionDetails-stake-item-main" }
+const _hoisted_353 = { class: "positionDetails-stake-item-main" }
+const _hoisted_354 = { class: "positionDetails-stake-item-main" }
+const _hoisted_355 = { class: "positionDetails-stake-item-button" }
+const _hoisted_356 = /*#__PURE__*/_createVNode("div", {
+  class: "link",
+  style: {"width":"calc(100% - 165px)"}
+}, null, -1)
+const _hoisted_357 = { style: {"width":"165px","display":"flex"} }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_SupplyDialog = _resolveComponent("SupplyDialog")
+  const _component_q_dialog = _resolveComponent("q-dialog")
+  const _component_BorrowDialog = _resolveComponent("BorrowDialog")
+  const _component_OpenObligationDialog = _resolveComponent("OpenObligationDialog")
+  const _component_Dashboard = _resolveComponent("Dashboard")
+  const _component_q_tooltip = _resolveComponent("q-tooltip")
+  const _component_q_circular_progress = _resolveComponent("q-circular-progress")
+  const _component_q_icon = _resolveComponent("q-icon")
+  const _component_q_btn = _resolveComponent("q-btn")
+  const _component_q_toggle = _resolveComponent("q-toggle")
+  const _component_q_skeleton = _resolveComponent("q-skeleton")
+  const _component_q_page_scroller = _resolveComponent("q-page-scroller")
+  const _component_q_layout = _resolveComponent("q-layout")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode(_component_q_dialog, {
+      modelValue: _ctx.$store.state.dialog.supplyDialogVisible,
+      "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event: any) => (_ctx.$store.state.dialog.supplyDialogVisible = $event))
+    }, {
+      default: _withId(() => [
+        (_ctx.$store.state.dialog.supplyDialogVisible)
+          ? (_openBlock(), _createBlock(_component_SupplyDialog, {
+              key: 0,
+              "enable-for": _ctx.enableFor,
+              "selected-reserve-detail": _ctx.selectedReserveDetail,
+              onOnSupply: _ctx.supply,
+              onOnWithdraw: _ctx.withdraw
+            }, null, 8, ["enable-for", "selected-reserve-detail", "onOnSupply", "onOnWithdraw"]))
+          : _createCommentVNode("", true)
+      ]),
+      _: 1
+    }, 8, ["modelValue"]),
+    _createVNode(_component_q_dialog, {
+      modelValue: _ctx.$store.state.dialog.borrowDialogVisible,
+      "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event: any) => (_ctx.$store.state.dialog.borrowDialogVisible = $event))
+    }, {
+      default: _withId(() => [
+        (_ctx.$store.state.dialog.borrowDialogVisible)
+          ? (_openBlock(), _createBlock(_component_BorrowDialog, {
+              key: 0,
+              "enable-for": _ctx.enableFor,
+              "selected-reserve-detail": _ctx.selectedReserveDetail,
+              onOnBorrow: _ctx.borrow,
+              onOnRepay: _ctx.repay
+            }, null, 8, ["enable-for", "selected-reserve-detail", "onOnBorrow", "onOnRepay"]))
+          : _createCommentVNode("", true)
+      ]),
+      _: 1
+    }, 8, ["modelValue"]),
+    _createVNode(_component_OpenObligationDialog, { "selected-reserve-detail": _ctx.selectedReserveDetail }, null, 8, ["selected-reserve-detail"]),
+    _createVNode("div", _hoisted_1, [
+      _createVNode(_component_q_layout, null, {
+        default: _withId(() => [
+          _createVNode("div", _hoisted_2, [
+            _createVNode("div", _hoisted_3, [
+              _createVNode(_component_Dashboard, {
+                device: "PC",
+                "page-type": "Position"
+              })
+            ]),
+            _createVNode("div", _hoisted_4, [
+              _createVNode("div", _hoisted_5, [
+                _createVNode("div", _hoisted_6, [
+                  _createVNode("div", null, [
+                    _createVNode("span", _hoisted_7, _toDisplayString(_ctx.t('supplyAndBorrow.borrowLimit')), 1),
+                    _createVNode("img", {
+                      src: _ctx.icon_information,
+                      height: "14",
+                      width: "14",
+                      style: {"cursor":"pointer","position":"relative","top":"2px"}
+                    }, null, 8, ["src"]),
+                    _createVNode(_component_q_tooltip, {
+                      anchor: "center right",
+                      self: "center left"
+                    }, {
+                      default: _withId(() => [
+                        _createVNode("p", _hoisted_8, _toDisplayString(_ctx.t('tip.borrowLimitTip')), 1)
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  _createVNode("p", _hoisted_9, _toDisplayString(_ctx.formatDollars(_ctx.userBorrowLimit,2)), 1)
+                ]),
+                _createVNode(_component_q_circular_progress, {
+                  "show-value": "",
+                  size: "53px",
+                  value: _ctx.userBorrowLimitRatio,
+                  "track-color": "track",
+                  color: "blue"
+                }, null, 8, ["value"])
+              ]),
+              _createVNode("div", _hoisted_10, [
+                _createVNode("div", _hoisted_11, [
+                  _createVNode("div", _hoisted_12, [
+                    _createVNode("span", _hoisted_13, _toDisplayString(_ctx.t('positions.liquidationThreshol')), 1),
+                    _createVNode("img", {
+                      src: _ctx.icon_information,
+                      height: "14",
+                      width: "14",
+                      style: {"cursor":"pointer","position":"relative","top":"2px"}
+                    }, null, 8, ["src"]),
+                    _createVNode(_component_q_tooltip, {
+                      anchor: "center right",
+                      self: "center left"
+                    }, {
+                      default: _withId(() => [
+                        _createVNode("p", _hoisted_14, _toDisplayString(_ctx.t('tip.liquidationTip')), 1)
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  _createVNode("p", _hoisted_15, _toDisplayString(_ctx.formatDollars(_ctx.userLiquidationThreshold,2)), 1)
+                ]),
+                _createVNode(_component_q_circular_progress, {
+                  size: "53px",
+                  "show-value": "",
+                  value: _ctx.userLiquidationThresholdRatio,
+                  "track-color": "track"
+                }, null, 8, ["value"])
+              ])
+            ]),
+            _hoisted_16,
+            _createVNode("div", _hoisted_17, [
+              _createVNode("div", _hoisted_18, [
+                _createVNode("div", _hoisted_19, [
+                  _createVNode("p", _hoisted_20, [
+                    _createTextVNode(_toDisplayString(_ctx.t('positions.myReward')) + " ", 1),
+                    _createVNode("img", {
+                      src: _ctx.icon_information,
+                      height: "14",
+                      width: "14",
+                      style: {"cursor":"pointer","position":"relative","top":"2px"}
+                    }, null, 8, ["src"]),
+                    _createVNode(_component_q_tooltip, {
+                      anchor: "center right",
+                      self: "center left"
+                    }, {
+                      default: _withId(() => [
+                        _createVNode("span", _hoisted_21, _toDisplayString(_ctx.t('tip.myRewardTip')), 1)
+                      ]),
+                      _: 1
+                    })
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("span", _hoisted_22, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userLarixReward,4)), 1),
+                    _hoisted_23
+                  ])
+                ])
+              ]),
+              _createVNode("div", _hoisted_24, [
+                _createVNode("div", _hoisted_25, [
+                  _createVNode("p", {
+                    class: "titleColor",
+                    onClick: _cache[3] || (_cache[3] = ($event: any) => (_ctx.goToStakeDetails()))
+                  }, [
+                    _createTextVNode(_toDisplayString(_ctx.t('positions.myStake')) + " ", 1),
+                    _createVNode("img", {
+                      src: _ctx.icon_information,
+                      height: "14",
+                      width: "14",
+                      style: {"cursor":"pointer","position":"relative","top":"2px"}
+                    }, null, 8, ["src"]),
+                    _createVNode(_component_q_tooltip, {
+                      anchor: "center right",
+                      self: "center left"
+                    }, {
+                      default: _withId(() => [
+                        _createVNode("span", _hoisted_26, _toDisplayString(_ctx.t('tip.myStakeTip')), 1)
+                      ]),
+                      _: 1
+                    }),
+                    _createVNode(_component_q_icon, {
+                      name: "south_west",
+                      class: "icon ",
+                      style: {"color":"#00F4FF","cursor":"pointer"}
+                    }),
+                    _hoisted_27
+                  ]),
+                  _createVNode("div", null, [
+                    _createVNode("span", _hoisted_28, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userTotalStakeLp,4)), 1),
+                    _hoisted_29
+                  ])
+                ])
+              ])
+            ])
+          ]),
+          _createVNode("div", _hoisted_30, [
+            (!_ctx.isLoadingInfo&&_ctx.walletAddress!==''&&_ctx.needToHandle)
+              ? (_openBlock(), _createBlock("div", _hoisted_31, [
+                  _createVNode("span", null, _toDisplayString(_ctx.t('home.tip')), 1),
+                  _createVNode(_component_q_btn, {
+                    "no-caps": "",
+                    class: "btn",
+                    onClick: _cache[4] || (_cache[4] = ($event: any) => (_ctx.openHandleLpDialog()))
+                  }, {
+                    default: _withId(() => [
+                      _createTextVNode(_toDisplayString(_ctx.t('home.handleTip')), 1)
+                    ]),
+                    _: 1
+                  })
+                ]))
+              : _createCommentVNode("", true)
+          ]),
+          _createVNode("div", _hoisted_32, [
+            _createVNode("div", null, [
+              _createVNode("div", _hoisted_33, _toDisplayString(_ctx.t('positions.mySupply')), 1),
+              _createVNode("div", _hoisted_34, [
+                _createVNode("table", null, [
+                  _createVNode("tr", null, [
+                    _createVNode("th", _hoisted_35, [
+                      _createVNode("div", _hoisted_36, _toDisplayString(_ctx.t('home.asset')), 1)
+                    ]),
+                    _createVNode("th", _hoisted_37, [
+                      _createVNode("div", _hoisted_38, _toDisplayString(_ctx.t('home.supplyBalance')), 1)
+                    ]),
+                    _createVNode("th", _hoisted_39, [
+                      _createVNode("div", _hoisted_40, _toDisplayString(_ctx.t('home.supplyAPY')), 1)
+                    ]),
+                    _createVNode("th", _hoisted_41, [
+                      _createVNode("div", _hoisted_42, _toDisplayString(_ctx.t('home.wallet')), 1)
+                    ]),
+                    _createVNode("th", _hoisted_43, [
+                      _createVNode("div", _hoisted_44, [
+                        _createTextVNode(_toDisplayString(_ctx.t('home.collateral')) + " ", 1),
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          height: "14",
+                          width: "14",
+                          style: {"cursor":"pointer","position":"relative","top":"2px"}
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "center right",
+                          self: "center left"
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("span", _hoisted_45, _toDisplayString(_ctx.t('tip.collateralTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("th", _hoisted_46, [
+                      _createVNode("div", _hoisted_47, [
+                        _createVNode("div", _hoisted_48, [
+                          _createVNode("div", _hoisted_49, [
+                            _createTextVNode(_toDisplayString(_ctx.t('home.supply')) + " ", 1),
+                            _createVNode("div", _hoisted_50, [
+                              _createVNode("span", null, _toDisplayString(_ctx.t('home.operation')), 1)
+                            ])
+                          ]),
+                          _createVNode("div", _hoisted_51, _toDisplayString(_ctx.t('home.withdraw')), 1)
+                        ])
+                      ])
+                    ])
+                  ]),
+                  (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.mySupply, (item) => {
+                    return (_openBlock(), _createBlock("tr", {
+                      key: item.id
+                    }, [
+                      _createVNode("td", _hoisted_52, [
+                        _createVNode("div", _hoisted_53, [
+                          _createVNode("div", _hoisted_54, [
+                            _createVNode("img", {
+                              src: item.logoSource,
+                              height: "38"
+                            }, null, 8, ["src"])
+                          ]),
+                          _createVNode("div", _hoisted_55, [
+                            _createVNode("div", _hoisted_56, _toDisplayString(item.symbol), 1),
+                            _createVNode("div", _hoisted_57, "$" + _toDisplayString(item.liquidityPrice.toFixed(2)), 1)
+                          ])
+                        ])
+                      ]),
+                      _createVNode("td", _hoisted_58, [
+                        _createVNode("div", _hoisted_59, [
+                          _createVNode("div", _hoisted_60, _toDisplayString(_ctx.formatBigNumberStr(item.supplyBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)) + " " + _toDisplayString(item.symbol), 1),
+                          _createVNode("div", _hoisted_61, [
+                            _createVNode("span", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.supplyBalance,2)), 1)
+                          ])
+                        ])
+                      ]),
+                      _createVNode("td", _hoisted_62, [
+                        (!item.isLP)
+                          ? (_openBlock(), _createBlock("div", _hoisted_63, [
+                              _createVNode("div", _hoisted_64, _toDisplayString(_ctx.formatBigNumberStr(item.supplyApy.times(100).plus( item.supplyDistributionApy.times(100)).plus(item.singleTokenDoubleRewardApy.times(100)),2)) + "% ", 1),
+                              _createVNode("div", _hoisted_65, [
+                                _createVNode("span", null, _toDisplayString(_ctx.formatBigNumberStr(item.supplyApy.times(100),2)) + "% +", 1),
+                                _createVNode("img", {
+                                  src: _ctx.larixLogo,
+                                  width: "16",
+                                  height: "16",
+                                  style: {"border-radius":"50%","margin-left":"4px"}
+                                }, null, 8, ["src"]),
+                                (item.hasSingleTokenDoubleReward)
+                                  ? (_openBlock(), _createBlock("img", {
+                                      key: 0,
+                                      src: item.singleTokenDoubleRewardLogo,
+                                      width: "16",
+                                      height: "16",
+                                      style: {"border-radius":"50%","margin-left":"4px"}
+                                    }, null, 8, ["src"]))
+                                  : _createCommentVNode("", true),
+                                _createVNode("img", {
+                                  src: _ctx.icon_information,
+                                  width: "16",
+                                  height: "16",
+                                  style: {"margin-left":"4px","cursor":"pointer"}
+                                }, null, 8, ["src"]),
+                                _createVNode(_component_q_tooltip, {
+                                  anchor: "top right",
+                                  self: "bottom right",
+                                  offset: [100,10]
+                                }, {
+                                  default: _withId(() => [
+                                    (item.hasSingleTokenDoubleReward)
+                                      ? (_openBlock(), _createBlock("p", _hoisted_66, _toDisplayString(item.singleTokenDoubleRewardTokenSymbol) + " " + _toDisplayString(item.singleTokenDoubleRewardApy.times(100).toFixed(2)) + "%", 1))
+                                      : _createCommentVNode("", true),
+                                    _createVNode("p", _hoisted_67, "+ " + _toDisplayString(_ctx.t('tip.larixRewards')) + " " + _toDisplayString(_ctx.formatBigNumberStr(item.supplyDistributionApy.times(100),2)) + "%", 1)
+                                  ]),
+                                  _: 2
+                                }, 1024)
+                              ])
+                            ]))
+                          : (_openBlock(), _createBlock("div", _hoisted_68, [
+                              _createVNode("div", _hoisted_69, _toDisplayString(_ctx.formatBigNumberStr((item.lpInfo.lpApr).plus(item.lpInfo.doubleRewardApy.times(100)).plus(isNaN(item.lpInfo.lpFeesApr)?0:item.lpInfo.lpFeesApr).plus( item.supplyDistributionApy.times(100)),2)) + "% ", 1),
+                              _createVNode("div", _hoisted_70, [
+                                _createVNode("span", null, _toDisplayString(item.supplyApy.times(100).plus(isNaN(item.lpInfo.lpFeesApr)?0:item.lpInfo.lpFeesApr).plus(item.lpInfo.lpApr).toFixed(2)) + "% +", 1),
+                                _createVNode("img", {
+                                  src: _ctx.larixLogo,
+                                  width: "16",
+                                  height: "16",
+                                  style: {"border-radius":"50%","margin-left":"4px"}
+                                }, null, 8, ["src"]),
+                                (item.lpInfo.doubleRewardSymbol)
+                                  ? (_openBlock(), _createBlock("img", {
+                                      key: 0,
+                                      src: item.lpInfo.doubleRewardLogoSource,
+                                      width: "16",
+                                      height: "16",
+                                      style: {"border-radius":"50%","margin-left":"4px"}
+                                    }, null, 8, ["src"]))
+                                  : _createCommentVNode("", true),
+                                _createVNode("img", {
+                                  src: _ctx.icon_information,
+                                  width: "16",
+                                  height: "16",
+                                  style: {"cursor":"pointer","margin-left":"4px"}
+                                }, null, 8, ["src"]),
+                                _createVNode(_component_q_tooltip, {
+                                  anchor: "top right",
+                                  self: "bottom right",
+                                  offset: [100,10]
+                                }, {
+                                  default: _withId(() => [
+                                    _createVNode("p", _hoisted_71, "Fees " + _toDisplayString(isNaN(item.lpInfo.lpFeesApr)?0:item.lpInfo.lpFeesApr) + "%", 1),
+                                    (item.lpInfo.rewardASymbol)
+                                      ? (_openBlock(), _createBlock("p", _hoisted_72, _toDisplayString(item.lpInfo.rewardASymbol) + " " + _toDisplayString(item.lpInfo.lpRewardAprA.toFixed(2)) + "%", 1))
+                                      : _createCommentVNode("", true),
+                                    (item.lpInfo.rewardBSymbol)
+                                      ? (_openBlock(), _createBlock("p", _hoisted_73, _toDisplayString(item.lpInfo.rewardBSymbol) + " " + _toDisplayString(item.lpInfo.lpRewardAprB.toFixed(2)) + "%", 1))
+                                      : _createCommentVNode("", true),
+                                    _createVNode("p", _hoisted_74, "+ " + _toDisplayString(_ctx.t('tip.larixRewards')) + " " + _toDisplayString(item.supplyDistributionApy.times(100).toFixed(2)) + "%", 1),
+                                    (item.lpInfo.doubleRewardSymbol)
+                                      ? (_openBlock(), _createBlock("p", _hoisted_75, _toDisplayString(item.lpInfo.doubleRewardSymbol) + " " + _toDisplayString(_ctx.formatBigNumberStr(item.lpInfo.doubleRewardApy.times(100),2)) + "%", 1))
+                                      : _createCommentVNode("", true)
+                                  ]),
+                                  _: 2
+                                }, 1024)
+                              ])
+                            ]))
+                      ]),
+                      _createVNode("td", _hoisted_76, [
+                        _createVNode("div", _hoisted_77, [
+                          _createVNode("div", _hoisted_78, _toDisplayString(_ctx.formatBigNumberStr(item.walletBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)) + " " + _toDisplayString(item.symbol), 1),
+                          _createVNode("div", _hoisted_79, [
+                            _createVNode("span", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.walletBalance,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)), 1)
+                          ])
+                        ])
+                      ]),
+                      _createVNode("td", _hoisted_80, [
+                        _createVNode("div", _hoisted_81, [
+                          _createVNode(_component_q_toggle, {
+                            dark: "",
+                            "model-value": item.isEnterMarket,
+                            onClick: ($event: any) => (_ctx.closeOrOpenMortgage(item))
+                          }, null, 8, ["model-value", "onClick"])
+                        ])
+                      ]),
+                      _createVNode("td", null, [
+                        _createVNode("div", _hoisted_82, [
+                          _createVNode("div", {
+                            class: "operationButton",
+                            onClick: ($event: any) => (_ctx.openSupplyMarketsDialog(item,'supply'))
+                          }, [
+                            _createVNode("span", null, _toDisplayString(_ctx.t('home.supply')), 1)
+                          ], 8, ["onClick"]),
+                          _createVNode("div", {
+                            class: "operationButton",
+                            onClick: ($event: any) => (_ctx.openSupplyMarketsDialog(item,'withdraw'))
+                          }, [
+                            _createVNode("span", null, _toDisplayString(_ctx.t('home.withdraw')), 1)
+                          ], 8, ["onClick"])
+                        ])
+                      ])
+                    ]))
+                  }), 128))
+                ]),
+                (_ctx.walletAddress==='')
+                  ? (_openBlock(), _createBlock("div", _hoisted_83, [
+                      _createVNode("span", null, _toDisplayString(_ctx.t('home.connectToAWallet')), 1)
+                    ]))
+                  : _createCommentVNode("", true),
+                (_ctx.walletAddress!==''&&!_ctx.isLoadingInfo&&_ctx.mySupply.length===0)
+                  ? (_openBlock(), _createBlock("div", _hoisted_84, [
+                      _createVNode("div", null, [
+                        _createVNode("p", _hoisted_85, _toDisplayString(_ctx.t('positions.noSupplyYet')), 1),
+                        _createVNode(_component_q_btn, {
+                          "no-caps": "",
+                          class: "button",
+                          onClick: _cache[5] || (_cache[5] = ($event: any) => (_ctx.goToDashboard()))
+                        }, {
+                          default: _withId(() => [
+                            _createTextVNode(_toDisplayString(_ctx.t('positions.supplyNow')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]))
+                  : _createCommentVNode("", true),
+                (_ctx.isLoadingInfo&&_ctx.walletAddress!=='')
+                  ? (_openBlock(), _createBlock("table", _hoisted_86, [
+                      (_openBlock(), _createBlock(_Fragment, null, _renderList(1, (i) => {
+                        return _createVNode("tr", {
+                          key: i ,
+                          style: {"opacity":"0.5"}
+                        }, [
+                          _createVNode("td", _hoisted_87, [
+                            _createVNode("div", _hoisted_88, [
+                              _createVNode("div", _hoisted_89, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "QAvatar",
+                                  style: {"width":"38px","height":"38px"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_90, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"42px","margin-bottom":"4px"}
+                                }),
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"34px","line-height":"18px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_91, [
+                            _createVNode("div", _hoisted_92, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_93, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_94, [
+                            _createVNode("div", _hoisted_95, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_96, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_97, [
+                            _createVNode("div", _hoisted_98, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"78px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_99, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"34px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_100, [
+                            _createVNode("div", _hoisted_101, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"134px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_102, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"80px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_103, [
+                            _createVNode("div", _hoisted_104, [
+                              _createVNode(_component_q_skeleton, {
+                                style: {"min-width":"80px","height":"30px","line-height":"37px","border-radius":"18px"},
+                                type: "QAvatar"
+                              }),
+                              _createVNode(_component_q_skeleton, {
+                                style: {"min-width":"80px","height":"30px","line-height":"37px","border-radius":"18px"},
+                                type: "QAvatar"
+                              })
+                            ])
+                          ])
+                        ])
+                      }), 64))
+                    ]))
+                  : _createCommentVNode("", true)
+              ])
+            ]),
+            (_ctx.mySupply.length!==0)
+              ? (_openBlock(), _createBlock("div", _hoisted_105, [
+                  _createVNode("div", _hoisted_106, _toDisplayString(_ctx.t('positions.myBorrow')), 1),
+                  _createVNode("div", _hoisted_107, [
+                    _createVNode("table", null, [
+                      _createVNode("tr", null, [
+                        _createVNode("th", _hoisted_108, [
+                          _createVNode("div", _hoisted_109, _toDisplayString(_ctx.t('home.asset')), 1)
+                        ]),
+                        _createVNode("th", _hoisted_110, [
+                          _createVNode("div", _hoisted_111, _toDisplayString(_ctx.t('home.borrowBalance')), 1)
+                        ]),
+                        _createVNode("th", _hoisted_112, [
+                          _createVNode("div", _hoisted_113, _toDisplayString(_ctx.t('home.borrowAPY')), 1)
+                        ]),
+                        _createVNode("th", _hoisted_114, [
+                          _createVNode("div", _hoisted_115, _toDisplayString(_ctx.t('home.wallet')), 1)
+                        ]),
+                        _createVNode("th", _hoisted_116, [
+                          _createVNode("div", _hoisted_117, _toDisplayString(_ctx.t('home.liquidity')), 1)
+                        ]),
+                        _createVNode("th", _hoisted_118, [
+                          _createVNode("div", _hoisted_119, [
+                            _createVNode("div", _hoisted_120, [
+                              _createVNode("div", _hoisted_121, [
+                                _createTextVNode(_toDisplayString(_ctx.t('home.borrow')) + " ", 1),
+                                _createVNode("div", _hoisted_122, [
+                                  _createVNode("span", null, _toDisplayString(_ctx.t('home.operation')), 1)
+                                ])
+                              ]),
+                              _createVNode("div", _hoisted_123, _toDisplayString(_ctx.t('home.repay')), 1)
+                            ])
+                          ])
+                        ])
+                      ]),
+                      (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.myBorrow, (item) => {
+                        return (_openBlock(), _createBlock("tr", {
+                          key: item.id
+                        }, [
+                          _createVNode("td", _hoisted_124, [
+                            _createVNode("div", _hoisted_125, [
+                              _createVNode("div", _hoisted_126, [
+                                _createVNode("img", {
+                                  src: item.logoSource,
+                                  height: "38"
+                                }, null, 8, ["src"])
+                              ]),
+                              _createVNode("div", _hoisted_127, [
+                                _createVNode("div", _hoisted_128, _toDisplayString(item.symbol), 1),
+                                _createVNode("div", _hoisted_129, "$" + _toDisplayString(item.liquidityPrice.toFixed(2)), 1)
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_130, [
+                            _createVNode("div", _hoisted_131, [
+                              _createVNode("div", _hoisted_132, _toDisplayString(_ctx.formatBigNumberStr(item.borrowBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)?4:2)) + " " + _toDisplayString(item.symbol), 1),
+                              _createVNode("div", _hoisted_133, [
+                                _createVNode("span", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.borrowBalance,2)), 1)
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_134, [
+                            _createVNode("div", _hoisted_135, [
+                              _createVNode("div", _hoisted_136, _toDisplayString(_ctx.formatBigNumberStr(item.borrowApy.times(100).minus(item.borrowDistributionApy.times(100)).minus(item?.singleTokenDoubleBorrowRewardApy||0),2)) + "% ", 1),
+                              _createVNode("div", _hoisted_137, [
+                                _createVNode("span", null, _toDisplayString(item.borrowApy.times(100).toFixed(2)) + "% −", 1),
+                                _createVNode("img", {
+                                  src: _ctx.larixLogo,
+                                  width: "16",
+                                  height: "16",
+                                  style: {"border-radius":"50%","margin-left":"4px"}
+                                }, null, 8, ["src"]),
+                                _createVNode("img", {
+                                  src: _ctx.icon_information,
+                                  width: "16",
+                                  height: "16",
+                                  style: {"margin-left":"4px","cursor":"pointer"}
+                                }, null, 8, ["src"]),
+                                _createVNode(_component_q_tooltip, {
+                                  anchor: "top right",
+                                  self: "bottom right",
+                                  offset: [100,10]
+                                }, {
+                                  default: _withId(() => [
+                                    (item.singleTokenDoubleBorrowRewardApy)
+                                      ? (_openBlock(), _createBlock("p", _hoisted_138, _toDisplayString(item.singleTokenDoubleRewardTokenSymbol) + " " + _toDisplayString(item.singleTokenDoubleBorrowRewardApy.times(100).toFixed(2)) + "%", 1))
+                                      : _createCommentVNode("", true),
+                                    _createVNode("p", _hoisted_139, "- " + _toDisplayString(_ctx.t('tip.larixRewards')) + " " + _toDisplayString(_ctx.formatBigNumberStr(item.borrowDistributionApy.times(100),2)) + "%", 1)
+                                  ]),
+                                  _: 2
+                                }, 1024)
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_140, [
+                            _createVNode("div", _hoisted_141, [
+                              _createVNode("div", _hoisted_142, _toDisplayString(_ctx.formatBigNumberStr(item.walletBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)) + " " + _toDisplayString(item.symbol), 1),
+                              _createVNode("div", _hoisted_143, [
+                                _createVNode("span", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.walletBalance,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)), 1)
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_144, [
+                            _createVNode("div", _hoisted_145, [
+                              _createVNode("div", _hoisted_146, _toDisplayString(_ctx.formatBigNumberStr(item.totalAvailableAmount,0)) + " " + _toDisplayString(item.symbol), 1),
+                              _createVNode("div", _hoisted_147, [
+                                _createVNode("span", null, "$" + _toDisplayString(_ctx.formatBigNumberStr(item.totalAvailableAmount.times(item.liquidityPrice),0)), 1)
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", null, [
+                            _createVNode("div", _hoisted_148, [
+                              _createVNode("div", {
+                                class: "operationButton",
+                                onClick: ($event: any) => (_ctx.openBorrowMarketsDialog(item,'borrow'))
+                              }, [
+                                _createVNode("span", null, _toDisplayString(_ctx.t('home.borrow')), 1)
+                              ], 8, ["onClick"]),
+                              _createVNode("div", {
+                                class: "operationButton",
+                                onClick: ($event: any) => (_ctx.openBorrowMarketsDialog(item,'repay'))
+                              }, [
+                                _createVNode("span", null, _toDisplayString(_ctx.t('home.repay')), 1)
+                              ], 8, ["onClick"])
+                            ])
+                          ])
+                        ]))
+                      }), 128))
+                    ]),
+                    (_ctx.walletAddress==='')
+                      ? (_openBlock(), _createBlock("div", _hoisted_149, [
+                          _createVNode("span", null, _toDisplayString(_ctx.t('home.connectToAWallet')), 1)
+                        ]))
+                      : _createCommentVNode("", true),
+                    (_ctx.walletAddress!==''&&!_ctx.isLoadingInfo&&_ctx.myBorrow.length===0)
+                      ? (_openBlock(), _createBlock("div", _hoisted_150, [
+                          _createVNode("div", {
+                            onClick: _cache[6] || (_cache[6] = ($event: any) => (_ctx.goToDashboard()))
+                          }, [
+                            _createVNode("p", _hoisted_151, _toDisplayString(_ctx.t('positions.noBorrowYet')), 1),
+                            _createVNode(_component_q_btn, {
+                              "no-caps": "",
+                              class: "button"
+                            }, {
+                              default: _withId(() => [
+                                _createTextVNode(_toDisplayString(_ctx.t('positions.borrowNow')), 1)
+                              ]),
+                              _: 1
+                            })
+                          ])
+                        ]))
+                      : _createCommentVNode("", true),
+                    (_ctx.isLoadingInfo&&_ctx.walletAddress!=='')
+                      ? (_openBlock(), _createBlock("table", _hoisted_152, [
+                          (_openBlock(), _createBlock(_Fragment, null, _renderList(1, (i) => {
+                            return _createVNode("tr", {
+                              key: i ,
+                              style: {"opacity":"0.5"}
+                            }, [
+                              _createVNode("td", _hoisted_153, [
+                                _createVNode("div", _hoisted_154, [
+                                  _createVNode("div", _hoisted_155, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "QAvatar",
+                                      style: {"width":"38px","height":"38px"}
+                                    })
+                                  ]),
+                                  _createVNode("div", _hoisted_156, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"42px","margin-bottom":"4px"}
+                                    }),
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"34px","line-height":"18px"}
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _createVNode("td", _hoisted_157, [
+                                _createVNode("div", _hoisted_158, [
+                                  _createVNode("div", null, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"54px","margin-bottom":"4px","position":"relative","float":"right"}
+                                    })
+                                  ]),
+                                  _createVNode("div", _hoisted_159, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"54px","margin-bottom":"4px"}
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _createVNode("td", _hoisted_160, [
+                                _createVNode("div", _hoisted_161, [
+                                  _createVNode("div", null, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"54px","margin-bottom":"4px","position":"relative","float":"right"}
+                                    })
+                                  ]),
+                                  _createVNode("div", _hoisted_162, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"54px","margin-bottom":"4px"}
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _createVNode("td", _hoisted_163, [
+                                _createVNode("div", _hoisted_164, [
+                                  _createVNode("div", null, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"78px","margin-bottom":"4px","position":"relative","float":"right"}
+                                    })
+                                  ]),
+                                  _createVNode("div", _hoisted_165, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"34px","margin-bottom":"4px"}
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _createVNode("td", _hoisted_166, [
+                                _createVNode("div", _hoisted_167, [
+                                  _createVNode("div", null, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"134px","margin-bottom":"4px","position":"relative","float":"right"}
+                                    })
+                                  ]),
+                                  _createVNode("div", _hoisted_168, [
+                                    _createVNode(_component_q_skeleton, {
+                                      type: "text",
+                                      style: {"width":"80px","margin-bottom":"4px"}
+                                    })
+                                  ])
+                                ])
+                              ]),
+                              _createVNode("td", _hoisted_169, [
+                                _createVNode("div", _hoisted_170, [
+                                  _createVNode(_component_q_skeleton, {
+                                    style: {"min-width":"80px","height":"30px","line-height":"37px","border-radius":"18px"},
+                                    type: "QAvatar"
+                                  }),
+                                  _createVNode(_component_q_skeleton, {
+                                    style: {"min-width":"80px","height":"30px","line-height":"37px","border-radius":"18px"},
+                                    type: "QAvatar"
+                                  })
+                                ])
+                              ])
+                            ])
+                          }), 64))
+                        ]))
+                      : _createCommentVNode("", true)
+                  ])
+                ]))
+              : _createCommentVNode("", true),
+            _createVNode("div", null, [
+              _createVNode("div", _hoisted_171, _toDisplayString(_ctx.t('positions.myStake')), 1),
+              _createVNode("div", _hoisted_172, [
+                _createVNode("table", null, [
+                  _createVNode("tr", null, [
+                    _createVNode("th", _hoisted_173, [
+                      _createVNode("div", _hoisted_174, _toDisplayString(_ctx.t('home.asset')), 1)
+                    ]),
+                    _createVNode("th", _hoisted_175, [
+                      _createVNode("div", _hoisted_176, [
+                        _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.stakeTime')) + " ", 1),
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          height: "14",
+                          width: "14",
+                          style: {"cursor":"pointer","position":"relative","top":"2px"}
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "center right",
+                          self: "center left"
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", _hoisted_177, _toDisplayString(_ctx.t('tip.lockedDateTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("th", _hoisted_178, [
+                      _createVNode("div", _hoisted_179, [
+                        _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.unlockingTime')) + " ", 1),
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          height: "14",
+                          width: "14",
+                          style: {"cursor":"pointer","position":"relative","top":"2px"}
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "center right",
+                          self: "center left"
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", _hoisted_180, _toDisplayString(_ctx.t('tip.unlockingDateTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("th", _hoisted_181, [
+                      _createVNode("div", _hoisted_182, [
+                        _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.amount')) + " ", 1),
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          height: "14",
+                          width: "14",
+                          style: {"cursor":"pointer","position":"relative","top":"2px"}
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "center right",
+                          self: "center left"
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", _hoisted_183, _toDisplayString(_ctx.t('tip.stakeAmountTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("th", _hoisted_184, [
+                      _createVNode("div", _hoisted_185, [
+                        _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.raydiumReward')) + " ", 1),
+                        _createVNode("img", {
+                          src: _ctx.icon_information,
+                          height: "14",
+                          width: "14",
+                          style: {"cursor":"pointer","position":"relative","top":"2px"}
+                        }, null, 8, ["src"]),
+                        _createVNode(_component_q_tooltip, {
+                          anchor: "center right",
+                          self: "center left"
+                        }, {
+                          default: _withId(() => [
+                            _createVNode("p", _hoisted_186, _toDisplayString(_ctx.t('tip.raydiumRewardTip')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]),
+                    _createVNode("th", _hoisted_187, [
+                      _createVNode("div", _hoisted_188, [
+                        _createVNode("div", _hoisted_189, [
+                          _createVNode("div", _hoisted_190, [
+                            _createTextVNode(_toDisplayString(_ctx.t('home.borrow')) + " ", 1),
+                            _createVNode("div", _hoisted_191, [
+                              _createVNode("span", null, _toDisplayString(_ctx.t('home.operation')), 1)
+                            ])
+                          ]),
+                          _createVNode("div", _hoisted_192, _toDisplayString(_ctx.t('home.repay')), 1)
+                        ])
+                      ])
+                    ])
+                  ]),
+                  (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.myStake, (item) => {
+                    return (_openBlock(), _createBlock("tr", {
+                      key: item.id
+                    }, [
+                      _createVNode("td", _hoisted_193, [
+                        _createVNode("div", _hoisted_194, [
+                          _createVNode("div", _hoisted_195, [
+                            _createVNode("img", {
+                              style: {},
+                              src: _ctx.larixImg,
+                              width: "38",
+                              height: "38"
+                            }, null, 8, ["src"]),
+                            _createVNode("img", {
+                              class: "token1",
+                              src: _ctx.usdcImg,
+                              width: "38",
+                              height: "38"
+                            }, null, 8, ["src"])
+                          ]),
+                          _hoisted_196
+                        ])
+                      ]),
+                      _createVNode("td", _hoisted_197, [
+                        _createVNode("div", _hoisted_198, [
+                          _createVNode("div", _hoisted_199, _toDisplayString(item.startTimeString), 1)
+                        ])
+                      ]),
+                      _createVNode("td", _hoisted_200, [
+                        _createVNode("div", _hoisted_201, _toDisplayString(item.endTimeString), 1)
+                      ]),
+                      _createVNode("td", _hoisted_202, [
+                        _createVNode("div", _hoisted_203, [
+                          _createVNode("div", _hoisted_204, _toDisplayString(_ctx.formatBigNumberStr(item.lpAmount,4)), 1),
+                          _createVNode("div", _hoisted_205, "$ " + _toDisplayString(_ctx.formatBigNumberStr(item.lpAmount.times(_ctx.mineCollateralLpDetails.lpPrice),4)), 1)
+                        ])
+                      ]),
+                      _createVNode("td", _hoisted_206, [
+                        _createVNode("div", _hoisted_207, [
+                          _createVNode("div", null, [
+                            _createVNode("p", _hoisted_208, _toDisplayString(_ctx.formatBigNumberStr(item.larixRewardAmount,6)), 1),
+                            _hoisted_209
+                          ])
+                        ])
+                      ]),
+                      _createVNode("td", null, [
+                        _createVNode("div", _hoisted_210, [
+                          _createVNode("div", {
+                            class: "operationButton",
+                            onClick: _cache[7] || (_cache[7] = ($event: any) => (_ctx.claimAllReward()))
+                          }, [
+                            _createVNode("span", null, _toDisplayString(_ctx.t('positions.claim')), 1)
+                          ]),
+                          _createVNode(_component_q_btn, {
+                            "no-caps": "",
+                            class: ["operationButton", !_ctx.unStakeButtonEnable(item)?'grey-button':''],
+                            onClick: ($event: any) => (_ctx.unStakePosition(item)),
+                            disable: !_ctx.unStakeButtonEnable(item)
+                          }, {
+                            default: _withId(() => [
+                              _createVNode("span", null, _toDisplayString(_ctx.t('larixStakingDialog.unlocking')), 1)
+                            ]),
+                            _: 2
+                          }, 1032, ["onClick", "class", "disable"])
+                        ])
+                      ])
+                    ]))
+                  }), 128))
+                ]),
+                (_ctx.walletAddress==='')
+                  ? (_openBlock(), _createBlock("div", _hoisted_211, [
+                      _createVNode("span", null, _toDisplayString(_ctx.t('home.connectToAWallet')), 1)
+                    ]))
+                  : _createCommentVNode("", true),
+                (_ctx.walletAddress!==''&&!_ctx.isLoadingUserLarixStakeInfo&&_ctx.userLarixPositions.length===0)
+                  ? (_openBlock(), _createBlock("div", _hoisted_212, [
+                      _createVNode("div", null, [
+                        _createVNode("p", _hoisted_213, _toDisplayString(_ctx.t('positions.noStakeYet')), 1),
+                        _createVNode(_component_q_btn, {
+                          "no-caps": "",
+                          class: "button",
+                          onClick: _cache[8] || (_cache[8] = ($event: any) => (_ctx.rewardDialogVisible=true))
+                        }, {
+                          default: _withId(() => [
+                            _createTextVNode(_toDisplayString(_ctx.t('positions.stakeNow')), 1)
+                          ]),
+                          _: 1
+                        })
+                      ])
+                    ]))
+                  : _createCommentVNode("", true),
+                (_ctx.isLoadingUserLarixStakeInfo&&_ctx.walletAddress!=='')
+                  ? (_openBlock(), _createBlock("table", _hoisted_214, [
+                      (_openBlock(), _createBlock(_Fragment, null, _renderList(1, (i) => {
+                        return _createVNode("tr", {
+                          key: i ,
+                          style: {"opacity":"0.5"}
+                        }, [
+                          _createVNode("td", _hoisted_215, [
+                            _createVNode("div", _hoisted_216, [
+                              _createVNode("div", _hoisted_217, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "QAvatar",
+                                  style: {"width":"38px","height":"38px"}
+                                }),
+                                _createVNode(_component_q_skeleton, {
+                                  type: "QAvatar",
+                                  style: {"width":"38px","height":"38px","transform":"translateX(-8px)"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_218, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"42px","margin-bottom":"4px"}
+                                }),
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"34px","line-height":"18px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_219, [
+                            _createVNode("div", _hoisted_220, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_221, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_222, [
+                            _createVNode("div", _hoisted_223, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_224, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"54px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_225, [
+                            _createVNode("div", _hoisted_226, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"78px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_227, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"34px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_228, [
+                            _createVNode("div", _hoisted_229, [
+                              _createVNode("div", null, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"134px","margin-bottom":"4px","position":"relative","float":"right"}
+                                })
+                              ]),
+                              _createVNode("div", _hoisted_230, [
+                                _createVNode(_component_q_skeleton, {
+                                  type: "text",
+                                  style: {"width":"80px","margin-bottom":"4px"}
+                                })
+                              ])
+                            ])
+                          ]),
+                          _createVNode("td", _hoisted_231, [
+                            _createVNode("div", _hoisted_232, [
+                              _createVNode(_component_q_skeleton, {
+                                style: {"min-width":"80px","height":"30px","line-height":"37px","border-radius":"18px"},
+                                type: "QAvatar"
+                              }),
+                              _createVNode(_component_q_skeleton, {
+                                style: {"min-width":"80px","height":"30px","line-height":"37px","border-radius":"18px"},
+                                type: "QAvatar"
+                              })
+                            ])
+                          ])
+                        ])
+                      }), 64))
+                    ]))
+                  : _createCommentVNode("", true)
+              ])
+            ])
+          ]),
+          _createVNode(_component_q_page_scroller, {
+            class: "scroller",
+            position: "bottom-right",
+            "scroll-offset": 450,
+            offset: [18, 24]
+          }, {
+            default: _withId(() => [
+              _createVNode(_component_q_btn, {
+                fab: "",
+                class: "scroller-btn"
+              }, {
+                default: _withId(() => [
+                  _createVNode(_component_q_icon, {
+                    class: "scroller-btn-icon",
+                    name: "keyboard_arrow_up"
+                  })
+                ]),
+                _: 1
+              })
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      })
+    ]),
+    _createVNode("div", _hoisted_233, [
+      _createVNode(_component_Dashboard, {
+        device: "Mobile",
+        "page-type": "Position"
+      }),
+      (!_ctx.isLoadingInfo&&_ctx.walletAddress!==''&&_ctx.needToHandle)
+        ? (_openBlock(), _createBlock("div", _hoisted_234, [
+            _hoisted_235,
+            _createVNode(_component_q_btn, {
+              "no-caps": "",
+              class: "handleTipApp-btn",
+              onClick: _cache[9] || (_cache[9] = ($event: any) => (_ctx.openHandleLpDialog()))
+            }, {
+              default: _withId(() => [
+                _createTextVNode(_toDisplayString(_ctx.t('home.unsettledAssets')), 1)
+              ]),
+              _: 1
+            })
+          ]))
+        : _createCommentVNode("", true),
+      _createVNode("div", _hoisted_236, [
+        _createVNode("div", _hoisted_237, [
+          _createVNode("div", _hoisted_238, [
+            _createVNode("div", _hoisted_239, [
+              _createVNode("div", null, [
+                _createTextVNode(_toDisplayString(_ctx.t('supplyAndBorrow.borrowLimit')) + " ", 1),
+                _createVNode("img", {
+                  src: _ctx.icon_information,
+                  width: "10",
+                  height: "10",
+                  "data-v-fae5bece": "",
+                  style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                }, null, 8, ["src"]),
+                _createVNode(_component_q_tooltip, {
+                  "hide-delay": 5000,
+                  anchor: "top right",
+                  self: "bottom right",
+                  offset: [100,10]
+                }, {
+                  default: _withId(() => [
+                    _createVNode("p", _hoisted_240, _toDisplayString(_ctx.t('tip.borrowLimitTip')), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              _createVNode("span", _hoisted_241, _toDisplayString(_ctx.formatDollars(_ctx.userBorrowLimit,2)), 1)
+            ]),
+            _createVNode("div", _hoisted_242, [
+              _createVNode("div", _hoisted_243, [
+                _createTextVNode(_toDisplayString(_ctx.t('positions.liquidationThreshol')) + " ", 1),
+                _createVNode("img", {
+                  src: _ctx.icon_information,
+                  width: "10",
+                  height: "10",
+                  "data-v-fae5bece": "",
+                  style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                }, null, 8, ["src"]),
+                _createVNode(_component_q_tooltip, {
+                  "hide-delay": 5000,
+                  anchor: "top right",
+                  self: "bottom right",
+                  offset: [100,10]
+                }, {
+                  default: _withId(() => [
+                    _createVNode("p", _hoisted_244, _toDisplayString(_ctx.t('tip.liquidationTip')), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              _createVNode("span", _hoisted_245, _toDisplayString(_ctx.formatDollars(_ctx.userLiquidationThreshold,2)), 1)
+            ])
+          ]),
+          _createVNode("div", _hoisted_246, [
+            _createVNode("div", _hoisted_247, [
+              _createVNode("div", null, [
+                _createTextVNode(_toDisplayString(_ctx.t('positions.myReward')) + " ", 1),
+                _createVNode("img", {
+                  src: _ctx.icon_information,
+                  width: "10",
+                  height: "10",
+                  "data-v-fae5bece": "",
+                  style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                }, null, 8, ["src"]),
+                _createVNode(_component_q_tooltip, {
+                  "hide-delay": 5000,
+                  anchor: "top right",
+                  self: "bottom right",
+                  offset: [100,10]
+                }, {
+                  default: _withId(() => [
+                    _createVNode("p", _hoisted_248, _toDisplayString(_ctx.t('tip.myRewardTip')), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              _createVNode("span", _hoisted_249, _toDisplayString(_ctx.formatDollars(_ctx.userBorrowLimit,2)), 1)
+            ]),
+            _createVNode("div", _hoisted_250, [
+              _createVNode("div", _hoisted_251, [
+                _createTextVNode(_toDisplayString(_ctx.t('positions.myStake')) + " ", 1),
+                _createVNode("img", {
+                  src: _ctx.icon_information,
+                  width: "10",
+                  height: "10",
+                  "data-v-fae5bece": "",
+                  style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                }, null, 8, ["src"]),
+                _createVNode(_component_q_tooltip, {
+                  "hide-delay": 5000,
+                  anchor: "top right",
+                  self: "bottom right",
+                  offset: [100,10]
+                }, {
+                  default: _withId(() => [
+                    _createVNode("p", _hoisted_252, _toDisplayString(_ctx.t('tip.myRewardTip')), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              _createVNode("span", _hoisted_253, _toDisplayString(_ctx.formatBigNumberStr(_ctx.userTotalStakeLp,4)), 1),
+              _hoisted_254
+            ])
+          ])
+        ])
+      ]),
+      _createVNode("div", _hoisted_255, [
+        _createVNode("div", _hoisted_256, [
+          _createVNode("div", _hoisted_257, [
+            _createVNode("div", {
+              class: ["tab", {'tab-active-first': _ctx.positionType==='mySupply'}],
+              onClick: _cache[10] || (_cache[10] = ($event: any) => (_ctx.positionType='mySupply'))
+            }, _toDisplayString(_ctx.t('positions.mySupply')), 3),
+            _createVNode("div", {
+              class: ["tabMiddle", {'tab-active-i': _ctx.positionType==='myBorrow'}],
+              style: _ctx.positionType==='myStake'?'border-radius: 18px 0 0 0':'',
+              onClick: _cache[11] || (_cache[11] = ($event: any) => (_ctx.positionType='myBorrow'))
+            }, [
+              _createTextVNode(_toDisplayString(_ctx.t('positions.myBorrow')) + " ", 1),
+              _withDirectives(_createVNode("div", {
+                class: ["maskLeft", {'maskLeftPosition':_ctx.positionType==='myStake'}]
+              }, null, 2), [
+                [_vShow, _ctx.positionType!=='myBorrow']
+              ]),
+              _withDirectives(_createVNode("div", _hoisted_258, null, 512), [
+                [_vShow, _ctx.positionType==='myStake']
+              ])
+            ], 6),
+            _createVNode("div", {
+              class: ["tab", {'tab-active-i': _ctx.positionType==='myStake'}],
+              onClick: _cache[12] || (_cache[12] = ($event: any) => (_ctx.positionType='myStake'))
+            }, _toDisplayString(_ctx.t('positions.myStake')), 3)
+          ])
+        ]),
+        (_ctx.positionType==='mySupply')
+          ? (_openBlock(), _createBlock("div", _hoisted_259, [
+              (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.mySupply, (item) => {
+                return (_openBlock(), _createBlock("div", {
+                  class: "positionDetails-supply-item",
+                  key: item.id
+                }, [
+                  _createVNode("div", _hoisted_260, [
+                    _createVNode("div", _hoisted_261, [
+                      _createVNode("img", {
+                        src: item.logoSource,
+                        width: item.isLP?'64':'34',
+                        height: "34"
+                      }, null, 8, ["src", "width"]),
+                      _createVNode("div", _hoisted_262, [
+                        _createVNode("div", _hoisted_263, _toDisplayString(item.symbol), 1),
+                        _createVNode("span", null, "$" + _toDisplayString(item.liquidityPrice.toFixed(2)), 1)
+                      ])
+                    ]),
+                    _createVNode("div", _hoisted_264, [
+                      _createVNode(_component_q_toggle, {
+                        "model-value": item.isEnterMarket,
+                        onClick: ($event: any) => (_ctx.closeOrOpenMortgage(item))
+                      }, null, 8, ["model-value", "onClick"]),
+                      _hoisted_265,
+                      _createVNode("span", null, _toDisplayString(_ctx.t('home.collateral')), 1)
+                    ])
+                  ]),
+                  _createVNode("div", _hoisted_266, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('home.supplyBalance')), 1),
+                    _createVNode("div", _hoisted_267, _toDisplayString(_ctx.formatBigNumberStr(item.supplyBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)) + " " + _toDisplayString(item.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_268, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t('home.supplyAPY')) + " ", 1),
+                      _createVNode("img", {
+                        src: _ctx.icon_information,
+                        width: "10",
+                        height: "10",
+                        "data-v-fae5bece": "",
+                        style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                      }, null, 8, ["src"]),
+                      (!item.isLP)
+                        ? (_openBlock(), _createBlock(_component_q_tooltip, {
+                            key: 0,
+                            "hide-delay": 5000,
+                            anchor: "top right",
+                            self: "bottom right",
+                            offset: [100,10]
+                          }, {
+                            default: _withId(() => [
+                              _createVNode("p", _hoisted_269, _toDisplayString(_ctx.t('home.supplyAPY')) + " " + _toDisplayString(_ctx.formatBigNumberStr(item.supplyApy.times(100),2)) + "%", 1),
+                              (item.hasSingleTokenDoubleReward)
+                                ? (_openBlock(), _createBlock("p", _hoisted_270, _toDisplayString(item.singleTokenDoubleRewardTokenSymbol) + " " + _toDisplayString(item.singleTokenDoubleRewardApy.times(100).toFixed(2)) + "%", 1))
+                                : _createCommentVNode("", true),
+                              _createVNode("p", _hoisted_271, "+ " + _toDisplayString(_ctx.t('tip.larixRewards')) + " " + _toDisplayString(_ctx.formatBigNumberStr(item.supplyDistributionApy.times(100),2)) + "%", 1)
+                            ]),
+                            _: 2
+                          }, 1024))
+                        : (_openBlock(), _createBlock(_component_q_tooltip, {
+                            key: 1,
+                            "hide-delay": 5000,
+                            anchor: "top right",
+                            self: "bottom right",
+                            offset: [100,10]
+                          }, {
+                            default: _withId(() => [
+                              _createVNode("p", _hoisted_272, "Fees " + _toDisplayString(isNaN(item.lpInfo.lpFeesApr)?0:item.lpInfo.lpFeesApr) + "%", 1),
+                              (item.lpInfo.rewardASymbol)
+                                ? (_openBlock(), _createBlock("p", _hoisted_273, _toDisplayString(item.lpInfo.rewardASymbol) + " " + _toDisplayString(item.lpInfo.lpRewardAprA.toFixed(2)) + "%", 1))
+                                : _createCommentVNode("", true),
+                              (item.lpInfo.rewardBSymbol)
+                                ? (_openBlock(), _createBlock("p", _hoisted_274, _toDisplayString(item.lpInfo.rewardBSymbol) + " " + _toDisplayString(item.lpInfo.lpRewardAprB.toFixed(2)) + "%", 1))
+                                : _createCommentVNode("", true),
+                              _createVNode("p", _hoisted_275, "+ " + _toDisplayString(_ctx.t('tip.larixRewards')) + " " + _toDisplayString(item.supplyDistributionApy.times(100).toFixed(2)) + "%", 1),
+                              (item.lpInfo.doubleRewardSymbol)
+                                ? (_openBlock(), _createBlock("p", _hoisted_276, _toDisplayString(item.lpInfo.doubleRewardSymbol) + " " + _toDisplayString(_ctx.formatBigNumberStr(item.lpInfo.doubleRewardApy.times(100),2)) + "%", 1))
+                                : _createCommentVNode("", true)
+                            ]),
+                            _: 2
+                          }, 1024))
+                    ]),
+                    (!item.isLP)
+                      ? (_openBlock(), _createBlock("div", _hoisted_277, _toDisplayString(_ctx.formatBigNumberStr(item.supplyApy.times(100).plus( item.supplyDistributionApy.times(100)).plus(item.singleTokenDoubleRewardApy.times(100)),2)) + "% ", 1))
+                      : (_openBlock(), _createBlock("div", _hoisted_278, _toDisplayString(_ctx.formatBigNumberStr((item.lpInfo.lpApr).plus(item.lpInfo.doubleRewardApy.times(100)).plus(isNaN(item.lpInfo.lpFeesApr)?0:item.lpInfo.lpFeesApr).plus( item.supplyDistributionApy.times(100)),2)) + "% ", 1))
+                  ]),
+                  _createVNode("div", _hoisted_279, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('home.wallet')), 1),
+                    _createVNode("div", _hoisted_280, _toDisplayString(_ctx.formatBigNumberStr(item.walletBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)) + " " + _toDisplayString(item.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_281, [
+                    _hoisted_282,
+                    _createVNode("div", _hoisted_283, [
+                      _createVNode("div", {
+                        onClick: ($event: any) => (_ctx.openSupplyMarketsDialog(item,'supply'))
+                      }, _toDisplayString(_ctx.t('home.supply')), 9, ["onClick"]),
+                      _createVNode("div", {
+                        onClick: ($event: any) => (_ctx.openSupplyMarketsDialog(item,'withdraw'))
+                      }, _toDisplayString(_ctx.t('home.withdraw')), 9, ["onClick"])
+                    ])
+                  ])
+                ]))
+              }), 128)),
+              (_ctx.walletAddress==='')
+                ? (_openBlock(), _createBlock("div", _hoisted_284, _toDisplayString(_ctx.t('wallet.connectToAWallet')), 1))
+                : _createCommentVNode("", true),
+              (_ctx.walletAddress!==''&&!_ctx.isLoadingInfo&&_ctx.mySupply.length===0)
+                ? (_openBlock(), _createBlock("div", _hoisted_285, [
+                    _createVNode("p", _hoisted_286, _toDisplayString(_ctx.t('positions.noSupplyYet')), 1),
+                    _createVNode(_component_q_btn, {
+                      "no-caps": "",
+                      class: "noAssetButton",
+                      onClick: _cache[13] || (_cache[13] = ($event: any) => (_ctx.goToDashboard()))
+                    }, {
+                      default: _withId(() => [
+                        _createTextVNode(_toDisplayString(_ctx.t('positions.supplyNow')), 1)
+                      ]),
+                      _: 1
+                    })
+                  ]))
+                : _createCommentVNode("", true),
+              (_ctx.walletAddress!==''&&_ctx.isLoadingInfo)
+                ? (_openBlock(), _createBlock("div", _hoisted_287, [
+                    _createVNode("div", _hoisted_288, [
+                      _createVNode("div", _hoisted_289, [
+                        _createVNode(_component_q_skeleton, { style: {"border-radius":"50%","margin-left":"4px","width":"34px","height":"34px"} }),
+                        _createVNode("div", null, [
+                          _createVNode(_component_q_skeleton, {
+                            type: "text",
+                            style: {"width":"54px","margin-bottom":"4px"}
+                          }),
+                          _createVNode(_component_q_skeleton, {
+                            type: "text",
+                            style: {"width":"54px","margin-bottom":"4px"}
+                          })
+                        ])
+                      ]),
+                      _createVNode("div", _hoisted_290, [
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"80px","margin-bottom":"4px"}
+                        }),
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"54px","margin-bottom":"4px","float":"right"}
+                        })
+                      ])
+                    ]),
+                    _createVNode("div", _hoisted_291, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_292, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_293, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_294, [
+                      _hoisted_295,
+                      _createVNode("div", _hoisted_296, [
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"74px","height":"58px","border-radius":"20px","margin-left":"9px"}
+                        }),
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"74px","height":"58px","border-radius":"20px","margin-left":"8px"}
+                        })
+                      ])
+                    ])
+                  ]))
+                : _createCommentVNode("", true)
+            ]))
+          : _createCommentVNode("", true),
+        (_ctx.positionType==='myBorrow')
+          ? (_openBlock(), _createBlock("div", _hoisted_297, [
+              (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.myBorrow, (item) => {
+                return (_openBlock(), _createBlock("div", {
+                  class: "positionDetails-borrow-item",
+                  key: item.id
+                }, [
+                  _createVNode("div", _hoisted_298, [
+                    _createVNode("div", _hoisted_299, [
+                      _createVNode("img", {
+                        src: item.logoSource,
+                        width: "34",
+                        height: "34"
+                      }, null, 8, ["src"]),
+                      _createVNode("div", _hoisted_300, [
+                        _createVNode("div", _hoisted_301, _toDisplayString(item.symbol), 1),
+                        _createVNode("span", null, "$" + _toDisplayString(item.liquidityPrice.toFixed(2)), 1)
+                      ])
+                    ]),
+                    _createVNode("div", _hoisted_302, [
+                      _createVNode("div", _hoisted_303, _toDisplayString(_ctx.formatBigNumberStr(item.totalAvailableAmount,2)) + " " + _toDisplayString(item.symbol), 1),
+                      _createVNode("span", null, _toDisplayString(_ctx.t('home.liquidity')), 1)
+                    ])
+                  ]),
+                  _createVNode("div", _hoisted_304, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('home.borrowBalance')), 1),
+                    _createVNode("div", _hoisted_305, _toDisplayString(_ctx.formatBigNumberStr(item.borrowBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)?4:2)) + " " + _toDisplayString(item.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_306, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t('home.borrowAPY')) + " ", 1),
+                      _createVNode("img", {
+                        src: _ctx.icon_information,
+                        width: "10",
+                        height: "10",
+                        "data-v-fae5bece": "",
+                        style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                      }, null, 8, ["src"]),
+                      _createVNode(_component_q_tooltip, {
+                        "hide-delay": 5000,
+                        anchor: "top right",
+                        self: "bottom right",
+                        offset: [100,10]
+                      }, {
+                        default: _withId(() => [
+                          _createVNode("p", _hoisted_307, _toDisplayString(_ctx.t('home.borrowAPY')) + " " + _toDisplayString(item.borrowApy.times(100).toFixed(2)) + "%", 1),
+                          (item.singleTokenDoubleBorrowRewardApy)
+                            ? (_openBlock(), _createBlock("p", _hoisted_308, _toDisplayString(item.singleTokenDoubleRewardTokenSymbol) + " " + _toDisplayString(item.singleTokenDoubleBorrowRewardApy.times(100).toFixed(2)) + "%", 1))
+                            : _createCommentVNode("", true),
+                          _createVNode("p", _hoisted_309, "- " + _toDisplayString(_ctx.t('tip.larixRewards')) + " " + _toDisplayString(_ctx.formatBigNumberStr(item.borrowDistributionApy.times(100),2)) + "%", 1)
+                        ]),
+                        _: 2
+                      }, 1024)
+                    ]),
+                    _createVNode("div", _hoisted_310, _toDisplayString(_ctx.formatBigNumberStr(item.borrowApy.times(100).minus(item.borrowDistributionApy.times(100)).minus(item?.singleTokenDoubleBorrowRewardApy||0),2)) + "%", 1)
+                  ]),
+                  _createVNode("div", _hoisted_311, [
+                    _createVNode("div", null, _toDisplayString(_ctx.t('home.wallet')), 1),
+                    _createVNode("div", _hoisted_312, _toDisplayString(_ctx.formatBigNumberStr(item.walletBalanceInTokenUnit,['soETH','ETH','BTC'].includes(item.symbol)||item.isLP?4:2)) + " " + _toDisplayString(item.symbol), 1)
+                  ]),
+                  _createVNode("div", _hoisted_313, [
+                    _hoisted_314,
+                    _createVNode("div", _hoisted_315, [
+                      _createVNode("div", {
+                        onClick: ($event: any) => (_ctx.openBorrowMarketsDialog(item,'borrow'))
+                      }, _toDisplayString(_ctx.t('home.borrow')), 9, ["onClick"]),
+                      _createVNode("div", {
+                        onClick: ($event: any) => (_ctx.openBorrowMarketsDialog(item,'repay'))
+                      }, _toDisplayString(_ctx.t('home.repay')), 9, ["onClick"])
+                    ])
+                  ])
+                ]))
+              }), 128)),
+              (_ctx.walletAddress==='')
+                ? (_openBlock(), _createBlock("div", _hoisted_316, _toDisplayString(_ctx.t('wallet.connectToAWallet')), 1))
+                : _createCommentVNode("", true),
+              (_ctx.walletAddress!==''&&!_ctx.isLoadingInfo&&_ctx.myBorrow.length===0)
+                ? (_openBlock(), _createBlock("div", _hoisted_317, [
+                    _createVNode("p", _hoisted_318, _toDisplayString(_ctx.t('positions.noBorrowYet')), 1),
+                    _createVNode(_component_q_btn, {
+                      "no-caps": "",
+                      class: "noAssetButton",
+                      onClick: _cache[14] || (_cache[14] = ($event: any) => (_ctx.goToDashboard()))
+                    }, {
+                      default: _withId(() => [
+                        _createTextVNode(_toDisplayString(_ctx.t('positions.borrowNow')), 1)
+                      ]),
+                      _: 1
+                    })
+                  ]))
+                : _createCommentVNode("", true),
+              (_ctx.walletAddress!==''&&_ctx.isLoadingInfo)
+                ? (_openBlock(), _createBlock("div", _hoisted_319, [
+                    _createVNode("div", _hoisted_320, [
+                      _createVNode("div", _hoisted_321, [
+                        _createVNode(_component_q_skeleton, { style: {"border-radius":"50%","margin-left":"4px","width":"34px","height":"34px"} }),
+                        _createVNode("div", null, [
+                          _createVNode(_component_q_skeleton, {
+                            type: "text",
+                            style: {"width":"54px","margin-bottom":"4px"}
+                          }),
+                          _createVNode(_component_q_skeleton, {
+                            type: "text",
+                            style: {"width":"54px","margin-bottom":"4px"}
+                          })
+                        ])
+                      ]),
+                      _createVNode("div", _hoisted_322, [
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"80px","margin-bottom":"4px"}
+                        }),
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"54px","margin-bottom":"4px","float":"right"}
+                        })
+                      ])
+                    ]),
+                    _createVNode("div", _hoisted_323, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_324, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_325, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_326, [
+                      _hoisted_327,
+                      _createVNode("div", _hoisted_328, [
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"74px","height":"58px","border-radius":"20px","margin-left":"9px"}
+                        }),
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"74px","height":"58px","border-radius":"20px","margin-left":"8px"}
+                        })
+                      ])
+                    ])
+                  ]))
+                : _createCommentVNode("", true)
+            ]))
+          : _createCommentVNode("", true),
+        (_ctx.positionType==='myStake')
+          ? (_openBlock(), _createBlock("div", _hoisted_329, [
+              (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.myStake, (item) => {
+                return (_openBlock(), _createBlock("div", {
+                  class: "positionDetails-stake-item",
+                  key: item.id
+                }, [
+                  _createVNode("div", _hoisted_330, [
+                    _createVNode("div", _hoisted_331, [
+                      _createVNode("img", {
+                        style: {},
+                        src: _ctx.larixImg,
+                        width: "34",
+                        height: "34"
+                      }, null, 8, ["src"]),
+                      _createVNode("img", {
+                        style: {"transform":"translateX(-8px)"},
+                        src: _ctx.usdcImg,
+                        width: "34",
+                        height: "34"
+                      }, null, 8, ["src"]),
+                      _hoisted_332
+                    ]),
+                    _createVNode("div", _hoisted_333, [
+                      _createVNode("div", _hoisted_334, _toDisplayString(_ctx.formatBigNumberStr(item.lpAmount,4)) + " LP", 1),
+                      _hoisted_335
+                    ])
+                  ]),
+                  _createVNode("div", _hoisted_336, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.stakeTime')) + " ", 1),
+                      _createVNode("img", {
+                        src: _ctx.icon_information,
+                        width: "12",
+                        height: "12",
+                        "data-v-fae5bece": "",
+                        style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                      }, null, 8, ["src"]),
+                      _createVNode(_component_q_tooltip, { "hide-delay": 5000 }, {
+                        default: _withId(() => [
+                          _createTextVNode(_toDisplayString(_ctx.t('tip.lockedDateTip')), 1)
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_337, _toDisplayString(item.startTimeString), 1)
+                  ]),
+                  _createVNode("div", _hoisted_338, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.unlockingTime')) + " ", 1),
+                      _createVNode("img", {
+                        src: _ctx.icon_information,
+                        width: "12",
+                        height: "12",
+                        "data-v-fae5bece": "",
+                        style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                      }, null, 8, ["src"]),
+                      _createVNode(_component_q_tooltip, { "hide-delay": 5000 }, {
+                        default: _withId(() => [
+                          _createTextVNode(_toDisplayString(_ctx.t('tip.unlockingDateTip')), 1)
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_339, _toDisplayString(item.endTimeString), 1)
+                  ]),
+                  _createVNode("div", _hoisted_340, [
+                    _createVNode("div", null, [
+                      _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.raydiumReward')) + " ", 1),
+                      _createVNode("img", {
+                        src: _ctx.icon_information,
+                        width: "12",
+                        height: "12",
+                        "data-v-fae5bece": "",
+                        style: {"margin-left":"1px","cursor":"pointer","vertical-align":"middle"}
+                      }, null, 8, ["src"]),
+                      _createVNode(_component_q_tooltip, { "hide-delay": 5000 }, {
+                        default: _withId(() => [
+                          _createTextVNode(_toDisplayString(_ctx.t('tip.raydiumRewardTip')), 1)
+                        ]),
+                        _: 1
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_341, _toDisplayString(_ctx.formatBigNumberStr(item.larixRewardAmount,6)) + " LARIX", 1)
+                  ]),
+                  _createVNode("div", _hoisted_342, [
+                    _hoisted_343,
+                    _createVNode("div", _hoisted_344, [
+                      _createVNode(_component_q_btn, {
+                        "no-caps": "",
+                        class: "button",
+                        onClick: _cache[15] || (_cache[15] = ($event: any) => (_ctx.claimAllReward()))
+                      }, {
+                        default: _withId(() => [
+                          _createTextVNode(_toDisplayString(_ctx.t('positions.claim')), 1)
+                        ]),
+                        _: 1
+                      }),
+                      _createVNode(_component_q_btn, {
+                        "no-caps": "",
+                        class: ["button", !_ctx.unStakeButtonEnable(item)?'grey-button':''],
+                        onClick: ($event: any) => (_ctx.unStakePosition(item)),
+                        disable: !_ctx.unStakeButtonEnable(item)
+                      }, {
+                        default: _withId(() => [
+                          _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.unlocking')), 1)
+                        ]),
+                        _: 2
+                      }, 1032, ["onClick", "class", "disable"])
+                    ])
+                  ])
+                ]))
+              }), 128)),
+              (_ctx.walletAddress==='')
+                ? (_openBlock(), _createBlock("div", _hoisted_345, _toDisplayString(_ctx.t('wallet.connectToAWallet')), 1))
+                : _createCommentVNode("", true),
+              (_ctx.walletAddress!==''&&!_ctx.isLoadingUserLarixStakeInfo&&_ctx.myStake.length===0)
+                ? (_openBlock(), _createBlock("div", _hoisted_346, [
+                    _createVNode("p", _hoisted_347, _toDisplayString(_ctx.t('positions.noStakeYet')), 1),
+                    _createVNode(_component_q_btn, {
+                      "no-caps": "",
+                      class: "noAssetButton",
+                      onClick: _cache[16] || (_cache[16] = ($event: any) => (_ctx.rewardDialogVisible=true))
+                    }, {
+                      default: _withId(() => [
+                        _createTextVNode(_toDisplayString(_ctx.t('positions.stakeNow')), 1)
+                      ]),
+                      _: 1
+                    })
+                  ]))
+                : _createCommentVNode("", true),
+              (_ctx.walletAddress!==''&&_ctx.isLoadingUserLarixStakeInfo)
+                ? (_openBlock(), _createBlock("div", _hoisted_348, [
+                    _createVNode("div", _hoisted_349, [
+                      _createVNode("div", _hoisted_350, [
+                        _createVNode(_component_q_skeleton, { style: {"border-radius":"50%","margin-left":"4px","width":"34px","height":"34px"} }),
+                        _createVNode("div", null, [
+                          _createVNode(_component_q_skeleton, {
+                            type: "text",
+                            style: {"width":"54px","margin-bottom":"4px"}
+                          }),
+                          _createVNode(_component_q_skeleton, {
+                            type: "text",
+                            style: {"width":"54px","margin-bottom":"4px"}
+                          })
+                        ])
+                      ]),
+                      _createVNode("div", _hoisted_351, [
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"80px","margin-bottom":"4px"}
+                        }),
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"54px","margin-bottom":"4px","float":"right"}
+                        })
+                      ])
+                    ]),
+                    _createVNode("div", _hoisted_352, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_353, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_354, [
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"80px","margin-bottom":"4px"}
+                      }),
+                      _createVNode(_component_q_skeleton, {
+                        type: "text",
+                        style: {"width":"54px","margin-bottom":"4px"}
+                      })
+                    ]),
+                    _createVNode("div", _hoisted_355, [
+                      _hoisted_356,
+                      _createVNode("div", _hoisted_357, [
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"74px","height":"58px","border-radius":"20px","margin-left":"9px"}
+                        }),
+                        _createVNode(_component_q_skeleton, {
+                          type: "text",
+                          style: {"width":"74px","height":"58px","border-radius":"20px","margin-left":"8px"}
+                        })
+                      ])
+                    ])
+                  ]))
+                : _createCommentVNode("", true)
+            ]))
+          : _createCommentVNode("", true)
+      ])
+    ])
+  ], 64))
+})

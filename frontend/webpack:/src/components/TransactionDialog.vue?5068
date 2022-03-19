@@ -1,0 +1,72 @@
+
+
+import {useI18n} from 'vue-i18n'
+import {defineComponent} from 'vue'
+import {mapState} from "vuex";
+import errorType from '../constant/errorType'
+
+
+export default defineComponent ({
+    name: "TransactionDialog",
+    date (){
+        return {
+         
+        }
+    },
+    computed:{
+     transactionDialogVisible: {
+       get ():any {
+         return this.$store.state.dialog.transactionDialogVisible
+      },
+       set (value:any) {
+         this.$store.commit('updateTransactionDialogVisible', value)
+      }
+     },
+     ...mapState({
+      errorModel: (state: any) => state.txDialog.errorModel,
+      checkModel: (state: any) => state.txDialog.checkModel,
+      confirmDialog: (state: any) => state.txDialog.confirmDialog,
+      confirmDialogTip: (state: any) => state.txDialog.confirmDialogTip,
+       errorContext: (state: any) => state.txDialog.errorContext,
+     })
+    },
+    methods:{
+      getErrorContext(){
+        let languageIndex
+        switch (this.$i18n.locale){
+          case 'zh-cn':
+            languageIndex = 1
+            break
+          case 'en':
+            languageIndex = 0
+            break
+          case 'in':
+            languageIndex = 2
+            break
+          case 'vn':
+            languageIndex = 3
+            break
+          case 'kn':
+            languageIndex = 4
+            break
+          case 'ru':
+            languageIndex = 5
+            break
+          case 'tr':
+            languageIndex = 6
+            break
+          default:
+              languageIndex = 0
+        }
+        let type = this.errorContext
+        let context = new errorType().getErrorType(type,languageIndex)
+        return context
+      }
+    },
+    setup() {
+      const {t} = useI18n()
+      return {
+        t,
+      }
+    },
+})

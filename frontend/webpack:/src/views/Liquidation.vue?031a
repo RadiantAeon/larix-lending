@@ -1,0 +1,137 @@
+
+import { useI18n } from 'vue-i18n'
+import { defineComponent } from 'vue'
+import {mapState} from 'vuex'
+import { formatDollars, formatDollarsKmb, getBigNumberStr} from "@/utils/helpers";
+import LiquidateDialog from "@/components/LiquidateDialog.vue";
+import liquidationController from "@/controller/liquidationController";
+import BigNumber from "bignumber.js";
+import { useStore } from '@/store'
+let startLiquidation = {} as any
+export default defineComponent({
+  name: "Liquidation",
+  components:{
+    LiquidateDialog
+  },
+  setup(){
+    const { t } = useI18n()
+    const store = useStore()
+    return {
+      t,
+      store
+    }
+  },
+  data() {
+    return {
+      getBigNumberStr: getBigNumberStr,
+      formatDollars: formatDollars,
+      formatDollarsKmb: formatDollarsKmb,
+      selectedObligation:{},
+      loadingLiquidationData:false
+    }
+  },
+  created(){
+    if (!this.isLoadingInfo)
+    {
+      this.loadingLiquidationData = true
+      this.updateData().then(()=>{
+        this.loadingLiquidationData = false
+        this.$store.commit('updateFirstOpen',false)
+      })
+    }
+    startLiquidation = setInterval(()=>{
+      if (!this.isLoadingInfo){
+       this.updateData()
+      }
+    },15000)
+  },
+  computed: {
+    needToHandle(){
+      if (this.needToWithdrawLpArray.length>0||this.needToHandleCtokenAccounts.length>0){
+        return true
+      }else {
+        return false
+      }
+    },
+    ...mapState(
+        {
+          walletAddress: (state: any) => state.wallet.walletAddress,
+          allReservesDetails: (state: any) => state.market.allReservesDetails,
+          isLoadingInfo:(state:any) => state.market.isLoadingInfo,
+          allMarketTotalSupply:(state:any) => state.market.allMarketTotalSupply,
+          allMarketTotalBorrow:(state:any) => state.market.allMarketTotalBorrow,
+          clientViewPort:(state:any) => state.clientViewPort,
+          allUserObligations:(state:any) => state.liquidation.allUserObligations,
+          lendingMarket :(state:any)=> state.market.lendingMarket,
+          lendingReserveArray:(state:any)=>state.market.lendingReserveArray,
+          firstOpen:(state:any)=>state.liquidation.firstOpen,
+          needToHandleCtokenAccounts: (state:any) => state.market.needToHandleCtokenAccounts,
+          needToWithdrawLpArray: (state:any) => state.market.needToWithdrawLpArray,
+        }
+    )
+  },
+  watch: {
+    isLoadingInfo: function (newVal) {
+      if (!newVal) {
+        this.loadingLiquidationData = true
+        this.updateData().then(()=>{
+          this.loadingLiquidationData = false
+          this.$store.commit('updateFirstOpen',false)
+        })
+      }
+    }
+  },
+
+  methods:{
+    updateData:async function(){
+      await Promise.all(
+          [   liquidationController.updateLiquidationData(this.lendingMarket.pubkey,this.lendingReserveArray)]
+      )
+    },
+    openHandleLpDialog(){
+      this.$store.commit('updateHandleLpDialogVisible', true)
+    },
+    getMinBigNumber(a:BigNumber,b:BigNumber):BigNumber {
+      return a.isLessThan(b) ? a : b
+    },
+    getDebtRatioStyle(debtRatio:BigNumber):string {
+      let color
+      if (debtRatio.isGreaterThan(1)) {
+        color = '#FF5262'
+      } else if (debtRatio.isGreaterThan(0.95)) {
+        color = '#FFA64E'
+      } else {
+        color = '#00D1FF'
+      }
+      return 'color: ' + color
+    },
+    setMaxRepayAmount(borrows:any) :BigNumber{
+      let maxRepayAmountInTokenUnit = new BigNumber(0)
+      maxRepayAmountInTokenUnit = borrows[0].borrowAmountValueInTokenUnit.times(0.5)
+      return maxRepayAmountInTokenUnit
+    },
+    getMaxRepayValue(borrows:any) :BigNumber{
+      let maxRepayAmount = new BigNumber(0)
+      maxRepayAmount = borrows[0].marketValueInBigNumber.times(0.5)
+      return maxRepayAmount
+    },
+    getMaxSeizeAmount(borrow:any,deposit:any):BigNumber{
+      return this.getMinBigNumber(
+          borrow.marketValueInBigNumber.times(0.5).times(1.08).div(deposit.reserve.info.liquidity.liquidityPrice),
+          deposit.depositedInTokenUnit
+      )
+    },
+    getMaxSeizeValue(borrow:any,deposit:any):BigNumber{
+      const maxSeizeAmount = this.getMaxSeizeAmount(borrow,deposit)
+      return maxSeizeAmount.times(deposit.reserve.info.liquidity.liquidityPrice)
+    },
+    openLiquidateDialog(selectedObligation:any){
+      this.$store.commit('updateLiquidateDialogVisible', true)
+      this.$store.commit('updateSelectUserObligations', selectedObligation)
+    },
+
+  },
+  beforeUnmount() {
+    clearInterval(startLiquidation)
+  }
+})

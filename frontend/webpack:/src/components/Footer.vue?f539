@@ -1,0 +1,181 @@
+
+import { useStore } from '@/store'
+import { computed, defineComponent, reactive, toRefs } from 'vue'
+import { AppActionTypes } from '@/store/modules/app/action-types'
+import { useI18n } from 'vue-i18n'
+// import { ElMessage } from 'element-plus'
+
+
+// import {mapState} from 'vuex'
+export default defineComponent({
+  name: "Footer",
+  data() {
+    return {
+      value: 'English',
+      languageValue: {
+        label: 'English',
+        value: 'en',
+        icon: require('../assets/icn-english.svg')
+      },
+      //用的这个
+      languageOptions:[
+        {
+          label: 'English',
+          value: 'en',
+          icon: require('../assets/icn-english.svg')
+        },
+        {
+          label: "繁體中文",
+          value: "zh-cn",
+          icon: require('../assets/icn-chinese.svg')
+        },
+        {
+          label: "Indonesian",
+          value: "in",
+          icon: require('../assets/icn-bahasa.svg')
+        },
+        {
+          label: "Tiếng Việt",
+          value: "vn",
+          icon: require('../assets/icn-vietnamese.svg')
+        },
+        {
+          label: "이름",
+          value: "kn",
+          icon: require('../assets/icn-korean.svg')
+        },
+        {
+          label: "русский",
+          value: "ru",
+          icon: require('../assets/icn-russian.svg')
+        },
+        {
+          label: "Türkçe",
+          value: "tr",
+          icon: require('../assets/icn-turkey.svg')
+        },
+      ],
+      media: [
+        {
+          dark: require('../assets/media/twitter_dark.png'),
+          light: require('../assets/media/twitter.svg'),
+          url: 'https://twitter.com/ProjectLarix',
+        },
+        {
+          dark: require('../assets/media/discord.svg'),
+          light: require('../assets/media/discord.svg'),
+          url: 'https://discord.gg/hfnRFV9Ngt',
+        },
+        {
+          dark: require('../assets/media/telegram_dark.png'),
+          light: require('../assets/media/telegram.svg'),
+          url: 'https://t.me/projectlarix',
+        },
+        {
+          dark: require('../assets/media/medium.svg'),
+          light: require('../assets/media/medium.svg'),
+          url: 'https://medium.com/@ProjectLarix',
+        },
+        {
+          dark: require('../assets/media/github_dark.png'),
+          light: require('../assets/media/github.svg'),
+          url: 'https://github.com/ProjectLarix',
+        },
+        // {
+        //   dark: require('../assets/media/email.svg'),
+        //   light: require('../assets/media/email.svg'),
+        //   url: 'https://projectlarix@gmail.com',
+        // },
+      ],
+      emailImg: {
+        dark: require('../assets/media/email.svg'),
+        light: require('../assets/media/email.svg'),
+      },
+      emailContent: "projectlarix@gmail.com",
+      iconImageDashBoard: {
+        normal:require('../assets/tab_icon_dashboard_normal@3x.png'),
+        press: require('../assets/tab_icon_dashboard_press@3x.png')
+      },
+      iconImageMarket: {
+        normal:require('../assets/tab_icon_market_normal@3x.png'),
+        press: require('../assets/tab_icon_market_press@3x.png')
+      },
+      iconImageLiquidation: {
+        normal:require('../assets/tab_icon_liquadation_normal@2x.png'),
+        press: require('../assets/tab_icon_liquadation_press@2x.png')
+      },
+      iconImageLarix: {
+        normal:require('../assets/tab_icon_LARIX_normal@3x.png'),
+        press: require('../assets/tab_icon_LARIX_press@3x.png')
+      },
+      iconImageDao: {
+        normal:require('../assets/tab_icon_DAO_normal@3x.png'),
+        press: require('../assets/tab_icon_DAO_press@3x.png')
+      },
+      iconImageAbout:{
+        normal:require('../assets/nav_icon_about_normal@2x.png'),
+        press: require('../assets/nav_icon_about_press@2x.png')
+      },
+      viewPort:0,
+    }
+  },
+  setup () {
+    const store = useStore()
+    const { locale } = useI18n()
+
+    const state = reactive({
+      handleSetLanguage: (lang: string) => {
+        locale.value = lang
+        store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, lang)
+        localStorage.setItem('lang',lang)
+        // if(locale.value=='en'){
+        //    ElMessage({
+        //      message: 'English switch successfully',
+        //      type: 'success'
+        //    })
+        // }else{
+        //   ElMessage({
+        //   message: '中文切换成功',
+        //   type: 'success'
+        //  })
+        // }
+      }
+    })
+    const language = computed(() => {
+      return store.state.app.language
+    })
+    const { t } = useI18n()
+    return {
+      ...toRefs(state),
+      language,
+      t,
+    }
+  },
+  created(){
+    window.addEventListener('resize', this.ViewPortAndStyle)
+    this.ViewPortAndStyle()
+  },
+  mounted() {
+    setTimeout(() => {
+      this.languageOptions.map((language:any)=>{
+        if (language.value===localStorage.getItem('lang'))
+          this.languageValue = language
+      })
+    })
+  },
+  computed: {
+    // isThemeLight(){
+    //   return  this.$store.getters.isThemeLight
+    // },
+    // ...mapState(['currentTheme'])
+
+  },
+  methods:{
+    ViewPortAndStyle(){
+      this.viewPort = document.documentElement.clientWidth
+    },
+    setTab(value:any){
+      this.$store.commit('updateAppTab',value)
+    },
+  }
+})

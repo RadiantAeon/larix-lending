@@ -1,0 +1,52 @@
+
+import {defineComponent} from "vue";
+import {formatBigNumberStr} from "@/utils/helpers";
+import {useI18n} from "vue-i18n";
+import {mapState} from "vuex";
+import {connect} from "@/api/context/wallet";
+
+export default defineComponent({
+  name: "BorrowFeeTipDialog",
+  data() {
+    return {
+      formatBigNumberStr:formatBigNumberStr,
+    }
+  },
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+      larixImg: require('../assets/wallet/pop_icon_LARIX@3x.png')
+    }
+  },
+  computed: {
+
+    borrowFeeTipDialogVisible:{
+      //@ts-ignore
+      get(){
+        //@ts-ignore
+        return this.$store.state.dialog.borrowFeeTipDialogVisible
+      },
+      set(value:boolean) {
+        this.$store.commit('updateBorrowFeeTipDialogVisible',value)
+      }
+    },
+    ...mapState({
+      walletAddress: (state:any) => state.wallet.walletAddress,
+      isLoadingInfo:(state:any) =>state.market.isLoadingInfo,
+    })
+  },
+  methods: {
+    gotIt(){
+      this.borrowFeeTipDialogVisible = false
+      const wallet = localStorage.getItem('walletName')
+      if (wallet){
+        setTimeout(()=>{
+          connect(wallet).then(()=>{
+
+          })
+        },100)
+      }
+    }
+  },
+})

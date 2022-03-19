@@ -1,0 +1,118 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, resolveComponent as _resolveComponent, resolveDirective as _resolveDirective, withDirectives as _withDirectives, withCtx as _withCtx, createTextVNode as _createTextVNode, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-143b928b")
+
+_pushScopeId("data-v-143b928b")
+const _hoisted_1 = { class: "notice-body-tip" }
+const _hoisted_2 = { class: "notice-body-tip" }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_space = _resolveComponent("q-space")
+  const _component_q_btn = _resolveComponent("q-btn")
+  const _component_q_card_section = _resolveComponent("q-card-section")
+  const _component_TimeDown = _resolveComponent("TimeDown")
+  const _component_q_card = _resolveComponent("q-card")
+  const _component_q_dialog = _resolveComponent("q-dialog")
+  const _directive_close_popup = _resolveDirective("close-popup")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode(_component_q_dialog, {
+      modelValue: _ctx.noticeDialogVisible,
+      "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event: any) => (_ctx.noticeDialogVisible = $event)),
+      class: "gt-sm"
+    }, {
+      default: _withId(() => [
+        _createVNode(_component_q_card, { class: "notice-dialog" }, {
+          default: _withId(() => [
+            _createVNode(_component_q_card_section, { class: "row items-center notice-title" }, {
+              default: _withId(() => [
+                _createVNode("div", null, _toDisplayString(_ctx.t('noticeDialog.notice')), 1),
+                _createVNode(_component_q_space),
+                _withDirectives(_createVNode(_component_q_btn, {
+                  icon: "close",
+                  flat: "",
+                  round: ""
+                }, null, 512), [
+                  [_directive_close_popup]
+                ])
+              ]),
+              _: 1
+            }),
+            _createVNode(_component_q_card_section, { class: "notice-body" }, {
+              default: _withId(() => [
+                _createVNode("div", _hoisted_1, _toDisplayString(_ctx.t("noticeDialog.text")), 1),
+                _createVNode(_component_TimeDown, {
+                  "start-time": 1631858400000,
+                  "end-time": ""
+                }),
+                _createVNode(_component_q_btn, {
+                  round: "",
+                  "no-caps": "",
+                  class: "button",
+                  onClick: _cache[1] || (_cache[1] = ($event: any) => (_ctx.noticeDialogVisible=false))
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.t('noticeDialog.confirm')), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        })
+      ]),
+      _: 1
+    }, 8, ["modelValue"]),
+    _createVNode(_component_q_dialog, {
+      modelValue: _ctx.noticeDialogVisible,
+      "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event: any) => (_ctx.noticeDialogVisible = $event)),
+      class: "lt-md"
+    }, {
+      default: _withId(() => [
+        _createVNode(_component_q_card, { class: "app-notice-dialog" }, {
+          default: _withId(() => [
+            _createVNode(_component_q_card_section, { class: "row items-center notice-title" }, {
+              default: _withId(() => [
+                _createVNode("div", null, _toDisplayString(_ctx.t('noticeDialog.notice')), 1),
+                _createVNode(_component_q_space),
+                _withDirectives(_createVNode(_component_q_btn, {
+                  icon: "close",
+                  flat: "",
+                  round: ""
+                }, null, 512), [
+                  [_directive_close_popup]
+                ])
+              ]),
+              _: 1
+            }),
+            _createVNode(_component_q_card_section, { class: "notice-body" }, {
+              default: _withId(() => [
+                _createVNode("div", _hoisted_2, _toDisplayString(_ctx.t("noticeDialog.text")), 1),
+                _createVNode(_component_TimeDown, {
+                  "start-time": 1631858400000,
+                  "end-time": ""
+                }),
+                _createVNode(_component_q_btn, {
+                  round: "",
+                  "no-caps": "",
+                  class: "button",
+                  onClick: _cache[3] || (_cache[3] = ($event: any) => (_ctx.noticeDialogVisible=false))
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.t('noticeDialog.confirm')), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              _: 1
+            })
+          ]),
+          _: 1
+        })
+      ]),
+      _: 1
+    }, 8, ["modelValue"])
+  ], 64))
+})

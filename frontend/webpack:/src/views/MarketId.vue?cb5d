@@ -1,0 +1,893 @@
+
+// import Vue from 'vue'
+import { useI18n } from 'vue-i18n'
+import { defineComponent } from 'vue'
+import {mapState} from "vuex";
+import {formatDollars, formatDollarsKmb, getBigNumberStr, formatBigNumberStr} from "@/utils/helpers";
+import * as echarts from 'echarts'
+import BigNumber from "bignumber.js";
+//@ts-ignore
+export default defineComponent({
+    name: "MarketId",
+
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+      getBigNumberStr: getBigNumberStr,
+      formatDollars: formatDollars,
+      formatDollarsKmb: formatDollarsKmb,
+      formatBigNumberStr:formatBigNumberStr,
+    }
+  },
+  data(){
+      return{
+        asst:require('../assets/icon_LARIX@3x.png'),
+        rateModelSupplyAPY:0,
+        rateModelBorrowAPY:0,
+        rateModelUtilization:new BigNumber(0),
+        viewPort:0,
+      }
+  },
+  created(){
+    window.addEventListener('resize', this.ViewPortAndStyle)
+    this.ViewPortAndStyle()
+
+  },
+  mounted() {
+    // this.testHistogram();
+    // this.rateModel();
+    // this.rateModelMobile();
+
+    //@ts-ignore
+    this.drawChart();
+
+
+  },
+  methods:{
+    ViewPortAndStyle(){
+      this.viewPort = this.clientViewPort
+    },
+    setTabBtn(value:any){
+      this.$store.commit('updateMarketId',value)
+    },
+    drawChart(){
+      const flag = this
+      const compoundBorrowInterestArray = this.reserveDetail.rateModelArray.compoundBorrowInterestArray
+      const compoundSupplyInterestArray = this.reserveDetail.rateModelArray.compoundSupplyInterestArray
+      // 电脑 基于准备好的dom，初始化echarts实例
+      //@ts-ignore
+      const  testRateModel= echarts.init(document.getElementById("chart"),null,{renderer:'svg'});
+      const option = {
+        xAxis: {
+          show:false,
+          type: 'value',
+          splitLine:{
+            show: true,
+          },
+          axisLabel:{
+            show:true,
+            formatter(pa:any){
+              return `${pa*100}%`
+            }
+          },
+          nameLocation: 'center',
+          nameGap: 30
+        },
+        yAxis: {
+          show:false,
+          type: 'value'
+        },
+        grid:{
+          left:'6.5%',
+          right:'6.5%'
+        },
+        tooltip: {
+          backgroundColor: 'rgb(97,97,97)',
+          borderWidth: 0,
+          textStyle:{
+            color: 'rgba(255,255,255,0.9)',
+          },
+          trigger: 'axis',
+          formatter(params:any){
+            return params
+          }
+        },
+        series: [
+          {
+            type:'line',
+            symbol:'none',
+            itemStyle:{
+              normal:{
+                lineStyle:{
+                  color: '#5D76FF',//注意这样颜色设置的位置
+                  width:3,//设置线条宽度
+                  type:'dotted'  //设置线条显示：'dotted'虚线 'solid'实线
+                }
+              }
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#5D76FF',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelUtilization = new BigNumber(params.data[0]).times(100)
+                return  new BigNumber(params.data[0]).times(100) + '%';
+              },
+
+            },
+            data: [
+              [0.00,compoundBorrowInterestArray[100][1]+10],
+              [0.01,compoundBorrowInterestArray[100][1]+10],
+              [0.02,compoundBorrowInterestArray[100][1]+10],
+              [0.03,compoundBorrowInterestArray[100][1]+10],
+              [0.04,compoundBorrowInterestArray[100][1]+10],
+              [0.05,compoundBorrowInterestArray[100][1]+10],
+              [0.06,compoundBorrowInterestArray[100][1]+10],
+              [0.07,compoundBorrowInterestArray[100][1]+10],
+              [0.08,compoundBorrowInterestArray[100][1]+10],
+              [0.09,compoundBorrowInterestArray[100][1]+10],
+              [0.10,compoundBorrowInterestArray[100][1]+10],
+              [0.11,compoundBorrowInterestArray[100][1]+10],
+              [0.12,compoundBorrowInterestArray[100][1]+10],
+              [0.13,compoundBorrowInterestArray[100][1]+10],
+              [0.14,compoundBorrowInterestArray[100][1]+10],
+              [0.15,compoundBorrowInterestArray[100][1]+10],
+              [0.16,compoundBorrowInterestArray[100][1]+10],
+              [0.17,compoundBorrowInterestArray[100][1]+10],
+              [0.18,compoundBorrowInterestArray[100][1]+10],
+              [0.19,compoundBorrowInterestArray[100][1]+10],
+              [0.20,compoundBorrowInterestArray[100][1]+10],
+              [0.21,compoundBorrowInterestArray[100][1]+10],
+              [0.22,compoundBorrowInterestArray[100][1]+10],
+              [0.23,compoundBorrowInterestArray[100][1]+10],
+              [0.24,compoundBorrowInterestArray[100][1]+10],
+              [0.25,compoundBorrowInterestArray[100][1]+10],
+              [0.26,compoundBorrowInterestArray[100][1]+10],
+              [0.27,compoundBorrowInterestArray[100][1]+10],
+              [0.28,compoundBorrowInterestArray[100][1]+10],
+              [0.29,compoundBorrowInterestArray[100][1]+10],
+              [0.30,compoundBorrowInterestArray[100][1]+10],
+              [0.31,compoundBorrowInterestArray[100][1]+10],
+              [0.32,compoundBorrowInterestArray[100][1]+10],
+              [0.33,compoundBorrowInterestArray[100][1]+10],
+              [0.34,compoundBorrowInterestArray[100][1]+10],
+              [0.35,compoundBorrowInterestArray[100][1]+10],
+              [0.36,compoundBorrowInterestArray[100][1]+10],
+              [0.37,compoundBorrowInterestArray[100][1]+10],
+              [0.38,compoundBorrowInterestArray[100][1]+10],
+              [0.39,compoundBorrowInterestArray[100][1]+10],
+              [0.40,compoundBorrowInterestArray[100][1]+10],
+              [0.41,compoundBorrowInterestArray[100][1]+10],
+              [0.42,compoundBorrowInterestArray[100][1]+10],
+              [0.43,compoundBorrowInterestArray[100][1]+10],
+              [0.44,compoundBorrowInterestArray[100][1]+10],
+              [0.45,compoundBorrowInterestArray[100][1]+10],
+              [0.46,compoundBorrowInterestArray[100][1]+10],
+              [0.47,compoundBorrowInterestArray[100][1]+10],
+              [0.48,compoundBorrowInterestArray[100][1]+10],
+              [0.49,compoundBorrowInterestArray[100][1]+10],
+              [0.50,compoundBorrowInterestArray[100][1]+10],
+              [0.51,compoundBorrowInterestArray[100][1]+10],
+              [0.52,compoundBorrowInterestArray[100][1]+10],
+              [0.53,compoundBorrowInterestArray[100][1]+10],
+              [0.54,compoundBorrowInterestArray[100][1]+10],
+              [0.55,compoundBorrowInterestArray[100][1]+10],
+              [0.56,compoundBorrowInterestArray[100][1]+10],
+              [0.57,compoundBorrowInterestArray[100][1]+10],
+              [0.58,compoundBorrowInterestArray[100][1]+10],
+              [0.59,compoundBorrowInterestArray[100][1]+10],
+              [0.60,compoundBorrowInterestArray[100][1]+10],
+              [0.61,compoundBorrowInterestArray[100][1]+10],
+              [0.62,compoundBorrowInterestArray[100][1]+10],
+              [0.63,compoundBorrowInterestArray[100][1]+10],
+              [0.64,compoundBorrowInterestArray[100][1]+10],
+              [0.65,compoundBorrowInterestArray[100][1]+10],
+              [0.66,compoundBorrowInterestArray[100][1]+10],
+              [0.67,compoundBorrowInterestArray[100][1]+10],
+              [0.68,compoundBorrowInterestArray[100][1]+10],
+              [0.69,compoundBorrowInterestArray[100][1]+10],
+              [0.70,compoundBorrowInterestArray[100][1]+10],
+              [0.71,compoundBorrowInterestArray[100][1]+10],
+              [0.72,compoundBorrowInterestArray[100][1]+10],
+              [0.73,compoundBorrowInterestArray[100][1]+10],
+              [0.74,compoundBorrowInterestArray[100][1]+10],
+              [0.75,compoundBorrowInterestArray[100][1]+10],
+              [0.76,compoundBorrowInterestArray[100][1]+10],
+              [0.77,compoundBorrowInterestArray[100][1]+10],
+              [0.78,compoundBorrowInterestArray[100][1]+10],
+              [0.79,compoundBorrowInterestArray[100][1]+10],
+              [0.80,compoundBorrowInterestArray[100][1]+10],
+              [0.81,compoundBorrowInterestArray[100][1]+10],
+              [0.82,compoundBorrowInterestArray[100][1]+10],
+              [0.83,compoundBorrowInterestArray[100][1]+10],
+              [0.84,compoundBorrowInterestArray[100][1]+10],
+              [0.85,compoundBorrowInterestArray[100][1]+10],
+              [0.86,compoundBorrowInterestArray[100][1]+10],
+              [0.87,compoundBorrowInterestArray[100][1]+10],
+              [0.88,compoundBorrowInterestArray[100][1]+10],
+              [0.89,compoundBorrowInterestArray[100][1]+10],
+              [0.90,compoundBorrowInterestArray[100][1]+10],
+              [0.91,compoundBorrowInterestArray[100][1]+10],
+              [0.92,compoundBorrowInterestArray[100][1]+10],
+              [0.93,compoundBorrowInterestArray[100][1]+10],
+              [0.94,compoundBorrowInterestArray[100][1]+10],
+              [0.95,compoundBorrowInterestArray[100][1]+10],
+              [0.96,compoundBorrowInterestArray[100][1]+10],
+              [0.97,compoundBorrowInterestArray[100][1]+10],
+              [0.98,compoundBorrowInterestArray[100][1]+10],
+              [0.99,compoundBorrowInterestArray[100][1]+10],
+              [1.00,compoundBorrowInterestArray[100][1]+10]
+            ],
+
+          },
+          {
+            type: 'line',
+            symbol:'none',
+            lineStyle:{
+              width:6
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#2FCEFB',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelBorrowAPY = params.data[1].toFixed(2)
+                return  params.data[1].toFixed(2) + '%';
+              },
+            },
+            itemStyle: {
+
+              color: '#2FCEFB'
+            },
+            areaStyle: {
+              opacity:0.2,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#00C7FF'
+              },
+                {
+                  offset: 0,
+                  color: '#54D9FF'
+                },{
+                  offset: 1,
+                  color: '#DAFFFF'
+                }])
+            },
+            //    supplyApy
+            data: compoundSupplyInterestArray,
+          }
+          ,
+          {
+            type: 'line',
+            symbol:'none',
+            lineStyle:{
+              width:6
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#A062FE',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelSupplyAPY  = params.data[1].toFixed(2)
+                return  params.data[1].toFixed(2) + '%';
+              },
+            },
+            itemStyle: {
+              color: '#A062FE'
+            },
+            areaStyle: {
+              opacity:0.2,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#A062FE'
+              },
+                {
+                  offset: 1,
+                  color: '#DAFFFF'
+                }])
+            },
+            data:compoundBorrowInterestArray,
+          }]
+      }
+      testRateModel.setOption(option,true)
+      // ipad 基于准备好的dom，初始化echarts实例
+      //@ts-ignore
+      const  testRateIpadModel= echarts.init(document.getElementById("chartIpad"),null,{renderer:'svg'});
+      const optionIpad = {
+        xAxis: {
+          show:false,
+          type: 'value',
+          splitLine:{
+            show: true,
+          },
+          axisLabel:{
+            show:true,
+            formatter(pa:any){
+              return `${pa*100}%`
+            }
+          },
+          nameLocation: 'center',
+          nameGap: 30
+        },
+        yAxis: {
+          show:false,
+          type: 'value'
+        },
+        grid:{
+          left:'6.5%',
+          right:'6.5%',
+          top:'6.5%',
+          bottom:'6.5%'
+        },
+        tooltip: {
+          backgroundColor: 'rgb(97,97,97)',
+          borderWidth: 0,
+          textStyle:{
+            color: 'rgba(255,255,255,0.9)',
+          },
+          trigger: 'axis',
+          formatter(params:any){
+            return params
+          }
+        },
+        series: [
+          {
+            type:'line',
+            symbol:'none',
+            itemStyle:{
+              normal:{
+                lineStyle:{
+                  color: '#5D76FF',//注意这样颜色设置的位置
+                  width:3,//设置线条宽度
+                  type:'dotted'  //设置线条显示：'dotted'虚线 'solid'实线
+                }
+              }
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#5D76FF',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelUtilization = new BigNumber(params.data[0]).times(100)
+                return  new BigNumber(params.data[0]).times(100) + '%';
+              },
+
+            },
+            data: [
+              [0.00,compoundBorrowInterestArray[100][1]+10],
+              [0.01,compoundBorrowInterestArray[100][1]+10],
+              [0.02,compoundBorrowInterestArray[100][1]+10],
+              [0.03,compoundBorrowInterestArray[100][1]+10],
+              [0.04,compoundBorrowInterestArray[100][1]+10],
+              [0.05,compoundBorrowInterestArray[100][1]+10],
+              [0.06,compoundBorrowInterestArray[100][1]+10],
+              [0.07,compoundBorrowInterestArray[100][1]+10],
+              [0.08,compoundBorrowInterestArray[100][1]+10],
+              [0.09,compoundBorrowInterestArray[100][1]+10],
+              [0.10,compoundBorrowInterestArray[100][1]+10],
+              [0.11,compoundBorrowInterestArray[100][1]+10],
+              [0.12,compoundBorrowInterestArray[100][1]+10],
+              [0.13,compoundBorrowInterestArray[100][1]+10],
+              [0.14,compoundBorrowInterestArray[100][1]+10],
+              [0.15,compoundBorrowInterestArray[100][1]+10],
+              [0.16,compoundBorrowInterestArray[100][1]+10],
+              [0.17,compoundBorrowInterestArray[100][1]+10],
+              [0.18,compoundBorrowInterestArray[100][1]+10],
+              [0.19,compoundBorrowInterestArray[100][1]+10],
+              [0.20,compoundBorrowInterestArray[100][1]+10],
+              [0.21,compoundBorrowInterestArray[100][1]+10],
+              [0.22,compoundBorrowInterestArray[100][1]+10],
+              [0.23,compoundBorrowInterestArray[100][1]+10],
+              [0.24,compoundBorrowInterestArray[100][1]+10],
+              [0.25,compoundBorrowInterestArray[100][1]+10],
+              [0.26,compoundBorrowInterestArray[100][1]+10],
+              [0.27,compoundBorrowInterestArray[100][1]+10],
+              [0.28,compoundBorrowInterestArray[100][1]+10],
+              [0.29,compoundBorrowInterestArray[100][1]+10],
+              [0.30,compoundBorrowInterestArray[100][1]+10],
+              [0.31,compoundBorrowInterestArray[100][1]+10],
+              [0.32,compoundBorrowInterestArray[100][1]+10],
+              [0.33,compoundBorrowInterestArray[100][1]+10],
+              [0.34,compoundBorrowInterestArray[100][1]+10],
+              [0.35,compoundBorrowInterestArray[100][1]+10],
+              [0.36,compoundBorrowInterestArray[100][1]+10],
+              [0.37,compoundBorrowInterestArray[100][1]+10],
+              [0.38,compoundBorrowInterestArray[100][1]+10],
+              [0.39,compoundBorrowInterestArray[100][1]+10],
+              [0.40,compoundBorrowInterestArray[100][1]+10],
+              [0.41,compoundBorrowInterestArray[100][1]+10],
+              [0.42,compoundBorrowInterestArray[100][1]+10],
+              [0.43,compoundBorrowInterestArray[100][1]+10],
+              [0.44,compoundBorrowInterestArray[100][1]+10],
+              [0.45,compoundBorrowInterestArray[100][1]+10],
+              [0.46,compoundBorrowInterestArray[100][1]+10],
+              [0.47,compoundBorrowInterestArray[100][1]+10],
+              [0.48,compoundBorrowInterestArray[100][1]+10],
+              [0.49,compoundBorrowInterestArray[100][1]+10],
+              [0.50,compoundBorrowInterestArray[100][1]+10],
+              [0.51,compoundBorrowInterestArray[100][1]+10],
+              [0.52,compoundBorrowInterestArray[100][1]+10],
+              [0.53,compoundBorrowInterestArray[100][1]+10],
+              [0.54,compoundBorrowInterestArray[100][1]+10],
+              [0.55,compoundBorrowInterestArray[100][1]+10],
+              [0.56,compoundBorrowInterestArray[100][1]+10],
+              [0.57,compoundBorrowInterestArray[100][1]+10],
+              [0.58,compoundBorrowInterestArray[100][1]+10],
+              [0.59,compoundBorrowInterestArray[100][1]+10],
+              [0.60,compoundBorrowInterestArray[100][1]+10],
+              [0.61,compoundBorrowInterestArray[100][1]+10],
+              [0.62,compoundBorrowInterestArray[100][1]+10],
+              [0.63,compoundBorrowInterestArray[100][1]+10],
+              [0.64,compoundBorrowInterestArray[100][1]+10],
+              [0.65,compoundBorrowInterestArray[100][1]+10],
+              [0.66,compoundBorrowInterestArray[100][1]+10],
+              [0.67,compoundBorrowInterestArray[100][1]+10],
+              [0.68,compoundBorrowInterestArray[100][1]+10],
+              [0.69,compoundBorrowInterestArray[100][1]+10],
+              [0.70,compoundBorrowInterestArray[100][1]+10],
+              [0.71,compoundBorrowInterestArray[100][1]+10],
+              [0.72,compoundBorrowInterestArray[100][1]+10],
+              [0.73,compoundBorrowInterestArray[100][1]+10],
+              [0.74,compoundBorrowInterestArray[100][1]+10],
+              [0.75,compoundBorrowInterestArray[100][1]+10],
+              [0.76,compoundBorrowInterestArray[100][1]+10],
+              [0.77,compoundBorrowInterestArray[100][1]+10],
+              [0.78,compoundBorrowInterestArray[100][1]+10],
+              [0.79,compoundBorrowInterestArray[100][1]+10],
+              [0.80,compoundBorrowInterestArray[100][1]+10],
+              [0.81,compoundBorrowInterestArray[100][1]+10],
+              [0.82,compoundBorrowInterestArray[100][1]+10],
+              [0.83,compoundBorrowInterestArray[100][1]+10],
+              [0.84,compoundBorrowInterestArray[100][1]+10],
+              [0.85,compoundBorrowInterestArray[100][1]+10],
+              [0.86,compoundBorrowInterestArray[100][1]+10],
+              [0.87,compoundBorrowInterestArray[100][1]+10],
+              [0.88,compoundBorrowInterestArray[100][1]+10],
+              [0.89,compoundBorrowInterestArray[100][1]+10],
+              [0.90,compoundBorrowInterestArray[100][1]+10],
+              [0.91,compoundBorrowInterestArray[100][1]+10],
+              [0.92,compoundBorrowInterestArray[100][1]+10],
+              [0.93,compoundBorrowInterestArray[100][1]+10],
+              [0.94,compoundBorrowInterestArray[100][1]+10],
+              [0.95,compoundBorrowInterestArray[100][1]+10],
+              [0.96,compoundBorrowInterestArray[100][1]+10],
+              [0.97,compoundBorrowInterestArray[100][1]+10],
+              [0.98,compoundBorrowInterestArray[100][1]+10],
+              [0.99,compoundBorrowInterestArray[100][1]+10],
+              [1.00,compoundBorrowInterestArray[100][1]+10]
+            ],
+
+          },
+          {
+
+            type: 'line',
+            symbol:'none',
+            lineStyle:{
+              width:6
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#2FCEFB',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelBorrowAPY = params.data[1].toFixed(2)
+                return  params.data[1].toFixed(2) + '%';
+              },
+            },
+            itemStyle: {
+
+              color: '#2FCEFB'
+            },
+            areaStyle: {
+              opacity:0.2,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#00C7FF'
+              },
+                {
+                  offset: 0,
+                  color: '#54D9FF'
+                },{
+                  offset: 1,
+                  color: '#DAFFFF'
+                }])
+            },
+            data: compoundSupplyInterestArray,
+
+          }
+          ,
+          {
+            type: 'line',
+            symbol:'none',
+            lineStyle:{
+              width:6
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#A062FE',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelSupplyAPY  = params.data[1].toFixed(2)
+                return  params.data[1].toFixed(2) + '%';
+              },
+            },
+            itemStyle: {
+              color: '#A062FE'
+            },
+            areaStyle: {
+              opacity:0.2,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#A062FE'
+              },
+                {
+                  offset: 1,
+                  color: '#DAFFFF'
+                }])
+            },
+            data:compoundBorrowInterestArray,
+          }],
+        media:[
+          {
+            query: {
+              maxWidth: 500
+            },
+            option: {
+              series: [
+                {
+                  center: ['50%', '50%']
+                },
+              ]
+            }
+          },
+          {
+            query: {
+              minWidth: 500
+            },
+            option: {
+              series: [
+                {
+                  center: ['50%', '50%']
+                },
+              ]
+            }
+          }
+        ],
+      }
+      testRateIpadModel.setOption(optionIpad ,true)
+      // 手机 基于准备好的dom，初始化echarts实例
+      //@ts-ignore
+      const  testRateModelMobile1= echarts.init(document.getElementById("chartMobile"),null,{renderer:'svg'})
+      const optionMobile = {
+        xAxis: {
+          show:false,
+          type: 'value',
+          splitLine:{
+            show: true,
+          },
+          axisLabel:{
+            show:true,
+            formatter(pa:any){
+              return `${pa*100}%`
+            }
+          },
+          nameLocation: 'center',
+          nameGap: 30
+        },
+        yAxis: {
+          show:false,
+          type: 'value'
+        },
+        tooltip: {
+          backgroundColor: 'rgb(97,97,97)',
+          borderWidth: 0,
+          textStyle:{
+            color: 'rgba(255,255,255,0.9)',
+          },
+          trigger: 'axis',
+          formatter(params:any){
+            return params
+          }
+        },
+        series: [
+          {
+            type:'line',
+            symbol:'none',
+            itemStyle:{
+              normal:{
+                lineStyle:{
+                  color: '#5D76FF',//注意这样颜色设置的位置
+                  width:3,//设置线条宽度
+                  type:'dotted'  //设置线条显示：'dotted'虚线 'solid'实线
+                }
+              }
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#5D76FF',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelUtilization = new BigNumber(params.data[0]).times(100)
+                return  new BigNumber(params.data[0]).times(100) + '%';
+              },
+
+            },
+            data: [
+              [0.00,compoundBorrowInterestArray[100][1]+10],
+              [0.01,compoundBorrowInterestArray[100][1]+10],
+              [0.02,compoundBorrowInterestArray[100][1]+10],
+              [0.03,compoundBorrowInterestArray[100][1]+10],
+              [0.04,compoundBorrowInterestArray[100][1]+10],
+              [0.05,compoundBorrowInterestArray[100][1]+10],
+              [0.06,compoundBorrowInterestArray[100][1]+10],
+              [0.07,compoundBorrowInterestArray[100][1]+10],
+              [0.08,compoundBorrowInterestArray[100][1]+10],
+              [0.09,compoundBorrowInterestArray[100][1]+10],
+              [0.10,compoundBorrowInterestArray[100][1]+10],
+              [0.11,compoundBorrowInterestArray[100][1]+10],
+              [0.12,compoundBorrowInterestArray[100][1]+10],
+              [0.13,compoundBorrowInterestArray[100][1]+10],
+              [0.14,compoundBorrowInterestArray[100][1]+10],
+              [0.15,compoundBorrowInterestArray[100][1]+10],
+              [0.16,compoundBorrowInterestArray[100][1]+10],
+              [0.17,compoundBorrowInterestArray[100][1]+10],
+              [0.18,compoundBorrowInterestArray[100][1]+10],
+              [0.19,compoundBorrowInterestArray[100][1]+10],
+              [0.20,compoundBorrowInterestArray[100][1]+10],
+              [0.21,compoundBorrowInterestArray[100][1]+10],
+              [0.22,compoundBorrowInterestArray[100][1]+10],
+              [0.23,compoundBorrowInterestArray[100][1]+10],
+              [0.24,compoundBorrowInterestArray[100][1]+10],
+              [0.25,compoundBorrowInterestArray[100][1]+10],
+              [0.26,compoundBorrowInterestArray[100][1]+10],
+              [0.27,compoundBorrowInterestArray[100][1]+10],
+              [0.28,compoundBorrowInterestArray[100][1]+10],
+              [0.29,compoundBorrowInterestArray[100][1]+10],
+              [0.30,compoundBorrowInterestArray[100][1]+10],
+              [0.31,compoundBorrowInterestArray[100][1]+10],
+              [0.32,compoundBorrowInterestArray[100][1]+10],
+              [0.33,compoundBorrowInterestArray[100][1]+10],
+              [0.34,compoundBorrowInterestArray[100][1]+10],
+              [0.35,compoundBorrowInterestArray[100][1]+10],
+              [0.36,compoundBorrowInterestArray[100][1]+10],
+              [0.37,compoundBorrowInterestArray[100][1]+10],
+              [0.38,compoundBorrowInterestArray[100][1]+10],
+              [0.39,compoundBorrowInterestArray[100][1]+10],
+              [0.40,compoundBorrowInterestArray[100][1]+10],
+              [0.41,compoundBorrowInterestArray[100][1]+10],
+              [0.42,compoundBorrowInterestArray[100][1]+10],
+              [0.43,compoundBorrowInterestArray[100][1]+10],
+              [0.44,compoundBorrowInterestArray[100][1]+10],
+              [0.45,compoundBorrowInterestArray[100][1]+10],
+              [0.46,compoundBorrowInterestArray[100][1]+10],
+              [0.47,compoundBorrowInterestArray[100][1]+10],
+              [0.48,compoundBorrowInterestArray[100][1]+10],
+              [0.49,compoundBorrowInterestArray[100][1]+10],
+              [0.50,compoundBorrowInterestArray[100][1]+10],
+              [0.51,compoundBorrowInterestArray[100][1]+10],
+              [0.52,compoundBorrowInterestArray[100][1]+10],
+              [0.53,compoundBorrowInterestArray[100][1]+10],
+              [0.54,compoundBorrowInterestArray[100][1]+10],
+              [0.55,compoundBorrowInterestArray[100][1]+10],
+              [0.56,compoundBorrowInterestArray[100][1]+10],
+              [0.57,compoundBorrowInterestArray[100][1]+10],
+              [0.58,compoundBorrowInterestArray[100][1]+10],
+              [0.59,compoundBorrowInterestArray[100][1]+10],
+              [0.60,compoundBorrowInterestArray[100][1]+10],
+              [0.61,compoundBorrowInterestArray[100][1]+10],
+              [0.62,compoundBorrowInterestArray[100][1]+10],
+              [0.63,compoundBorrowInterestArray[100][1]+10],
+              [0.64,compoundBorrowInterestArray[100][1]+10],
+              [0.65,compoundBorrowInterestArray[100][1]+10],
+              [0.66,compoundBorrowInterestArray[100][1]+10],
+              [0.67,compoundBorrowInterestArray[100][1]+10],
+              [0.68,compoundBorrowInterestArray[100][1]+10],
+              [0.69,compoundBorrowInterestArray[100][1]+10],
+              [0.70,compoundBorrowInterestArray[100][1]+10],
+              [0.71,compoundBorrowInterestArray[100][1]+10],
+              [0.72,compoundBorrowInterestArray[100][1]+10],
+              [0.73,compoundBorrowInterestArray[100][1]+10],
+              [0.74,compoundBorrowInterestArray[100][1]+10],
+              [0.75,compoundBorrowInterestArray[100][1]+10],
+              [0.76,compoundBorrowInterestArray[100][1]+10],
+              [0.77,compoundBorrowInterestArray[100][1]+10],
+              [0.78,compoundBorrowInterestArray[100][1]+10],
+              [0.79,compoundBorrowInterestArray[100][1]+10],
+              [0.80,compoundBorrowInterestArray[100][1]+10],
+              [0.81,compoundBorrowInterestArray[100][1]+10],
+              [0.82,compoundBorrowInterestArray[100][1]+10],
+              [0.83,compoundBorrowInterestArray[100][1]+10],
+              [0.84,compoundBorrowInterestArray[100][1]+10],
+              [0.85,compoundBorrowInterestArray[100][1]+10],
+              [0.86,compoundBorrowInterestArray[100][1]+10],
+              [0.87,compoundBorrowInterestArray[100][1]+10],
+              [0.88,compoundBorrowInterestArray[100][1]+10],
+              [0.89,compoundBorrowInterestArray[100][1]+10],
+              [0.90,compoundBorrowInterestArray[100][1]+10],
+              [0.91,compoundBorrowInterestArray[100][1]+10],
+              [0.92,compoundBorrowInterestArray[100][1]+10],
+              [0.93,compoundBorrowInterestArray[100][1]+10],
+              [0.94,compoundBorrowInterestArray[100][1]+10],
+              [0.95,compoundBorrowInterestArray[100][1]+10],
+              [0.96,compoundBorrowInterestArray[100][1]+10],
+              [0.97,compoundBorrowInterestArray[100][1]+10],
+              [0.98,compoundBorrowInterestArray[100][1]+10],
+              [0.99,compoundBorrowInterestArray[100][1]+10],
+              [1.00,compoundBorrowInterestArray[100][1]+10]
+            ],
+
+          },
+          {
+
+            type: 'line',
+            symbol:'none',
+            lineStyle:{
+              width:4
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#2FCEFB',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelBorrowAPY = params.data[1].toFixed(2)
+                return  params.data[1].toFixed(2) + '%';
+              },
+            },
+            itemStyle: {
+
+              color: '#2FCEFB'
+            },
+            areaStyle: {
+              opacity:0.2,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#00C7FF'
+              },
+                {
+                  offset: 0,
+                  color: '#54D9FF'
+                },{
+                  offset: 1,
+                  color: '#DAFFFF'
+                }])
+            },
+            data: compoundSupplyInterestArray,
+
+          }
+          ,
+          {
+            type: 'line',
+            symbol:'none',
+            lineStyle:{
+              width:4
+            },
+            label:{
+              align:'center',
+              backgroundColor:'#2B3866',
+              color:'#A062FE',
+              show:true,
+              position:'top',
+              fontSize:14,
+              fontFamily:'Haas Grot Text R',
+              borderRadius:4,
+              width:58,
+              formatter: function(params:any){
+                flag.rateModelSupplyAPY  = params.data[1].toFixed(2)
+                return  params.data[1].toFixed(2) + '%';
+              },
+            },
+            itemStyle: {
+              color: '#A062FE'
+            },
+            areaStyle: {
+              opacity:0.2,
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                offset: 0,
+                color: '#A062FE'
+              },
+                {
+                  offset: 1,
+                  color: '#DAFFFF'
+                }])
+            },
+            data:compoundBorrowInterestArray,
+          }],
+        media:[
+          {
+            query: {
+              maxWidth: 500
+            },
+            option: {
+              series: [
+                {
+                  center: ['50%', '50%']
+                },
+              ]
+            }
+          },
+          {
+            query: {
+              minWidth: 500
+            },
+            option: {
+              series: [
+                {
+                  center: ['50%', '50%']
+                },
+              ]
+            }
+          }
+        ],
+      }
+      //@ts-ignore
+      testRateModelMobile1.setOption(optionMobile,true);
+
+
+      // 图表自适应
+      (window as any).onresize = function () {
+        if(window.innerWidth<970){
+          testRateModelMobile1.resize()
+          testRateIpadModel.resize()
+        }else {
+          testRateModel.resize()
+        }
+      }
+    }
+  },
+  computed: {
+    ...mapState({
+      reserveDetail: (state: any) => state.market.selectedReserveDetail,
+      allReservesDetails: (state: any) => state.market.allReservesDetails,
+      clientViewPort:(state:any) => state.clientViewPort,
+    })
+  }
+})

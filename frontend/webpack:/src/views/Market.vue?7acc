@@ -1,0 +1,202 @@
+
+import { useI18n } from 'vue-i18n'
+import {defineComponent } from 'vue'
+import {mapState} from "vuex";
+import {formatDollars, formatDollarsKmb, getBigNumberStr, formatBigNumberStr,formatKmb} from "@/utils/helpers";
+import myEchart from '@/components/Echarts/myEchart.vue';
+import BigNumber from "bignumber.js";
+
+export default defineComponent({
+  name: "Market",
+  data() {
+    return {
+      getBigNumberStr: getBigNumberStr,
+      formatDollars: formatDollars,
+      formatDollarsKmb: formatDollarsKmb,
+      formatBigNumberStr:formatBigNumberStr,
+      formatKmb:formatKmb,
+      larixLogoSource:require('../assets/coin/asset_LARIX@2x.png'),
+      icon_information: require('../assets/icon_information.svg'),
+      viewPort:0,
+      iconBackgroundColorArr:['#E49BFF', '#B788FF', '#8BD7FF', '#FFDE9F', '#9CFFE0', '#B9B9B9'],
+      releaseTime:1626350400000,
+      testReleaseTime:1626264000000,
+      top5Token:[] as any,
+      stakePools:[
+        {
+          dex:'Raydium',
+          dexLogoSource:require('../assets/dex/project_icon_raydium@2x.png'),
+          totalAPR:'',
+          pairs:'LARIX/USDC',
+          token1LogoSource:require('../assets/coin/asset_USDC.svg'),
+          stakeURL:'https://raydium.io/farms/',
+          APR:'82.47%'
+        },
+        {
+          dex:'ORCA',
+          dexLogoSource:require('../assets/dex/project_icon_orca@2x.png'),
+          totalAPR:'',
+          pairs:'LARIX/USDC',
+          token1LogoSource:require('../assets/coin/asset_USDC.svg'),
+          stakeURL:'https://www.orca.so/pools',
+          APR:'66.8%'
+        },
+        {
+          dex:'Raydium',
+          dexLogoSource:require('../assets/dex/project_icon_raydium@2x.png'),
+          totalAPR:'',
+          pairs:'LARIX/RAY',
+          token1LogoSource:require('../assets/coin/asset_RAY.svg'),
+          stakeURL:'https://raydium.io/farms/',
+          APR:'61.42%'
+        },
+
+      ],
+      stakePoolsNoWallet:[
+        {
+          dex:'Raydium',
+          dexLogoSource:require('../assets/dex/project_icon_raydium@2x.png'),
+          totalAPR:'',
+          pairs:'LARIX/USDC',
+          token1LogoSource:require('../assets/coin/asset_USDC.svg'),
+          stakeURL:'https://raydium.io/farms/',
+          APR:'----%'
+        },
+        {
+          dex:'ORCA',
+          dexLogoSource:require('../assets/dex/project_icon_orca@2x.png'),
+          totalAPR:'',
+          pairs:'LARIX/USDC',
+          token1LogoSource:require('../assets/coin/asset_USDC.svg'),
+          stakeURL:'https://www.orca.so/pools',
+          APR:'----%'
+        },
+        {
+          dex:'Raydium',
+          dexLogoSource:require('../assets/dex/project_icon_raydium@2x.png'),
+          totalAPR:'',
+          pairs:'LARIX/RAY',
+          token1LogoSource:require('../assets/coin/asset_RAY.svg'),
+          stakeURL:'https://raydium.io/farms/',
+          APR:'----%'
+        },
+
+      ],
+    }
+  },
+  components:{
+    myEchart
+  },
+  setup(){
+    const { t } = useI18n()
+    return {
+      t,
+    }
+  },
+  created(){
+    window.addEventListener('resize', this.ViewPortAndStyle)
+    this.ViewPortAndStyle()
+  },
+  mounted() {
+          //图表自适应
+    this.top5Token = this.getTop5Token()
+  },
+  methods: {
+    stakePoolsList(){
+      if (this.walletAddress!==''&&!this.isLoadingUserLarixStakeInfo){
+        return this.stakePools
+      }else {
+        return this.stakePoolsNoWallet
+      }
+    },
+    gotoStakePools(url:string){
+      window.open(url)
+    },
+    ViewPortAndStyle(){
+      this.viewPort = this.clientViewPort
+    },
+    getTop5Token(){
+      // @ts-ignore
+      let top5TokenList = []
+      // @ts-ignore
+      let otherTokenList = []
+      let otherTokenTotal = {
+        symbol:'Other',
+        dailyMining:new BigNumber(0),
+      }
+      this.allReservesDetails.sort((b:any, a:any) => {
+      return a.dailyMining - b.dailyMining
+      }).map((item:any,index:number)=>{
+        if (index<5)
+        {
+          top5TokenList.push(item)
+        }else {
+          otherTokenList.push(item)
+        }
+      })
+      if (otherTokenList.length>0){
+        // @ts-ignore
+        otherTokenList.map((item)=>{
+          otherTokenTotal.dailyMining = item.dailyMining.plus(otherTokenTotal.dailyMining)
+        })
+        // @ts-ignore
+        top5TokenList.push(otherTokenTotal)
+      }
+      return top5TokenList
+    },
+    goToMarketDetail(val:any){
+      window.scroll(0,0)
+      this.$store.commit('updateSelectedReserveDetail', val)
+      this.$store.commit('updateAppTab','MarketId')
+    },
+  },
+  computed: {
+
+    myEchartData(){
+      const arr = this.allReservesDetails.map((item:any)=>{
+        let obj = {
+          value:item.dailyMining.toNumber().toFixed(2),
+          name:`${item.symbol}`,
+          liquidityPrice:item.liquidityPrice
+        }
+        return obj
+      }).sort((a:any, b:any) => {
+
+        return b.value - a.value
+      }) as []
+      return arr
+    },
+    circulationInUsd():BigNumber{
+      return new BigNumber(this.larixCirculation).times(this.larixPrice)
+    },
+    circulationRatio():Number{
+      return Number(new BigNumber(this.larixCirculation).div(10000000000).times(100).toFixed(2))
+    },
+    sortMarket:function (){
+      const res = this.allReservesDetails as []
+      return res.sort((b:any,a:any)=>{
+        if (a.dailyMining- b.dailyMining ===0){
+          return a.totalLiquidityInUsd - b.totalLiquidityInUsd
+        }
+        else {
+          return a.dailyMining - b.dailyMining
+        }
+      })
+    },
+    ...mapState(
+        {
+          walletAddress: (state: any) => state.wallet.walletAddress,
+          allReservesDetails: (state: any) => state.market.allReservesDetails,
+          isLoadingInfo:(state:any) => state.market.isLoadingInfo,
+          clientViewPort:(state:any) => state.clientViewPort,
+          larixPrice:(state:any) => state.market.larixPrice,
+          larixCirculation:(state:any) => state.market.larixCirculation,
+          totalLarixDaily:(state:any) => state.market.totalDailyMining,
+          isLoadingUserLarixStakeInfo: (state:any) => state.market.isLoadingUserLarixStakeInfo,
+          mineCollateralLpDetails: (state:any) => state.market.mineCollateralLpDetails,
+        }
+    ),
+  },
+  watch: {
+  }
+})

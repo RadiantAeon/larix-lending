@@ -1,0 +1,855 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, Fragment as _Fragment, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-93cda374")
+
+_pushScopeId("data-v-93cda374")
+const _hoisted_1 = { class: "marketIdContainer gt-sm" }
+const _hoisted_2 = { class: "position" }
+const _hoisted_3 = /*#__PURE__*/_createTextVNode(" > ")
+const _hoisted_4 = { style: {"margin-left":"15px"} }
+const _hoisted_5 = { class: "marketIdTop" }
+const _hoisted_6 = { class: "imgAndName" }
+const _hoisted_7 = { style: {"display":"flex","justify-content":"space-between","flex-wrap":"wrap"} }
+const _hoisted_8 = { class: "topBtn" }
+const _hoisted_9 = {
+  key: 0,
+  class: "topInfo"
+}
+const _hoisted_10 = {
+  class: "first",
+  style: {"padding-right":"30px"}
+}
+const _hoisted_11 = { class: "topSpan" }
+const _hoisted_12 = {
+  key: 0,
+  class: "bottomSpan"
+}
+const _hoisted_13 = {
+  key: 1,
+  class: "bottomSpan"
+}
+const _hoisted_14 = {
+  key: 0,
+  class: "first",
+  style: {"padding-right":"30px"}
+}
+const _hoisted_15 = { style: {"display":"flex"} }
+const _hoisted_16 = { class: "topSpan textCenter" }
+const _hoisted_17 = { class: "bottomSpan" }
+const _hoisted_18 = {
+  key: 1,
+  class: "first ",
+  style: {"padding-right":"30px"}
+}
+const _hoisted_19 = { style: {"display":"flex"} }
+const _hoisted_20 = /*#__PURE__*/_createVNode("span", { class: "topSpan textCenter" }, "Raydium APR", -1)
+const _hoisted_21 = { class: "bottomSpan" }
+const _hoisted_22 = {
+  class: "first ",
+  style: {"padding-right":"30px"}
+}
+const _hoisted_23 = { style: {"display":"flex"} }
+const _hoisted_24 = { class: "topSpan textCenter" }
+const _hoisted_25 = { class: "bottomSpan" }
+const _hoisted_26 = { class: "first" }
+const _hoisted_27 = { class: "topSpan" }
+const _hoisted_28 = { class: "bottomSpan" }
+const _hoisted_29 = {
+  key: 1,
+  class: "topInfo"
+}
+const _hoisted_30 = {
+  class: "first",
+  style: {"padding-right":"30px"}
+}
+const _hoisted_31 = { class: "topSpan" }
+const _hoisted_32 = { class: "bottomSpan" }
+const _hoisted_33 = {
+  class: "first ",
+  style: {"padding-right":"30px"}
+}
+const _hoisted_34 = { style: {"display":"flex"} }
+const _hoisted_35 = { class: "topSpan textCenter" }
+const _hoisted_36 = { class: "bottomSpan" }
+const _hoisted_37 = {
+  class: "first ",
+  style: {"padding-right":"30px"}
+}
+const _hoisted_38 = { style: {"display":"flex"} }
+const _hoisted_39 = { class: "topSpan textCenter" }
+const _hoisted_40 = { class: "bottomSpan" }
+const _hoisted_41 = { class: "first" }
+const _hoisted_42 = { class: "topSpan" }
+const _hoisted_43 = { class: "bottomSpan" }
+const _hoisted_44 = { class: "marketIdBottom" }
+const _hoisted_45 = { class: "left" }
+const _hoisted_46 = { class: "leftTop" }
+const _hoisted_47 = { style: {"display":"flex","padding-top":"42px"} }
+const _hoisted_48 = { style: {"flex-basis":"33%","text-align":"center","color":"#5D76FF"} }
+const _hoisted_49 = { style: {"flex-basis":"33%","text-align":"center","color":"#2FCEFB"} }
+const _hoisted_50 = { style: {"flex-basis":"33%","text-align":"center","color":"#A062FE"} }
+const _hoisted_51 = { class: "right" }
+const _hoisted_52 = { class: "rightTop" }
+const _hoisted_53 = { class: "details" }
+const _hoisted_54 = { class: "detailsText" }
+const _hoisted_55 = { class: "leftText" }
+const _hoisted_56 = { class: "rightText" }
+const _hoisted_57 = { class: "detailsText" }
+const _hoisted_58 = { class: "leftText" }
+const _hoisted_59 = { class: "rightText" }
+const _hoisted_60 = { class: "detailsText" }
+const _hoisted_61 = { class: "leftText" }
+const _hoisted_62 = { class: "rightText" }
+const _hoisted_63 = { class: "detailsText" }
+const _hoisted_64 = { class: "leftText" }
+const _hoisted_65 = { class: "rightText" }
+const _hoisted_66 = {
+  key: 0,
+  class: "detailsText"
+}
+const _hoisted_67 = { class: "leftText" }
+const _hoisted_68 = { class: "rightText" }
+const _hoisted_69 = { class: "detailsText" }
+const _hoisted_70 = { class: "leftText" }
+const _hoisted_71 = { class: "rightText" }
+const _hoisted_72 = { class: "marketIdIpadContainer gt-xs lt-md" }
+const _hoisted_73 = { class: "position" }
+const _hoisted_74 = /*#__PURE__*/_createTextVNode(" > ")
+const _hoisted_75 = { style: {"margin-left":"15px"} }
+const _hoisted_76 = { class: "marketIdTop" }
+const _hoisted_77 = { class: "imgAndName" }
+const _hoisted_78 = { style: {"display":"flex","justify-content":"space-between","flex-wrap":"wrap"} }
+const _hoisted_79 = { class: "topBtn" }
+const _hoisted_80 = {
+  key: 0,
+  class: "topInfo"
+}
+const _hoisted_81 = {
+  class: "first",
+  style: {"padding-right":"15px"}
+}
+const _hoisted_82 = { class: "topSpan" }
+const _hoisted_83 = {
+  key: 0,
+  class: "bottomSpan",
+  style: {"padding-top":"7px"}
+}
+const _hoisted_84 = {
+  key: 1,
+  class: "bottomSpan",
+  style: {"padding-top":"7px"}
+}
+const _hoisted_85 = {
+  key: 0,
+  class: "first ",
+  style: {"padding-right":"15px"}
+}
+const _hoisted_86 = { style: {"display":"flex"} }
+const _hoisted_87 = { class: "topSpan textCenter" }
+const _hoisted_88 = { class: "bottomSpan" }
+const _hoisted_89 = {
+  key: 1,
+  class: "first ",
+  style: {"padding-right":"15px"}
+}
+const _hoisted_90 = { style: {"display":"flex"} }
+const _hoisted_91 = /*#__PURE__*/_createVNode("span", { class: "topSpan textCenter" }, "Raydium APR", -1)
+const _hoisted_92 = { class: "bottomSpan" }
+const _hoisted_93 = {
+  class: "first ",
+  style: {"padding-right":"15px"}
+}
+const _hoisted_94 = { style: {"display":"flex"} }
+const _hoisted_95 = { class: "topSpan textCenter" }
+const _hoisted_96 = { class: "bottomSpan" }
+const _hoisted_97 = { class: "first" }
+const _hoisted_98 = { class: "topSpan" }
+const _hoisted_99 = {
+  class: "bottomSpan",
+  style: {"padding-top":"7px"}
+}
+const _hoisted_100 = {
+  key: 1,
+  class: "topInfo"
+}
+const _hoisted_101 = {
+  class: "first",
+  style: {"padding-right":"15px"}
+}
+const _hoisted_102 = { class: "topSpan" }
+const _hoisted_103 = {
+  class: "bottomSpan",
+  style: {"padding-top":"7px"}
+}
+const _hoisted_104 = {
+  class: "first ",
+  style: {"padding-right":"15px"}
+}
+const _hoisted_105 = { style: {"display":"flex"} }
+const _hoisted_106 = { class: "topSpan textCenter" }
+const _hoisted_107 = { class: "bottomSpan" }
+const _hoisted_108 = {
+  class: "first ",
+  style: {"padding-right":"15px"}
+}
+const _hoisted_109 = { style: {"display":"flex"} }
+const _hoisted_110 = { class: "topSpan textCenter" }
+const _hoisted_111 = { class: "bottomSpan" }
+const _hoisted_112 = { class: "first" }
+const _hoisted_113 = { class: "topSpan" }
+const _hoisted_114 = {
+  class: "bottomSpan",
+  style: {"padding-top":"7px"}
+}
+const _hoisted_115 = { class: "marketIdBottom" }
+const _hoisted_116 = { class: "left" }
+const _hoisted_117 = { class: "leftTop" }
+const _hoisted_118 = { style: {"display":"flex","padding-top":"20px","padding-left":"10px","font-size":"14px"} }
+const _hoisted_119 = { style: {"flex-basis":"31%","text-align":"center","color":"#5D76FF"} }
+const _hoisted_120 = { style: {"flex-basis":"33%","text-align":"center","color":"#2FCEFB"} }
+const _hoisted_121 = { style: {"flex-basis":"33%","text-align":"center","color":"#A062FE"} }
+const _hoisted_122 = /*#__PURE__*/_createVNode("div", {
+  id: "chartIpad",
+  style: {"width":"100%","height":"240px","margin":"0 auto"}
+}, null, -1)
+const _hoisted_123 = { class: "right" }
+const _hoisted_124 = { class: "rightTop" }
+const _hoisted_125 = { class: "details" }
+const _hoisted_126 = { class: "detailsText" }
+const _hoisted_127 = { class: "leftText" }
+const _hoisted_128 = { class: "rightText" }
+const _hoisted_129 = { class: "detailsText" }
+const _hoisted_130 = { class: "leftText" }
+const _hoisted_131 = { class: "rightText" }
+const _hoisted_132 = { class: "detailsText" }
+const _hoisted_133 = { class: "leftText" }
+const _hoisted_134 = { class: "rightText" }
+const _hoisted_135 = { class: "detailsText" }
+const _hoisted_136 = { class: "leftText" }
+const _hoisted_137 = { class: "rightText" }
+const _hoisted_138 = {
+  key: 0,
+  class: "detailsText"
+}
+const _hoisted_139 = { class: "leftText" }
+const _hoisted_140 = { class: "rightText" }
+const _hoisted_141 = { class: "detailsText" }
+const _hoisted_142 = { class: "leftText" }
+const _hoisted_143 = { class: "rightText" }
+const _hoisted_144 = { class: "marketIdAppContainer lt-sm" }
+const _hoisted_145 = { class: "position" }
+const _hoisted_146 = /*#__PURE__*/_createTextVNode(" > ")
+const _hoisted_147 = { style: {} }
+const _hoisted_148 = { class: "marketIdFirst" }
+const _hoisted_149 = { class: "imgAndName" }
+const _hoisted_150 = { class: "topBtn" }
+const _hoisted_151 = {
+  key: 0,
+  class: "topInfo"
+}
+const _hoisted_152 = { class: "first" }
+const _hoisted_153 = { class: "topSpan" }
+const _hoisted_154 = {
+  key: 0,
+  class: "bottomSpan"
+}
+const _hoisted_155 = {
+  key: 1,
+  class: "bottomSpan"
+}
+const _hoisted_156 = {
+  key: 0,
+  class: "second "
+}
+const _hoisted_157 = { style: {"display":"flex","line-height":"10px","width":"10px"} }
+const _hoisted_158 = { class: "topSpan textCenter" }
+const _hoisted_159 = { class: "bottomSpan" }
+const _hoisted_160 = {
+  key: 1,
+  class: "second "
+}
+const _hoisted_161 = { style: {"display":"flex","line-height":"10px","width":"10px"} }
+const _hoisted_162 = /*#__PURE__*/_createVNode("div", { class: "topSpan textCenter" }, "Raydium APR", -1)
+const _hoisted_163 = { class: "bottomSpan" }
+const _hoisted_164 = { class: "third " }
+const _hoisted_165 = { style: {"display":"flex","line-height":"10px","width":"10px"} }
+const _hoisted_166 = { class: "topSpan textCenter" }
+const _hoisted_167 = { class: "fourth" }
+const _hoisted_168 = { class: "topSpan" }
+const _hoisted_169 = { class: "bottomSpan" }
+const _hoisted_170 = {
+  key: 1,
+  class: "topInfo"
+}
+const _hoisted_171 = { class: "first" }
+const _hoisted_172 = { class: "topSpan" }
+const _hoisted_173 = { class: "bottomSpan" }
+const _hoisted_174 = { class: "second " }
+const _hoisted_175 = { style: {"display":"flex","line-height":"12px","width":"12px"} }
+const _hoisted_176 = { class: "topSpan textCenter" }
+const _hoisted_177 = { class: "bottomSpan" }
+const _hoisted_178 = { class: "third " }
+const _hoisted_179 = { style: {"display":"flex","line-height":"12px","width":"12px"} }
+const _hoisted_180 = { class: "topSpan textCenter" }
+const _hoisted_181 = { class: "bottomSpan" }
+const _hoisted_182 = { class: "fourth" }
+const _hoisted_183 = { class: "topSpan" }
+const _hoisted_184 = { class: "bottomSpan" }
+const _hoisted_185 = { class: "marketIdSecond" }
+const _hoisted_186 = { class: "topText" }
+const _hoisted_187 = { class: "rateModelInfo" }
+const _hoisted_188 = { style: {"color":"#5D76FF"} }
+const _hoisted_189 = { style: {"color":"#2FCEFB"} }
+const _hoisted_190 = { style: {"color":"#A062FE"} }
+const _hoisted_191 = {
+  class: "marketIdthird",
+  style: {"margin-bottom":"100px"}
+}
+const _hoisted_192 = { class: "topText" }
+const _hoisted_193 = { class: "details" }
+const _hoisted_194 = { class: "detailsText" }
+const _hoisted_195 = { class: "leftText" }
+const _hoisted_196 = { class: "rightText" }
+const _hoisted_197 = { class: "detailsText" }
+const _hoisted_198 = { class: "leftText" }
+const _hoisted_199 = { class: "rightText" }
+const _hoisted_200 = { class: "detailsText" }
+const _hoisted_201 = { class: "leftText" }
+const _hoisted_202 = { class: "rightText" }
+const _hoisted_203 = { class: "detailsText" }
+const _hoisted_204 = { class: "leftText" }
+const _hoisted_205 = { class: "rightText" }
+const _hoisted_206 = {
+  key: 0,
+  class: "detailsText"
+}
+const _hoisted_207 = { class: "leftText" }
+const _hoisted_208 = { class: "rightText" }
+const _hoisted_209 = { class: "detailsText" }
+const _hoisted_210 = { class: "leftText" }
+const _hoisted_211 = { class: "rightText" }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode("div", _hoisted_1, [
+      _createVNode("div", _hoisted_2, [
+        _createVNode("span", {
+          style: {"margin-right":"20px","cursor":"pointer"},
+          onClick: _cache[1] || (_cache[1] = ($event: any) => (_ctx.$store.state.appTab='Market'))
+        }, _toDisplayString(_ctx.t('marketId.market')), 1),
+        _hoisted_3,
+        _createVNode("span", _hoisted_4, _toDisplayString(_ctx.reserveDetail.symbol), 1)
+      ]),
+      _createVNode("div", _hoisted_5, [
+        _createVNode("div", _hoisted_6, [
+          _createVNode("img", {
+            src: _ctx.reserveDetail.logoSource,
+            width: _ctx.reserveDetail.isLP?'156':'78',
+            height: "78",
+            alt: ""
+          }, null, 8, ["src", "width"]),
+          _createVNode("span", null, _toDisplayString(_ctx.reserveDetail.fullName), 1)
+        ]),
+        _createVNode("div", _hoisted_7, [
+          _createVNode("div", _hoisted_8, [
+            _createVNode("div", {
+              class: ["supply", _ctx.$store.state.market.marketIdType==='Supply'?'tabActiveLeft':''],
+              onClick: _cache[2] || (_cache[2] = ($event: any) => (_ctx.setTabBtn('Supply')))
+            }, [
+              _createVNode("div", null, _toDisplayString(_ctx.t('marketId.supply')), 1)
+            ], 2),
+            _createVNode("div", {
+              class: ["borrow", _ctx.$store.state.market.marketIdType==='Borrow'?'tabActiveRight':''],
+              onClick: _cache[3] || (_cache[3] = ($event: any) => (_ctx.setTabBtn('Borrow')))
+            }, [
+              _createVNode("div", null, _toDisplayString(_ctx.t('marketId.borrow')), 1)
+            ], 2)
+          ]),
+          (_ctx.$store.state.market.marketIdType==='Supply')
+            ? (_openBlock(), _createBlock("div", _hoisted_9, [
+                _createVNode("div", _hoisted_10, [
+                  _createVNode("div", _hoisted_11, _toDisplayString(_ctx.t('marketId.netRate')), 1),
+                  (!_ctx.reserveDetail.isLP)
+                    ? (_openBlock(), _createBlock("div", _hoisted_12, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy.plus(_ctx.reserveDetail.supplyApy),2,100)) + "%", 1))
+                    : (_openBlock(), _createBlock("div", _hoisted_13, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy.times(100).plus(_ctx.reserveDetail.lpInfo.lpApr.plus(isNaN(_ctx.reserveDetail.lpInfo.lpFeesApr)?0:_ctx.reserveDetail.lpInfo.lpFeesApr)),2)) + "%", 1))
+                ]),
+                (!_ctx.reserveDetail.isLP)
+                  ? (_openBlock(), _createBlock("div", _hoisted_14, [
+                      _createVNode("div", _hoisted_15, [
+                        _createVNode("img", {
+                          src: _ctx.reserveDetail.logoSource,
+                          width: "20",
+                          height: "20",
+                          alt: ""
+                        }, null, 8, ["src"]),
+                        _createVNode("span", _hoisted_16, _toDisplayString(_ctx.t('marketId.supplyAPY')), 1)
+                      ]),
+                      _createVNode("div", _hoisted_17, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyApy,2,100)) + "%", 1)
+                    ]))
+                  : (_openBlock(), _createBlock("div", _hoisted_18, [
+                      _createVNode("div", _hoisted_19, [
+                        _createVNode("img", {
+                          src: _ctx.reserveDetail.logoSource,
+                          width: _ctx.reserveDetail.isLP?'38':'20',
+                          height: "20",
+                          alt: ""
+                        }, null, 8, ["src", "width"]),
+                        _hoisted_20
+                      ]),
+                      _createVNode("div", _hoisted_21, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.lpInfo.lpApr.plus(isNaN(_ctx.reserveDetail.lpInfo.lpFeesApr)?0:_ctx.reserveDetail.lpInfo.lpFeesApr),2)) + "%", 1)
+                    ])),
+                _createVNode("div", _hoisted_22, [
+                  _createVNode("div", _hoisted_23, [
+                    _createVNode("img", {
+                      src: _ctx.asst,
+                      width: "20",
+                      height: "20",
+                      alt: "",
+                      style: {"border-radius":"50%"}
+                    }, null, 8, ["src"]),
+                    _createVNode("span", _hoisted_24, _toDisplayString(_ctx.t('marketId.distributionSupplyAPY')), 1)
+                  ]),
+                  _createVNode("div", _hoisted_25, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy,2,100)) + "%" + _toDisplayString(_ctx.reserveDetail.hasSingleTokenDoubleReward?'+'+_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleRewardApy.times(100),2)+'%':''), 1)
+                ]),
+                _createVNode("div", _hoisted_26, [
+                  _createVNode("div", _hoisted_27, _toDisplayString(_ctx.t('marketId.totalSupply')), 1),
+                  _createVNode("div", _hoisted_28, _toDisplayString(_ctx.formatDollarsKmb(_ctx.reserveDetail.totalLiquidityInUsd)), 1)
+                ])
+              ]))
+            : _createCommentVNode("", true),
+          (_ctx.$store.state.market.marketIdType==='Borrow')
+            ? (_openBlock(), _createBlock("div", _hoisted_29, [
+                _createVNode("div", _hoisted_30, [
+                  _createVNode("div", _hoisted_31, _toDisplayString(_ctx.t('marketId.netRate')), 1),
+                  _createVNode("div", _hoisted_32, _toDisplayString(_ctx.formatBigNumberStr((_ctx.reserveDetail.borrowDistributionApy.minus(_ctx.reserveDetail.borrowApy).times(100).plus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0)) ,2)) + "%", 1)
+                ]),
+                _createVNode("div", _hoisted_33, [
+                  _createVNode("div", _hoisted_34, [
+                    _createVNode("img", {
+                      src: _ctx.reserveDetail.logoSource,
+                      width: _ctx.reserveDetail.isLP?'38':'20',
+                      height: "20",
+                      alt: ""
+                    }, null, 8, ["src", "width"]),
+                    _createVNode("span", _hoisted_35, _toDisplayString(_ctx.t('marketId.borrowAPY')), 1)
+                  ]),
+                  _createVNode("div", _hoisted_36, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy,2,100)) + "%", 1)
+                ]),
+                _createVNode("div", _hoisted_37, [
+                  _createVNode("div", _hoisted_38, [
+                    _createVNode("img", {
+                      src: _ctx.asst,
+                      width: "20",
+                      height: "20",
+                      alt: "",
+                      style: {"border-radius":"50%"}
+                    }, null, 8, ["src"]),
+                    _createVNode("span", _hoisted_39, _toDisplayString(_ctx.t('marketId.distributionBorrowAPY')), 1)
+                  ]),
+                  _createVNode("div", _hoisted_40, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy,2,100)) + "% " + _toDisplayString(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy?'+ '+_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy,2)+'%':''), 1)
+                ]),
+                _createVNode("div", _hoisted_41, [
+                  _createVNode("div", _hoisted_42, _toDisplayString(_ctx.t('marketId.totalBorrow')), 1),
+                  _createVNode("div", _hoisted_43, _toDisplayString(_ctx.formatDollarsKmb(_ctx.reserveDetail.totalLiquidityInUsd)), 1)
+                ])
+              ]))
+            : _createCommentVNode("", true)
+        ])
+      ]),
+      _createVNode("div", _hoisted_44, [
+        _createVNode("div", _hoisted_45, [
+          _createVNode("div", _hoisted_46, [
+            _createVNode("span", null, _toDisplayString(_ctx.t('marketId.interestRateModel')), 1)
+          ]),
+          _createVNode("div", _hoisted_47, [
+            _createVNode("span", _hoisted_48, _toDisplayString(_ctx.t('marketId.utilization')) + " " + _toDisplayString(_ctx.rateModelUtilization.toString()) + "% ", 1),
+            _createVNode("span", _hoisted_49, _toDisplayString(_ctx.t('marketId.supplyChartAPY')) + " " + _toDisplayString(_ctx.rateModelBorrowAPY) + "% ", 1),
+            _createVNode("span", _hoisted_50, _toDisplayString(_ctx.t('marketId.borrowChartAPY')) + " " + _toDisplayString(_ctx.rateModelSupplyAPY) + "% ", 1)
+          ]),
+          _createVNode("div", {
+            id: "chart",
+            style: [{"height":"355px","margin":"0 auto"}, _ctx.viewPort<1022?'width:100%':'width:100']
+          }, null, 4)
+        ]),
+        _createVNode("div", _hoisted_51, [
+          _createVNode("div", _hoisted_52, [
+            _createVNode("div", null, _toDisplayString(_ctx.t('marketId.marketDetails')), 1)
+          ]),
+          _createVNode("div", _hoisted_53, [
+            _createVNode("div", _hoisted_54, [
+              _createVNode("div", _hoisted_55, _toDisplayString(_ctx.t('marketId.Price')), 1),
+              _createVNode("div", _hoisted_56, _toDisplayString(_ctx.formatDollars(_ctx.reserveDetail.liquidityPrice)), 1)
+            ]),
+            _createVNode("div", _hoisted_57, [
+              _createVNode("div", _hoisted_58, _toDisplayString(_ctx.t('marketId.marketLiquidity')), 1),
+              _createVNode("div", _hoisted_59, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.totalAvailableAmount,2)) + " " + _toDisplayString(_ctx.reserveDetail.symbol), 1)
+            ]),
+            _createVNode("div", _hoisted_60, [
+              _createVNode("div", _hoisted_61, _toDisplayString(_ctx.t('marketId.collateralFactor')), 1),
+              _createVNode("div", _hoisted_62, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.collateralFactor,2,100)) + "%", 1)
+            ]),
+            _createVNode("div", _hoisted_63, [
+              _createVNode("div", _hoisted_64, _toDisplayString(_ctx.t('marketId.supplyMiningAPR')), 1),
+              _createVNode("div", _hoisted_65, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy,2,100)) + "%", 1)
+            ]),
+            (_ctx.reserveDetail.hasSingleTokenDoubleReward)
+              ? (_openBlock(), _createBlock("div", _hoisted_66, [
+                  _createVNode("div", _hoisted_67, _toDisplayString(_ctx.reserveDetail.singleTokenDoubleRewardTokenSymbol) + " " + _toDisplayString(_ctx.t('marketId.mndeAPR')), 1),
+                  _createVNode("div", _hoisted_68, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleRewardApy,2,100)) + "%", 1)
+                ]))
+              : _createCommentVNode("", true),
+            _createVNode("div", _hoisted_69, [
+              _createVNode("div", _hoisted_70, _toDisplayString(_ctx.t('marketId.borrowMiningAPR')), 1),
+              _createVNode("div", _hoisted_71, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy,2,100)) + "%", 1)
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _createVNode("div", _hoisted_72, [
+      _createVNode("div", _hoisted_73, [
+        _createVNode("span", {
+          style: {"margin-right":"20px","cursor":"pointer"},
+          onClick: _cache[4] || (_cache[4] = ($event: any) => (_ctx.$store.state.appTab='Market'))
+        }, _toDisplayString(_ctx.t('marketId.market')), 1),
+        _hoisted_74,
+        _createVNode("span", _hoisted_75, _toDisplayString(_ctx.reserveDetail.symbol), 1)
+      ]),
+      _createVNode("div", _hoisted_76, [
+        _createVNode("div", _hoisted_77, [
+          _createVNode("img", {
+            src: _ctx.reserveDetail.logoSource,
+            width: _ctx.reserveDetail.isLP?'88':'46',
+            height: "46",
+            alt: ""
+          }, null, 8, ["src", "width"]),
+          _createVNode("span", null, _toDisplayString(_ctx.reserveDetail.fullName), 1)
+        ]),
+        _createVNode("div", _hoisted_78, [
+          _createVNode("div", _hoisted_79, [
+            _createVNode("div", {
+              class: ["supply", _ctx.$store.state.market.marketIdType==='Supply'?'tabActiveLeft':''],
+              style: _ctx.$i18n.locale==='ru'?'font-size:12px;width:108px':'',
+              onClick: _cache[5] || (_cache[5] = ($event: any) => (_ctx.setTabBtn('Supply')))
+            }, [
+              _createVNode("div", null, _toDisplayString(_ctx.t('marketId.supply')), 1)
+            ], 6),
+            _createVNode("div", {
+              class: ["borrow", _ctx.$store.state.market.marketIdType==='Borrow'?'tabActiveRight':''],
+              style: _ctx.$i18n.locale==='ru'?'font-size:12px;width:108px':'',
+              onClick: _cache[6] || (_cache[6] = ($event: any) => (_ctx.setTabBtn('Borrow')))
+            }, [
+              _createVNode("div", null, _toDisplayString(_ctx.t('marketId.borrow')), 1)
+            ], 6)
+          ]),
+          (_ctx.$store.state.market.marketIdType==='Supply')
+            ? (_openBlock(), _createBlock("div", _hoisted_80, [
+                _createVNode("div", _hoisted_81, [
+                  _createVNode("div", _hoisted_82, _toDisplayString(_ctx.t('marketId.netRate')), 1),
+                  (!_ctx.reserveDetail.isLP)
+                    ? (_openBlock(), _createBlock("div", _hoisted_83, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy.plus(_ctx.reserveDetail.supplyApy),2,100)) + "%", 1))
+                    : (_openBlock(), _createBlock("div", _hoisted_84, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy.times(100).plus(_ctx.reserveDetail.lpInfo.lpApr.plus(isNaN(_ctx.reserveDetail.lpInfo.lpFeesApr)?0:_ctx.reserveDetail.lpInfo.lpFeesApr)),2)) + "%", 1))
+                ]),
+                (!_ctx.reserveDetail.isLP)
+                  ? (_openBlock(), _createBlock("div", _hoisted_85, [
+                      _createVNode("div", _hoisted_86, [
+                        _createVNode("img", {
+                          src: _ctx.reserveDetail.logoSource,
+                          width: "15",
+                          height: "15",
+                          alt: ""
+                        }, null, 8, ["src"]),
+                        _createVNode("span", _hoisted_87, _toDisplayString(_ctx.t('marketId.supplyAPY')), 1)
+                      ]),
+                      _createVNode("div", _hoisted_88, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyApy,2,100)) + "%", 1)
+                    ]))
+                  : (_openBlock(), _createBlock("div", _hoisted_89, [
+                      _createVNode("div", _hoisted_90, [
+                        _createVNode("img", {
+                          src: _ctx.reserveDetail.logoSource,
+                          width: "28",
+                          height: "15",
+                          alt: ""
+                        }, null, 8, ["src"]),
+                        _hoisted_91
+                      ]),
+                      _createVNode("div", _hoisted_92, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.lpInfo.lpApr.plus(isNaN(_ctx.reserveDetail.lpInfo.lpFeesApr)?0:_ctx.reserveDetail.lpInfo.lpFeesApr),2)) + "%", 1)
+                    ])),
+                _createVNode("div", _hoisted_93, [
+                  _createVNode("div", _hoisted_94, [
+                    _createVNode("img", {
+                      src: _ctx.asst,
+                      width: "15",
+                      height: "15",
+                      alt: "",
+                      style: {"border-radius":"50%"}
+                    }, null, 8, ["src"]),
+                    _createVNode("span", _hoisted_95, _toDisplayString(_ctx.t('marketId.distributionSupplyAPY')), 1)
+                  ]),
+                  _createVNode("div", _hoisted_96, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy,2,100)) + "%" + _toDisplayString(_ctx.reserveDetail.hasSingleTokenDoubleReward?'+'+_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleRewardApy.times(100),2)+'%':''), 1)
+                ]),
+                _createVNode("div", _hoisted_97, [
+                  _createVNode("div", _hoisted_98, _toDisplayString(_ctx.t('marketId.totalSupply')), 1),
+                  _createVNode("div", _hoisted_99, _toDisplayString(_ctx.formatDollarsKmb(_ctx.reserveDetail.totalLiquidityInUsd)), 1)
+                ])
+              ]))
+            : _createCommentVNode("", true),
+          (_ctx.$store.state.market.marketIdType==='Borrow')
+            ? (_openBlock(), _createBlock("div", _hoisted_100, [
+                _createVNode("div", _hoisted_101, [
+                  _createVNode("div", _hoisted_102, _toDisplayString(_ctx.t('marketId.netRate')), 1),
+                  _createVNode("div", _hoisted_103, _toDisplayString(_ctx.formatBigNumberStr((_ctx.reserveDetail.borrowDistributionApy.minus(_ctx.reserveDetail.borrowApy).times(100).plus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0)) ,2)) + "%", 1)
+                ]),
+                _createVNode("div", _hoisted_104, [
+                  _createVNode("div", _hoisted_105, [
+                    _createVNode("img", {
+                      src: _ctx.reserveDetail.logoSource,
+                      width: _ctx.reserveDetail.isLP?'28':'15',
+                      height: "15",
+                      alt: ""
+                    }, null, 8, ["src", "width"]),
+                    _createVNode("span", _hoisted_106, _toDisplayString(_ctx.t('marketId.borrowAPY')), 1)
+                  ]),
+                  _createVNode("div", _hoisted_107, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowApy,2,100)) + "%", 1)
+                ]),
+                _createVNode("div", _hoisted_108, [
+                  _createVNode("div", _hoisted_109, [
+                    _createVNode("img", {
+                      src: _ctx.asst,
+                      width: "15",
+                      height: "15",
+                      alt: "",
+                      style: {"border-radius":"50%"}
+                    }, null, 8, ["src"]),
+                    _createVNode("div", _hoisted_110, _toDisplayString(_ctx.t('marketId.distributionBorrowAPY')), 1)
+                  ]),
+                  _createVNode("div", _hoisted_111, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy,2,100)) + "% " + _toDisplayString(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy?'+ '+_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy,2)+'%':''), 1)
+                ]),
+                _createVNode("div", _hoisted_112, [
+                  _createVNode("div", _hoisted_113, _toDisplayString(_ctx.t('marketId.totalBorrow')), 1),
+                  _createVNode("div", _hoisted_114, _toDisplayString(_ctx.formatDollarsKmb(_ctx.reserveDetail.totalLiquidityInUsd)), 1)
+                ])
+              ]))
+            : _createCommentVNode("", true)
+        ])
+      ]),
+      _createVNode("div", _hoisted_115, [
+        _createVNode("div", _hoisted_116, [
+          _createVNode("div", _hoisted_117, [
+            _createVNode("span", null, _toDisplayString(_ctx.t('marketId.interestRateModel')), 1)
+          ]),
+          _createVNode("div", _hoisted_118, [
+            _createVNode("span", _hoisted_119, _toDisplayString(_ctx.t('marketId.utilization')) + " " + _toDisplayString(_ctx.rateModelUtilization.toFixed(2)) + "% ", 1),
+            _createVNode("span", _hoisted_120, _toDisplayString(_ctx.t('marketId.supplyChartAPY')) + " " + _toDisplayString(_ctx.rateModelBorrowAPY) + "% ", 1),
+            _createVNode("span", _hoisted_121, _toDisplayString(_ctx.t('marketId.borrowChartAPY')) + " " + _toDisplayString(_ctx.rateModelSupplyAPY) + "% ", 1)
+          ]),
+          _hoisted_122
+        ]),
+        _createVNode("div", _hoisted_123, [
+          _createVNode("div", _hoisted_124, [
+            _createVNode("div", null, _toDisplayString(_ctx.t('marketId.marketDetails')), 1)
+          ]),
+          _createVNode("div", _hoisted_125, [
+            _createVNode("div", _hoisted_126, [
+              _createVNode("div", _hoisted_127, _toDisplayString(_ctx.t('marketId.Price')), 1),
+              _createVNode("div", _hoisted_128, _toDisplayString(_ctx.formatDollars(_ctx.reserveDetail.liquidityPrice)), 1)
+            ]),
+            _createVNode("div", _hoisted_129, [
+              _createVNode("div", _hoisted_130, _toDisplayString(_ctx.t('marketId.marketLiquidity')), 1),
+              _createVNode("div", _hoisted_131, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.totalAvailableAmount,2)) + " " + _toDisplayString(_ctx.reserveDetail.symbol), 1)
+            ]),
+            _createVNode("div", _hoisted_132, [
+              _createVNode("div", _hoisted_133, _toDisplayString(_ctx.t('marketId.collateralFactor')), 1),
+              _createVNode("div", _hoisted_134, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.collateralFactor,2,100)) + "%", 1)
+            ]),
+            _createVNode("div", _hoisted_135, [
+              _createVNode("div", _hoisted_136, _toDisplayString(_ctx.t('marketId.supplyMiningAPR')), 1),
+              _createVNode("div", _hoisted_137, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy,2,100)) + "%", 1)
+            ]),
+            (_ctx.reserveDetail.hasSingleTokenDoubleReward)
+              ? (_openBlock(), _createBlock("div", _hoisted_138, [
+                  _createVNode("div", _hoisted_139, _toDisplayString(_ctx.reserveDetail.singleTokenDoubleRewardTokenSymbol) + " " + _toDisplayString(_ctx.t('marketId.mndeAPR')), 1),
+                  _createVNode("div", _hoisted_140, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleRewardApy,2,100)) + "%", 1)
+                ]))
+              : _createCommentVNode("", true),
+            _createVNode("div", _hoisted_141, [
+              _createVNode("div", _hoisted_142, _toDisplayString(_ctx.t('marketId.borrowMiningAPR')), 1),
+              _createVNode("div", _hoisted_143, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy,2,100)) + "%", 1)
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _createVNode("div", _hoisted_144, [
+      _createVNode("div", _hoisted_145, [
+        _createVNode("span", {
+          style: {"cursor":"pointer"},
+          onClick: _cache[7] || (_cache[7] = ($event: any) => (_ctx.$store.state.appTab='Market'))
+        }, _toDisplayString(_ctx.t('marketId.market')), 1),
+        _hoisted_146,
+        _createVNode("span", _hoisted_147, _toDisplayString(_ctx.reserveDetail.symbol), 1)
+      ]),
+      _createVNode("div", _hoisted_148, [
+        _createVNode("div", _hoisted_149, [
+          _createVNode("img", {
+            src: _ctx.reserveDetail.logoSource,
+            height: "44",
+            width: _ctx.reserveDetail.isLP?'88':'44',
+            alt: ""
+          }, null, 8, ["src", "width"]),
+          _createVNode("span", null, _toDisplayString(_ctx.reserveDetail.fullName), 1)
+        ]),
+        _createVNode("div", _hoisted_150, [
+          _createVNode("div", {
+            class: ["supply", _ctx.$store.state.market.marketIdType==='Supply'?'tabActiveLeft':''],
+            style: _ctx.$i18n.locale==='ru'?'font-size:8px;width:108px':'',
+            onClick: _cache[8] || (_cache[8] = ($event: any) => (_ctx.setTabBtn('Supply')))
+          }, [
+            _createVNode("div", null, _toDisplayString(_ctx.t('marketId.supply')), 1)
+          ], 6),
+          _createVNode("div", {
+            class: ["borrow", _ctx.$store.state.market.marketIdType==='Borrow'?'tabActiveRight':''],
+            style: _ctx.$i18n.locale==='ru'?'font-size:8px;width:108px':'',
+            onClick: _cache[9] || (_cache[9] = ($event: any) => (_ctx.setTabBtn('Borrow')))
+          }, [
+            _createVNode("div", null, _toDisplayString(_ctx.t('marketId.borrow')), 1)
+          ], 6)
+        ]),
+        (_ctx.$store.state.market.marketIdType==='Supply')
+          ? (_openBlock(), _createBlock("div", _hoisted_151, [
+              _createVNode("div", _hoisted_152, [
+                _createVNode("div", _hoisted_153, _toDisplayString(_ctx.t('marketId.netRate')), 1),
+                (!_ctx.reserveDetail.isLP)
+                  ? (_openBlock(), _createBlock("div", _hoisted_154, _toDisplayString(_ctx.getBigNumberStr(_ctx.reserveDetail.supplyDistributionApy.plus(_ctx.reserveDetail.supplyApy),2,100)) + "%", 1))
+                  : (_openBlock(), _createBlock("div", _hoisted_155, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy.times(100).plus(_ctx.reserveDetail.lpInfo.lpApr.plus(isNaN(_ctx.reserveDetail.lpInfo.lpFeesApr)?0:_ctx.reserveDetail.lpInfo.lpFeesApr)),2)) + "%", 1))
+              ]),
+              (!_ctx.reserveDetail.isLP)
+                ? (_openBlock(), _createBlock("div", _hoisted_156, [
+                    _createVNode("div", _hoisted_157, [
+                      _createVNode("img", {
+                        src: _ctx.reserveDetail.logoSource,
+                        height: "10",
+                        width: "10"
+                      }, null, 8, ["src"]),
+                      _createVNode("div", _hoisted_158, _toDisplayString(_ctx.t('marketId.supplyAPY')), 1)
+                    ]),
+                    _createVNode("div", _hoisted_159, _toDisplayString(_ctx.getBigNumberStr(_ctx.reserveDetail.supplyApy,2,100)) + "%", 1)
+                  ]))
+                : (_openBlock(), _createBlock("div", _hoisted_160, [
+                    _createVNode("div", _hoisted_161, [
+                      _createVNode("img", {
+                        src: _ctx.reserveDetail.logoSource,
+                        height: "10",
+                        width: "18"
+                      }, null, 8, ["src"]),
+                      _hoisted_162
+                    ]),
+                    _createVNode("div", _hoisted_163, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.lpInfo.lpApr.plus(isNaN(_ctx.reserveDetail.lpInfo.lpFeesApr)?0:_ctx.reserveDetail.lpInfo.lpFeesApr),2)) + "%", 1)
+                  ])),
+              _createVNode("div", _hoisted_164, [
+                _createVNode("div", _hoisted_165, [
+                  _createVNode("img", {
+                    src: _ctx.asst,
+                    style: {"border-radius":"50%"},
+                    width: "10",
+                    height: "10"
+                  }, null, 8, ["src"]),
+                  _createVNode("div", _hoisted_166, _toDisplayString(_ctx.t('marketId.distributionSupplyAPY')), 1)
+                ]),
+                _createVNode("div", {
+                  class: "bottomSpan",
+                  style: _ctx.reserveDetail.hasSingleTokenDoubleReward?'text-align:start':''
+                }, _toDisplayString(_ctx.getBigNumberStr(_ctx.reserveDetail.supplyDistributionApy,2,100)) + "%" + _toDisplayString(_ctx.reserveDetail.hasSingleTokenDoubleReward?'+'+_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleRewardApy.times(100),2)+'%':''), 5)
+              ]),
+              _createVNode("div", _hoisted_167, [
+                _createVNode("div", _hoisted_168, _toDisplayString(_ctx.t('marketId.totalSupply')), 1),
+                _createVNode("div", _hoisted_169, _toDisplayString(_ctx.formatDollarsKmb(_ctx.reserveDetail.totalLiquidityInUsd)), 1)
+              ])
+            ]))
+          : _createCommentVNode("", true),
+        (_ctx.$store.state.market.marketIdType==='Borrow')
+          ? (_openBlock(), _createBlock("div", _hoisted_170, [
+              _createVNode("div", _hoisted_171, [
+                _createVNode("div", _hoisted_172, _toDisplayString(_ctx.t('marketId.netRate')), 1),
+                _createVNode("div", _hoisted_173, _toDisplayString(_ctx.formatBigNumberStr((_ctx.reserveDetail.borrowDistributionApy.minus(_ctx.reserveDetail.borrowApy).times(100).plus(_ctx.reserveDetail?.singleTokenDoubleBorrowRewardApy||0)) ,2)) + "%", 1)
+              ]),
+              _createVNode("div", _hoisted_174, [
+                _createVNode("div", _hoisted_175, [
+                  _createVNode("img", {
+                    src: _ctx.reserveDetail.logoSource,
+                    height: "10",
+                    width: _ctx.reserveDetail.isLP?'18':'10'
+                  }, null, 8, ["src", "width"]),
+                  _createVNode("div", _hoisted_176, _toDisplayString(_ctx.t('marketId.borrowAPY')), 1)
+                ]),
+                _createVNode("div", _hoisted_177, _toDisplayString(_ctx.getBigNumberStr(_ctx.reserveDetail.borrowApy,2,100)) + "%", 1)
+              ]),
+              _createVNode("div", _hoisted_178, [
+                _createVNode("div", _hoisted_179, [
+                  _createVNode("img", {
+                    src: _ctx.asst,
+                    style: {"border-radius":"50%"},
+                    height: "10",
+                    width: "10"
+                  }, null, 8, ["src"]),
+                  _createVNode("div", _hoisted_180, _toDisplayString(_ctx.t('marketId.distributionBorrowAPY')), 1)
+                ]),
+                _createVNode("div", _hoisted_181, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy,2,100)) + "% " + _toDisplayString(_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy?'+ '+_ctx.reserveDetail.singleTokenDoubleBorrowRewardApy.toFixed(2)+'%':''), 1)
+              ]),
+              _createVNode("div", _hoisted_182, [
+                _createVNode("div", _hoisted_183, _toDisplayString(_ctx.t('marketId.totalBorrow')), 1),
+                _createVNode("div", _hoisted_184, _toDisplayString(_ctx.formatDollarsKmb(_ctx.reserveDetail.totalBorrowedInUsd)), 1)
+              ])
+            ]))
+          : _createCommentVNode("", true)
+      ]),
+      _createVNode("div", _hoisted_185, [
+        _createVNode("div", _hoisted_186, [
+          _createVNode("div", null, _toDisplayString(_ctx.t('marketId.interestRateModel')), 1)
+        ]),
+        _createVNode("div", _hoisted_187, [
+          _createVNode("span", _hoisted_188, _toDisplayString(_ctx.t('marketId.utilization')) + " " + _toDisplayString(_ctx.rateModelUtilization.toString()) + "% ", 1),
+          _createVNode("span", _hoisted_189, _toDisplayString(_ctx.t('marketId.supplyChartAPY')) + " " + _toDisplayString(_ctx.formatBigNumberStr(_ctx.rateModelBorrowAPY,2)) + "% ", 1),
+          _createVNode("span", _hoisted_190, _toDisplayString(_ctx.t('marketId.borrowChartAPY')) + " " + _toDisplayString(_ctx.formatBigNumberStr(_ctx.rateModelSupplyAPY,2)) + "% ", 1)
+        ]),
+        _createVNode("div", {
+          id: "chartMobile",
+          style: [{"height":"250px","margin":"0 auto"}, 'width:'+638*(_ctx.viewPort/750)+'px;']
+        }, null, 4)
+      ]),
+      _createVNode("div", _hoisted_191, [
+        _createVNode("div", _hoisted_192, [
+          _createVNode("div", null, _toDisplayString(_ctx.t('marketId.marketDetails')), 1)
+        ]),
+        _createVNode("div", _hoisted_193, [
+          _createVNode("div", _hoisted_194, [
+            _createVNode("div", _hoisted_195, _toDisplayString(_ctx.t('marketId.Price')), 1),
+            _createVNode("div", _hoisted_196, _toDisplayString(_ctx.formatDollarsKmb(_ctx.reserveDetail.liquidityPrice)), 1)
+          ]),
+          _createVNode("div", _hoisted_197, [
+            _createVNode("div", _hoisted_198, _toDisplayString(_ctx.t('marketId.marketLiquidity')), 1),
+            _createVNode("div", _hoisted_199, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.totalAvailableAmount,2)) + " " + _toDisplayString(_ctx.reserveDetail.symbol), 1)
+          ]),
+          _createVNode("div", _hoisted_200, [
+            _createVNode("div", _hoisted_201, _toDisplayString(_ctx.t('marketId.collateralFactor')), 1),
+            _createVNode("div", _hoisted_202, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.collateralFactor,2,100)) + "%", 1)
+          ]),
+          _createVNode("div", _hoisted_203, [
+            _createVNode("div", _hoisted_204, _toDisplayString(_ctx.t('marketId.supplyMiningAPR')), 1),
+            _createVNode("div", _hoisted_205, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.supplyDistributionApy,2,100)) + "%", 1)
+          ]),
+          (_ctx.reserveDetail.hasSingleTokenDoubleReward)
+            ? (_openBlock(), _createBlock("div", _hoisted_206, [
+                _createVNode("div", _hoisted_207, _toDisplayString(_ctx.reserveDetail.singleTokenDoubleRewardTokenSymbol) + " " + _toDisplayString(_ctx.t('marketId.mndeAPR')), 1),
+                _createVNode("div", _hoisted_208, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.singleTokenDoubleRewardApy,2,100)) + "%", 1)
+              ]))
+            : _createCommentVNode("", true),
+          _createVNode("div", _hoisted_209, [
+            _createVNode("div", _hoisted_210, _toDisplayString(_ctx.t('marketId.borrowMiningAPR')), 1),
+            _createVNode("div", _hoisted_211, _toDisplayString(_ctx.formatBigNumberStr(_ctx.reserveDetail.borrowDistributionApy,2,100)) + "%", 1)
+          ])
+        ])
+      ])
+    ])
+  ], 64))
+})

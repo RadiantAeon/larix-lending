@@ -1,0 +1,506 @@
+
+// @ts-nocheck
+import {computed, defineComponent, reactive, toRefs} from 'vue'
+//@ts-ignore
+import SupplyAndBorrow from "../components/SupplyAndBorrow";
+//@ts-ignore
+import SupplyDialog from "../components/SupplyDialog";
+//@ts-ignore
+import BorrowDialog from "../components/BorrowDialog";
+//@ts-ignore
+import { useI18n } from 'vue-i18n'
+import {mapState} from "vuex";
+
+// import {getLendingMarket} from "@/api/provider/lendingMarketProvider";
+// import {getLendingReserve} from "@/api/provider/lendingReserveProvider";
+// import {getTokenAccounts} from "@/api/provider";
+// import {getMintInfo,} from "@/api/provider";
+// import {getObligation} from "@/api/provider";
+
+
+import {depositReserve} from "@/api/actions/depositReserve";
+// eslint-disable-next-line no-unused-vars
+import BN from 'bn.js';
+import {intoObligation} from "@/api/actions/intoObligation"
+import {eX, formatDollars, formatDollarsKmb, getBigNumberStr, formatBigNumberStr} from "@/utils/helpers";
+import {redeemReserve} from "@/api/actions/redeemReserve"
+// import {getTestToken} from "../api/actions/getTestToken"
+import {borrow} from "@/api/actions/borrow";
+import {repay} from "@/api/actions/repay";
+import {exitObligation} from "@/api/actions/exitObligation";
+import  {useStore} from "@/store";
+import {AppActionTypes} from "@/store/modules/app/action-types";
+// import {ElMessage} from "element-plus";
+// import {getMining} from "@/api/provider/miningProvider";
+import {getWallet} from "@/api/context/wallet";
+import BigNumber from "bignumber.js";
+import appController from "@/controller/appController";
+import txSuccess from "@/controller/txSuccess";
+import txFailed from "@/controller/txFailed";
+import openTxDialog from "@/controller/openTxDialog";
+import {LP_RESERVE_ID_ARRAY} from "@/api/constants/config";
+import {ObligationCollateral} from "@/api/models";
+// import {WAD} from "@/api/constants";
+// import {getWallet} from "@/api/context/connection";
+
+
+// import {borrowObligationLiquidity} from "@/api/actions/borrowObligationLiquidity";
+// import {repayObligationLiquidity} from "../api/actions/repayObligationLiquidity"
+export default defineComponent({
+  name: "Home",
+  components: {
+    SupplyAndBorrow,SupplyDialog,
+    BorrowDialog,
+  },
+  data() {
+    return {
+      //@ts-ignore
+      icon_information: require('../assets/icon_information.svg'),
+      getBigNumberStr: getBigNumberStr,
+      formatDollars: formatDollars,
+      formatDollarsKmb: formatDollarsKmb,
+      formatBigNumberStr:formatBigNumberStr,
+      enableFor: '',
+      selectedReserveDetail: {},
+      isEnterCollateral:false,
+      // supplyDialogVisible:false,
+      // borrowDialogVisible:false
+      value: 'English',
+      languageValue: {
+        label: 'English',
+        value: 'en',
+        icon: require('../assets/icn-english.svg')
+      },
+      languageOptions:[
+        {
+          label: 'English',
+          value: 'en',
+          icon: require('../assets/icn-english.svg')
+        },
+        {
+          label: "繁體中文",
+          value: "zh-cn",
+          icon: require('../assets/icn-chinese.svg')
+        },
+        {
+          label: "Indonesian",
+          value: "in",
+          icon: require('../assets/icn-bahasa.svg')
+        },
+        {
+          label: "Tiếng Việt",
+          value: "vn",
+          icon: require('../assets/icn-vietnamese.svg')
+        },
+        {
+          label: "이름",
+          value: "kn",
+          icon: require('../assets/icn-korean.svg')
+        },
+        {
+          label: "русский",
+          value: "ru",
+          icon: require('../assets/icn-russian.svg')
+        },
+        {
+          label: "Türkçe",
+          value: "tr",
+          icon: require('../assets/icn-turkey.svg')
+        },
+      ],
+      media: [
+        {
+          dark: require('../assets/media/twitter_dark.png'),
+          light: require('../assets/media/twitter.svg'),
+          url: 'https://twitter.com/ProjectLarix',
+        },
+        {
+          dark: require('../assets/media/discord.svg'),
+          light: require('../assets/media/discord.svg'),
+          url: 'https://discord.gg/hfnRFV9Ngt',
+        },
+        {
+          dark: require('../assets/media/telegram_dark.png'),
+          light: require('../assets/media/telegram.svg'),
+          url: 'https://t.me/projectlarix',
+        },
+        {
+          dark: require('../assets/media/medium.svg'),
+          light: require('../assets/media/medium.svg'),
+          url: 'https://medium.com/@ProjectLarix',
+        },
+        {
+          dark: require('../assets/media/github_dark.png'),
+          light: require('../assets/media/github.svg'),
+          url: 'https://github.com/ProjectLarix',
+        },
+        // {
+        //   dark: require('../assets/media/email.svg'),
+        //   light: require('../assets/media/email.svg'),
+        //   url: 'https://projectlarix@gmail.com',
+        // },
+      ],
+      emailImg: {
+        dark: require('../assets/media/email.svg'),
+        light: require('../assets/media/email.svg'),
+      },
+      emailContent: "projectlarix@gmail.com",
+      clientViewPort:0,
+      larixLogo:require('../assets/Larix.ico.png'),
+      MNDELogo:require('../assets/coin/asset_MNDE.svg'),
+      larixLogoSource:require('../assets/coin/asset_LARIX@2x.png'),
+      noFee:require('../assets/icon_nofee@2x.png'),
+      marketType:'single'
+    }
+  },
+  setup(){
+    const store = useStore()
+    const { locale } = useI18n()
+
+    const state = reactive({
+      handleSetLanguage: (lang: string) => {
+        locale.value = lang
+        store.dispatch(AppActionTypes.ACTION_SET_LANGUAGE, lang)
+        localStorage.setItem('lang',lang)
+        // if(locale.value=='en'){
+        //   ElMessage({
+        //     message: 'English switch successfully',
+        //     type: 'success'
+        //   })
+        // }else{
+        //   ElMessage({
+        //     message: '中文切换成功',
+        //     type: 'success'
+        //   })
+        // }
+      }
+    })
+    const language = computed(() => {
+      return store.state.app.language
+    })
+    const { t } = useI18n()
+    return {
+      ...toRefs(state),
+      language,
+      t,
+    }
+  },
+  created(){
+    window.addEventListener('resize', this.ViewPortAndStyle)
+    this.ViewPortAndStyle()
+  },
+  // beforeUnmount: function () {
+  //   window.removeEventListener('resize', this.ViewPortAndStyle)
+  // },
+  mounted() {
+    this.languageOptions.map((language:any)=>{
+      if (language.value===localStorage.getItem('lang'))
+        this.languageValue = language
+    })
+  },
+  computed: {
+    walletDialogVisible:{
+      get() {
+        return this.$store.state.wallet.walletDialogVisible
+      },
+      set(value) {
+        this.$store.commit('updateWalletDialogVisible',value)
+      }
+    },
+    singleAsset(){
+      if (this.walletAddress!==''&&!this.isLoadingInfo){
+        return this.allReservesDetails.filter((reserve:any)=>{
+          return !reserve.isLP
+        }).sort((b:any,a:any)=>{
+          if (a.sortWeight- b.sortWeight ===0){
+            return a.totalBorrowedInUsd - b.totalBorrowedInUsd
+          }
+          else {
+            return a.sortWeight - b.sortWeight
+          }
+        })
+      }else {
+        return []
+      }
+
+    },
+    lpToken(){
+      if (this.walletAddress!==''&&!this.isLoadingInfo){
+        return this.allReservesDetails.filter((reserve:any)=>{
+          return reserve.isLP
+        }).sort((b:any,a:any)=>{
+          if (a.sortWeight- b.sortWeight ===0){
+            return a.totalLiquidityInUsd - b.totalLiquidityInUsd
+          }
+          else {
+            return a.sortWeight - b.sortWeight
+          }
+        })
+      }else {
+        return []
+      }
+
+    },
+    ...mapState({
+      walletAddress: (state: any) => state.wallet.walletAddress,
+      lendingMarket: (state: any) => state.market.lendingMarket,
+      lendingReserveArray: (state: any) => state.market.lendingReserveArray,
+      userObligation: (state: any) => state.market.userObligation,
+      allReservesDetails: (state: any) => state.market.allReservesDetails,
+      isLoadingInfo:(state:any) =>state.market.isLoadingInfo,
+      allMarketTotalSupply:(state:any) =>state.market.allMarketTotalSupply,
+      allMarketTotalBorrow:(state:any) =>state.market.allMarketTotalBorrow,
+      isFullWithdraw:(state:any)=>state.dialog.isFullWithdraw,
+      isFullRepay:(state:any)=>state.dialog.isFullRepay,
+      mining:(state:any)=>state.market.mining,
+      larixCirculation:(state:any)=>state.market.larixCirculation,
+      larixPrice:(state:any)=>state.market.larixPrice,
+      userTotalSupply: (state: any) => state.market.userTotalSupply,
+      userObligationIndex:(state:any)=> state.market.userObligationIndex,
+      errorContext:(state:any)=> state.txDialog.errorContext,
+      isLoadingUserLarixStakeInfo: (state:any) => state.market.isLoadingUserLarixStakeInfo,
+      mineCollateralLpDetails: (state:any) => state.market.mineCollateralLpDetails,
+    })
+  },
+  methods: {
+    sortMarket(){
+      return this.allReservesDetails.filter((reserve:any)=>{
+        switch (this.marketType){
+          case "lp":{
+            return reserve.isLP
+          }
+          case "single":{
+            return !reserve.isLP
+          }
+          default:{
+            return !reserve.isLP
+          }
+        }
+      }).sort((b:any,a:any)=>{
+        if (a.sortWeight- b.sortWeight ===0){
+          if (a.isLP&&b.isLP){
+            return a.totalLiquidityInUsd - b.totalLiquidityInUsd
+          }else {
+            return a.totalBorrowedInUsd - b.totalBorrowedInUsd
+          }
+        }
+        else {
+          return a.sortWeight - b.sortWeight
+        }
+      })
+    },
+    setMarketType(type:string){
+      this.marketType = type
+    },
+    ViewPortAndStyle () {
+      this.clientViewPort = document.documentElement.clientWidth
+      this.$store.commit('updateClientViewPort',this.clientViewPort)
+    },
+    isReachLpLimit(){
+      let isReach = false
+      this.userObligation?.info?.deposits.forEach((deposit:ObligationCollateral)=>{
+        if (LP_RESERVE_ID_ARRAY.includes(deposit.depositReserve.toString()))
+        {
+          isReach = true
+        }
+      })
+      return isReach
+    },
+    openSupplyMarketsDialog(reserveDetail,status){
+      this.enableFor = status
+      this.selectedReserveDetail = reserveDetail
+      this.$store.commit('updateSelectedReserveDetail', reserveDetail)
+      this.$store.commit('updateSupplyDialogVisible', true)
+      this.$store.commit('updateIsFullWithdraw',false)
+    },
+    openBorrowMarketsDialog(reserveDetail,status){
+      this.enableFor = status
+      this.selectedReserveDetail = reserveDetail
+      this.$store.commit('updateSelectedReserveDetail', reserveDetail)
+      this.$store.commit('updateBorrowDialogVisible', true)
+      this.$store.commit('updateIsFullRepay',false)
+    },
+    openHandleLpDialog(){
+      this.$store.commit('updateHandleLpDialogVisible', true)
+    },
+    // 存款
+    supply: async function (amount:string) {
+      let wallet = getWallet()
+      let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      const fromAccount = this.selectedReserveDetail.userLiquidityTokenAccount
+      const toAccount = this.selectedReserveDetail.userCollateralTokenAccount
+      if (!fromAccount) return
+      openTxDialog('updateSupplyDialogVisible')
+      await depositReserve(
+          fromAccount,
+          new BN(eX(interceptedAmount, this.selectedReserveDetail.decimals.toString()).toString()),
+          wallet,
+          this.selectedReserveDetail.reserveDetail,
+          this.allReservesDetails,
+          this.mining,
+          toAccount===undefined?undefined:toAccount.pubkey,
+          this.userObligation
+
+      ).then(()=>{
+        txSuccess('updateSupplyDialogVisible')
+      }).catch((e)=>{
+        txFailed('updateSupplyDialogVisible',e)
+      })
+      //updateSupplyDialogVisible
+      await appController.updateData(this.userObligationIndex)
+    },
+    // 取款
+    withdraw: async function (amount:string) {
+      let wallet
+      try {
+        wallet = getWallet()
+      }
+      catch (e){
+        alert('get wallet failed')
+      }
+      // let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      // const fromAccount = this.selectedReserveDetail.userLiquidityTokenAccount
+      // const toAccount = this.selectedReserveDetail.userCollateralTokenAccount
+      let interceptedAmount
+      let fromAccount
+      let toAccount
+      try {
+        interceptedAmount = new BigNumber(amount).times(this.selectedReserveDetail.exchangeRate).toFixed(this.selectedReserveDetail.decimals,1)
+        //wallet
+        fromAccount = this.selectedReserveDetail.userLiquidityTokenAccount
+        //ctoken account
+        toAccount = this.selectedReserveDetail.userCollateralTokenAccount
+      }catch (e){
+        alert('get userInfo failed')
+      }
+      openTxDialog('updateSupplyDialogVisible')
+      await redeemReserve(
+                  toAccount,
+                  this.isFullWithdraw?
+                      new BN(-1):new BN(eX(interceptedAmount,this.selectedReserveDetail.decimals.toString()).toString()),
+                  wallet,
+                  this.selectedReserveDetail.reserveDetail,
+                  fromAccount,
+                  this.lendingReserveArray,
+                  this.mining,
+                  this.userObligation
+              ).then(()=>{
+        txSuccess('updateSupplyDialogVisible')
+      }).catch((e)=> {
+        txFailed('updateSupplyDialogVisible',e)
+      })
+
+      await appController.updateData(this.userObligationIndex)
+    },
+    borrow: async function (amount:string) {
+      let wallet = getWallet()
+      let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      openTxDialog('updateBorrowDialogVisible')
+      let borrowResult = await borrow(
+          this.userObligation,
+          this.selectedReserveDetail.reserveDetail,
+          eX(interceptedAmount,this.selectedReserveDetail.decimals.toString()).toNumber(),
+          wallet,
+          this.lendingReserveArray,
+          this.lendingMarket,
+          this.selectedReserveDetail.userLiquidityTokenAccount)
+      .then(()=>{
+        txSuccess('updateBorrowDialogVisible')
+        console.log('tx=',borrowResult)
+      }).catch((e)=>{
+        txFailed('updateBorrowDialogVisible',e)
+          })
+
+      await appController.updateData(this.userObligationIndex)
+    },
+    repay: async function (amount:string) {
+      let wallet = getWallet()
+      let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      openTxDialog('updateBorrowDialogVisible')
+      if(this.isFullRepay)
+      {
+        amount = -1
+
+          await repay(
+                this.userObligation,
+                this.selectedReserveDetail.reserveDetail,
+                this.selectedReserveDetail.userLiquidityTokenAccount,
+                amount,
+                wallet,
+                this.lendingReserveArray
+            ).then(()=>{
+              txSuccess('updateBorrowDialogVisible')
+          }).catch((e)=>{
+            txFailed('updateBorrowDialogVisible',e)
+          })
+
+      }else{
+        await repay(
+            this.userObligation,
+            this.selectedReserveDetail.reserveDetail,
+            this.selectedReserveDetail.userLiquidityTokenAccount,
+            eX(interceptedAmount,this.selectedReserveDetail.decimals.toString()).toNumber(),
+            wallet,
+            this.lendingReserveArray
+        ).then(()=>{
+          txSuccess('updateBorrowDialogVisible')
+        }).catch((e)=>{
+          txFailed('updateBorrowDialogVisible',e)
+        })
+      }
+      await  appController.updateData(this.userObligationIndex)
+    },
+    positionLimit(){
+      if (!this.userObligation){
+        return false
+      }
+      if (this.userObligation?.info.deposits.length+this.userObligation?.info.borrows.length<5)
+      {
+        return false
+      }
+      else {
+        return true
+      }
+    },
+    closeOrOpenMortgage: async function (reserveDetail) {
+      if (!reserveDetail.supplyBalanceInTokenUnit.isGreaterThan(0))return
+      let wallet = getWallet()
+      this.selectedReserveDetail = reserveDetail
+      if (reserveDetail.isEnterMarket)
+      {
+        await exitObligation(
+            this.userObligation,
+            this.selectedReserveDetail.userCollateralTokenAccount,
+            this.selectedReserveDetail.reserveDetail,
+            wallet,
+            this.lendingReserveArray,
+            this.mining
+        ).then(()=>{
+          txSuccess()
+        }).catch((e)=>{
+          txFailed(undefined,e)
+        })
+      }else {
+        if (this.isReachLpLimit()&&this.selectedReserveDetail.isLP){
+          this.$store.commit('updateOpenObligationDialogVisible',true)
+          return
+        }
+        await intoObligation(
+            this.selectedReserveDetail.reserveDetail,
+            wallet,
+            this.lendingMarket,
+            this.selectedReserveDetail.userCollateralTokenAccount,
+            this.mining,
+            this.lendingReserveArray,
+            this.userObligation,
+        ).then(()=>{
+          if (this.errorContext==='')
+          txSuccess()
+        }).catch((e)=>{
+          txFailed(undefined,e)
+        })
+      }
+      await  appController.updateData(this.userObligationIndex)
+    },
+  }
+})

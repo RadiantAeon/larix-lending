@@ -1,0 +1,70 @@
+
+import { defineComponent, onUnmounted, ref } from "vue"
+import * as echarts from 'echarts'
+import { debounce } from '@/utils'
+export default defineComponent({
+    setup(props){
+        const myCharts = ref<any>()
+        const divId = `echarts+${props.type}`
+        const init = ()=>{
+            return{
+                backgroundColor:'#151C33',
+                tooltip: {
+                    trigger: 'item'
+                },
+                series: [
+                    {
+                    hoverAnimation: false,
+                    top: -50,
+                    name: 'LARIX',
+                    type: 'pie',
+                    radius: props.type === 'mobile' ? [35, 54.5] : [45, 80],
+                    center: ['50%','57%'],
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    data:props.dataArr,
+                    itemStyle: {
+                        borderColor: '#fff',
+                        borderWidth: 1
+                    },
+                    emphasis: {
+                        itemStyle: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                    }
+                ],
+                color: ['#E49BFF', '#B788FF', '#8BD7FF', '#FFDE9F', '#9CFFE0', '#B9B9B9']
+            }
+        }
+        const setCharts = ()=>{
+            setTimeout(() => {
+                myCharts.value = echarts.init(document.getElementById(divId) as HTMLElement,undefined,{renderer:"svg"})
+                const option = init()
+                myCharts.value.setOption(option)
+            }, 100);
+        }
+        const resizeListener = () => {
+            myCharts.value.resize()
+        }
+        window.addEventListener('resize', resizeListener)
+        setCharts()
+        debounce.use(setCharts,10)
+        onUnmounted(()=>{
+            window.removeEventListener('resize', resizeListener)
+        })
+        return {myCharts,divId}
+    },
+    props:{
+        dataArr:Array,
+        type:String,
+        width:String,
+        height:String
+    },
+
+})
+

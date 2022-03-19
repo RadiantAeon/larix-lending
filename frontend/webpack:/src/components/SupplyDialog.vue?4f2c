@@ -1,0 +1,383 @@
+
+
+import {useI18n} from 'vue-i18n'
+import {defineComponent} from 'vue'
+import {mapState} from "vuex";
+import {formatBigNumberStr} from "@/utils/helpers";
+import BigNumber from "bignumber.js";
+import {MSOL_LIMIT} from "@/api/constants/math";
+
+
+export default defineComponent({
+  name: "SupplyDialog",
+  emits: ["onSupply","onWithdraw"],
+  data() {
+    return {
+      formatBigNumberStr:formatBigNumberStr,
+      asset: require('../assets/coin/asset_USDT.svg'),
+      sliderSupplyPercent: 0,
+      sliderWithdrawPercent: 0,
+      isSupply: true,
+      supplyAmount: '',
+      withdrawAmount: '',
+      sliderSupplyPreventInput: false,
+      sliderWithdrawPreventInput:false,
+      isInSupplyInput:false,
+      isInWithdrawInput:false,
+      marketLarixLogoSource:require('../assets/icon_nofee@2x.png'),
+      icon_information_white:require('../assets/icon_information_white.svg'),
+      icon_information:require('../assets/icon_information.svg')
+    }
+  },
+  props: {
+    selectedReserveDetail: {
+      type: Object,
+      required: true
+    },
+    enableFor: {
+      type: String,
+      default: 'supply'
+    },
+  },
+  mounted() {
+    this.isSupply = this.enableFor === 'supply'
+  },
+  methods: {
+    fontReduction (action:string) {
+      switch (action)
+      {
+        case 'withdraw':
+        {
+          if (this.$i18n.locale==='en'&&this.withdrawButtonText!=='Withdraw') {
+            return true
+          }else if (this.$i18n.locale==='ru'&&this.withdrawButtonText!=='Снять'){
+            return true
+          }
+          else return false
+        }
+        case 'supply':{
+          if (this.$i18n.locale==='en'&&this.supplyButtonText!=='Supply') {
+            return true
+          }else if (this.$i18n.locale==='ru'&&this.supplyButtonText!=='Обеспечение'){
+            return true
+          }
+          else return false
+        }
+      }
+    },
+
+    // showSupplyMaxLimit(){
+    //   if (this.reserveDetail.symbol==='USDT')
+    //   {
+    //     if ((this.reserveDetail.totalLiquidityAmount.times(this.reserveDetail.liquidityPrice).
+    //     plus(new BigNumber(this.supplyAmount).times(this.reserveDetail.liquidityPrice))).isGreaterThan(new BigNumber(3000000)))
+    //       return true
+    //   }else {
+    //     if ((this.reserveDetail.totalLiquidityAmount.times(this.reserveDetail.liquidityPrice).
+    //     plus(new BigNumber(this.supplyAmount).times(this.reserveDetail.liquidityPrice))).isGreaterThan(new BigNumber(1000000)))
+    //       return true
+    //   }
+    // },
+    withdrawInput(value:string){
+      this.isInWithdrawInput = true
+      this.withdrawAmount = value
+      this.$store.commit('updateIsFullWithdraw',false)
+      // const newBorrowLimit = this.calcNewBorrowLimitUsedPercent(value,'0',false)
+      // console.log('new BorrowLimitUsedPercent',newBorrowLimit.toString())
+      if (value === '' || isNaN(Number(value))) {
+        this.sliderWithdrawPercent = 0
+        return
+      }
+      if(new BigNumber(value).isLessThan(0))
+      {
+        return
+      }
+      if (!new BigNumber(this.userBorrowLimitUsedPercent).isGreaterThan(new BigNumber(85))||!this.reserveDetail.isEnterMarket){
+        this.sliderWithdrawPercent = new BigNumber(value).div(this.reserveDetail.supplyBalanceInTokenUnit).times(100).toNumber()
+      }
+    },
+    withdrawInputBlur(){
+      this.isInWithdrawInput = false
+    },
+    supplyAmountInput(value:string){
+      this.isInSupplyInput = true
+      this.supplyAmount = value
+      // const newBorrowLimit = this.calcNewBorrowLimitUsedPercent(value,'0',false)
+      // console.log('new BorrowLimitUsedPercent',newBorrowLimit.toString())
+      if (value === '' || isNaN(Number(value))) {
+        this.sliderSupplyPercent = 0
+        return ''
+      }
+      if(new BigNumber(value).isLessThan(0))
+      {
+        return ''
+      }
+      if (this.reserveDetail.symbol==='mSOL'&&this.reserveDetail.totalLiquidityInUsd.isGreaterThan(MSOL_LIMIT))
+      {
+        this.sliderSupplyPercent = 0
+      }else {
+        this.sliderSupplyPercent = new BigNumber(value).div(this.reserveDetail.walletBalanceInTokenUnit).times(100).toNumber()
+      }
+    },
+    sliderClick(){
+      if (this.isSupply)
+      {
+        this.isInSupplyInput = false
+      }
+      else{
+        this.isInWithdrawInput =false
+      }
+
+    },
+    inputBlur(){
+      if (this.isSupply)
+      {
+        this.isInSupplyInput = false
+      }
+      else{
+        this.isInWithdrawInput =false
+      }
+    },
+    changeTabs(value: boolean) {
+      this.isSupply = value
+      this.withdrawAmount = ''
+      this.supplyAmount = ''
+      this.sliderWithdrawPercent = 0
+      this.sliderSupplyPercent = 0
+      this.$store.commit('updateIsFullWithdraw',false)
+    },
+    calcNewBorrowLimit(supplyIncrement:string, ignoreEnter:boolean) {
+      if (isNaN(Number(supplyIncrement))) return this.userBorrowLimit
+      if (supplyIncrement === '0') return this.userBorrowLimit
+      const res = this.userBorrowLimit.plus(
+          this.selectedReserveDetail.isEnterMarket || ignoreEnter
+              ? new BigNumber(supplyIncrement ? supplyIncrement : "0")
+                  .times(this.selectedReserveDetail.liquidityPrice)
+                  .times(this.selectedReserveDetail.collateralFactor)
+              : new BigNumber(0)
+      )
+      return res.isGreaterThan(0) ? res : new BigNumber(0)
+    },
+    calcNewBorrowBalance(borrowIncrement:string) {
+      // @ts-ignore
+      if (isNaN(borrowIncrement)) return null
+      if (borrowIncrement === '0') return this.userTotalBorrow
+      const res = this.userTotalBorrow.plus(
+          new BigNumber(borrowIncrement).times(this.selectedReserveDetail.liquidityPrice)
+      )
+      return res.isGreaterThan(0) ? res : new BigNumber(0)
+    },
+    calcNewBorrowLimitUsedPercent(supplyIncrement:string, borrowIncrement:string, ignoreEnter:boolean) {
+      // @ts-ignore
+      if (isNaN(Number(supplyIncrement)) || isNaN(Number(borrowIncrement)))
+      {
+        return new BigNumber(this.userBorrowLimitUsedPercent)
+      }
+      const newUserBorrowLimit = this.calcNewBorrowLimit(supplyIncrement, ignoreEnter)
+      const newUserTotalBorrow = this.calcNewBorrowBalance(borrowIncrement)
+      if (newUserTotalBorrow.isZero() && newUserBorrowLimit.isZero()) return new BigNumber(0)
+      const res = newUserTotalBorrow.div(newUserBorrowLimit).times(100)
+      return res.isGreaterThan(0) ? res : new BigNumber(0)
+    },
+    maxSupplyInput(){
+        this.supplyAmount = this.reserveDetail.walletBalanceInTokenUnit.toFixed(this.reserveDetail.decimals,1)
+        this.sliderSupplyPercent = 100
+    },
+    maxWithDrawInput(){
+      if (new BigNumber(this.reserveDetail.supplyBalanceInTokenUnit.toFixed(this.reserveDetail.decimals,1)).isGreaterThan(this.reserveDetail.totalAvailableAmount))
+      {
+        this.withdrawAmount = this.reserveDetail.totalAvailableAmount.toFixed(this.reserveDetail.decimals,1)
+      }else {
+
+        this.withdrawAmount = this.reserveDetail.supplyBalanceInTokenUnit.toFixed(this.reserveDetail.decimals,1)
+        //@ts-ignore
+        const newBorrowLimit = this.calcNewBorrowLimitUsedPercent(-Number(this.withdrawAmount),'0',false)
+        if (newBorrowLimit.isLessThan(new BigNumber(99))||!this.reserveDetail.isEnterMarket){
+          this.$store.commit('updateIsFullWithdraw',true)
+        }
+      }
+      this.sliderWithdrawPercent = 100
+    },
+    set85LimitWithdrawAmount(){
+      this.withdrawAmount = this.userBorrowLimit.minus(this.userTotalBorrow).times(0.85)
+          .div(
+              this.selectedReserveDetail.liquidityPrice
+                  .times(this.selectedReserveDetail.collateralFactor)
+          ).toFixed(6)
+      if (new BigNumber(this.withdrawAmount).isGreaterThan(this.selectedReserveDetail.supplyBalanceInTokenUnit.times(0.85)))
+        this.withdrawAmount = this.selectedReserveDetail.supplyBalanceInTokenUnit.times(0.85).toFixed(this.selectedReserveDetail.decimals,1)
+      this.sliderWithdrawPercent = 85
+    },
+    supplyAmountChange(val:string) {
+      return val
+    },
+    withdrawAmountChange(val:string) {
+      return val
+    },
+    sliderSupplyPercentChange(val:number) {
+      if(!this.isInSupplyInput){
+        this.supplyAmount = new BigNumber(val).div(100).times(this.reserveDetail.walletBalanceInTokenUnit).toFixed(this.reserveDetail.decimals,1)
+      }
+    },
+    sliderWithdrawPercentChange(val:number) {
+      if (!this.isInWithdrawInput){
+        if (this.reserveDetail.supplyBalanceInTokenUnit.isGreaterThan(this.reserveDetail.totalAvailableAmount))
+        {
+          this.withdrawAmount = new BigNumber(val).div(100).times(this.reserveDetail.totalAvailableAmount).toFixed(this.reserveDetail.decimals,1)
+        }
+        else {
+          this.withdrawAmount = new BigNumber(val).div(100).times(this.reserveDetail.supplyBalanceInTokenUnit).toFixed(this.reserveDetail.decimals,1)
+        }
+        if (this.isFullWithdraw)
+        {
+          this.$store.commit('updateIsFullWithdraw',false)
+        }
+        //ts-ignore
+        if (this.withdrawAmount===this.reserveDetail.supplyBalanceInTokenUnit.toFixed(this.reserveDetail.decimals,1))
+        {
+          //@ts-ignore
+          let newBorrowLimitUsedPercent = this.calcNewBorrowLimitUsedPercent(-this.withdrawAmount,0,false)
+          if (newBorrowLimitUsedPercent.isLessThan(new BigNumber(99)))
+          this.$store.commit('updateIsFullWithdraw',true)
+        }
+      }
+    },
+    cancel(){
+      this.$store.commit('updateSupplyDialogVisible', false)
+    }
+  },
+  setup() {
+    const {t} = useI18n()
+    return {
+      t,
+    }
+  },
+  computed: {
+    mSOLLimit(){
+      return MSOL_LIMIT
+    },
+    // @ts-ignore
+    userBorrowLimitUsedPercent () {
+      // @ts-ignore
+      return this.$store.getters.userBorrowLimitUsedPercent
+    },
+    // @ts-ignore
+    showMaxWithdraw: function () {
+      if (this.selectedReserveDetail.isEnterMarket&&new BigNumber(this.userBorrowLimitUsedPercent).isGreaterThan(0)) return false
+      if (Number(this.selectedReserveDetail.collateralFactor) === 0) return true
+      if (!(this.selectedReserveDetail.isEnterMarket)) return true
+      // @ts-ignore
+      const withdrawAmount = this.selectedReserveDetail.supplyBalanceInTokenUnit.toString()
+      // @ts-ignore
+      return this.calcNewBorrowLimitUsedPercent(-withdrawAmount, 0, false).isLessThan(85)
+    },
+    showMaxSupply: function (){
+      if (this.reserveDetail.symbol==='mSOL'&&this.reserveDetail.totalLiquidityInUsd.isGreaterThan(this.mSOLLimit)) return false
+      else return true
+    },
+    //@ts-ignore
+    withdrawButtonText: function () {
+      if (!this.reserveDetail) return ''
+      let amount
+      //@ts-ignore
+      if (this.isFullWithdraw) {
+        //@ts-ignore
+        return this.t('supplyDialog.withDraw')
+      } else {
+        amount = this.withdrawAmount
+        //@ts-ignore
+        if (amount === '' || amount === null) return this.t('supplyDialog.withDraw')
+        //@ts-ignore
+        if (isNaN(amount)) return this.t('supplyDialog.invalidNumber')
+        //@ts-ignore
+        if (!new BigNumber(amount).isGreaterThan(0)) return this.t('supplyDialog.invalidNumber')
+        if (new BigNumber(amount).isGreaterThan(this.reserveDetail.supplyBalanceInTokenUnit
+            .toFixed(6)))
+          //@ts-ignore
+          return this.t('supplyDialog.insufficientLiquidity')
+        //@ts-ignore
+        if (new BigNumber(amount).isGreaterThan(this.reserveDetail.totalAvailableAmount)) return this.t('supplyDialog.insufficientLiquidity')
+        //@ts-ignore
+        const withdrawLimited = this.calcNewBorrowLimitUsedPercent(-amount,0,false).toFixed(2)
+
+        if(withdrawLimited>=95&&this.reserveDetail.isEnterMarket)
+        {
+          //@ts-ignore
+          return this.t('supplyDialog.stillWithdraw')
+        }
+      }
+      //@ts-ignore
+      return this.t('supplyDialog.withDraw')
+    },
+    withdrawButtonEnable: function () {
+      if (!this.reserveDetail) return false
+      let amount
+
+      if (this.isFullWithdraw) {
+        return true
+      } else {
+        amount = this.withdrawAmount
+        if (amount === '' || amount === null) return false
+        //@ts-ignore
+        if (isNaN(amount)) return false
+        if (!new BigNumber(amount).isGreaterThan(0)) return false
+        if (new BigNumber(amount).isGreaterThan(this.reserveDetail.supplyBalanceInTokenUnit
+            .toFixed(6))) return false
+        if (new BigNumber(amount).isGreaterThan(this.reserveDetail.totalAvailableAmount)) return false
+      }
+      return true
+    },
+    //@ts-ignore
+    supplyButtonText: function () {
+      if (!this.reserveDetail) return ''
+      const amount = this.supplyAmount
+      //@ts-ignore
+      if (amount === '' || amount === null) return this.t('supplyDialog.supply')
+      //@ts-ignore
+      if (amount === '' || isNaN(Number(amount))) return this.t('supplyDialog.invalidNumber')
+      //@ts-ignore
+      if(new BigNumber(amount).isLessThan(0)) return this.t('supplyDialog.invalidNumber')
+      //@ts-ignore
+      if (new BigNumber(amount).isGreaterThan(this.reserveDetail.walletBalanceInTokenUnit)) return this.t('supplyDialog.insufficientFunds');
+      if (this.reserveDetail.symbol==='SOL'&&this.reserveDetail.walletBalanceInTokenUnit.minus(this.supplyAmount).minus(new BigNumber(0.00005).times(1000)).isLessThan(0))
+      {
+        //@ts-ignore
+        return this.t('supplyDialog.solBalanceIsLow')
+      }
+      if (this.reserveDetail.depositLimit.isGreaterThan(0)&&this.reserveDetail.totalLiquidityAmount.isGreaterThan(this.reserveDetail.depositLimit))
+      {
+        //@ts-ignore
+        return this.t('supplyDialog.reachLimit');
+      }
+      //@ts-ignore
+      return this.t('supplyDialog.supply')
+    },
+    supplyButtonEnable: function () {
+
+      if (!this.reserveDetail) return false
+      let amount
+      amount = this.supplyAmount
+      if (amount === '' || amount === null) return false
+      //@ts-ignore
+      if (isNaN(amount)) return false
+      if (!new BigNumber(amount).isGreaterThan(0)) return false
+      if (new BigNumber(amount).isGreaterThan(this.reserveDetail.walletBalanceInTokenUnit
+          .toFixed(this.reserveDetail.decimals,1))) return false
+      if (this.reserveDetail.symbol==='SOL'&&this.reserveDetail.walletBalanceInTokenUnit.minus(this.supplyAmount).minus(new BigNumber(0.00005).times(1000)).isLessThan(0))
+      {
+        return false
+      }
+      if (this.reserveDetail.depositLimit.isGreaterThan(0)&&this.reserveDetail.totalLiquidityAmount.isGreaterThan(this.reserveDetail.depositLimit)) return false
+      return true
+    },
+    ...mapState({
+      reserveDetail: (state: any) => state.market.selectedReserveDetail,
+      isFullWithdraw: (state: any) => state.dialog.isFullWithdraw,
+      userBorrowLimit: (state: any) => state.market.userBorrowLimit,
+      userTotalBorrow:(state: any) => state.market.userTotalBorrow,
+      userTotalSupply:(state:any) => state.market.userTotalSupply,
+      userAllObligation:(state:any) => state.market.userAllObligation,
+      allMining:(state:any) => state.market.allMining,
+    })
+  }
+})

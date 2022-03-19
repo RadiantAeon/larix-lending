@@ -1,0 +1,32 @@
+
+import {defineComponent} from 'vue'
+import {useI18n} from 'vue-i18n'
+
+import TimeDown from "@/components/TimeDown.vue";
+
+export default defineComponent({
+  name: "NoticeDialog",
+  components: {TimeDown},
+  data() {
+    return {
+    }
+  },
+  setup() {
+    const {t} = useI18n()
+    return {
+      t,
+    }
+  },
+  computed: {
+    noticeDialogVisible: {
+      get():boolean {
+        return this.$store.state.dialog.noticeDialogVisible
+      },
+      set(value:boolean) {
+        this.$store.commit('updateNoticeDialogVisible', value)
+      }
+    },
+  },
+  methods: {
+  }
+})

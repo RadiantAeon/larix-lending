@@ -1,0 +1,265 @@
+import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, createVNode as _createVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, mergeProps as _mergeProps, createCommentVNode as _createCommentVNode, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-f47da9de")
+
+_pushScopeId("data-v-f47da9de")
+const _hoisted_1 = { class: "footer-container gt-sm" }
+const _hoisted_2 = {
+  class: "footer",
+  height: "64px"
+}
+const _hoisted_3 = { class: "media" }
+const _hoisted_4 = { style: {"padding":"12px"} }
+const _hoisted_5 = {
+  class: "row",
+  style: {"align-items":"center","white-space":"nowrap","margin-right":"45px"}
+}
+const _hoisted_6 = {
+  target: "_blank",
+  href: "https://docs.projectlarix.com",
+  style: {"text-decoration":"none"}
+}
+const _hoisted_7 = { style: {"color":"#6D36CF","font-size":"13px","font-family":"'Roboto, sans-serif'"} }
+const _hoisted_8 = { class: "footerApp lt-md" }
+const _hoisted_9 = { class: "row" }
+const _hoisted_10 = { class: "appTabs" }
+const _hoisted_11 = { key: 0 }
+const _hoisted_12 = { key: 1 }
+const _hoisted_13 = { key: 0 }
+const _hoisted_14 = { key: 1 }
+const _hoisted_15 = { key: 0 }
+const _hoisted_16 = { key: 1 }
+const _hoisted_17 = { key: 0 }
+const _hoisted_18 = { key: 1 }
+const _hoisted_19 = { key: 0 }
+const _hoisted_20 = { key: 1 }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_menu = _resolveComponent("q-menu")
+  const _component_q_btn = _resolveComponent("q-btn")
+  const _component_q_item_section = _resolveComponent("q-item-section")
+  const _component_q_item_label = _resolveComponent("q-item-label")
+  const _component_q_item = _resolveComponent("q-item")
+  const _component_q_select = _resolveComponent("q-select")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode("div", _hoisted_1, [
+      _createVNode("footer", _hoisted_2, [
+        _createVNode("div", _hoisted_3, [
+          (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.media, (item, i) => {
+            return (_openBlock(), _createBlock("div", { key: i }, [
+              _createVNode("a", {
+                href: item.url
+              }, [
+                _createVNode("img", {
+                  src: item.light,
+                  alt: ""
+                }, null, 8, ["src"])
+              ], 8, ["href"])
+            ]))
+          }), 128)),
+          _createVNode("div", null, [
+            _createVNode(_component_q_btn, {
+              flat: "",
+              ripple: false,
+              style: {"padding":"0","transform":"translateY(-3px)"}
+            }, {
+              default: _withId(() => [
+                _createVNode("img", {
+                  src: _ctx.emailImg.light,
+                  alt: _ctx.emailContent
+                }, null, 8, ["src", "alt"]),
+                _createVNode(_component_q_menu, null, {
+                  default: _withId(() => [
+                    _createVNode("div", _hoisted_4, [
+                      _createVNode("span", null, _toDisplayString(_ctx.emailContent), 1)
+                    ])
+                  ]),
+                  _: 1
+                })
+              ]),
+              _: 1
+            })
+          ])
+        ]),
+        _createVNode("div", _hoisted_5, [
+          _createVNode("a", _hoisted_6, [
+            _createVNode(_component_q_btn, {
+              "no-caps": "",
+              class: "btn-doc"
+            }, {
+              default: _withId(() => [
+                _createVNode("span", {
+                  style: _ctx.$i18n.locale==='ru'?'font-size:12px':''
+                }, _toDisplayString(_ctx.t("footer.doc")), 5)
+              ]),
+              _: 1
+            })
+          ]),
+          _createVNode(_component_q_select, {
+            modelValue: _ctx.languageValue,
+            "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event: any) => (_ctx.languageValue = $event)),
+            options: _ctx.languageOptions,
+            borderless: "",
+            class: "btn-lang"
+          }, {
+            option: _withId((slotProps) => [
+              _createVNode(_component_q_item, _mergeProps(slotProps.itemProps, {
+                onClick: ($event: any) => (_ctx.handleSetLanguage(slotProps.opt.value))
+              }), {
+                default: _withId(() => [
+                  _createVNode(_component_q_item_section, { avatar: "" }, {
+                    default: _withId(() => [
+                      _createVNode("img", {
+                        src: slotProps.opt.icon,
+                        alt: "",
+                        width: "17",
+                        height: "17",
+                        style: {"border-radius":"50%"}
+                      }, null, 8, ["src"])
+                    ]),
+                    _: 2
+                  }, 1024),
+                  _createVNode(_component_q_item_section, null, {
+                    default: _withId(() => [
+                      _createVNode(_component_q_item_label, null, {
+                        default: _withId(() => [
+                          _createVNode("span", _hoisted_7, _toDisplayString(slotProps.opt.label), 1)
+                        ]),
+                        _: 2
+                      }, 1024)
+                    ]),
+                    _: 2
+                  }, 1024)
+                ]),
+                _: 2
+              }, 1040, ["onClick"])
+            ]),
+            _: 1
+          }, 8, ["modelValue", "options"])
+        ])
+      ])
+    ]),
+    _createVNode("div", _hoisted_8, [
+      _createVNode("section", _hoisted_9, [
+        _createVNode("div", _hoisted_10, [
+          _createVNode("div", {
+            class: ["name", _ctx.$store.state.appTab==='Home'?'tabActive':''],
+            onClick: _cache[2] || (_cache[2] = ($event: any) => (_ctx.setTab('Home')))
+          }, [
+            (_ctx.$store.state.appTab==='Home')
+              ? (_openBlock(), _createBlock("div", _hoisted_11, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageDashBoard.press,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ]))
+              : (_openBlock(), _createBlock("div", _hoisted_12, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageDashBoard.normal,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ])),
+            _createVNode("span", null, _toDisplayString(_ctx.t("headers.dashBoard")), 1)
+          ], 2),
+          _createVNode("div", {
+            class: [_ctx.$store.state.appTab==='Launchpad'?'tabActive':'', "name"],
+            onClick: _cache[3] || (_cache[3] = ($event: any) => (_ctx.setTab('Launchpad')))
+          }, [
+            (_ctx.$store.state.appTab==='Launchpad')
+              ? (_openBlock(), _createBlock("div", _hoisted_13, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageAbout.press,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ]))
+              : (_openBlock(), _createBlock("div", _hoisted_14, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageAbout.normal,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ])),
+            _createVNode("span", null, _toDisplayString(_ctx.t("headers.launchpad")), 1)
+          ], 2),
+          _createVNode("div", {
+            class: [_ctx.$store.state.appTab==='Positions'?'tabActive':'', "name"],
+            onClick: _cache[4] || (_cache[4] = ($event: any) => (_ctx.setTab('Positions')))
+          }, [
+            (_ctx.$store.state.appTab==='Positions')
+              ? (_openBlock(), _createBlock("div", _hoisted_15, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageMarket.press,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ]))
+              : (_openBlock(), _createBlock("div", _hoisted_16, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageMarket.normal,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ])),
+            _createVNode("span", null, _toDisplayString(_ctx.t('headers.Positions')), 1)
+          ], 2),
+          _createVNode("div", {
+            class: [_ctx.$store.state.appTab==='Market'||_ctx.$store.state.appTab==='MarketId'?'tabActive':'', "name"],
+            onClick: _cache[5] || (_cache[5] = ($event: any) => (_ctx.setTab('Market')))
+          }, [
+            (_ctx.$store.state.appTab==='Market'||_ctx.$store.state.appTab==='MarketId')
+              ? (_openBlock(), _createBlock("div", _hoisted_17, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageLarix.press,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ]))
+              : (_openBlock(), _createBlock("div", _hoisted_18, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageLarix.normal,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ])),
+            _createVNode("span", null, _toDisplayString(_ctx.t("headers.market")), 1)
+          ], 2),
+          _createVNode("div", {
+            class: [_ctx.$store.state.appTab==='Liquidation'?'tabActive':'', "name"],
+            onClick: _cache[6] || (_cache[6] = ($event: any) => (_ctx.setTab('Liquidation')))
+          }, [
+            (_ctx.$store.state.appTab==='Liquidation')
+              ? (_openBlock(), _createBlock("div", _hoisted_19, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageLiquidation.press,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ]))
+              : (_openBlock(), _createBlock("div", _hoisted_20, [
+                  _createVNode("img", {
+                    src: _ctx.iconImageLiquidation.normal,
+                    height: "24",
+                    width: "24",
+                    alt: ""
+                  }, null, 8, ["src"])
+                ])),
+            _createVNode("span", null, _toDisplayString(_ctx.t("headers.liquidation")), 1)
+          ], 2)
+        ])
+      ])
+    ])
+  ], 64))
+})

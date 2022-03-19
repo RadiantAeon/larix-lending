@@ -1,0 +1,160 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-52828748")
+
+_pushScopeId("data-v-52828748")
+const _hoisted_1 = { class: "infoContainer gt-sm" }
+const _hoisted_2 = { class: "SupplyContent" }
+const _hoisted_3 = { class: "marketOverview" }
+const _hoisted_4 = { class: "marketOverview-title" }
+const _hoisted_5 = /*#__PURE__*/_createVNode("br", null, null, -1)
+const _hoisted_6 = { class: "marketOverview-data" }
+const _hoisted_7 = { class: "marketOverview-title" }
+const _hoisted_8 = /*#__PURE__*/_createVNode("br", null, null, -1)
+const _hoisted_9 = { class: "marketOverview-data" }
+const _hoisted_10 = { class: "marketOverview-title" }
+const _hoisted_11 = /*#__PURE__*/_createVNode("br", null, null, -1)
+const _hoisted_12 = { class: "marketOverview-data" }
+const _hoisted_13 = { class: "myPositionOverview" }
+const _hoisted_14 = { class: "myPositionOverview-limit" }
+const _hoisted_15 = { class: "myPositionOverview-limit-refresh" }
+const _hoisted_16 = { class: "myPositionOverview-limit-details" }
+const _hoisted_17 = { class: "myPositionOverview-limit-borrow" }
+const _hoisted_18 = {
+  class: "titleColor",
+  style: {"padding-right":"2px"}
+}
+const _hoisted_19 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_20 = { class: "dataColor" }
+const _hoisted_21 = { class: "myPositionOverview-limit-liquidation" }
+const _hoisted_22 = {
+  class: "titleColor",
+  style: {"padding-right":"2px"}
+}
+const _hoisted_23 = { style: {"font-size":"14px","margin-bottom":"0"} }
+const _hoisted_24 = { class: "dataColor" }
+const _hoisted_25 = { class: "appInfoContainer lt-md" }
+const _hoisted_26 = { class: "appInfoContainer-supply" }
+const _hoisted_27 = { class: "supplyAndBorrow" }
+const _hoisted_28 = { class: "body" }
+const _hoisted_29 = { class: "body-item" }
+const _hoisted_30 = { style: {"font-size":"15px"} }
+const _hoisted_31 = { class: "body-item" }
+const _hoisted_32 = { style: {"font-size":"15px"} }
+const _hoisted_33 = { class: "body-item" }
+const _hoisted_34 = { style: {"font-size":"15px"} }
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_Dashboard = _resolveComponent("Dashboard")
+  const _component_q_circular_progress = _resolveComponent("q-circular-progress")
+  const _component_q_tooltip = _resolveComponent("q-tooltip")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode("div", _hoisted_1, [
+      _createVNode("div", _hoisted_2, [
+        _createVNode("div", _hoisted_3, [
+          _createVNode("div", null, [
+            _createVNode("p", _hoisted_4, _toDisplayString(_ctx.t('market.supplyBorrow')), 1),
+            _hoisted_5,
+            _createVNode("p", _hoisted_6, _toDisplayString(_ctx.formatDollars(_ctx.allMarketSupplyAndBorrow.toString())), 1)
+          ]),
+          _createVNode("div", null, [
+            _createVNode("p", _hoisted_7, _toDisplayString(_ctx.t('market.totalSupply')), 1),
+            _hoisted_8,
+            _createVNode("p", _hoisted_9, _toDisplayString(_ctx.formatDollars(_ctx.allMarketTotalSupply.toString())), 1)
+          ]),
+          _createVNode("div", null, [
+            _createVNode("p", _hoisted_10, _toDisplayString(_ctx.t('market.totalBorrow')), 1),
+            _hoisted_11,
+            _createVNode("p", _hoisted_12, _toDisplayString(_ctx.formatDollars(_ctx.allMarketTotalBorrow.toString())), 1)
+          ])
+        ]),
+        _createVNode("div", _hoisted_13, [
+          _createVNode(_component_Dashboard, {
+            device: "PC",
+            "page-type": "Home"
+          }),
+          _createVNode("div", _hoisted_14, [
+            _createVNode("div", _hoisted_15, [
+              _createVNode("div", {
+                onClick: _cache[1] || (_cache[1] = ($event: any) => (_ctx.activeRefresh())),
+                style: {"cursor":"pointer"}
+              }, [
+                _createVNode(_component_q_circular_progress, {
+                  size: "30px",
+                  color: "blue",
+                  value: _ctx.refreshProgress,
+                  "track-color": "track"
+                }, null, 8, ["value"])
+              ])
+            ]),
+            _createVNode("div", _hoisted_16, [
+              _createVNode("div", _hoisted_17, [
+                _createVNode("div", null, [
+                  _createVNode("span", _hoisted_18, _toDisplayString(_ctx.t('supplyAndBorrow.borrowLimit')), 1),
+                  _createVNode("img", {
+                    src: _ctx.icon_information,
+                    height: "14",
+                    width: "14",
+                    style: {"cursor":"pointer","position":"relative","top":"2px"}
+                  }, null, 8, ["src"]),
+                  _createVNode(_component_q_tooltip, {
+                    anchor: "center right",
+                    self: "center left"
+                  }, {
+                    default: _withId(() => [
+                      _createVNode("p", _hoisted_19, _toDisplayString(_ctx.t('tip.borrowLimitTip')), 1)
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _createVNode("p", _hoisted_20, _toDisplayString(_ctx.formatDollars(_ctx.userBorrowLimit,2)), 1)
+              ]),
+              _createVNode("div", _hoisted_21, [
+                _createVNode("div", null, [
+                  _createVNode("span", _hoisted_22, _toDisplayString(_ctx.t('positions.liquidationThreshol')), 1),
+                  _createVNode("img", {
+                    src: _ctx.icon_information,
+                    height: "14",
+                    width: "14",
+                    style: {"cursor":"pointer","position":"relative","top":"2px"}
+                  }, null, 8, ["src"]),
+                  _createVNode(_component_q_tooltip, {
+                    anchor: "center right",
+                    self: "center left"
+                  }, {
+                    default: _withId(() => [
+                      _createVNode("p", _hoisted_23, _toDisplayString(_ctx.t('tip.liquidationTip')), 1)
+                    ]),
+                    _: 1
+                  })
+                ]),
+                _createVNode("p", _hoisted_24, _toDisplayString(_ctx.formatDollars(_ctx.userLiquidationThreshold,2)), 1)
+              ])
+            ])
+          ])
+        ])
+      ])
+    ]),
+    _createVNode("div", _hoisted_25, [
+      _createVNode("div", _hoisted_26, [
+        _createVNode("div", _hoisted_27, [
+          _createVNode("div", _hoisted_28, [
+            _createVNode("div", _hoisted_29, [
+              _createVNode("div", null, _toDisplayString(_ctx.t('market.supplyBorrow')), 1),
+              _createVNode("div", _hoisted_30, _toDisplayString(_ctx.formatDollars(_ctx.allMarketSupplyAndBorrow.toString())), 1)
+            ]),
+            _createVNode("div", _hoisted_31, [
+              _createVNode("div", null, _toDisplayString(_ctx.t('market.totalSupply')), 1),
+              _createVNode("div", _hoisted_32, _toDisplayString(_ctx.formatDollars(_ctx.allMarketTotalSupply.toString())), 1)
+            ]),
+            _createVNode("div", _hoisted_33, [
+              _createVNode("div", null, _toDisplayString(_ctx.t('market.totalBorrow')), 1),
+              _createVNode("div", _hoisted_34, _toDisplayString(_ctx.formatDollars(_ctx.allMarketTotalBorrow.toString())), 1)
+            ])
+          ])
+        ])
+      ])
+    ])
+  ], 64))
+})

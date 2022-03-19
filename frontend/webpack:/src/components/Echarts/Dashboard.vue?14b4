@@ -1,0 +1,634 @@
+
+import {defineComponent} from "vue";
+import * as echarts from "echarts";
+import {mapState} from 'vuex'
+import {useI18n} from "vue-i18n";
+import {formatBigNumberStr, formatDollars, getBigNumberStr} from "@/utils/helpers";
+import BigNumber from "bignumber.js";
+export default defineComponent({
+name: "Dashboard",
+  props: {
+    pageType: {
+      type: String,
+      required: true
+    },
+    device:{
+      type:String,
+      required: true,
+    }
+  },
+  data(){
+    return{
+      icon_information_white:require('../../assets/icon_information_white.svg'),
+      icon_information: require('../../assets/icon_information.svg'),
+      backgroundImage: require('../../assets/homeDashboardBg.png'),
+      borrowRatio:66,
+    }
+  },
+  setup() {
+    const {t,locale} = useI18n()
+    return {
+      t,
+      locale,
+      getBigNumberStr: getBigNumberStr,
+      formatDollars: formatDollars,
+      formatBigNumberStr:formatBigNumberStr,
+    }
+  },
+  mounted() {
+    this.drawChart();
+  },
+  computed:{
+    myChart:function () :any{
+      const targetDivString = 'dashboardChart'+this.pageType
+      const targetDiv = document.getElementById(targetDivString) as HTMLElement
+      const instance = echarts.getInstanceByDom(targetDiv)
+      if (instance){
+        return instance
+      }else {
+        //@ts-ignore
+        return echarts.init(document.getElementById(targetDivString),null,{renderer:'svg'});
+      }
+    },
+    informationIcon:function ():any{
+      if (this.pageType==='Home'){
+        return this.icon_information
+      }else {
+        return this.icon_information_white
+      }
+    },
+    dashboardMobile:function () :any{
+      if (this.device==='Mobile'){
+        const targetDivString = 'dashboardMobile'
+        const targetDiv = document.getElementById(targetDivString) as HTMLElement
+        const instance = echarts.getInstanceByDom(targetDiv)
+        if (instance){
+          return instance
+        }else {
+          //@ts-ignore
+          return echarts.init(document.getElementById(targetDivString),null,{renderer:'svg'});
+        }
+      }else {
+        return null
+      }
+
+    },
+    userBorrowRatio(){
+      //@ts-ignore
+      return this.userTotalSupply.isGreaterThan(0)?this.userTotalBorrow.div(this.userTotalSupply).times(100):0
+    },
+    userLiquidationThresholdRatio(){
+      //@ts-ignore
+      return this.userLiquidationThreshold.isGreaterThan(0)?Number(this.userLiquidationThreshold.div(this.userTotalSupply).toFixed(2)):0
+    },
+    userBorrowLimitRatio(){
+      //@ts-ignore
+      return this.userTotalSupply.isGreaterThan(0)?Number(this.userBorrowLimit.div(this.userTotalSupply).toFixed(2)):0
+    },
+    netValue(){
+      //@ts-ignore
+      return (this.userTotalSupply).minus(this.userTotalBorrow)
+    },
+    language():any{
+      return  this.locale
+    },
+    ...mapState(
+        {
+          userTotalSupply: (state: any) => state.market.userTotalSupply ,
+          userTotalBorrow: (state: any) => state.market.userTotalBorrow ,
+          userBorrowLimit: (state: any) => state.market.userBorrowLimit,
+          userLiquidationThreshold: (state: any) => state.market.userLiquidationThreshold,
+          walletAddress: (state:any) => state.wallet.walletAddress,
+          isLoadingInfo:(state:any) =>state.market.isLoadingInfo,
+          netRate:(state:any) => state.market.netRate,
+        }
+    )
+  },
+  methods:{
+    getNetRate(){
+      if (this.netRate){
+        return this.netRate.times(100)
+      }else {
+        return new BigNumber(0)
+      }
+    },
+
+    drawChart(){
+      // 电脑 基于准备好的dom，初始化echarts实例
+      const ratio = Number(this.userBorrowRatio.toFixed(2))
+      //@ts-ignore
+      const offsetAngle = 360 * ((ratio)/100)
+      const liquidationThresholdRatioAngle = 90 -  this.userLiquidationThresholdRatio *360
+      const borrowLimitRatioAngle = 90 -  this.userBorrowLimitRatio *360
+      const gradientTickMarks = Number(((ratio/100) * 80 ).toFixed(0) )+1
+      const unGradientTickMarks = 80 - gradientTickMarks
+      const mobileGradientTickMarks = Number(((ratio/100) * 55 ).toFixed(0) )+1
+      const mobileUnGradientTickMarks = 55 - mobileGradientTickMarks
+      // 指定图表的配置项和数据
+      let option = {
+
+        // backgroundColor:'#241F3E',
+        series: [
+          {
+            // 内圈
+            // grid:{
+            //   left:10,
+            //   right:10
+            // },
+            type: 'gauge',
+            center: ['50%', '50%'],
+            radius: this.pageType==='Home'?'51.7%':'47.7%',
+            startAngle: 90,
+            endAngle: 450,
+            min: 0,
+            max: 100,
+            splitNumber: 0,
+            itemStyle: {
+              color:this.pageType==='Home'?{
+                image:this.backgroundImage,
+              }:'#FFFFFF'
+            },
+            progress: {
+              show: true,
+              width: 2
+            },
+            pointer: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: [[1, this.pageType==='Home'?'#202B4C':'#9991ee']],
+                width: 2
+              }
+            },
+            splitLine: {
+              show: false
+            },
+            axisLabel: {
+              show: false
+            },
+            anchor: {
+              show: false
+            },
+            title: {
+              show: false
+            },
+            detail: {
+              valueAnimation: true,
+              width: '60%',
+              lineHeight: 20,
+              borderRadius: 8,
+              offsetCenter: [0, '15'],
+              fontSize: 24,
+              fontWeight: 'normal',
+              formatter: `${ratio}%`,
+              color: this.pageType==='Home'?'#00F4FF':'#FFFFFF',
+            },
+            data: [
+              {
+                value: ratio
+              }
+            ]
+          },
+
+          // 刻度线非渐变
+          {
+            type: 'gauge',
+            radius: '85%',
+            startAngle: 90-offsetAngle,
+            endAngle: -270,
+            splitNumber: unGradientTickMarks,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 3,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 20,
+              splitNumber: 1,
+              lineStyle: {
+                color: this.pageType==='Home'?'#222C51':'#9991ee',
+                width: 2
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+          },
+          // 渐变色刻度
+          {
+            type: 'gauge',
+            radius: '85%',
+            startAngle: 90,
+            endAngle: 90-offsetAngle,
+            splitNumber: gradientTickMarks,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 3,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 20,
+              splitNumber: 1,
+              lineStyle: {
+                color:this.pageType==='Home'?{
+                  image:this.backgroundImage,
+                }:'#FFFFFF',
+                width: 2
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+            // data: [
+            //     {
+            //         value: 20,
+            //         name: 'unGradientTickMarks'
+            //     }]
+          },
+          // 限额刻度
+          {
+            type: 'gauge',
+            radius: '85%',
+            startAngle: borrowLimitRatioAngle,
+            endAngle: borrowLimitRatioAngle -2,
+            min: 0,
+            max: 1,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 3,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 20,
+              splitNumber: 0,
+              lineStyle: {
+                color: this.userBorrowLimit.isGreaterThan(0)?'#ff9600':this.pageType==='Home'?'#222C51':'#9991ee',
+                width: 4
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+          },
+          {
+            type: 'gauge',
+            radius: '85%',
+            startAngle: liquidationThresholdRatioAngle,
+            endAngle: liquidationThresholdRatioAngle - 2,
+            min: 0,
+            max: 1,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 3,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 20,
+              splitNumber: 0,
+              lineStyle: {
+                color: this.userBorrowLimit.isGreaterThan(0)?'red':this.pageType==='Home'?'#222C51':'#9991ee',
+                width: 4
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+          },
+          {
+            // 外圈
+            type: 'gauge',
+            center: ['50%', '50%'],
+            radius: '100%',
+            startAngle: 0,
+            endAngle: -180,
+            min: 0,
+            max: 100,
+            itemStyle: {
+              color:this.pageType==='Home'?'#222C51':'#9991ee',
+            },
+
+            progress: {
+              show: true,
+              width: 2
+            },
+            pointer: {
+              show: false
+            },
+            axisLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
+            },
+            axisLabel: {
+              show: false
+            },
+            detail: {
+              show: false
+            },
+            data: [
+              {
+                value: 100,
+                name: this.t('supplyAndBorrow.borrowRatio'),
+                title: {
+                  offsetCenter: ['0%', '-6%'],
+                  color: this.pageType==='Home'?'#A1B7EE':'#FFFFFF',
+                  fontSize: 12
+                }
+              }
+            ]
+          }
+        ]
+
+      };
+      let optionMobile = {
+        series: [
+          {
+            // 内圈
+            // grid:{
+            //   left:10,
+            //   right:10
+            // },
+            type: 'gauge',
+            center: ['50%', '50%'],
+            radius: '58.7%',
+            startAngle: 90,
+            endAngle: 450,
+            min: 0,
+            max: 100,
+            splitNumber: 0,
+            itemStyle: {
+              color:'#FFFFFF'
+            },
+            progress: {
+              show: true,
+              width: 1
+            },
+            pointer: {
+              show: false
+            },
+            axisLine: {
+              lineStyle: {
+                color: [[1,'#9991ee']],
+                width: 1
+              }
+            },
+            splitLine: {
+              show: false
+            },
+            axisLabel: {
+              show: false
+            },
+            anchor: {
+              show: false
+            },
+            title: {
+              show: false
+            },
+            detail: {
+              valueAnimation: true,
+              width: '60%',
+              lineHeight: 20,
+              borderRadius: 8,
+              offsetCenter: [0, '10'],
+              fontSize: 15,
+              fontWeight: 'normal',
+              formatter: `${ratio}%`,
+              color: '#FFFFFF',
+            },
+            data: [
+              {
+                value: ratio
+              }
+            ]
+          },
+
+          // 刻度线非渐变
+          {
+            type: 'gauge',
+            radius: '110%',
+            startAngle: 90-offsetAngle,
+            endAngle: -270,
+            splitNumber: mobileUnGradientTickMarks,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 1,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 15,
+              splitNumber: 1,
+              lineStyle: {
+                color: '#9991ee',
+                width: 2
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+          },
+          // 渐变色刻度
+          {
+            type: 'gauge',
+            radius: '110%',
+            startAngle: 90,
+            endAngle: 90-offsetAngle,
+            splitNumber: mobileGradientTickMarks,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 1,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 15,
+              splitNumber: 1,
+              lineStyle: {
+                color:'#FFFFFF',
+                width: 2
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+            // data: [
+            //     {
+            //         value: 20,
+            //         name: 'unGradientTickMarks'
+            //     }]
+          },
+          // 限额刻度
+          {
+            type: 'gauge',
+            radius: '115%',
+            startAngle: borrowLimitRatioAngle,
+            endAngle: borrowLimitRatioAngle -2,
+            min: 0,
+            max: 1,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 3,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 17,
+              splitNumber: 0,
+              lineStyle: {
+                color: this.userBorrowLimit.isGreaterThan(0)?'#ff9600':'#9991ee',
+                width: 4
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+          },
+          {
+            type: 'gauge',
+            radius: '115%',
+            startAngle: liquidationThresholdRatioAngle,
+            endAngle: liquidationThresholdRatioAngle - 2,
+            min: 0,
+            max: 1,
+            axisLine: {
+              show: false,
+              lineStyle: {
+                width: 3,
+                opacity: 0
+              }
+            },
+            title: { show: false },
+            detail: { show: false },
+            splitLine: { show: false },
+            axisTick: {
+              length: 17,
+              splitNumber: 0,
+              lineStyle: {
+                color: this.userBorrowLimit.isGreaterThan(0)?'red':'#9991ee',
+                width: 4
+              }
+            },
+            axisLabel: { show: false },
+            pointer: { show: false },
+            itemStyle: {},
+          },
+          {
+            // 外圈
+            type: 'gauge',
+            center: ['50%', '50%'],
+            radius: '110%',
+            startAngle: 0,
+            endAngle: 0,
+            min: 0,
+            max: 100,
+            itemStyle: {
+              color:this.pageType==='Home'?'#222C51':'#9991ee',
+            },
+
+            progress: {
+              show: true,
+              width: 2
+            },
+            pointer: {
+              show: false
+            },
+            axisLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            },
+            splitLine: {
+              show: false
+            },
+            axisLabel: {
+              show: false
+            },
+            detail: {
+              show: false
+            },
+            data: [
+              {
+                value: 100,
+                name: this.t('supplyAndBorrow.borrowRatio'),
+                title: {
+                  offsetCenter: ['0%', '-6%'],
+                  color: this.pageType==='Home'?'#A1B7EE':'#FFFFFF',
+                  fontSize: 9
+                }
+              }
+            ]
+          }
+        ]
+      }
+      // 使用刚指定的配置项和数据显示图表。
+      this.myChart.setOption(option);
+      if (this.device==='Mobile'){
+        this.dashboardMobile.setOption(optionMobile)
+      }
+      //图表自适应
+      // (window as any).onresize = function () {
+      //   if(window.innerWidth<970){
+      //     myChartMobile.resize()
+      //     myChartIpad.resize()
+      //   }else {
+      //     myChart.resize()
+      //   }
+      // }
+    }
+  },
+  watch:{
+    walletAddress(){
+      this.drawChart()
+    },
+    isLoadingInfo(){
+      this.drawChart()
+    },
+    userTotalBorrow(){
+      this.drawChart()
+    },
+    userTotalSupply(){
+      this.drawChart()
+    },
+    language(){
+      this.drawChart()
+    }
+  }
+})

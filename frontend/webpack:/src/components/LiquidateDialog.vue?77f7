@@ -1,0 +1,200 @@
+
+import {mapState} from "vuex";
+import {defineComponent,ref} from 'vue'
+import {useI18n} from 'vue-i18n'
+// import {claimMine} from "../api/actions/claimMine"
+import {getWallet} from "@/api/context/wallet";
+// import controlTxDialog from "@/controller/txDialogController";
+import {eX, formatBigNumberStr} from "@/utils/helpers";
+import {liquidate} from "@/api/actions/liquidator"
+import BigNumber from "bignumber.js";
+import BN from 'bn.js';
+import openTxDialog from "@/controller/openTxDialog";
+import txSuccess from "@/controller/txSuccess";
+import txFailed from "@/controller/txFailed";
+// import txSuccess from "@/controller/txSuccess";
+
+export default defineComponent({
+  name: "LiquidateDialog",
+  data() {
+    return {
+      formatBigNumberStr: formatBigNumberStr,
+      liquidateAmount: '',
+      model: ref(null),
+      repayToken: {} as any,
+      seizeToken: {} as any,
+    }
+  },
+  setup() {
+    const {t} = useI18n()
+    return {
+      t,
+    }
+  },
+  mounted() {
+    const that = this
+    that.$nextTick(function () {
+      that.repayToken = that.repayTokenOptions[0]
+      that.seizeToken = that.seizeTokenOptions[0]
+    })
+  },
+  computed: {
+    repayTokenOptions: function () {
+      //@ts-ignore
+      return this.selectUserObligations.info.sortBorrows.concat().map((borrow :any) => {
+        let res = {} as any
+        res.label = borrow.reserve.info.liquidity.name
+        res.src = borrow.reserve.logoSource
+        res.borrowAmount = borrow.borrowAmountValueInTokenUnit
+        res.borrowValue = borrow.marketValueInBigNumber
+        res.marketPrice = borrow.reserve.info.liquidity.liquidityPrice
+        res.maxRepayAmount = borrow.borrowAmountValueInTokenUnit.times(0.5)
+        res.maxRepayValue = borrow.marketValueInBigNumber.times(0.5)
+        res.decimals = borrow.reserve.info.liquidity.mintDecimals
+        res.walletBalanceInTokenUnit = this.allReservesMap[borrow.reserve.info.liquidity.mintPubkey].walletBalanceInTokenUnit
+        res.repayReserve = borrow.reserve
+        return res
+      })
+    },
+    seizeTokenOptions: function () {
+      //@ts-ignore
+      return this.selectUserObligations.info.sortDeposits.concat().map((deposit :any) => {
+        let res = {} as any
+        res.label = deposit.reserve.info.liquidity.name
+        res.src = deposit.reserve.logoSource
+        res.depositAmount = deposit.depositedInTokenUnit
+        res.depositValue = deposit.depositedMarketValue
+        res.marketPrice = deposit.reserve.info.liquidity.liquidityPrice
+        res.maxSeizeAmount = this.getMinBigNumber(
+            this.selectUserObligations.info.sortBorrows[0].marketValueInBigNumber.times(0.5).times(1.08).div(res.marketPrice),
+            res.depositAmount
+        )
+        res.maxSeizeValue = res.maxSeizeAmount.times(res.marketPrice)
+        res.withdrawReserve = deposit.reserve
+        return res
+      })
+    },
+    liquidateButtonEnable: function () {
+      let userNeedAccount = this.getUserAccount()
+      let amount
+      amount = this.liquidateAmount
+      if (amount === '' || amount === null) return false
+      //@ts-ignore
+      if (isNaN(amount)) return false
+      if (!new BigNumber(amount).isGreaterThan(0)) return false
+
+      if (userNeedAccount.repayAccount===undefined) return false
+      return true
+    },
+    liquidateDialogVisible: {
+      get() {
+        return this.$store.state.dialog.liquidateDialogVisible
+      },
+      set(value) {
+        this.$store.commit('updateLiquidateDialogVisible', value)
+      }
+    },
+    allReservesMap () {
+      return this.$store.getters.allReservesMap
+    },
+    ...mapState({
+      walletAddress: (state: any) => state.wallet.walletAddress,
+      isLoadingInfo: (state: any) => state.market.isLoadingInfo,
+      lendingMarket: (state: any) => state.market.lendingMarket,
+      larixTokenAccount: (state: any) => state.larix.larixTokenAccount,
+      userObligation: (state: any) => state.market.userObligation,
+      mining: (state: any) => state.market.mining,
+      allReservesDetails: (state: any) => state.market.allReservesDetails,
+      lendingReserveArray: (state: any) => state.market.lendingReserveArray,
+      selectUserObligations: (state: any) => state.liquidation.selectUserObligations,
+    })
+  },
+  methods: {
+    getMinBigNumber(a:BigNumber,b:BigNumber):BigNumber {
+      return a.isLessThan(b) ? a : b
+    },
+    getDebtRatioStyle(debtRatio:BigNumber):string {
+      let color
+      if (debtRatio.isGreaterThan(1)) {
+        color = '#FF5262'
+      } else if (debtRatio.isGreaterThan(0.95)) {
+        color = '#FFA64E'
+      } else {
+        color = '#00D1FF'
+      }
+      return 'color: ' + color
+    },
+    liquidateAmountInput(value:string){
+      this.liquidateAmount = value
+      // const newBorrowLimit = this.calcNewBorrowLimitUsedPercent(value,'0',false)
+      // console.log('new BorrowLimitUsedPercent',newBorrowLimit.toString())
+      if (value === '' || isNaN(Number(value))) {
+        return ''
+      }
+      if(new BigNumber(value).isLessThan(0))
+      {
+        return ''
+      }
+    },
+
+    getUserAccount(){
+      let repayAccount
+      let seizeAccount
+      let seizeLTokenAccount
+      let f1 = this.allReservesDetails
+      f1.map((item:any)=>{
+       if (item.symbol === this.repayToken.label)
+         repayAccount = item.userLiquidityTokenAccount
+       if (item.symbol === this.seizeToken.label)
+       {
+         seizeAccount = item.userLiquidityTokenAccount
+         seizeLTokenAccount = item.userCollateralTokenAccount
+       }
+     })
+      return {repayAccount,seizeAccount,seizeLTokenAccount}
+    },
+    setMaxRepayAmount () {
+      if (this.repayToken.label === 'SOL') {
+        this.liquidateAmount = this.getMinBigNumber(
+            this.repayToken.walletBalanceInTokenUnit.minus(new BigNumber(0.00005).times(1000)),
+            this.repayToken.maxRepayAmount
+        ).toFixed(9, 1)
+
+      } else {
+        this.liquidateAmount = this.getMinBigNumber(
+            this.repayToken.walletBalanceInTokenUnit,
+            this.repayToken.maxRepayAmount
+        ).toFixed(this.repayToken.decimals, 1)
+      }
+    },
+    liquidate : async function(){
+      let wallet = getWallet()
+      if (!wallet){
+        return
+      }
+      let accounts = this.getUserAccount()
+      // console.log(' this.userObligation', this.selectUserObligations)
+      let interceptedAmount = new BigNumber( this.liquidateAmount).toFixed(this.repayToken.decimals,1)
+      // console.log('this.liquidateAmount',this.liquidateAmount)
+      // console.log('------------------------',interceptedAmount)
+      // console.log('repayAccount',accounts.repayAccount)
+      openTxDialog('updateLiquidateDialogVisible')
+      await liquidate(
+          new BN(eX(interceptedAmount,this.repayToken.decimals.toString()).toString()),
+          this.selectUserObligations,
+          this.repayToken.repayReserve,
+          this.seizeToken.withdrawReserve,
+          wallet,
+          this.lendingReserveArray,
+          // @ts-ignore
+          accounts.repayAccount,
+          accounts.seizeLTokenAccount,
+          accounts.seizeAccount
+      ).then(()=>{
+        txSuccess('updateLiquidateDialogVisible')
+      }).catch((e)=>{
+        txFailed('updateLiquidateDialogVisible',e)
+      })
+    },
+  }
+})

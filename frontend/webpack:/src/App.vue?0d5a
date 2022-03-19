@@ -1,0 +1,13 @@
+import { render } from "./App.vue?vue&type=template&id=a72855c2"
+import script from "./App.vue?vue&type=script&lang=js"
+export * from "./App.vue?vue&type=script&lang=js"
+
+import "./App.vue?vue&type=style&index=0&id=a72855c2&lang=scss"
+
+import exportComponent from "/opt/buildhome/repo/node_modules/vue-loader-v16/dist/exportHelper.js"
+const __exports__ = /*#__PURE__*/exportComponent(script, [['render',render]])
+
+export default __exports__
+import QDialog from 'quasar/src/components/dialog/QDialog.js';
+import qInstall from "../node_modules/vue-cli-plugin-quasar/lib/runtime.auto-import.js";
+qInstall(script, 'components', {QDialog});

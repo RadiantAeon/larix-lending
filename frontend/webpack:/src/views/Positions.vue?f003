@@ -1,0 +1,400 @@
+
+import { useI18n } from 'vue-i18n'
+import { defineComponent } from 'vue'
+import {mapState} from 'vuex'
+import BigNumber from "bignumber.js";
+import {formatDollars, formatDollarsKmb, getBigNumberStr, formatBigNumberStr, eX} from "@/utils/helpers";
+import Dashboard from "@/components/Echarts/Dashboard.vue";
+import {getWallet} from "@/api/context/wallet";
+import {exitObligation} from "@/api/actions/exitObligation";
+import txSuccess from "@/controller/txSuccess";
+import txFailed from "@/controller/txFailed";
+import {intoObligation} from "@/api/actions/intoObligation";
+import appController from "@/controller/appController";
+import {Detail, ObligationCollateral} from "@/api/models";
+import {LP_RESERVE_ID_ARRAY} from "@/api/constants/config";
+import {WalletAdapter} from "@/api/wallets";
+import openTxDialog from "@/controller/openTxDialog";
+import {depositReserve} from "@/api/actions/depositReserve";
+import BN from "bn.js";
+import {redeemReserve} from "@/api/actions/redeemReserve";
+import {borrow} from "@/api/actions/borrow";
+import {repay} from "@/api/actions/repay";
+import {Position} from "@/api/models/state/position";
+import {withdrawPosition} from "@/api/actions/withdrawPosition";
+import {claimPosition} from "@/api/actions/claimPosition";
+import SupplyDialog from "@/components/SupplyDialog.vue";
+import BorrowDialog from "@/components/BorrowDialog.vue";
+import OpenObligationDialog from "@/components/OpenObligationDialog.vue";
+export default defineComponent({
+name: "Positions",
+  components:{
+    Dashboard,SupplyDialog,
+    BorrowDialog,OpenObligationDialog
+  },
+  setup(){
+
+    const { t } = useI18n()
+    return {
+      t,
+    }
+  },
+  data() {
+    return {
+      testLpLogo: require('../assets/coin/asset_ETH-USDC.png'),//TODO 对接完删掉
+      getBigNumberStr: getBigNumberStr,
+      formatDollars: formatDollars,
+      formatDollarsKmb: formatDollarsKmb,
+      formatBigNumberStr:formatBigNumberStr,
+      viewPort:0,
+      noFee:require('../assets/icon_nofee@2x.png'),
+      larixLogo:require('../assets/Larix.ico.png'),
+      MNDELogo:require('../assets/coin/asset_MNDE.svg'),
+      icon_information: require('../assets/icon_information.svg'),
+      selectedReserveDetail: {} as any,
+      larixImg: require('../assets/reward_LARIX@2x.png'),
+      usdcImg: require('../assets/coin/asset_USDC.svg'),
+      enableFor: '',
+      positionType:'mySupply',
+    }
+  },
+  created(){
+    window.addEventListener('resize', this.ViewPortAndStyle)
+    this.ViewPortAndStyle()
+  },
+
+  computed: {
+    userBorrowRatio(){
+      //@ts-ignore
+      return this.userTotalSupply.isGreaterThan(0)?Number(this.userTotalBorrow.div(this.userTotalSupply).times(100).toFixed(2)):0
+    },
+    userBorrowLimitRatio(){
+      //@ts-ignore
+      return this.userTotalSupply.isGreaterThan(0)?Number(this.userBorrowLimit.div(this.userTotalSupply).times(100).toFixed(2)):0
+    },
+    userLiquidationThresholdRatio(){
+      //@ts-ignore
+      return this.userLiquidationThreshold.isGreaterThan(0)?Number(this.userLiquidationThreshold.div(this.userTotalSupply).times(100).toFixed(2)):0
+    },
+    positionsTotalRewardAmount:function (){
+      let totalAmount = new BigNumber(0)
+      if (this.userLarixPositions.length>0){
+        this.userLarixPositions.forEach((position:any)=>{
+          totalAmount = totalAmount.plus(position.larixRewardAmount)
+        })
+      }
+      return totalAmount
+
+    },
+    userTotalStakeLp(){
+      let totalLp = new BigNumber(0)
+      if (this.userLarixPositions.length>0){
+        this.userLarixPositions.forEach((position:any)=>{
+          totalLp = totalLp.plus(position.lpAmount)
+        })
+      }
+      return totalLp
+    },
+    mySupply(){
+      const supplyDetails = this.allReservesDetails as []
+      if (this.walletAddress!==''&&!this.isLoadingInfo){
+        return supplyDetails.
+        filter((item:any)=> item.supplyBalance.isGreaterThan(0)).sort((b:any,a:any)=>{
+          return a.supplyBalance - b.supplyBalance
+        })
+      }else {
+        return []
+      }
+
+    },
+    myBorrow(){
+      const borrowDetails = this.allReservesDetails as []
+      if (this.walletAddress!==''&&!this.isLoadingInfo){
+        return borrowDetails.
+        filter((item:any)=> item.borrowBalance.isGreaterThan(0)).sort((b:any,a:any)=>{
+          return a.borrowBalance - b.borrowBalance
+        })
+      }else {
+        return []
+      }
+    },
+    myStake(){
+      const res = this.userLarixPositions as []
+      if (res&&res.length>0&&this.walletAddress!==''&&!this.isLoadingUserLarixStakeInfo){
+        return res.sort((b:any,a:any)=>{
+          return a.endTime - b.endTime
+        })
+      }else {
+        return []
+      }
+
+    },
+    rewardDialogVisible:{
+      get() {
+        return this.$store.state.reward.rewardDialogVisible
+      },
+      set(value) {
+        this.$store.commit('updateRewardDialogVisible',value)
+      }
+    },
+    needToHandle(){
+      if (this.needToWithdrawLpArray.length>0||this.needToHandleCtokenAccounts.length>0||this.needToHanldeUserFeeLarixInfo.length>0){
+        return true
+      }else {
+        return false
+      }
+    },
+    ...mapState(
+        {
+          walletAddress: (state: any) => state.wallet.walletAddress,
+          allReservesDetails: (state: any) => state.market.allReservesDetails,
+          isLoadingInfo:(state:any) => state.market.isLoadingInfo,
+          clientViewPort:(state:any) => state.clientViewPort,
+          autoFreshTime:(state:any) => state.market.autoFreshTime,
+          userObligation: (state: any) => state.market.userObligation,
+          userTotalSupply: (state: any) => state.market.userTotalSupply ,
+          userTotalBorrow: (state: any) => state.market.userTotalBorrow ,
+          userBorrowLimit: (state: any) => state.market.userBorrowLimit,
+          userLiquidationThreshold: (state: any) => state.market.userLiquidationThreshold,
+          userLarixPositions:(state:any)=>state.market.userLarixPositions,
+          mining:(state:any)=>state.market.mining,
+          userObligationIndex:(state:any)=> state.market.userObligationIndex,
+          errorContext:(state:any)=> state.txDialog.errorContext,
+          lendingMarket: (state: any) => state.market.lendingMarket,
+          lendingReserveArray: (state: any) => state.market.lendingReserveArray,
+          isFullWithdraw:(state:any)=>state.dialog.isFullWithdraw,
+          isFullRepay:(state:any)=>state.dialog.isFullRepay,
+          needToHandleCtokenAccounts: (state:any) => state.market.needToHandleCtokenAccounts,
+          needToWithdrawLpArray: (state:any) => state.market.needToWithdrawLpArray,
+          isLoadingUserLarixStakeInfo: (state:any) => state.market.isLoadingUserLarixStakeInfo,
+          mineCollateralLpDetails: (state:any) => state.market.mineCollateralLpDetails,
+          needToHanldeUserFeeLarixInfo: (state:any) => state.market.needToHanldeUserFeeLarixInfo,
+          userRawPositionData:(state:any)=>state.market.userRawPositionData,
+          userLarixReward:(state:any)=>state.market.userLarixReward,
+        }
+    )
+  },
+
+  methods:{
+    goToStakeDetails(){
+      const target = document.getElementById("myStake") as HTMLElement
+      target.scrollIntoView(true)
+    },
+    goToDashboard(){
+      this.$store.commit('updateAppTab','Home')
+    },
+    openHandleLpDialog(){
+      this.$store.commit('updateHandleLpDialogVisible', true)
+    },
+    unStakeButtonEnable(position:any){
+      const current = this.mineCollateralLpDetails.currentTime
+      if (position.endTime - current >0){
+        return false
+      }else {
+        return true
+      }
+    },
+    openSupplyMarketsDialog(reserveDetail :any,status :string){
+      this.enableFor = status
+      this.selectedReserveDetail = reserveDetail
+      this.$store.commit('updateSelectedReserveDetail', reserveDetail)
+      this.$store.commit('updateSupplyDialogVisible', true)
+      this.$store.commit('updateIsFullWithdraw',false)
+    },
+    openBorrowMarketsDialog(reserveDetail:any,status:string){
+      this.enableFor = status
+      this.selectedReserveDetail = reserveDetail
+      this.$store.commit('updateSelectedReserveDetail', reserveDetail)
+      this.$store.commit('updateBorrowDialogVisible', true)
+      this.$store.commit('updateIsFullRepay',false)
+    },
+    supply: async function (amount:string) {
+      let wallet = getWallet() as WalletAdapter
+      let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      const fromAccount = this.selectedReserveDetail.userLiquidityTokenAccount
+      const toAccount = this.selectedReserveDetail.userCollateralTokenAccount
+      if (!fromAccount) return
+      openTxDialog('updateSupplyDialogVisible')
+      await depositReserve(
+          fromAccount,
+          new BN(eX(interceptedAmount, this.selectedReserveDetail.decimals.toString()).toString()),
+          wallet,
+          this.selectedReserveDetail.reserveDetail,
+          this.allReservesDetails,
+          this.mining,
+          toAccount===undefined?undefined:toAccount.pubkey,
+          this.userObligation
+
+      ).then(()=>{
+        txSuccess('updateSupplyDialogVisible')
+      }).catch((e)=>{
+        txFailed('updateSupplyDialogVisible',e)
+      })
+      //updateSupplyDialogVisible
+      await appController.updateData(this.userObligationIndex)
+    },
+    // 取款
+    withdraw: async function (amount:string) {
+      let wallet
+      try {
+        wallet = getWallet()
+      }
+      catch (e){
+        alert('get wallet failed')
+      }
+      // let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      // const fromAccount = this.selectedReserveDetail.userLiquidityTokenAccount
+      // const toAccount = this.selectedReserveDetail.userCollateralTokenAccount
+      let interceptedAmount = ''
+      let fromAccount
+      let toAccount
+      try {
+        interceptedAmount = new BigNumber(amount).times(this.selectedReserveDetail.exchangeRate).toFixed(this.selectedReserveDetail.decimals,1)
+        //wallet
+        fromAccount = this.selectedReserveDetail.userLiquidityTokenAccount
+        //ctoken account
+        toAccount = this.selectedReserveDetail.userCollateralTokenAccount
+      }catch (e){
+        alert('get userInfo failed')
+      }
+      openTxDialog('updateSupplyDialogVisible')
+      await redeemReserve(
+          toAccount,
+          this.isFullWithdraw?
+              new BN(-1):new BN(eX(interceptedAmount,this.selectedReserveDetail.decimals.toString()).toString()),
+          wallet,
+          this.selectedReserveDetail.reserveDetail,
+          fromAccount,
+          this.lendingReserveArray,
+          this.mining,
+          this.userObligation
+      ).then(()=>{
+        txSuccess('updateSupplyDialogVisible')
+      }).catch((e)=> {
+        txFailed('updateSupplyDialogVisible',e)
+      })
+
+      await appController.updateData(this.userObligationIndex)
+    },
+    borrow: async function (amount:string) {
+      let wallet = getWallet() as WalletAdapter
+      let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      openTxDialog('updateBorrowDialogVisible')
+      let borrowResult = await borrow(
+          this.userObligation,
+          this.selectedReserveDetail.reserveDetail,
+          eX(interceptedAmount,this.selectedReserveDetail.decimals.toString()).toNumber(),
+          wallet,
+          this.lendingReserveArray,
+          this.lendingMarket,
+          this.selectedReserveDetail.userLiquidityTokenAccount)
+          .then(()=>{
+            txSuccess('updateBorrowDialogVisible')
+            console.log('tx=',borrowResult)
+          }).catch((e)=>{
+            txFailed('updateBorrowDialogVisible',e)
+          })
+
+      await appController.updateData(this.userObligationIndex)
+    },
+    repay: async function (amount:string) {
+      let wallet = getWallet() as WalletAdapter
+      let interceptedAmount = new BigNumber(amount).toFixed(this.selectedReserveDetail.decimals,1)
+      openTxDialog('updateBorrowDialogVisible')
+      await repay(
+            this.userObligation,
+            this.selectedReserveDetail.reserveDetail,
+            this.selectedReserveDetail.userLiquidityTokenAccount,
+            this.isFullRepay?-1:
+                eX(interceptedAmount,this.selectedReserveDetail.decimals.toString()).toNumber(),
+            wallet,
+            this.lendingReserveArray
+        ).then(()=>{
+          txSuccess('updateBorrowDialogVisible')
+        }).catch((e)=>{
+          txFailed('updateBorrowDialogVisible',e)
+        })
+      await  appController.updateData(this.userObligationIndex)
+    },
+    isReachLpLimit(){
+      let isReach = false
+      this.userObligation?.info?.deposits.forEach((deposit:ObligationCollateral)=>{
+        if (LP_RESERVE_ID_ARRAY.includes(deposit.depositReserve.toString()))
+        {
+          isReach = true
+        }
+      })
+      return isReach
+    },
+
+    closeOrOpenMortgage: async function (reserveDetail:any) {
+      if (!reserveDetail.supplyBalanceInTokenUnit.isGreaterThan(0))return
+      let wallet = getWallet() as WalletAdapter
+      this.selectedReserveDetail = reserveDetail
+      if (reserveDetail.isEnterMarket)
+      {
+        await exitObligation(
+            this.userObligation,
+            this.selectedReserveDetail.userCollateralTokenAccount,
+            this.selectedReserveDetail.reserveDetail,
+            wallet,
+            this.lendingReserveArray,
+            this.mining
+        ).then(()=>{
+          txSuccess()
+        }).catch((e)=>{
+          txFailed(undefined,e)
+        })
+      }else {
+        if (this.isReachLpLimit()&&this.selectedReserveDetail.isLP){
+          this.$store.commit('updateOpenObligationDialogVisible',true)
+          return
+        }
+        await intoObligation(
+            this.selectedReserveDetail.reserveDetail,
+            wallet,
+            this.lendingMarket,
+            this.selectedReserveDetail.userCollateralTokenAccount,
+            this.mining,
+            this.lendingReserveArray,
+            this.userObligation,
+        ).then(()=>{
+          if (this.errorContext==='')
+            txSuccess()
+        }).catch((e)=>{
+          txFailed(undefined,e)
+        })
+      }
+      await  appController.updateData(this.userObligationIndex)
+    },
+    async unStakePosition(position:Detail<Position>){
+      let wallet = await getWallet()
+      openTxDialog()
+      await withdrawPosition(
+          wallet,
+          position
+      ).then(()=>{
+        txSuccess()
+      }).catch((e)=>{
+        txFailed(undefined,e)
+      })
+      await  appController.updateData(this.userObligationIndex)
+    },
+    async claimAllReward(){
+      let wallet = await getWallet()
+      openTxDialog()
+      await claimPosition(
+          wallet,
+          this.userRawPositionData
+      ).then(()=>{
+        txSuccess()
+      }).catch((e)=>{
+        txFailed(undefined,e)
+      })
+      await  appController.updateData(this.userObligationIndex)
+    },
+    ViewPortAndStyle(){
+      this.viewPort = this.clientViewPort
+    },
+  },
+})

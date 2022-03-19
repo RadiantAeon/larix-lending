@@ -1,0 +1,150 @@
+
+import {defineComponent} from 'vue'
+import {mapState} from "vuex";
+import {useI18n} from 'vue-i18n'
+import useQuasar from 'quasar/src/composables/use-quasar.js';
+// import {getTestToken} from "@/api/actions/utils/getTestToken";
+import {connect, disconnect} from "@/api/context/wallet";
+import appController from "@/controller/appController";
+import BigNumber from "bignumber.js";
+//getWallet
+export default defineComponent({
+  name: "Wallet",
+  data() {
+    return {
+      wallets: {
+        Phantom: '',
+        "Sollet Web":'',
+        // TrustWallet: '',
+        Solflare: 'https://solflare.com/access-wallet',
+        Slope : '',
+        'Sollet Extension': '',
+        Coin98:'',
+        MathWallet: '',
+        TokenPocket:'',
+        HuobiWallet:'',
+        Clover:'',
+        Coinhub:'',
+        BitKeep:'',
+        Solong: '',
+      },
+      iconImg: [
+        {
+          src: require('../assets/wallet/pop_wallet_logo_phantom@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_sollet@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_solflare@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_slope@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_sollet@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_coin98@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_mathwalle@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_tokenpocket@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_huobiWallet@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_clover@2x.jpg')
+        },
+
+        {
+          src: require('../assets/wallet/pop_wallet_logo_coinhub@2x.svg')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_bitkeep@2x.png')
+        },
+        {
+          src: require('../assets/wallet/pop_wallet_logo_solong@2x.png')
+        },
+      ],
+    }
+  },
+  setup() {
+    const {t} = useI18n()
+    const $q = useQuasar()
+    return {
+      t,
+      $q
+    }
+  },
+  computed: {
+
+    walletDialogVisible: {
+      get() {
+        return this.$store.state.wallet.walletDialogVisible
+      },
+      set(value) {
+        this.$store.commit('updateWalletDialogVisible', value)
+      }
+    },
+    ...mapState({
+      walletAddress: (state: any) => state.wallet.walletAddress,
+      isLoadingInfo: (state: any) => state.market.isLoadingInfo,
+      userObligationIndex :(state:any)=> state.market.userObligationIndex,
+      userAllObligation :(state:any)=> state.market.userAllObligation,
+      userObligation :(state:any)=> state.market.userObligation
+
+    })
+  },
+  methods: {
+    async changeObligation(userObligationIndex:number,targetObligationAddress:string){
+      this.$store.commit('updateUserObligationIndex',userObligationIndex)
+      this.$store.commit('updateWalletDialogVisible', false)
+      await appController.updateData(userObligationIndex)
+
+      this.$q.notify({
+        message:`into sub-account ${targetObligationAddress}`,
+        color:'green',
+        position:'bottom',
+        timeout:2000
+      })
+    },
+    async connect(walletName: string) {
+      const res = await connect(walletName)
+      const test  =  res?.message
+      const url = res?.installUrl
+      if (url){
+        this.$q.notify({
+          message:test,
+          position:'bottom-left',
+          actions: [
+            { label: 'Install', color: 'red', handler: () =>
+              {
+                window.open(url)
+              }
+            }
+          ],
+          timeout:8000
+        })
+      }
+    },
+
+    disconnect() {
+      this.$store.commit('updateWalletAddress','')
+      this.$store.commit('updateUserTotalSupply',new BigNumber(0))
+      this.$store.commit('updateUserTotalBorrow',new BigNumber(0))
+      console.log('updateWalletAddress',this.walletAddress)
+      disconnect()
+    },
+
+    // faucet() {
+    //   let wallet = getWallet()
+    //   // @ts-ignore
+    //   getTestToken(wallet, wallet.publicKey)
+    //   this.walletDialogVisible = false
+    // }
+  }
+})

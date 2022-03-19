@@ -1,0 +1,122 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock, createCommentVNode as _createCommentVNode, resolveComponent as _resolveComponent, Fragment as _Fragment, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-f0fc523a")
+
+_pushScopeId("data-v-f0fc523a")
+const _hoisted_1 = { class: "marketContainer gt-sm" }
+const _hoisted_2 = { class: "topTittle" }
+const _hoisted_3 = { class: "main gt-sm" }
+const _hoisted_4 = {
+  key: 0,
+  class: "spinner-confirming"
+}
+const _hoisted_5 = /*#__PURE__*/_createVNode("div", { class: "bounce1" }, null, -1)
+const _hoisted_6 = /*#__PURE__*/_createVNode("div", { class: "bounce2" }, null, -1)
+const _hoisted_7 = /*#__PURE__*/_createVNode("div", { class: "bounce3" }, null, -1)
+const _hoisted_8 = {
+  key: 1,
+  class: "successOrError"
+}
+const _hoisted_9 = { class: "marketAppContainer lt-md" }
+const _hoisted_10 = { class: "topTittle" }
+const _hoisted_11 = { class: "mainApp lt-md" }
+const _hoisted_12 = {
+  key: 0,
+  class: "spinner-confirming-App"
+}
+const _hoisted_13 = /*#__PURE__*/_createVNode("div", { class: "bounce1" }, null, -1)
+const _hoisted_14 = /*#__PURE__*/_createVNode("div", { class: "bounce2" }, null, -1)
+const _hoisted_15 = /*#__PURE__*/_createVNode("div", { class: "bounce3" }, null, -1)
+const _hoisted_16 = {
+  key: 1,
+  class: "successOrErrorAPP"
+}
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_icon = _resolveComponent("q-icon")
+
+  return (_openBlock(), _createBlock(_Fragment, null, [
+    _createVNode("div", _hoisted_1, [
+      _createVNode("div", _hoisted_2, _toDisplayString(_ctx.t("pendingDialog.transactionPending")), 1),
+      _createVNode("div", _hoisted_3, [
+        _createVNode("div", null, [
+          _createVNode("div", null, [
+            (!_ctx.checkModel&&!_ctx.errorModel)
+              ? (_openBlock(), _createBlock("div", _hoisted_4, [
+                  _hoisted_5,
+                  _hoisted_6,
+                  _hoisted_7
+                ]))
+              : (_openBlock(), _createBlock("div", _hoisted_8, [
+                  _createVNode("div", null, [
+                    (_ctx.checkModel)
+                      ? (_openBlock(), _createBlock(_component_q_icon, {
+                          key: 0,
+                          name: "check_circle_outline",
+                          class: "success"
+                        }))
+                      : _createCommentVNode("", true)
+                  ]),
+                  _createVNode("div", null, [
+                    (_ctx.errorModel)
+                      ? (_openBlock(), _createBlock(_component_q_icon, {
+                          key: 0,
+                          name: "highlight_off",
+                          class: "error"
+                        }))
+                      : _createCommentVNode("", true)
+                  ])
+                ]))
+          ]),
+          _createVNode("div", {
+            class: !_ctx.checkModel&&!_ctx.errorModel?'tabActive':'tabActiveBottom'
+          }, [
+            _createVNode("div", null, _toDisplayString(_ctx.t(_ctx.confirmDialogTip)), 1),
+            _createVNode("div", null, _toDisplayString(_ctx.getErrorContext()), 1)
+          ], 2)
+        ])
+      ])
+    ]),
+    _createVNode("div", _hoisted_9, [
+      _createVNode("div", _hoisted_10, _toDisplayString(_ctx.t("pendingDialog.transactionPending")), 1),
+      _createVNode("div", _hoisted_11, [
+        _createVNode("div", null, [
+          _createVNode("div", null, [
+            (!_ctx.checkModel&&!_ctx.errorModel)
+              ? (_openBlock(), _createBlock("div", _hoisted_12, [
+                  _hoisted_13,
+                  _hoisted_14,
+                  _hoisted_15
+                ]))
+              : (_openBlock(), _createBlock("div", _hoisted_16, [
+                  _createVNode("div", null, [
+                    (_ctx.checkModel)
+                      ? (_openBlock(), _createBlock(_component_q_icon, {
+                          key: 0,
+                          name: "check_circle_outline",
+                          class: "success"
+                        }))
+                      : _createCommentVNode("", true)
+                  ]),
+                  _createVNode("div", null, [
+                    (_ctx.errorModel)
+                      ? (_openBlock(), _createBlock(_component_q_icon, {
+                          key: 0,
+                          name: "highlight_off",
+                          class: "error"
+                        }))
+                      : _createCommentVNode("", true)
+                  ])
+                ]))
+          ]),
+          _createVNode("div", {
+            class: !_ctx.checkModel&&!_ctx.errorModel?'tabActive':'tabActiveBottom'
+          }, [
+            _createVNode("div", null, _toDisplayString(_ctx.t(_ctx.confirmDialogTip)), 1),
+            _createVNode("div", null, _toDisplayString(_ctx.getErrorContext()), 1)
+          ], 2)
+        ])
+      ])
+    ])
+  ], 64))
+})

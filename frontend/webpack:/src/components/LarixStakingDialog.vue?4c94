@@ -1,0 +1,287 @@
+import { toDisplayString as _toDisplayString, createVNode as _createVNode, resolveComponent as _resolveComponent, createTextVNode as _createTextVNode, withCtx as _withCtx, resolveDirective as _resolveDirective, withDirectives as _withDirectives, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createBlock as _createBlock, withScopeId as _withScopeId, pushScopeId as _pushScopeId, popScopeId as _popScopeId } from "vue"
+const _withId = /*#__PURE__*/_withScopeId("data-v-21e53608")
+
+_pushScopeId("data-v-21e53608")
+const _hoisted_1 = { style: {"margin-left":"18px"} }
+const _hoisted_2 = { class: "list-table" }
+const _hoisted_3 = { class: "table-header" }
+const _hoisted_4 = { style: {"padding-left":"80px","text-align":"left"} }
+const _hoisted_5 = { style: {"text-align":"right"} }
+const _hoisted_6 = { style: {"text-align":"right"} }
+const _hoisted_7 = { style: {"text-align":"right"} }
+const _hoisted_8 = { style: {"text-align":"right"} }
+const _hoisted_9 = { style: {"margin-right":"11%","padding-left":"11%"} }
+const _hoisted_10 = { style: {"width":"25%"} }
+const _hoisted_11 = { class: "token-cell" }
+const _hoisted_12 = { class: "token-img" }
+const _hoisted_13 = /*#__PURE__*/_createVNode("div", { class: "text-wrap" }, [
+  /*#__PURE__*/_createVNode("div", { style: {"font-size":"16px"} }, "LARIX-USDC"),
+  /*#__PURE__*/_createVNode("div", { class: "grey-color" }, "Raydium")
+], -1)
+const _hoisted_14 = { style: {"width":"12.75%"} }
+const _hoisted_15 = { class: "amount-cell" }
+const _hoisted_16 = { style: {"font-size":"16px"} }
+const _hoisted_17 = { class: "grey-color" }
+const _hoisted_18 = { style: {"width":"12.75%"} }
+const _hoisted_19 = { class: "apy-cell" }
+const _hoisted_20 = { style: {"width":"12.75%"} }
+const _hoisted_21 = { class: "date-cell" }
+const _hoisted_22 = { style: {"width":"12.75%"} }
+const _hoisted_23 = { class: "date-cell" }
+const _hoisted_24 = { style: {"margin-bottom":"0"} }
+const _hoisted_25 = /*#__PURE__*/_createVNode("p", {
+  style: {"margin-bottom":"0","font-size":"14px"},
+  class: "grey-color"
+}, "LARIX", -1)
+const _hoisted_26 = { class: "action-cell" }
+const _hoisted_27 = { class: "stake-claim" }
+const _hoisted_28 = { class: "stake-claim-details" }
+const _hoisted_29 = /*#__PURE__*/_createVNode("span", null, "LARIX ", -1)
+const _hoisted_30 = { style: {"display":"flex","justify-content":"space-between","align-items":"center"} }
+const _hoisted_31 = { class: "token-cell" }
+const _hoisted_32 = { class: "token-img" }
+const _hoisted_33 = /*#__PURE__*/_createVNode("div", null, [
+  /*#__PURE__*/_createVNode("div", { style: {"font-size":"12px"} }, "LARIX-USDC"),
+  /*#__PURE__*/_createVNode("div", {
+    class: "grey-color",
+    style: {"font-size":"12px"}
+  }, "Raydium")
+], -1)
+const _hoisted_34 = /*#__PURE__*/_createVNode("div", { class: "divider" }, null, -1)
+const _hoisted_35 = { style: {"display":"flex","justify-content":"space-between","align-items":"center"} }
+const _hoisted_36 = { style: {"padding":"8px 10px"} }
+const _hoisted_37 = { style: {"font-size":"14px"} }
+const _hoisted_38 = { style: {"font-size":"11px","margin-left":"4px"} }
+const _hoisted_39 = {
+  class: "grey-color",
+  style: {"font-size":"10px"}
+}
+_popScopeId()
+
+export const render = /*#__PURE__*/_withId((_ctx: any,_cache: any,$props: any,$setup: any,$data: any,$options: any) => {
+  const _component_q_space = _resolveComponent("q-space")
+  const _component_q_btn = _resolveComponent("q-btn")
+  const _component_q_card_section = _resolveComponent("q-card-section")
+  const _component_q_card = _resolveComponent("q-card")
+  const _component_q_dialog = _resolveComponent("q-dialog")
+  const _directive_close_popup = _resolveDirective("close-popup")
+
+  return (_openBlock(), _createBlock(_component_q_dialog, {
+    modelValue: _ctx.larixStakingDialogVisible,
+    "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event: any) => (_ctx.larixStakingDialogVisible = $event))
+  }, {
+    default: _withId(() => [
+      _createVNode(_component_q_card, { class: "larix-staking-list gt-sm" }, {
+        default: _withId(() => [
+          _createVNode(_component_q_card_section, { class: "row items-start stake-title" }, {
+            default: _withId(() => [
+              _createVNode("div", _hoisted_1, _toDisplayString(_ctx.t('larixStakingDialog.stakedLP')), 1),
+              _createVNode(_component_q_space),
+              _createVNode("div", null, [
+                _createVNode(_component_q_btn, {
+                  "no-caps": "",
+                  class: "button stake-title-claim",
+                  onClick: _cache[1] || (_cache[1] = ($event: any) => (_ctx.claimAllReward()))
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.oneClickClaim')), 1)
+                  ]),
+                  _: 1
+                }),
+                _withDirectives(_createVNode(_component_q_btn, {
+                  icon: "mdi-close",
+                  flat: "",
+                  round: ""
+                }, null, 512), [
+                  [_directive_close_popup]
+                ])
+              ])
+            ]),
+            _: 1
+          }),
+          _createVNode(_component_q_card_section, { class: "stake-body" }, {
+            default: _withId(() => [
+              _createVNode("table", _hoisted_2, [
+                _createVNode("tr", _hoisted_3, [
+                  _createVNode("th", null, [
+                    _createVNode("div", _hoisted_4, _toDisplayString(_ctx.t('larixStakingDialog.assets')), 1)
+                  ]),
+                  _createVNode("th", null, [
+                    _createVNode("div", _hoisted_5, _toDisplayString(_ctx.t('larixStakingDialog.amount')), 1)
+                  ]),
+                  _createVNode("th", null, [
+                    _createVNode("div", _hoisted_6, _toDisplayString(_ctx.t('larixStakingDialog.stakeTime')), 1)
+                  ]),
+                  _createVNode("th", null, [
+                    _createVNode("div", _hoisted_7, _toDisplayString(_ctx.t('larixStakingDialog.unlockingTime')), 1)
+                  ]),
+                  _createVNode("th", null, [
+                    _createVNode("div", _hoisted_8, _toDisplayString(_ctx.t('larixStakingDialog.raydiumReward')), 1)
+                  ]),
+                  _createVNode("th", null, [
+                    _createVNode("div", _hoisted_9, _toDisplayString(_ctx.t('larixStakingDialog.actions')), 1)
+                  ])
+                ]),
+                (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.userLarixPositions.sort((b,a)=>{
+            return b.endTime - a.endTime
+          }), (position) => {
+                  return (_openBlock(), _createBlock("tr", {
+                    key: position.id
+                  }, [
+                    _createVNode("td", _hoisted_10, [
+                      _createVNode("div", _hoisted_11, [
+                        _createVNode("div", _hoisted_12, [
+                          _createVNode("img", {
+                            src: _ctx.larixImg,
+                            width: "40",
+                            height: "40"
+                          }, null, 8, ["src"]),
+                          _createVNode("img", {
+                            class: "token1",
+                            src: _ctx.usdcImg,
+                            width: "40",
+                            height: "40"
+                          }, null, 8, ["src"])
+                        ]),
+                        _hoisted_13
+                      ])
+                    ]),
+                    _createVNode("td", _hoisted_14, [
+                      _createVNode("div", _hoisted_15, [
+                        _createVNode("div", _hoisted_16, _toDisplayString(_ctx.formatBigNumberStr(position.lpAmount,4)), 1),
+                        _createVNode("div", _hoisted_17, "$ " + _toDisplayString(_ctx.formatBigNumberStr(position.lpAmount.times(_ctx.mineCollateralLpDetails.lpPrice),4)), 1)
+                      ])
+                    ]),
+                    _createVNode("td", _hoisted_18, [
+                      _createVNode("div", _hoisted_19, _toDisplayString(position.startTimeString), 1)
+                    ]),
+                    _createVNode("td", _hoisted_20, [
+                      _createVNode("div", _hoisted_21, _toDisplayString(position.endTimeString), 1)
+                    ]),
+                    _createVNode("td", _hoisted_22, [
+                      _createVNode("div", _hoisted_23, [
+                        _createVNode("div", null, [
+                          _createVNode("p", _hoisted_24, _toDisplayString(_ctx.formatBigNumberStr(position.larixRewardAmount,6)), 1),
+                          _hoisted_25
+                        ])
+                      ])
+                    ]),
+                    _createVNode("td", null, [
+                      _createVNode("div", _hoisted_26, [
+                        _createVNode(_component_q_btn, {
+                          "no-caps": "",
+                          class: ["button", !_ctx.unStakeButtonEnable(position)?'grey-button':''],
+                          disable: !_ctx.unStakeButtonEnable(position),
+                          onClick: ($event: any) => (_ctx.unStakePosition(position.position))
+                        }, {
+                          default: _withId(() => [
+                            _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.unlocking')), 1)
+                          ]),
+                          _: 2
+                        }, 1032, ["class", "disable", "onClick"])
+                      ])
+                    ])
+                  ]))
+                }), 128))
+              ])
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      }),
+      _createVNode(_component_q_card, { class: "larix-staking-list-app lt-md" }, {
+        default: _withId(() => [
+          _createVNode(_component_q_card_section, { class: "row items-start stake-title" }, {
+            default: _withId(() => [
+              _createVNode("div", null, _toDisplayString(_ctx.t('larixStakingDialog.stakedLP')), 1),
+              _createVNode(_component_q_space),
+              _withDirectives(_createVNode(_component_q_btn, {
+                icon: "mdi-close",
+                flat: "",
+                round: ""
+              }, null, 512), [
+                [_directive_close_popup]
+              ])
+            ]),
+            _: 1
+          }),
+          _createVNode(_component_q_card_section, { class: "stake-body" }, {
+            default: _withId(() => [
+              _createVNode("div", _hoisted_27, [
+                _createVNode("div", _hoisted_28, [
+                  _createVNode("p", null, _toDisplayString(_ctx.t('larixStakingDialog.oneClickClaim')), 1),
+                  _createVNode("span", null, _toDisplayString(_ctx.formatBigNumberStr(_ctx.positionsTotalRewardAmount,6)), 1),
+                  _hoisted_29
+                ]),
+                _createVNode(_component_q_btn, {
+                  "no-caps": "",
+                  class: "button stake-claim-button",
+                  onClick: _cache[2] || (_cache[2] = ($event: any) => (_ctx.claimAllReward())),
+                  style: {"margin":"10px"}
+                }, {
+                  default: _withId(() => [
+                    _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.claim')), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              (_openBlock(true), _createBlock(_Fragment, null, _renderList(_ctx.userLarixPositions.sort((b,a)=>{
+            return b.endTime - a.endTime
+          }), (position) => {
+                return (_openBlock(), _createBlock("div", {
+                  key: position.id,
+                  class: "stake-pool"
+                }, [
+                  _createVNode("div", _hoisted_30, [
+                    _createVNode("div", _hoisted_31, [
+                      _createVNode("div", _hoisted_32, [
+                        _createVNode("img", {
+                          src: _ctx.larixImg,
+                          width: "29",
+                          height: "29"
+                        }, null, 8, ["src"]),
+                        _createVNode("img", {
+                          class: "token1",
+                          src: _ctx.usdcImg,
+                          width: "29",
+                          height: "29"
+                        }, null, 8, ["src"])
+                      ]),
+                      _hoisted_33
+                    ])
+                  ]),
+                  _hoisted_34,
+                  _createVNode("div", _hoisted_35, [
+                    _createVNode("div", _hoisted_36, [
+                      _createVNode("div", null, [
+                        _createVNode("span", _hoisted_37, _toDisplayString(_ctx.formatBigNumberStr(position.lpAmount,4)), 1),
+                        _createVNode("span", _hoisted_38, "≈$" + _toDisplayString(_ctx.formatBigNumberStr(position.lpAmount.times(_ctx.mineCollateralLpDetails.lpPrice),4)), 1)
+                      ]),
+                      _createVNode("div", _hoisted_39, _toDisplayString(_ctx.t('larixStakingDialog.unlockingTime')) + " : " + _toDisplayString(position.endTimeString), 1)
+                    ]),
+                    _createVNode(_component_q_btn, {
+                      "no-caps": "",
+                      class: ["button", !_ctx.unStakeButtonEnable(position)?'grey-button':''],
+                      disable: !_ctx.unStakeButtonEnable(position),
+                      onClick: ($event: any) => (_ctx.unStakePosition(position.position)),
+                      style: {"margin":"10px","padding":"0 10px"}
+                    }, {
+                      default: _withId(() => [
+                        _createTextVNode(_toDisplayString(_ctx.t('larixStakingDialog.unlocking')), 1)
+                      ]),
+                      _: 2
+                    }, 1032, ["class", "disable", "onClick"])
+                  ])
+                ]))
+              }), 128))
+            ]),
+            _: 1
+          })
+        ]),
+        _: 1
+      })
+    ]),
+    _: 1
+  }, 8, ["modelValue"]))
+})
